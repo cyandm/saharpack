@@ -91,7 +91,9 @@
   --clr-information-dark: #01579b;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -100,16 +102,125 @@ body {
   padding: 0;
 }
 
+body {
+  background: #ececec;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+h1,
+.h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 61.6px;
+}
+
+h2,
+.h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44.5px;
+}
+
+h3,
+.h3 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+h4,
+.h4 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+h5,
+.h5 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+h6,
+.h6 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
 .container {
   max-width: 1440px;
   margin-inline: auto;
   padding-inline: 1rem;
 }
 
+body {
+  background: #ececec;
+}
+
 .even-columns {
-  --min-width:200px;
+  --min-width: 200px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--min-width), 1fr));
+}
+
+textarea {
+  resize: vertical;
+}
+
+.btn[variant=primary] {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #1e1e1e;
+  transition: all 0.4s ease-in-out;
+  padding: 0.25rem 1rem;
+}
+.btn[variant=primary]:hover {
+  background-color: #ffffff;
+  color: #1e1e1e;
+}
+.btn[variant=secondary] {
+  background-color: #ffffff;
+  color: #1e1e1e;
+  border: 1px solid #1e1e1e;
+  transition: all 0.4s ease-in-out;
+  padding: 0.25rem 1rem;
+}
+.btn[variant=secondary]:hover {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+.btn[disabled] {
+  background-color: #969696;
+  color: #505050;
+  border: 1px solid transparent;
+  transition: all 0.4s ease-in-out;
+  padding: 0.25rem 1rem;
+}
+.btn[disabled]:hover {
+  cursor: not-allowed;
+}
+.btn[size=radio] {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid #969696;
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
+}
+.btn[size=radio]:hover {
+  border: 1px solid #969696;
+}
+.btn[size=have-underline] {
+  padding: 0.75rem;
+  color: #1b51de;
+  border-bottom: 1px solid #1e1e1e;
+  transition: t_1;
+}
+.btn[size=have-underline]:hover {
+  border-bottom: 1px solid #1b51de;
 }
 
 @font-face {

@@ -53,10 +53,16 @@ $s_14: px_to_rem(80);
 $r_1: px_to_rem(8);
 $r_2: px_to_rem(16);
 $r_3: px_to_rem(24);
+$r_4: 50%;
 //#endregion
 
 //#region borders
 $b_1: 1px solid var(--clr-primary-main);
+//#endregion
+
+//#region transition
+$t_1: all 0.4s ease-in-out;
+
 //#endregion
 
 //#region shadows

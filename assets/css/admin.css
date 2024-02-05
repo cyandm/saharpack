@@ -1,8 +1,8 @@
 @font-face {
-  font-family: Peyda;
-  src: url(../fonts/peyda/woff/PeydaWebFaNum-Medium.woff);
+  font-family: 'Yekan bakh';
+  src: url(../fonts/yekan-bakh/woff/PeydaWebFaNum-Medium.woff);
 }
 
 *:not(i, .ab-icon) {
-  font-family: Peyda !important;
+  font-family: 'Yekan bakh' !important;
 }

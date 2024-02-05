@@ -1,8 +1,41 @@
-*,*::after , *::before{
-    box-sizing: border-box;
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: $clr_bg_default;
+  @include fs('body');
+}
+h1,
+.h1 {
+  @include fs('h1');
+}
+h2,
+.h2 {
+  @include fs('h2');
+}
+h3,
+.h3 {
+  @include fs('h3');
+}
+h4,
+.h4 {
+  @include fs('h4');
+}
+h5,
+.h5 {
+  @include fs('h5');
+}
+h6,
+.h6 {
+  @include fs('h6');
 }
