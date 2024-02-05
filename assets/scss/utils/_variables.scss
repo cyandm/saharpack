@@ -70,12 +70,9 @@ $b_1: 1px solid var(--clr-primary-main);
   --clr-primary-dark: #{$clr_primary_dark};
   --clr-primary-text-contrast: #{$clr_primary_text};
 
-  --clr-secondary-light: #{$clr_secondary_light};
-  --clr-secondary-main: #{$clr_secondary_main};
+  --clr-secondary-dark: #{$clr_secondary_dark};
   --clr-secondary-text-contrast: #{$clr_secondary_text};
 
-  --clr-accent-light: #{$clr_accent_light};
-  --clr-accent-main: #{$clr_accent_main};
   --clr-accent-dark: #{$clr_accent_dark};
   --clr-accent-text-contrast: #{$clr_accent_text};
 
@@ -85,7 +82,7 @@ $b_1: 1px solid var(--clr-primary-main);
 
 :root {
   --clr-error-light: #{$clr_error_light};
-  --clr-error-main: #{$clr_accent_main};
+  --clr-error-main: #{$clr_error_main};
   --clr-error-dark: #{$clr_error_dark};
 
   --clr-warning-light: #{$clr_warning_light};
