@@ -1,15 +1,19 @@
 @use '../utils/' as *;
 .btn {
-  
+  cursor: pointer;
   &[variant='primary'] {
     background-color: $clr_primary_dark;
     color: $clr_primary_text;
     border: 1px solid $clr_primary_dark;
     transition: $t_1;
     padding: $s_1 $s_4;
+    width: max-content;
     &:hover {
       background-color: $clr_primary_text;
       color: $clr_primary_dark;
+    }
+    @include mq('sm') {
+      width: 100%;
     }
   }
 

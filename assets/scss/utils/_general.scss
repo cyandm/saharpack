@@ -19,12 +19,14 @@ textarea {
   resize: vertical;
 }
 
-input {
+input,
+textarea {
   border: none;
   outline: none;
 }
 
 button,
-::placeholder {
+::placeholder,
+textarea {
   font-family: 'Yekan Bakh';
 }

@@ -57,7 +57,9 @@ $r_4: 50%;
 //#endregion
 
 //#region borders
-$b_1: 1px solid var(--clr-primary-main);
+$b_1: 1px solid $clr_primary_main;
+$b_2: 1px solid $clr_primary_light;
+
 //#endregion
 
 //#region transition

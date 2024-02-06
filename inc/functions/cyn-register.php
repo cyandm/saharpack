@@ -8,11 +8,16 @@ add_action('init',  'cyn_page_register');
 
 function cyn_post_type_register()
 {
+    $post_type = "form";
+    $GLOBALS["form-post-type"] = $post_type;
+    cyn_make_post_type('فرم ', $post_type, 'dashicons-email-alt2
+    ', true);
 }
 
 
 function cyn_taxonomy_register()
 {
+    cyn_make_taxonomy('دسته بندی فرم ', 'form-cat', 'form', true);
 }
 
 //make_taxonomy('دسته‌بندی پروژه', 'project-type', ['project']);
@@ -47,7 +52,7 @@ function cyn_make_post_type($name, $slug, $icon, $menu = true)
         'hierarchical' => false,
         'menu_position' => null,
         'menu_icon' => $icon,
-        'supports' => ['title', 'thumbnail'],
+        'supports' => ['title', 'thumbnail', 'editor'],
 
     ];
 
