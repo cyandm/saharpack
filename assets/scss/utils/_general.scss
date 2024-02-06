@@ -7,9 +7,7 @@
   margin-inline: auto;
   padding-inline: px_to_rem(16);
 }
-body {
-  background: $clr_bg_default;
-}
+
 .even-columns {
   --min-width: 200px;
 
@@ -19,4 +17,14 @@ body {
 
 textarea {
   resize: vertical;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+button,
+::placeholder {
+  font-family: 'Yekan Bakh';
 }

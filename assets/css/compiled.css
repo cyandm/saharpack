@@ -157,10 +157,6 @@ h6,
   padding-inline: 1rem;
 }
 
-body {
-  background: #ececec;
-}
-
 .even-columns {
   --min-width: 200px;
   display: grid;
@@ -169,6 +165,16 @@ body {
 
 textarea {
   resize: vertical;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+button,
+::placeholder {
+  font-family: "Yekan Bakh";
 }
 
 .btn[variant=primary] {
@@ -223,6 +229,11 @@ textarea {
   border-bottom: 1px solid #1b51de;
 }
 
+main.contact-us-page .title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44.5px;
+}
 @font-face {
   font-family: "iconsax";
   src: url("./fonts/icons/iconsax/iconsax.eot");

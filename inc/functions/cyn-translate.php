@@ -14,5 +14,8 @@ function register_translate_general()
 
 function register_translate_form()
 {
-    pll_register_string('send-message', 'send message', 'Cyan');
+    pll_register_string('send-message', 'send-message', 'Cyan');
+    pll_register_string('ask-question', 'ask-question', 'Cyan');
+    pll_register_string('phone-number', 'phone-number', 'Cyan');
+    pll_register_string('your-name', 'your-name', 'Cyan');
 }
