@@ -1,4 +1,4 @@
-@use './functions' as *;
+@use "./functions" as *;
 
 //#region colors
 $clr_primary_light: #969696;
@@ -12,8 +12,16 @@ $clr_secondary_text: #ffffff;
 $clr_accent_dark: #1b51de;
 $clr_accent_text: #ffffff;
 
-$clr_bg_default: #ececec;
-$clr_bg_paper: #f5f4f4;
+$clr_bg_default: #ffffff;
+$clr_bg_paper: #f5f5f5;
+
+$clr_border_light: #dddddd;
+
+$clr_dark_text: #1e1e1e;
+$clr_main_text: #505050;
+$clr_light_text: #969696;
+$clr_gray_text: #626262;
+$clr_contrast_text: #ffffff;
 
 $clr_success_light: #4caf50;
 $clr_success_main: #2e7d32;
@@ -57,7 +65,7 @@ $r_4: 50%;
 //#endregion
 
 //#region borders
-$b_1: 1px solid var(--clr-primary-main);
+$b_1: 1px solid var(--clr_primary_dark);
 //#endregion
 
 //#region transition
@@ -72,7 +80,7 @@ $t_1: all 0.4s ease-in-out;
 //#region colors css
 :root {
   --clr-primary-light: #{$clr_primary_light};
-  --clr-primary-main: #{$clr_primary_main};
+  --clr_primary_dark: #{$clr_primary_dark};
   --clr-primary-dark: #{$clr_primary_dark};
   --clr-primary-text-contrast: #{$clr_primary_text};
 

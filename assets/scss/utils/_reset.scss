@@ -1,5 +1,5 @@
-@use '../utils/variables' as *;
-@use '../utils/mixins' as *;
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
 
 *,
 *::after,
@@ -10,32 +10,60 @@
 body {
   margin: 0;
   padding: 0;
-}
-body {
   background: $clr_bg_default;
-  @include fs('body');
+  font-family: Yekan Bakh;
+  @include fs("body");
 }
+
+i span {
+  font-family: Yekan Bakh;
+}
+
+input,
+textarea,
+select {
+  font-family: Yekan Bakh;
+  border: 0;
+}
+
+a {
+  text-decoration: unset;
+  color: unset;
+  cursor: pointer;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 0;
+}
+
 h1,
 .h1 {
-  @include fs('h1');
+  @include fs("h1");
 }
 h2,
 .h2 {
-  @include fs('h2');
+  @include fs("h2");
 }
 h3,
 .h3 {
-  @include fs('h3');
+  @include fs("h3");
 }
 h4,
 .h4 {
-  @include fs('h4');
+  @include fs("h4");
 }
 h5,
 .h5 {
-  @include fs('h5');
+  @include fs("h5");
 }
 h6,
 .h6 {
-  @include fs('h6');
+  @include fs("h6");
 }

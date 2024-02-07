@@ -1,1 +1,111 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
+
+.footer {
+  background: $clr_primary_dark;
+  color: $clr_accent_text;
+
+  &__items {
+    @include d_flex(row, space-between, center);
+    padding-block: px_to_rem(44);
+
+    @include mq("lg") {
+      flex-direction: column;
+      align-items: normal;
+    }
+
+    &__right {
+      @include d_flex(row, space-between, flex-start, $gap: $s_8);
+
+      @media (max-width: 635px) {
+        justify-content: start;
+      }
+
+      > div {
+        min-width: 230px;
+
+        @media (max-width: 786px) {
+          min-width: 180px;
+        }
+
+        @media (max-width: 440px) {
+          min-width: auto;
+        }
+      }
+
+      .f-menu {
+        > li {
+          list-style: disc;
+          margin-inline-start: 1rem;
+          transition: $t_1;
+          width: fit-content;
+
+          @include fs("body-s");
+
+          &:hover {
+            color: $clr_secondary_dark;
+          }
+        }
+      }
+
+      &__social-media {
+        @include d_flex(column, $gap: $s_2);
+
+        @media (max-width: 635px) {
+          min-width: 100% !important;
+        }
+
+        &__items {
+          @include d_flex(row, $gap: $s_4);
+
+          @media (max-width: 635px) {
+            min-width: 100%;
+            justify-content: center;
+          }
+
+          .social-icon {
+            @include d_flex(row, center, center);
+            border-radius: 50%;
+            background: $clr_contrast_text;
+            width: $s_8;
+            height: $s_8;
+            transition: $t_1;
+
+            &:hover {
+              background: $clr_secondary_dark;
+
+              path {
+                fill: $clr_contrast_text;
+                transition: $t_1;
+              }
+            }
+
+            > i {
+              @include d_flex();
+            }
+          }
+        }
+
+        .phone-number {
+          transition: $t_1;
+          @include fs("body-s");
+          &:hover {
+            color: $clr_secondary_dark;
+          }
+        }
+      }
+    }
+
+    &__left {
+      @include d_flex(row, center, center, $gap: $s_2);
+
+      .enamad {
+        max-width: 4.375rem;
+      }
+
+      img {
+        max-width: 12.5rem;
+        height: auto;
+      }
+    }
+  }
+}

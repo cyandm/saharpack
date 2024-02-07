@@ -43,7 +43,10 @@ function cyn_theme_setup()
 
     register_nav_menus([
         'header' => 'Header',
-        'footer' => 'Footer'
+        'footer' => 'Footer',
+        'footer_col_1' => 'Footer column 1',
+        'footer_col_2' => 'Footer column 2',
+        'footer_col_3' => 'Footer column 3',
     ]);
 }
 
