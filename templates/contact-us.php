@@ -5,13 +5,7 @@ $contact_us_description = isset($contact_us['page_description']) ? $contact_us['
 $contact_us_address_title = isset($contact_us['location_title']) ? $contact_us['location_title'] : '';
 $contact_us_address = isset($contact_us['location_address']) ? $contact_us['location_address'] : '';
 
-function check_empty($value, $class_name)
-{
-    if (!($value)) return;
-    if (!empty($value)) {
-        printf('<div class="%s">%s</div>', $class_name, $value);
-    }
-}
+
 /*Template Name: Contact-us Page */
 ?>
 <main class="contact-us-page container">
@@ -23,13 +17,22 @@ function check_empty($value, $class_name)
         <?php endif ?>
     </div>
     <div class="form-wrapper">
-        <div class="title"><?= get_the_title() ?></div>
-        <?php check_empty($contact_us_description, 'description'); ?>
-        <?php get_template_part('/templates/components/forms/contact-us'); ?>
-        <? if (!empty($contact_us_address)) {
-            check_empty($contact_us_address_title, 'title');
-            check_empty($contact_us_address, 'description address');
-        } ?>
+        <div class="login-form">
+            <div class="title"><?= get_the_title() ?></div>
+            <?php check_empty($contact_us_description, 'description'); ?>
+            <?php get_template_part('/templates/components/forms/contact-us'); ?>
+            <? if (!empty($contact_us_address)) {
+                check_empty($contact_us_address_title, 'title');
+                check_empty($contact_us_address, 'description address');
+            } ?>
+        </div>
+
+        <div class="enter-code-form">
+
+        </div>
+        <div class="welcome-user">
+
+        </div>
     </div>
 </main>
 <?php get_footer(); ?>

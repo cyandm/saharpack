@@ -94,15 +94,47 @@ function cyn_term_register()
 
 function cyn_page_register()
 {
-    // if ( ! get_option( 'cyn_theme_installed' ) ) {
-    //     wp_insert_post( [ 
-    //         'post_type' => 'page',
-    //         'post_status' => 'publish',
-    //         'post_title' => __( 'درباره ما', 'cyn-dm' ),
-    //         'post_name' => 'about-us',
-    //         'page_template' => 'templates/about.php'
-    //     ] );
+    if (!get_option('cyn_theme_installed')) {
 
-    //     update_option( 'cyn_theme_installed', true );
-    // }
+        wp_insert_post([
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'post_title' => __('تماس با ما', 'cyn-dm'),
+            'post_name' => 'contact-us',
+            'page_template' => 'templates/contact-us.php'
+        ]);
+
+        wp_insert_post([
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'post_title' => __('درباره ی ما', 'cyn-dm'),
+            'post_name' => 'about-us',
+            'page_template' => 'templates/about-us.php'
+        ]);
+
+        wp_insert_post([
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'post_title' => __('ورود', 'cyn-dm'),
+            'post_name' => 'login',
+            'page_template' => 'templates/login.php'
+        ]);
+
+        wp_insert_post([
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'post_title' => __('otp', 'cyn-dm'),
+            'post_name' => 'otp',
+            'page_template' => 'templates/otp.php'
+        ]);
+        wp_insert_post([
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'post_title' => __('alert login', 'cyn-dm'),
+            'post_name' => 'alert-login',
+            'page_template' => 'templates/alert-login.php'
+        ]);
+
+        update_option('cyn_theme_installed', true);
+    }
 }

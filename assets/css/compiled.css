@@ -162,6 +162,11 @@ textarea {
   color: #969696;
 }
 
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+  -webkit-text-fill-color: #1e1e1e;
+  box-shadow: inset 0 0 20px 20px #ececec;
+}
+
 .container {
   max-width: 1440px;
   margin-inline: auto;
@@ -190,6 +195,10 @@ textarea {
   font-family: "Yekan Bakh";
 }
 
+a {
+  text-decoration: none;
+}
+
 .btn {
   cursor: pointer;
 }
@@ -202,7 +211,7 @@ textarea {
   width: max-content;
 }
 .btn[variant=primary]:hover {
-  background-color: #ffffff;
+  background-color: transparent;
   color: #1e1e1e;
 }
 @media screen and (max-width: 480px) {
@@ -211,7 +220,7 @@ textarea {
   }
 }
 .btn[variant=secondary] {
-  background-color: #ffffff;
+  background-color: transparent;
   color: #1e1e1e;
   border: 1px solid #1e1e1e;
   transition: all 0.4s ease-in-out;
@@ -314,6 +323,255 @@ main.contact-us-page .form-wrapper button::before {
     align-items: stretch;
   }
   main.contact-us-page > div {
+    width: 100%;
+  }
+}
+
+main.login-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+main.login-page > * {
+  flex: 1;
+}
+main.login-page > div {
+  width: 50%;
+}
+main.login-page .title {
+  margin-bottom: 0.5rem;
+  color: #1e1e1e;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 61.6px;
+}
+main.login-page .page-thumbnail img {
+  width: 100%;
+  object-fit: contain;
+}
+main.login-page .form-wrapper .dynamic-section {
+  display: none;
+}
+main.login-page .form-wrapper .dynamic-section.active {
+  display: block;
+}
+main.login-page .form-wrapper button {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+main.login-page .form-wrapper .btn-edit-number {
+  color: #1b51de;
+  cursor: pointer;
+}
+main.login-page .form-wrapper .welcome-section {
+  width: 100%;
+}
+main.login-page .form-wrapper .welcome-section .button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+@media screen and (max-width: 480px) {
+  main.login-page .form-wrapper .welcome-section .button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+  }
+  main.login-page .form-wrapper .welcome-section .button-group > * {
+    flex: 1;
+  }
+  main.login-page .form-wrapper .welcome-section .button-group a {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  main.login-page {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  main.login-page > div {
+    width: 100%;
+  }
+}
+
+main.otp-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+main.otp-page > * {
+  flex: 1;
+}
+main.otp-page > div {
+  width: 50%;
+}
+main.otp-page .title {
+  margin-bottom: 0.5rem;
+  color: #1e1e1e;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 61.6px;
+}
+main.otp-page .page-thumbnail img {
+  width: 100%;
+  object-fit: contain;
+}
+main.otp-page .form-wrapper .dynamic-section {
+  display: none;
+}
+main.otp-page .form-wrapper .dynamic-section.active {
+  display: block;
+}
+main.otp-page .form-wrapper button {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+main.otp-page .form-wrapper .btn-edit-number {
+  color: #1b51de;
+  cursor: pointer;
+}
+main.otp-page .form-wrapper .welcome-section {
+  width: 100%;
+}
+main.otp-page .form-wrapper .welcome-section .button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+@media screen and (max-width: 480px) {
+  main.otp-page .form-wrapper .welcome-section .button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+  }
+  main.otp-page .form-wrapper .welcome-section .button-group > * {
+    flex: 1;
+  }
+  main.otp-page .form-wrapper .welcome-section .button-group a {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  main.otp-page {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  main.otp-page > div {
+    width: 100%;
+  }
+}
+
+main.alert-login-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+main.alert-login-page > * {
+  flex: 1;
+}
+main.alert-login-page > div {
+  width: 50%;
+}
+main.alert-login-page .title {
+  margin-bottom: 0.5rem;
+  color: #1e1e1e;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 61.6px;
+}
+main.alert-login-page .page-thumbnail img {
+  width: 100%;
+  object-fit: contain;
+}
+main.alert-login-page .form-wrapper .dynamic-section {
+  display: none;
+}
+main.alert-login-page .form-wrapper .dynamic-section.active {
+  display: block;
+}
+main.alert-login-page .form-wrapper button {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+main.alert-login-page .form-wrapper .btn-edit-number {
+  color: #1b51de;
+  cursor: pointer;
+}
+main.alert-login-page .form-wrapper .welcome-section {
+  width: 100%;
+}
+main.alert-login-page .form-wrapper .welcome-section .button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+@media screen and (max-width: 480px) {
+  main.alert-login-page .form-wrapper .welcome-section .button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+  }
+  main.alert-login-page .form-wrapper .welcome-section .button-group > * {
+    flex: 1;
+  }
+  main.alert-login-page .form-wrapper .welcome-section .button-group a {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  main.alert-login-page {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  main.alert-login-page > div {
     width: 100%;
   }
 }
@@ -3924,6 +4182,63 @@ main.contact-us-page .form-wrapper button::before {
   gap: 0.75rem;
 }
 #contact-us-form .input-primary i {
+  color: #969696;
+}
+
+#login-form {
+  margin-block: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+#login-form input,
+#login-form textarea {
+  flex: 1;
+  text-align: right;
+}
+#login-form .input-primary {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+#login-form .input-primary i {
+  color: #969696;
+}
+
+#code-entry-form {
+  margin-block: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+#code-entry-form input {
+  flex: 1;
+  text-align: left;
+  -moz-appearance: textfield;
+  letter-spacing: 1rem;
+}
+#code-entry-form input::-webkit-outer-spin-button, #code-entry-form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#code-entry-form .input-primary {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+#code-entry-form .input-primary i {
   color: #969696;
 }
 

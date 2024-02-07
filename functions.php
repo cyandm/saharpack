@@ -8,3 +8,4 @@ require_once(__DIR__ . '/inc/functions/cyn-acf.php');
 require_once(__DIR__ . '/inc/functions/cyn-general.php');
 require_once(__DIR__ . '/inc/functions/cyn-translate.php');
 require_once(__DIR__ . '/inc/functions/cyn-form.php');
+require_once(__DIR__ . '/inc/functions/cyn-sms.php');

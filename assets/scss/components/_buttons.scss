@@ -9,7 +9,7 @@
     padding: $s_1 $s_4;
     width: max-content;
     &:hover {
-      background-color: $clr_primary_text;
+      background-color: transparent;
       color: $clr_primary_dark;
     }
     @include mq('sm') {
@@ -18,7 +18,7 @@
   }
 
   &[variant='secondary'] {
-    background-color: $clr_primary_text;
+    background-color: transparent;
     color: $clr_primary_dark;
     border: 1px solid $clr_primary_dark;
     transition: $t_1;
