@@ -8,9 +8,29 @@
   padding-inline: px_to_rem(16);
 }
 
-.even-columns{
-    --min-width:200px;
+.even-columns {
+  --min-width: 200px;
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--min-width), 1fr));
+}
+
+textarea {
+  resize: vertical;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+}
+
+button,
+::placeholder,
+textarea {
+  font-family: 'Yekan Bakh';
+}
+
+a {
+  text-decoration: none;
 }

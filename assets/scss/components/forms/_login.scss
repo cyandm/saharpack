@@ -1,0 +1,16 @@
+@use '../../utils/' as *;
+#login-form {
+  margin-block: $s_5;
+  @include d_flex(column, flex-start, stretch, nowrap, false, $s_3);
+  input,
+  textarea {
+    flex: 1;
+    text-align: right;
+  }
+  .input-primary {
+    @include d_flex(row, flex-start, stretch, nowrap, false, $s_3);
+    i {
+      color: $clr_primary_light;
+    }
+  }
+}

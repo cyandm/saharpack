@@ -1,1 +1,63 @@
-@use '../utils/index' as *;
+@use '../utils/' as *;
+.btn {
+  cursor: pointer;
+  &[variant='primary'] {
+    background-color: $clr_primary_dark;
+    color: $clr_primary_text;
+    border: 1px solid $clr_primary_dark;
+    transition: $t_1;
+    padding: $s_1 $s_4;
+    width: max-content;
+    &:hover {
+      background-color: transparent;
+      color: $clr_primary_dark;
+    }
+    @include mq('sm') {
+      width: 100%;
+    }
+  }
+
+  &[variant='secondary'] {
+    background-color: transparent;
+    color: $clr_primary_dark;
+    border: 1px solid $clr_primary_dark;
+    transition: $t_1;
+    padding: $s_1 $s_4;
+    &:hover {
+      background-color: $clr_primary_dark;
+      color: $clr_primary_text;
+    }
+  }
+
+  &[disabled] {
+    background-color: $clr_primary_light;
+    color: $clr_primary_main;
+    border: 1px solid transparent;
+    transition: $t_1;
+    padding: $s_1 $s_4;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &[size='radio'] {
+    width: px_to_rem(24);
+    height: px_to_rem(24);
+    border: 1px solid $clr_primary_light;
+    border-radius: $r_4;
+    transition: $t_1;
+    &:hover {
+      border: 1px solid $clr_primary_light;
+    }
+  }
+
+  &[size='have-underline'] {
+    padding: $s_3;
+    color: $clr_accent_dark;
+    border-bottom: 1px solid $clr_primary_dark;
+    transition: t_1;
+    &:hover {
+      border-bottom: 1px solid $clr_accent_dark;
+    }
+  }
+}

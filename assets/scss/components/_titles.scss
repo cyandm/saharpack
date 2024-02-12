@@ -1,0 +1,22 @@
+@use '../utils/' as *;
+.title-has-line {
+  @include d_flex(row, space-between, center, nowrap, false, $s_4);
+  i {
+    flex: 1;
+    background-color: $clr_natural_5;
+    height: 1px;
+  }
+  .h1 {
+    margin-block: $s_7;
+    color: $clr_primary_dark;
+    @include mq('sm') {
+      @include fs('h2');
+    }
+  }
+  @include mq('md') {
+    justify-content: center;
+    i {
+      display: none;
+    }
+  }
+}

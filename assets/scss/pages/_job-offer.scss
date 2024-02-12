@@ -1,0 +1,43 @@
+@use '../utils/' as *;
+main.job-offer-page {
+  .hero-section {
+    .page-thumbnail {
+      width: 100%;
+      overflow: hidden;
+      max-height: px_to_rem(400);
+
+      img {
+        width: 100%;
+        height: auto;
+        min-height: px_to_rem(240);
+        //min-height: px_to_rem(240);
+      }
+    }
+    .description-job-offer {
+      @include d_flex(column, flex-start, stretch, nowrap, false, 0);
+      .h2 {
+        color: $clr_primary_dark;
+        margin-top: $s_6;
+        align-self: center;
+      }
+      p {
+        text-align: justify;
+      }
+      @include mq('md') {
+        padding-bottom: $s_6;
+        border-bottom: 1px solid $clr_natural_5;
+        margin-bottom: $s_4;
+      }
+    }
+  }
+  .selected-jobs {
+    .jobs-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(px_to_rem(472), 1fr));
+      gap: $s_3;
+      @include mq('lg') {
+        grid-template-columns: repeat(auto-fill, minmax(px_to_rem(320), 1fr));
+      }
+    }
+  }
+}

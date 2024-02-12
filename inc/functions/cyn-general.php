@@ -65,3 +65,12 @@ function cyn_reading_time($id)
     $reading_time = ceil($word_count / 50);
     return $reading_time . ' Min';
 }
+
+
+function check_empty($value, $class_name)
+{
+    if (!($value)) return;
+    if (!empty($value)) {
+        printf('<div class="%s">%s</div>', $class_name, $value);
+    }
+}

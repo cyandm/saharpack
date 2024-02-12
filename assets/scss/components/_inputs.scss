@@ -1,0 +1,7 @@
+@use '../utils/' as *;
+.input-primary {
+  background: transparent;
+  border-bottom: $b_2;
+  padding: $s_3;
+  text-align: right;
+}
