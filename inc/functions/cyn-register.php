@@ -12,6 +12,7 @@ function cyn_post_type_register()
     $GLOBALS["form-post-type"] = $post_type;
     cyn_make_post_type('فرم ', $post_type, 'dashicons-email-alt2
     ', true);
+    cyn_make_post_type('فرصت شغلی ', 'job-offer', 'dashicons-groups', true);
 }
 
 
