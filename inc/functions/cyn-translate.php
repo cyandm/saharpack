@@ -23,6 +23,8 @@ function register_translate_form()
     pll_register_string('continue', 'continue', 'Cyan');
     pll_register_string('enter-code', 'enter-code', 'Cyan');
     pll_register_string('edit-phone-number', 'edit-phone-number', 'Cyan');
+    pll_register_string('attach-your-resume', 'attach-your-resume', 'Cyan');
+    pll_register_string('about-yourself', 'about-yourself', 'Cyan');
 }
 
 function register_translate_template()
@@ -34,6 +36,8 @@ function register_translate_template()
     pll_register_string('job-offer-title', 'job-offer-title', 'Cyan');
     pll_register_string('job-offer-selected-title', 'job-offer-selected-title', 'Cyan');
     pll_register_string('send-request', 'send-request', 'Cyan');
+    pll_register_string('about-job-title', 'about-job-title', 'Cyan');
+    pll_register_string('send-collaboration-request', 'send-collaboration-request', 'Cyan');
 }
 function register_translate_bread_crumb()
 {

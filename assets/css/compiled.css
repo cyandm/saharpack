@@ -192,6 +192,10 @@ a {
   text-decoration: none;
 }
 
+input {
+  direction: rtl;
+}
+
 .container {
   max-width: 1440px;
   margin-inline: auto;
@@ -406,6 +410,57 @@ a {
 }
 #code-entry-form .input-primary i {
   color: #969696;
+}
+
+#job-offer-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 1.25rem;
+}
+#job-offer-form .input-primary {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  width: 100%;
+}
+#job-offer-form .input-primary i {
+  color: #969696;
+}
+#job-offer-form .input-primary input {
+  flex: 1;
+}
+#job-offer-form button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  align-self: flex-end;
+}
+#job-offer-form button::before {
+  content: "\e806";
+  font-family: "cyan-icon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "iconsax" !important;
+  font-size: 20px;
+}
+#job-offer-form .input-file i {
+  color: #1b51de;
 }
 
 .card-job-offer {
@@ -813,6 +868,7 @@ main.job-offer-page .selected-jobs .jobs-container {
 }
 
 main.single-job-offer-page .bread-crumb {
+  margin-block: 1.25rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -839,6 +895,70 @@ main.single-job-offer-page .bread-crumb span i {
   align-items: center;
   flex-wrap: nowrap;
   gap: 0.75rem;
+}
+main.single-job-offer-page .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #c5c5c5;
+}
+main.single-job-offer-page .job-detail-container .job-thumbnail-and-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+main.single-job-offer-page .job-detail-container .job-thumbnail-and-description > * {
+  flex: 1;
+}
+main.single-job-offer-page .job-detail-container .job-thumbnail-and-description .job-thumbnail img {
+  height: auto;
+  max-height: 22.5rem;
+  width: 100%;
+  object-fit: cover;
+}
+main.single-job-offer-page .job-detail-container .job-thumbnail-and-description .job-description-and-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+main.single-job-offer-page .job-detail-container .job-thumbnail-and-description .job-description-and-title h2 {
+  color: #1e1e1e;
+}
+main.single-job-offer-page .job-detail-container .job-thumbnail-and-description .job-description-and-title .about-job {
+  text-align: justify;
+}
+@media screen and (max-width: 768px) {
+  main.single-job-offer-page .job-detail-container .job-thumbnail-and-description {
+    flex-direction: column;
+  }
+  main.single-job-offer-page .job-detail-container .job-thumbnail-and-description .job-thumbnail {
+    width: 100%;
+  }
+  main.single-job-offer-page .job-detail-container .job-thumbnail-and-description .job-description-and-title h2 {
+    align-self: center;
+  }
+}
+main.single-job-offer-page .job-offer-send-request .form-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+}
+main.single-job-offer-page .job-offer-send-request .form-wrapper #job-offer-form {
+  width: 50%;
+}
+@media screen and (max-width: 768px) {
+  main.single-job-offer-page .job-offer-send-request .form-wrapper #job-offer-form {
+    width: 100%;
+  }
 }
 
 @font-face {

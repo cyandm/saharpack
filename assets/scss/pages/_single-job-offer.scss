@@ -1,6 +1,7 @@
 @use '../utils/' as *;
 main.single-job-offer-page {
   .bread-crumb {
+    margin-block: $s_5;
     @include d_flex(row, flex-start, center, nowrap, false, $s_3);
     @include fs('caption');
     span {
@@ -8,6 +9,58 @@ main.single-job-offer-page {
       color: $clr_text_light;
       i {
         @include d_flex(row, center, center, nowrap, false, $s_3);
+      }
+    }
+  }
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: $clr_natural_4;
+  }
+  .job-detail-container {
+    .job-thumbnail-and-description {
+      @include d_flex(row, space-between, center, nowrap, true, $s_3);
+
+      .job-thumbnail {
+        img {
+          height: auto;
+          max-height: px_to_rem(360);
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .job-description-and-title {
+        @include d_flex(column, flex-start, stretch, nowrap, false, $s_3);
+
+        h2 {
+          color: $clr_text_dark;
+        }
+        .about-job {
+          text-align: justify;
+        }
+      }
+      @include mq('md') {
+        flex-direction: column;
+        .job-thumbnail {
+          width: 100%;
+        }
+        .job-description-and-title {
+          h2 {
+            align-self: center;
+          }
+        }
+      }
+    }
+  }
+  .job-offer-send-request {
+    .form-wrapper {
+      @include d_flex(row, center, flex-start, nowrap, false);
+      width: 100%;
+      #job-offer-form {
+        width: 50%;
+        @include mq('md') {
+          width: 100%;
+        }
       }
     }
   }

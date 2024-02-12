@@ -45,4 +45,36 @@
       });
     });
   });
+  jQuery(document).ready(($) => {
+    $("#job-offer-form").on("submit", (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+      const submitter = e.submitter;
+      const jobOfferFormSubmit = $("#job-offer-form #job-offer-form-submit");
+      const formData = new FormData(form, submitter);
+      formData.append("action", "send_job_offer_form");
+      formData.append("_nonce", cyn_head_script.nonce);
+      $.ajax({
+        type: "POST",
+        url: cyn_head_script.url,
+        cache: false,
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: (res) => {
+          console.warn(res);
+          form.reset();
+          jobOfferFormSubmit.text("\u0627\u0631\u0633\u0627\u0644 \u0634\u062F !");
+          setTimeout(() => {
+            jobOfferFormSubmit.text("\u0627\u0631\u0633\u0627\u0644 \u062F\u0631\u062E\u0648\u0627\u0633\u062A");
+          }, 1e3);
+        },
+        error: (err) => {
+          console.error(err);
+          $(submitter).removeClass("pending");
+          $(submitter).addClass("error");
+        }
+      });
+    });
+  });
 })();

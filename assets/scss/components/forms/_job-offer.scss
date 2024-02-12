@@ -1,0 +1,29 @@
+@use '../../utils/' as *;
+#job-offer-form {
+  @include d_flex(column, flex-start, stretch, nowrap, false, $s_5);
+
+  .input-primary {
+    i {
+      color: $clr_text_light;
+    }
+    @include d_flex(row, flex-start, flex-start, nowrap, false, $s_2);
+    width: 100%;
+    input {
+      flex: 1;
+    }
+  }
+  button {
+    @include d_flex(row, center, center, nowrap, false, $s_2);
+
+    align-self: flex-end;
+    @include make_icon('\e806') {
+      font-family: 'iconsax' !important;
+      font-size: 20px;
+    }
+  }
+  .input-file {
+    i {
+      color: $clr_accent_dark;
+    }
+  }
+}
