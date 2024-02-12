@@ -45,4 +45,40 @@
       });
     });
   });
+
+  // assets/js/utils/custom-events.js
+  var cynActivate = new CustomEvent("cynActivate", { bubbles: true });
+
+  // assets/js/utils/functions.js
+  var deActivateEl = (nodeEl) => {
+    nodeEl.setAttribute("data-active", "false");
+    nodeEl.dispatchEvent(cynActivate);
+  };
+  var activateEl = (nodeEl) => {
+    nodeEl.setAttribute("data-active", "true");
+    nodeEl.dispatchEvent(cynActivate);
+  };
+  var toggleActivateEl = (nodeEl) => {
+    const current = nodeEl.getAttribute("data-active");
+    if (current === "false" || !current) {
+      activateEl(nodeEl);
+      return;
+    }
+    deActivateEl(nodeEl);
+  };
+
+  // assets/js/pages/pricing.js
+  var Pricing = () => {
+    const pricingCollapseHandle = document.getElementById(
+      "pricingCollapseHandle"
+    );
+    const pricingCollapse = document.getElementById("pricingCollapse");
+    if (!pricingCollapse || !pricingCollapseHandle)
+      return;
+    console.log(pricingCollapse);
+    pricingCollapseHandle.addEventListener("click", () => {
+      toggleActivateEl(pricingCollapse);
+    });
+  };
+  Pricing();
 })();

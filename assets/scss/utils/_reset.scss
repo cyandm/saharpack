@@ -4,66 +4,78 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 * {
-  margin: 0;
+	margin: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Yekan Bakh';
+	margin: 0;
+	padding: 0;
+	font-family: 'Yekan Bakh';
 }
 body {
-  background: $clr_bg_default;
-  @include fs('body-s');
-  color: $clr_primary_main;
+	background: $clr_bg_default;
+	@include fs('body-s');
+	color: $clr_primary_main;
 }
 h1,
 .h1 {
-  @include fs('h1');
+	@include fs('h1');
 }
 h2,
 .h2 {
-  @include fs('h2');
+	@include fs('h2');
 }
 h3,
 .h3 {
-  @include fs('h3');
+	@include fs('h3');
 }
 h4,
 .h4 {
-  @include fs('h4');
+	@include fs('h4');
 }
 h5,
 .h5 {
-  @include fs('h5');
+	@include fs('h5');
 }
 h6,
 .h6 {
-  @include fs('h6');
+	@include fs('h6');
 }
 
 input,
-textarea {
-  background: transparent;
-  font-family: 'Yekan Bakh';
+textarea,
+select {
+	background: transparent;
+	font-family: 'Yekan Bakh';
+	@include fs('body-s');
 }
+
 ::placeholder {
-  color: $clr_primary_light;
+	color: $clr_primary_light;
 }
+
 input {
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active {
-    -webkit-text-fill-color: $clr_primary_dark;
-    box-shadow: inset 0 0 20px 20px $clr_bg_default;
-  }
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus,
+	&:-webkit-autofill:active {
+		-webkit-text-fill-color: $clr_primary_dark;
+		box-shadow: inset 0 0 20px 20px $clr_bg_default;
+	}
+}
+
+select {
+	&:focus,
+	&:focus-visible,
+	&:focus-within {
+		outline: none;
+	}
 }
 
 a {
-  color: unset;
-  text-decoration: none;
+	color: unset;
+	text-decoration: none;
 }
