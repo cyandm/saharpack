@@ -30,6 +30,8 @@ $thumb_id = get_post_thumbnail_id();
 
 		<section class="pricing-form-wrapper w-full">
 			<form action=""
+				  enctype="multipart/form-data"
+				  id="priceForm"
 				  class="pricing-form">
 
 
@@ -43,7 +45,7 @@ $thumb_id = get_post_thumbnail_id();
 							<input type="radio"
 								   required
 								   id="legalCharacter"
-								   value="legalCharacter"
+								   value="<?php pll_e( 'حقوقی' ) ?>"
 								   name="character">
 							<?php pll_e( 'حقوقی' ) ?>
 
@@ -53,7 +55,7 @@ $thumb_id = get_post_thumbnail_id();
 							<input type="radio"
 								   required
 								   id="realCharacter"
-								   value="realCharacter"
+								   value="<?php pll_e( 'حقیقی' ) ?>"
 								   name="character">
 							<?php pll_e( 'حقیقی' ) ?>
 						</label>
@@ -111,10 +113,13 @@ $thumb_id = get_post_thumbnail_id();
 
 
 						<select name="introductionMethod"
+								required
 								id="introductionMethod"
 								class="input-primary w-full">
-							<option value="ads">تبلیغات</option>
-							<option value="website">وبسایت</option>
+							<option value=""
+									selected>روش آشنایی با مجموعه</option>
+							<option value="تبلیغات">تبلیغات</option>
+							<option value="وبسایت">وبسایت</option>
 						</select>
 
 						<input class="input-primary w-full"
@@ -134,6 +139,7 @@ $thumb_id = get_post_thumbnail_id();
 					</span>
 
 					<input type="number"
+						   name="averageCirculation"
 						   class="input-primary w-full"
 						   placeholder="<?php pll_e( 'تعداد' ) ?>">
 				</div>
@@ -148,7 +154,7 @@ $thumb_id = get_post_thumbnail_id();
 							<input type="radio"
 								   required
 								   id="contactExpert"
-								   value="contactExpert"
+								   value="<?php pll_e( 'درخواست تماس کارشناس' ) ?>"
 								   name="requestItem">
 							<?php pll_e( 'درخواست تماس کارشناس' ) ?>
 
@@ -158,7 +164,7 @@ $thumb_id = get_post_thumbnail_id();
 							<input type="radio"
 								   required
 								   id="continue"
-								   value="continue"
+								   value="<?php pll_e( 'تکمیل ادامه فرم استعلام' ) ?>"
 								   name="requestItem">
 							<?php pll_e( 'تکمیل ادامه فرم استعلام' ) ?>
 						</label>
@@ -167,7 +173,7 @@ $thumb_id = get_post_thumbnail_id();
 							<input type="radio"
 								   required
 								   id="sendFile"
-								   value="sendFile"
+								   value="<?php pll_e( 'ارسال فایل' ) ?>"
 								   name="requestItem">
 							<?php pll_e( 'ارسال فایل' ) ?>
 						</label>
@@ -191,9 +197,8 @@ $thumb_id = get_post_thumbnail_id();
 							<div class="input-radio-wrapper">
 								<label for="medicDoor">
 									<input type="radio"
-										   required
 										   id="medicDoor"
-										   value="medicDoor"
+										   value="<?php pll_e( 'درب دارویی' ) ?>"
 										   name="boxStructure">
 									<?php pll_e( 'درب دارویی' ) ?>
 
@@ -201,27 +206,24 @@ $thumb_id = get_post_thumbnail_id();
 
 								<label for="bottomLock">
 									<input type="radio"
-										   required
 										   id="bottomLock"
-										   value="bottomLock"
+										   value="<?php pll_e( 'ته قفلی' ) ?>"
 										   name="boxStructure">
 									<?php pll_e( 'ته قفلی' ) ?>
 								</label>
 
 								<label for="bottomLock">
 									<input type="radio"
-										   required
 										   id="bottomLock"
-										   value="bottomLock"
+										   value="<?php pll_e( 'لاک باتم' ) ?>"
 										   name="boxStructure">
 									<?php pll_e( 'لاک باتم' ) ?>
 								</label>
 
 								<label for="other">
 									<input type="radio"
-										   required
 										   id="other"
-										   value="other"
+										   value="<?php pll_e( 'سایر' ) ?>"
 										   name="boxStructure">
 									<?php pll_e( 'سایر' ) ?>
 								</label>
@@ -237,9 +239,8 @@ $thumb_id = get_post_thumbnail_id();
 							<div class="input-radio-wrapper">
 								<label for="inderDoor">
 									<input type="radio"
-										   required
 										   id="inderDoor"
-										   value="inderDoor"
+										   value="<?php pll_e( 'ایندربورد' ) ?>"
 										   name="cardBoardType">
 									<?php pll_e( 'ایندربورد' ) ?>
 
@@ -247,27 +248,24 @@ $thumb_id = get_post_thumbnail_id();
 
 								<label for="craft">
 									<input type="radio"
-										   required
 										   id="craft"
-										   value="craft"
+										   value="<?php pll_e( 'کرافت' ) ?>"
 										   name="cardBoardType">
 									<?php pll_e( 'کرافت' ) ?>
 								</label>
 
 								<label for="backGrey">
 									<input type="radio"
-										   required
 										   id="backGrey"
-										   value="backGrey"
+										   value="<?php pll_e( 'پشت طوسی' ) ?>"
 										   name="cardBoardType">
 									<?php pll_e( 'پشت طوسی' ) ?>
 								</label>
 
 								<label for="glass">
 									<input type="radio"
-										   required
 										   id="glass"
-										   value="glass"
+										   value="<?php pll_e( 'گلاسه' ) ?>"
 										   name="cardBoardType">
 									<?php pll_e( 'گلاسه' ) ?>
 								</label>
@@ -281,7 +279,6 @@ $thumb_id = get_post_thumbnail_id();
 							</span>
 
 							<input class="w-full input-primary"
-								   required
 								   type="text"
 								   name="gramageCardBoard"
 								   id="gramageCardBoard"
@@ -294,21 +291,18 @@ $thumb_id = get_post_thumbnail_id();
 							</span>
 							<div class="input-group input-group-even">
 								<input class="input-primary"
-									   required
 									   type="text"
 									   name="boxLength"
 									   id="boxLength"
 									   placeholder="<?php pll_e( 'طول (میلیمتر)' ) ?>">
 
 								<input class="input-primary"
-									   required
 									   type="text"
 									   name="boxWidth"
 									   id="boxWidth"
 									   placeholder="<?php pll_e( 'عرض (میلیمتر)' ) ?>">
 
 								<input class="input-primary"
-									   required
 									   type="text"
 									   name="boxHeight"
 									   id="boxHeight"
@@ -322,14 +316,12 @@ $thumb_id = get_post_thumbnail_id();
 							</span>
 							<div class="input-group input-group-even">
 								<input class="input-primary"
-									   required
 									   type="text"
 									   name="bladeLength"
 									   id="bladeLength"
 									   placeholder="<?php pll_e( 'طول (میلیمتر)' ) ?>">
 
 								<input class="input-primary"
-									   required
 									   type="text"
 									   name="bladeWidth"
 									   id="bladeWidth"
@@ -345,9 +337,8 @@ $thumb_id = get_post_thumbnail_id();
 							<div class="input-radio-wrapper">
 								<label for="to4color">
 									<input type="radio"
-										   required
 										   id="to4color"
-										   value="to4color"
+										   value="<?php pll_e( 'تا 4 رنگ' ) ?>"
 										   name="numberOfColor">
 									<?php pll_e( 'تا 4 رنگ' ) ?>
 
@@ -355,18 +346,16 @@ $thumb_id = get_post_thumbnail_id();
 
 								<label for="to6color">
 									<input type="radio"
-										   required
 										   id="to6color"
-										   value="to6color"
+										   value="<?php pll_e( 'تا 6 رنگ' ) ?>"
 										   name="numberOfColor">
 									<?php pll_e( 'تا 6 رنگ' ) ?>
 								</label>
 
 								<label for="more6color">
 									<input type="radio"
-										   required
 										   id="more6color"
-										   value="more6color"
+										   value="<?php pll_e( 'بیش از 6 رنگ' ) ?>"
 										   name="numberOfColor">
 									<?php pll_e( 'بیش از 6 رنگ' ) ?>
 								</label>
@@ -384,9 +373,8 @@ $thumb_id = get_post_thumbnail_id();
 							<div class="input-radio-wrapper">
 								<label for="vernie">
 									<input type="radio"
-										   required
 										   id="vernie"
-										   value="vernie"
+										   value="<?php pll_e( 'ورنی' ) ?>"
 										   name="printCoverType">
 									<?php pll_e( 'ورنی' ) ?>
 
@@ -394,45 +382,40 @@ $thumb_id = get_post_thumbnail_id();
 
 								<label for="uv">
 									<input type="radio"
-										   required
 										   id="uv"
-										   value="uv"
+										   value="<?php pll_e( 'یووی' ) ?>"
 										   name="printCoverType">
 									<?php pll_e( 'یووی' ) ?>
 								</label>
 
 								<label for="matteCellophane">
 									<input type="radio"
-										   required
 										   id="matteCellophane"
-										   value="matteCellophane"
+										   value="<?php pll_e( 'سلفون مات' ) ?>"
 										   name="printCoverType">
 									<?php pll_e( 'سلفون مات' ) ?>
 								</label>
 
 								<label for="shinyCellophane">
 									<input type="radio"
-										   required
 										   id="shinyCellophane"
-										   value="shinyCellophane"
+										   value="<?php pll_e( 'سلفون براق' ) ?>"
 										   name="printCoverType">
 									<?php pll_e( 'سلفون براق' ) ?>
 								</label>
 
 								<label for="uvAndVernie">
 									<input type="radio"
-										   required
 										   id="uvAndVernie"
-										   value="uvAndVernie"
+										   value="<?php pll_e( 'یووی + ورنی' ) ?>"
 										   name="printCoverType">
 									<?php pll_e( 'یووی + ورنی' ) ?>
 								</label>
 
 								<label for="noCover">
 									<input type="radio"
-										   required
 										   id="noCover"
-										   value="noCover"
+										   value="<?php pll_e( 'پوشش ندارد' ) ?>"
 										   name="printCoverType">
 									<?php pll_e( 'پوشش ندارد' ) ?>
 								</label>
@@ -450,9 +433,8 @@ $thumb_id = get_post_thumbnail_id();
 							<div class="input-radio-wrapper">
 								<label for="LocalUV">
 									<input type="radio"
-										   required
 										   id="LocalUV"
-										   value="LocalUV"
+										   value="<?php pll_e( 'یووی موضعی' ) ?>"
 										   name="additionalPrintingProcess">
 									<?php pll_e( 'یووی موضعی' ) ?>
 
@@ -460,36 +442,32 @@ $thumb_id = get_post_thumbnail_id();
 
 								<label for="goldsmith">
 									<input type="radio"
-										   required
 										   id="goldsmith"
-										   value="goldsmith"
+										   value="<?php pll_e( 'طلاکوب/ نقره کوب' ) ?>"
 										   name="additionalPrintingProcess">
 									<?php pll_e( 'طلاکوب/ نقره کوب' ) ?>
 								</label>
 
 								<label for="coloredFoil">
 									<input type="radio"
-										   required
 										   id="coloredFoil"
-										   value="coloredFoil"
+										   value="<?php pll_e( 'فویل کوبی رنگی' ) ?>"
 										   name="additionalPrintingProcess">
 									<?php pll_e( 'فویل کوبی رنگی' ) ?>
 								</label>
 
 								<label for="windowsPatch">
 									<input type="radio"
-										   required
 										   id="windowsPatch"
-										   value="windowsPatch"
+										   value="<?php pll_e( 'ویندوپچ' ) ?>"
 										   name="additionalPrintingProcess">
 									<?php pll_e( 'ویندوپچ' ) ?>
 								</label>
 
 								<label for="embassies">
 									<input type="radio"
-										   required
 										   id="embassies"
-										   value="embassies"
+										   value="<?php pll_e( 'امباس/برجسته سازی' ) ?>"
 										   name="additionalPrintingProcess">
 									<?php pll_e( 'امباس/برجسته سازی' ) ?>
 								</label>
@@ -506,9 +484,8 @@ $thumb_id = get_post_thumbnail_id();
 							<div class="input-radio-wrapper">
 								<label for="oneDot">
 									<input type="radio"
-										   required
 										   id="oneDot"
-										   value="oneDot"
+										   value="<?php pll_e( 'لب چسب / یک نقطه' ) ?>"
 										   name="connection">
 									<?php pll_e( 'لب چسب / یک نقطه' ) ?>
 
@@ -516,27 +493,24 @@ $thumb_id = get_post_thumbnail_id();
 
 								<label for="threeDots">
 									<input type="radio"
-										   required
 										   id="threeDots"
-										   value="threeDots"
+										   value="<?php pll_e( 'سه نقطه' ) ?>"
 										   name="connection">
 									<?php pll_e( 'سه نقطه' ) ?>
 								</label>
 
 								<label for="fourDots">
 									<input type="radio"
-										   required
 										   id="fourDots"
-										   value="fourDots"
+										   value="<?php pll_e( 'چهار نقطه' ) ?>"
 										   name="connection">
 									<?php pll_e( 'چهار نقطه' ) ?>
 								</label>
 
 								<label for="sixDots">
 									<input type="radio"
-										   required
 										   id="sixDots"
-										   value="sixDots"
+										   value="<?php pll_e( 'شش نقطه' ) ?>"
 										   name="connection">
 									<?php pll_e( 'شش نقطه' ) ?>
 								</label>
@@ -551,7 +525,6 @@ $thumb_id = get_post_thumbnail_id();
 							</span>
 
 							<input class="w-full input-primary"
-								   required
 								   type="text"
 								   name="minimumCirculation"
 								   id="minimumCirculation"
@@ -570,7 +543,6 @@ $thumb_id = get_post_thumbnail_id();
 								<i class="iconsax"
 								   icon-name="document-upload"></i>
 								<input class="w-full input-primary"
-									   required
 									   type="file"
 									   name="file"
 									   id="file">
