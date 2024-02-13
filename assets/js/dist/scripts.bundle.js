@@ -77,4 +77,16 @@
       });
     });
   });
+
+  // assets/js/pages/single-product.js
+  var btnShare = document.getElementById("btnShare");
+  var titlePage = document.querySelector("#title").innerText;
+  if (btnShare) {
+    btnShare.addEventListener("click", () => {
+      navigator.share({
+        url: window.location.href,
+        title: titleBlog
+      });
+    });
+  }
 })();

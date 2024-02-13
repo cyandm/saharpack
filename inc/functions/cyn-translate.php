@@ -5,14 +5,16 @@
  * 
  * 
  */
-
+register_translate_general();
 register_translate_form();
 register_translate_template();
 register_translate_bread_crumb();
 function register_translate_general()
 {
     pll_register_string('close', 'close', 'Cyan');
+    pll_register_string('view-all', 'view-all', 'Cyan');
 }
+
 
 function register_translate_form()
 {
@@ -25,6 +27,7 @@ function register_translate_form()
     pll_register_string('edit-phone-number', 'edit-phone-number', 'Cyan');
     pll_register_string('attach-your-resume', 'attach-your-resume', 'Cyan');
     pll_register_string('about-yourself', 'about-yourself', 'Cyan');
+    pll_register_string('may-like', 'may-like', 'Cyan');
 }
 
 function register_translate_template()
@@ -38,6 +41,8 @@ function register_translate_template()
     pll_register_string('send-request', 'send-request', 'Cyan');
     pll_register_string('about-job-title', 'about-job-title', 'Cyan');
     pll_register_string('send-collaboration-request', 'send-collaboration-request', 'Cyan');
+    pll_register_string('product-detail', 'product-detail', 'Cyan');
+    pll_register_string('price-and-order', 'price-and-order', 'Cyan');
 }
 function register_translate_bread_crumb()
 {

@@ -1,0 +1,32 @@
+@use '../../utils/' as *;
+.card-product {
+  @include d_flex(column, flex-start, stretch, nowrap, false, $s_2);
+  .product-thumbnail {
+    @include d_flex(row, center, center, nowrap);
+    padding: $s_3;
+    img {
+      max-height: px_to_rem(272);
+      object-fit: contain;
+      width: 100%;
+    }
+  }
+  .product-properties {
+    color: $clr_text_dark;
+
+    .product-name {
+      border-bottom: 1px solid $clr_natural_4;
+      padding-block: $s_2;
+      color: $clr_text_dark;
+    }
+    .product-sku {
+      padding-top: $s_2;
+    }
+    .product-price {
+      .amount {
+        bdi {
+          @include fs('h6');
+        }
+      }
+    }
+  }
+}
