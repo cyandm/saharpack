@@ -14,6 +14,9 @@
 
 		<section class="container">
 
+			<?php get_template_part('/templates/components/mobile-menu') ?>
+
+
 			<div class="right-header">
 
 				<div class="right-header__logo">
@@ -42,7 +45,7 @@
 					<i class="iconsax" icon-name="search-normal-2"></i>
 				</a>
 
-				<a href="#" class="left-header__cart-btn btn" variant="primary">
+				<a href="<?= esc_url(wc_get_cart_url()); ?>" class="left-header__cart-btn btn" variant="primary">
 					<i class="iconsax" icon-name="shopping-cart"></i>
 					سبد خرید
 				</a>

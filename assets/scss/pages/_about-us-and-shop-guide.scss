@@ -1,0 +1,132 @@
+@use "../utils/" as *;
+.about-us,
+.shop-guide {
+  margin-block-start: $s_6;
+
+  &__content {
+    @include d_flex(column, $gap: $s_6);
+
+    &__title {
+      min-width: 100%;
+
+      > h1 {
+        @include fs("h1");
+        position: relative;
+        text-align: center;
+        max-width: 100%;
+
+        @include mq("md") {
+          @include fs("h2");
+        }
+
+        &::before {
+          background-color: #000;
+          content: "";
+          display: block;
+          height: 1px;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          width: 100%;
+        }
+
+        &::after {
+          background-color: #000;
+          content: "";
+          display: block;
+          height: 1px;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          width: 100%;
+          z-index: 1;
+        }
+
+        span {
+          background: #fff;
+          padding-inline: 1rem;
+          z-index: 2;
+          position: relative;
+        }
+      }
+    }
+
+    &__video {
+      position: relative;
+
+      .video-cover {
+        position: absolute;
+        min-width: 100%;
+        height: 100%;
+        top: 0;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-clip: border-box;
+
+        &::before {
+          display: inline-block;
+          content: "";
+          width: 100%;
+          height: 100%;
+          position: static;
+          background-image: url("../../../../../../wp-content/themes/saharpack/assets/img/video-cover.png");
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-clip: border-box;
+        }
+
+        > i {
+          @include d_flex(row, center, center);
+          width: $s_13;
+          height: $s_13;
+          background: #ffffff60;
+          border: 1px solid $clr_bg_default;
+          border-radius: 50%;
+          position: absolute;
+          inset: 0;
+          margin: auto;
+
+          &::before {
+            color: $clr_bg_default;
+          }
+        }
+
+        > p {
+          @include fs("h2");
+          position: absolute;
+          bottom: 2%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+
+          @include mq("md") {
+            @include fs("h5");
+          }
+
+          @include mq("lg") {
+            bottom: -2%;
+          }
+
+          @include mq("sm") {
+            bottom: -5%;
+          }
+
+          @include mq("xs") {
+            bottom: -10%;
+          }
+        }
+      }
+    }
+
+    &__description * {
+      @include fs("body-s");
+      text-align: justify;
+    }
+  }
+}
+
+.without-cover {
+  display: none;
+}

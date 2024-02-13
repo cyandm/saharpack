@@ -3,6 +3,7 @@
 .footer {
   background: $clr_primary_dark;
   color: $clr_accent_text;
+  margin-block-start: 7.5rem;
 
   &__items {
     @include d_flex(row, space-between, center);
