@@ -975,6 +975,12 @@ main.single-job-offer-page .bread-crumb span i {
 .pricing > * {
   flex: 1;
 }
+@media screen and (max-width: 992px) {
+  .pricing {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .pricing h4 {
   margin-block-start: 1.5rem;
 }
@@ -1003,6 +1009,11 @@ main.single-job-offer-page .bread-crumb span i {
   position: sticky;
   top: 0;
 }
+@media screen and (max-width: 992px) {
+  .pricing-image {
+    position: static;
+  }
+}
 .pricing-form-submit {
   display: flex;
   flex-direction: row;
@@ -1014,6 +1025,12 @@ main.single-job-offer-page .bread-crumb span i {
 }
 .pricing-form-submit .btn {
   padding: 0.5rem 1rem;
+}
+@media screen and (max-width: 768px) {
+  .pricing-form .w-half {
+    width: 100%;
+    flex-basis: 100%;
+  }
 }
 .pricing-collapse {
   display: grid;

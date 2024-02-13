@@ -4,6 +4,10 @@
 	margin-block: 2rem; //@dev
 
 	@include d_flex(row, center, flex-start, nowrap, true);
+	@include mq('lg') {
+		flex-direction: column;
+		align-items: center;
+	}
 
 	h4 {
 		margin-block-start: $s_6;
@@ -30,6 +34,10 @@
 	&-image {
 		position: sticky;
 		top: 0;
+
+		@include mq('lg') {
+			position: static;
+		}
 	}
 
 	&-form {
@@ -38,6 +46,13 @@
 			margin-block-start: $s_3;
 			.btn {
 				padding: $s_2 $s_4;
+			}
+		}
+
+		@include mq('md') {
+			.w-half {
+				width: 100%;
+				flex-basis: 100%;
 			}
 		}
 	}
