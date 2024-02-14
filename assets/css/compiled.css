@@ -173,9 +173,13 @@ h6,
 }
 
 input,
-textarea {
+textarea,
+select {
   background: transparent;
   font-family: "Yekan Bakh";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
 }
 
 ::placeholder {
@@ -185,6 +189,10 @@ textarea {
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
   -webkit-text-fill-color: #1e1e1e;
   box-shadow: inset 0 0 20px 20px #ffffff;
+}
+
+select:focus, select:focus-visible, select:focus-within {
+  outline: none;
 }
 
 a {
@@ -286,8 +294,18 @@ a {
   text-decoration: none;
 }
 
+.w-half {
+  width: 50%;
+}
+
+.w-full {
+  width: 100%;
+}
+
 .btn {
   cursor: pointer;
+  display: flex;
+  gap: 0.25rem;
 }
 .btn[variant=primary] {
   background-color: #1e1e1e;
@@ -347,11 +365,115 @@ a {
   border-bottom: 1px solid #1b51de;
 }
 
+input {
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: border-color 0.3s ease;
+}
+input::-webkit-inner-spin-button {
+  display: none;
+  margin: 0;
+}
+input[type=radio] {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #969696;
+  position: relative;
+  isolation: isolate;
+}
+input[type=radio]::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  width: unset;
+  height: unset;
+  z-index: 1;
+  border-radius: inherit;
+  background-color: #1b51de;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+input[type=radio]:checked {
+  border-color: #1b51de;
+}
+input[type=radio]:checked::after {
+  transform: scale(1);
+}
+input[type=file] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  cursor: pointer;
+}
+input.w-half {
+  width: auto;
+  flex-basis: calc(50% - (0.5rem));
+}
+input:focus {
+  border-color: #1b51de;
+}
+
+label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
 .input-primary {
   background: transparent;
-  border-bottom: 1px solid #969696;
+  border: none;
+  border-bottom: 1px solid #c5c5c5;
   padding: 0.75rem;
   text-align: right;
+}
+.input-label {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  display: block;
+  color: #1e1e1e;
+  margin-block-start: 1rem;
+}
+.input-radio-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0;
+  column-gap: 1.5rem;
+}
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.input-group-even > * {
+  flex: 1;
+}
+.input-file-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.input-file-wrapper i {
+  color: #1b51de;
 }
 
 .title-has-line {
@@ -1316,6 +1438,104 @@ main.single-product-page .favorite-products__favorite_post-wrapper {
   main.single-product-page .favorite-products__favorite_post-wrapper {
     grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
   }
+}
+
+.pricing {
+  margin-block: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+.pricing > * {
+  flex: 1;
+}
+@media screen and (max-width: 992px) {
+  .pricing {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.pricing h4 {
+  margin-block-start: 1.5rem;
+}
+.pricing-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.pricing-content-title {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 44.5px;
+}
+.pricing-content-description {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.pricing-content-description a {
+  color: #1b51de;
+}
+.pricing-image {
+  position: sticky;
+  top: 0;
+}
+@media screen and (max-width: 992px) {
+  .pricing-image {
+    position: static;
+  }
+}
+.pricing-form-submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-block-start: 0.75rem;
+}
+.pricing-form-submit .btn {
+  padding: 0.5rem 1rem;
+}
+@media screen and (max-width: 768px) {
+  .pricing-form .w-half {
+    width: 100%;
+    flex-basis: 100%;
+  }
+}
+.pricing-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 0.3s ease-in-out;
+}
+.pricing-collapse > div {
+  overflow: hidden;
+}
+.pricing-collapse[data-active=true] {
+  grid-template-rows: 1fr;
+}
+.pricing-collapse[data-active=true] + .pricing-collapse-handle i {
+  transform: rotate(180deg);
+}
+.pricing-collapse-handle {
+  cursor: pointer;
+  color: #1b51de;
+  margin-block-start: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.pricing-collapse-handle i {
+  transition: transform 0.3s ease;
 }
 
 @font-face {
@@ -4900,5 +5120,98 @@ main.single-product-page .favorite-products__favorite_post-wrapper {
 .iconsax[icon-name=x-square]:before {
   content: "\e871";
 }
+
+/**
+ * Minified by jsDelivr using clean-css v5.3.0.
+ * Original file: /npm/toastify-js@1.12.0/src/toastify.css
+ *
+ * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+ */
+/*!
+ * Toastify js 1.12.0
+ * https://github.com/apvarun/toastify-js
+ * @license MIT licensed
+ *
+ * Copyright (C) 2018 Varun A P
+ */
+.toastify {
+  padding: 12px 20px;
+  color: #fff;
+  display: inline-block;
+  box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3);
+  background: -webkit-linear-gradient(315deg, #73a5ff, #5477f5);
+  background: linear-gradient(135deg, #73a5ff, #5477f5);
+  position: fixed;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  max-width: calc(50% - 20px);
+  z-index: 2147483647;
+}
+
+.toastify.on {
+  opacity: 1;
+}
+
+.toast-close {
+  background: 0 0;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  opacity: 0.4;
+  padding: 0 5px;
+}
+
+.toastify-right {
+  right: 15px;
+}
+
+.toastify-left {
+  left: 15px;
+}
+
+.toastify-top {
+  top: -150px;
+}
+
+.toastify-bottom {
+  bottom: -150px;
+}
+
+.toastify-rounded {
+  border-radius: 25px;
+}
+
+.toastify-avatar {
+  width: 1.5em;
+  height: 1.5em;
+  margin: -7px 5px;
+  border-radius: 2px;
+}
+
+.toastify-center {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  max-width: fit-content;
+  max-width: -moz-fit-content;
+}
+
+@media only screen and (max-width: 360px) {
+  .toastify-left,
+  .toastify-right {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    max-width: fit-content;
+  }
+}
+
 
 /*# sourceMappingURL=compiled.css.map */
