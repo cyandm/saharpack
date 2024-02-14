@@ -1,1 +1,265 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
+
+.header {
+  padding-block: $s_6;
+
+  section {
+    @include d_flex(row, space-between, center, nowrap);
+
+    .menu-handler {
+      @media (max-width: 1260px) {
+        min-width: 33%;
+      }
+      > i {
+        width: fit-content;
+      }
+    }
+
+    .right-header {
+      @include d_flex(row, space-between, center, nowrap, $gap: $s_13);
+
+      @media (max-width: 1260px) {
+        min-width: 33%;
+        justify-content: center;
+      }
+
+      &__logo {
+        img {
+          max-width: 6.875rem;
+          height: auto;
+
+          @include mq("md") {
+            max-width: 5.375rem;
+          }
+        }
+
+        a {
+          @include d_flex(row, center, center);
+        }
+      }
+
+      &__menu {
+        @media (max-width: 1260px) {
+          display: none;
+        }
+
+        .header-menu {
+          @include d_flex($gap: $s_4);
+          li {
+            position: relative;
+            padding-block: $s_2;
+
+            > a {
+              color: $clr_gray_text;
+              @include fs("body-s");
+              position: relative;
+              display: block;
+
+              &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                border-radius: 1.25rem;
+                top: $s_9;
+                left: 0;
+                height: 2px;
+                width: 100%;
+                background: $clr_dark_text;
+                transform-origin: right top;
+                transform: scale(0, 1);
+                transition: color 0.1s, transform 0.2s ease-out;
+              }
+
+              &:active::before {
+                background-color: $clr_dark_text;
+              }
+
+              &:hover::before,
+              &:focus::before {
+                transform-origin: left top;
+                transform: scale(1, 1);
+              }
+
+              &:hover {
+                color: $clr_dark_text;
+              }
+            }
+
+            &.menu-item-has-children {
+              > a {
+                @include d_flex(row, center, center, $gap: $s_1);
+                @include make_icon("\eb75");
+
+                &::after {
+                  transition: $t_1;
+                }
+              }
+
+              &:has(.sub-menu[data-active="true"]) {
+                a {
+                  color: #1e1e1e;
+                  &::before {
+                    transform-origin: left top;
+                    transform: scale(1, 1);
+                  }
+
+                  &::after {
+                    rotate: 180deg;
+                    color: $clr_secondary_dark;
+                  }
+                }
+              }
+
+              .sub-menu {
+                display: none;
+                position: absolute;
+                background: $clr_bg_default;
+                border: $b_1;
+                min-width: 22.5rem;
+                top: $s_12;
+                right: 0;
+
+                &[data-active="true"] {
+                  display: block;
+                }
+
+                li {
+                  > a {
+                    padding: $s_4;
+                    border-bottom: 1px solid $clr_border_light;
+
+                    &:hover {
+                      background: $clr_bg_paper;
+                    }
+
+                    &::before {
+                      display: none;
+                    }
+                  }
+
+                  &:last-child a {
+                    border-bottom: none;
+                  }
+                }
+              }
+            }
+          }
+
+          li.current_page_item a {
+            &::before {
+              transform-origin: left top;
+              transform: scale(1, 1);
+              background-color: $clr_dark_text;
+            }
+            color: $clr_dark_text;
+          }
+        }
+      }
+    }
+
+    .left-header {
+      @include d_flex(row, center, center, $gap: $s_2);
+
+      @media (max-width: 1260px) {
+        min-width: 33%;
+        justify-content: end;
+      }
+
+      &__login-btn {
+        @include d_flex($j_c: center, $a_i: center);
+        border: $b_1;
+        padding: $s_2 $s_2;
+
+        @media (max-width: 1260px) {
+          display: none;
+        }
+
+        &.has-children {
+          @include make_icon("\eb75");
+          position: relative;
+          cursor: pointer;
+
+          &::after {
+            transition: $t_1;
+          }
+
+          &:has(.children[data-active="true"]) {
+            &::after {
+              rotate: 180deg;
+              transition: $t_1;
+              color: $clr_secondary_dark;
+            }
+          }
+
+          > i {
+            padding-inline-end: $s_1;
+          }
+
+          .children {
+            display: none;
+            position: absolute;
+            top: $s_10;
+            right: 0;
+            min-width: 250px;
+            margin-inline-start: -1px;
+
+            &[data-active="true"] {
+              display: block;
+            }
+
+            > div {
+              padding-block-start: $s_1;
+            }
+
+            ul {
+              border: $b_1;
+              background: $clr_bg_default;
+              min-width: 100%;
+
+              li {
+                a {
+                  display: block;
+                  @include fs("body-s");
+
+                  min-width: 100%;
+                  border-bottom: 1px solid $clr_border_light;
+                  padding: 1rem;
+
+                  &:hover {
+                    background: $clr_bg_paper;
+                  }
+                }
+
+                &:last-child a {
+                  border-bottom: none;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &__search-btn {
+        @include d_flex($j_c: center, $a_i: center);
+        border: $b_1;
+        padding: $s_2 $s_2;
+      }
+
+      &__cart-btn {
+        @include d_flex($j_c: center, $a_i: center, $gap: $s_1);
+        padding: $s_1 $s_4;
+        @include fs("body-s");
+
+        @include mq("md") {
+          padding: $s_2;
+        }
+
+        > span {
+          @include mq("md") {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

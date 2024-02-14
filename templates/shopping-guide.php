@@ -1,4 +1,4 @@
-<?php /* Template Name: About-us Page */ ?>
+<?php /* Template Name: Shopping guide Page */ ?>
 
 <?php
 $title = get_field('title');
@@ -13,11 +13,11 @@ $description = get_field('description');
 
 <main class="container">
 
-    <section class="about-us">
+    <section class="shop-guide">
 
-        <div class="about-us__content">
+        <div class="shop-guide__content">
 
-            <div class="about-us__content__title">
+            <div class="shop-guide__content__title">
 
                 <h1><span><?= $title ?></span></h1>
 
@@ -29,7 +29,7 @@ $description = get_field('description');
 
             if (!$video_show) : ?>
 
-                <div class="about-us__content__video">
+                <div class="shop-guide__content__video">
 
                     <video width="100%" height="100%" controls class="video">
 
@@ -48,7 +48,7 @@ $description = get_field('description');
 
             <?php if (!empty($description)) : ?>
 
-                <div class="about-us__content__description">
+                <div class="shop-guide__content__description">
 
                     <?= $description ?>
 

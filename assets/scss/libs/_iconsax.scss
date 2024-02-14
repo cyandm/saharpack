@@ -6,6 +6,7 @@
     url('../fonts/icons/iconsax/iconsax.woff') format('woff'),
     url('../fonts/icons/iconsax/iconsax.woff2') format('woff2'),
     url('../fonts/icons/iconsax/iconsax.svg') format('svg');
+
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -14,7 +15,6 @@
 .iconsax {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'iconsax' !important;
-  speak: never;
   font-size: 20px;
   font-style: normal;
   font-weight: normal;

@@ -1,0 +1,31 @@
+@use "../utils/" as *;
+
+.err-page {
+  @include d_flex(row, center, center);
+  margin-block-start: $s_5;
+  min-height: 50vh;
+
+  &__content {
+    max-width: 600px;
+    @include d_flex(column, center, center, $gap: $s_3);
+
+    &__img {
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+
+    &__text {
+      @include d_flex(row, center, center);
+      @include fs("body");
+      text-align: center;
+    }
+
+    &__btn {
+      @include d_flex(row, center, center);
+      @include fs("body");
+    }
+  }
+}
