@@ -422,6 +422,72 @@
     }
     deActivateEl(nodeEl);
   };
+  var addListener = (elementNode, eventType, func) => {
+    if (elementNode.getAttribute("hasListener"))
+      return;
+    elementNode.setAttribute("hasListener", true);
+    elementNode.addEventListener(eventType, func);
+  };
+
+  // assets/js/modules/ajax-search.js
+  var ajaxSearch = () => {
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
+    const ajaxSearchResultWrapper = document.getElementById(
+      "ajaxSearchResultWrapper"
+    );
+    const ajaxSearchResult = document.getElementById("ajaxSearchResult");
+    const ajaxSearchLoading = document.getElementById("ajaxSearchLoading");
+    const ajaxSearchViewAll = document.getElementById("ajaxSearchViewAll");
+    const ajaxSearchClose = document.getElementById("ajaxSearchClose");
+    if (!searchInput)
+      return;
+    if (!searchForm)
+      return;
+    let timeOut2;
+    addListener(searchInput, "keyup", (e) => {
+      activateEl(ajaxSearchLoading);
+      activateEl(ajaxSearchResultWrapper);
+      const value = e.target.value;
+      if (value === "" || value.length <= 3) {
+        deActivateEl(ajaxSearchLoading);
+        return;
+      }
+      clearTimeout(timeOut2);
+      timeOut2 = setTimeout(() => {
+        jQuery(($) => {
+          $.ajax({
+            type: "post",
+            url: cyn_head_script.url,
+            data: {
+              _nonce: cyn_head_script.nonce,
+              action: "cyn_ajax_search",
+              value,
+              postType: e.target.dataset.postType
+            },
+            success: (response) => {
+              ajaxSearchResult.innerHTML = response.html;
+              if (response.foundPosts < 3) {
+                deActivateEl(ajaxSearchViewAll);
+              } else {
+                activateEl(ajaxSearchViewAll);
+              }
+              deActivateEl(ajaxSearchLoading);
+            }
+          });
+        });
+      }, 500);
+    });
+    addListener(ajaxSearchViewAll, "click", (e) => {
+      searchForm.dispatchEvent(
+        new Event("submit", { cancelable: true, bubbles: true })
+      );
+    });
+    addListener(ajaxSearchClose, "click", (e) => {
+      deActivateEl(ajaxSearchResultWrapper);
+    });
+  };
+  ajaxSearch();
 
   // assets/js/pages/pricing.js
   var Pricing = () => {
@@ -468,6 +534,75 @@
     });
   };
   PricingForm();
+
+  // assets/js/pages/search.js
+  var SearchPage = () => {
+    var _a;
+    const searchPage = document.getElementById("searchPage");
+    if (!searchPage)
+      return;
+    const urlParams = new URLSearchParams(window.location.search);
+    const post_type = (_a = urlParams.get("post_type")) != null ? _a : "default";
+    const currentRadio = document.querySelector(
+      'input[type="radio"][value='.concat(post_type, "]")
+    );
+    currentRadio.checked = true;
+    searchPageAjax();
+  };
+  var searchPageAjax = () => {
+    const postsContainer = document.getElementById("postsContainer");
+    const foundPostsEl = document.getElementById("foundPosts");
+    const searchPageForm = document.getElementById("searchPageForm");
+    const searchPageInput = document.getElementById("searchPageInput");
+    const searchRadioGroup = document.querySelectorAll('input[type="radio"]');
+    addListener(
+      searchPageInput,
+      "keyup",
+      () => searchPageForm.dispatchEvent(
+        new Event("submit", { bubbles: false, cancelable: false })
+      )
+    );
+    searchRadioGroup.forEach((el) => {
+      addListener(
+        el,
+        "change",
+        () => searchPageForm.dispatchEvent(
+          new Event("submit", { bubbles: false, cancelable: false })
+        )
+      );
+    });
+    addListener(
+      searchPageForm,
+      "submit",
+      (e) => ajaxSearchQuery(e, postsContainer, foundPostsEl)
+    );
+  };
+  var timeOut;
+  var ajaxSearchQuery = (e, postsContainer, foundPostsEl) => {
+    e.preventDefault();
+    clearTimeout(timeOut);
+    const formData = new FormData(e.currentTarget, e.submitter);
+    formData.append("action", "cyn_ajax_search_page");
+    formData.append("_nonce", cyn_head_script.nonce);
+    timeOut = setTimeout(() => {
+      jQuery(($) => {
+        $.ajax({
+          type: "POST",
+          url: cyn_head_script.url,
+          cache: false,
+          processData: false,
+          contentType: false,
+          data: formData,
+          success: (res) => {
+            postsContainer.innerHTML = res.html;
+            foundPostsEl.innerText = res.foundPosts;
+          }
+        });
+      });
+    }, 1e3);
+  };
+  SearchPage();
+  searchPageAjax();
 })();
 /*! Bundled license information:
 

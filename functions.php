@@ -9,4 +9,6 @@ require_once( __DIR__ . '/inc/functions/cyn-general.php' );
 require_once( __DIR__ . '/inc/functions/cyn-translate.php' );
 require_once( __DIR__ . '/inc/functions/cyn-form.php' );
 require_once( __DIR__ . '/inc/functions/cyn-sms.php' );
+require_once( __DIR__ . '/inc/functions/cyn-ajax-general.php' );
+require_once( __DIR__ . '/inc/functions/cyn-search.php' );
 require_once( __DIR__ . '/inc/functions/cyn-meta-box.php' );
