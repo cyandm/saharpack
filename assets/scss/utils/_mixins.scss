@@ -77,7 +77,7 @@
 @mixin make_icon($content) {
   &::after {
     content: $content;
-    font-family: "cyan-icon" !important;
+    font-family: "iconsax" !important;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;

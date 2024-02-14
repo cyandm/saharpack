@@ -63,6 +63,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-clip: border-box;
+        overflow: hidden;
 
         &::before {
           display: inline-block;
@@ -75,6 +76,16 @@
           background-size: cover;
           background-repeat: no-repeat;
           background-clip: border-box;
+
+          @keyframes scaleup {
+            0% {
+              transform: scale(1);
+            }
+
+            100% {
+              transform: scale(5);
+            }
+          }
         }
 
         > i {

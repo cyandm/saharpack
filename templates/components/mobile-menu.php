@@ -1,10 +1,24 @@
-<i class="icon-menu" id="mobileMenuToggle"></i>
+<div class="menu-handler">
+    <i class="iconsax icon-menu" icon-name="hamburger-menu" id="mobileMenuToggle"></i>
+</div>
 
 <div class="mobile-menu" id="mobileMenu">
 
-    <a href="#" class="primary-btn">
-        یه پروژه بساز
-    </a>
+    <?php if (is_user_logged_in()) : ?>
+
+        <a href="#" class="btn tracking" variant="secondary">
+            <?php pll_e('پیگیری سفارش'); ?>
+        </a>
+
+    <?php endif ?>
+
+    <?php if (!is_user_logged_in()) : ?>
+
+        <a href="/login" class="btn tracking" variant="secondary">
+            <?php pll_e('ورود یا ثبت‌نام'); ?>
+        </a>
+
+    <?php endif ?>
 
     <div class="mobile-menu-nav">
         <?php wp_nav_menu([

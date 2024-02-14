@@ -90,4 +90,50 @@
       });
     });
   }
+
+  // assets/js/modules/header.js
+  var menu = document.querySelectorAll(".menu-item-has-children");
+  menu.forEach((el) => {
+    const submenu = el.querySelector(".sub-menu");
+    el.addEventListener("mouseenter", () => {
+      activateEl(submenu);
+    });
+    el.addEventListener("mouseleave", () => {
+      deActivateEl(submenu);
+    });
+  });
+  var elementWidth = document.querySelector(".left-header").clientWidth;
+  console.log(elementWidth);
+
+  // assets/js/utils/variable.js
+  var rootEl = document.querySelector(":root");
+  var containerEL = document.querySelector(".container");
+  var headerEl = document.querySelector("header");
+  var footerEl = document.querySelector("footer");
+  var headerHeight;
+  var marginFromSide;
+  var footerHeight;
+  var makeKebab = (str) => str.replace(
+    /[A-Z]+(?![a-z])|[A-Z]/g,
+    ($, ofs) => (ofs ? "-" : "") + $.toLowerCase()
+  );
+  var setCssVariable = (value, name, parent = rootEl, prefix = "px") => {
+    const kebabName = makeKebab(name);
+    parent.style.setProperty("--".concat(kebabName), value + prefix);
+  };
+  var setCssVariableGroup = () => {
+    headerHeight = headerEl.getClientRects()[0].height;
+    if (footerEl) {
+      footerHeight = footerEl.getClientRects()[0].height;
+    } else {
+      footerHeight = 0;
+    }
+    const containerWidth = containerEL.clientWidth;
+    marginFromSide = (window.innerWidth - containerWidth) / 2;
+    setCssVariable(headerHeight, "headerHeight");
+    setCssVariable(marginFromSide, "marginFromSide");
+    setCssVariable(footerHeight, "footerHeight");
+  };
+  window.addEventListener("load", setCssVariableGroup);
+  window.addEventListener("resize", setCssVariableGroup);
 })();

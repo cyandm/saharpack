@@ -36,18 +36,45 @@
 
 			<div class="left-header">
 
+				<?php if (!is_user_logged_in()) : ?>
+					<a href="/login" class="left-header__login-btn">
+						<i class="iconsax" icon-name="login-2"></i>
+					</a>
+				<?php endif ?>
 
-				<a href="#" class="left-header__login-btn">
-					<i class="iconsax" icon-name="login-2"></i>
-				</a>
+				<?php if (is_user_logged_in()) : ?>
+					<div class="left-header__login-btn has-children menu-item-has-children">
+						<i class="iconsax" icon-name="user-2"></i>
 
-				<a href="#" class="left-header__search-btn">
+						<div class="children sub-menu">
+							<div>
+								<ul>
+									<li>
+										<a href="#">
+											<?php pll_e("پیگیری سفارش") ?>
+										</a>
+									</li>
+
+									<li>
+										<a href="#">
+											<?php pll_e("خروج از حساب") ?>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+
+				<?php endif ?>
+
+				<a href="/?s" class="left-header__search-btn">
 					<i class="iconsax" icon-name="search-normal-2"></i>
 				</a>
 
 				<a href="<?= esc_url(wc_get_cart_url()); ?>" class="left-header__cart-btn btn" variant="primary">
 					<i class="iconsax" icon-name="shopping-cart"></i>
-					سبد خرید
+					<span><?php pll_e('سبد خرید'); ?></span>
 				</a>
 
 			</div>
