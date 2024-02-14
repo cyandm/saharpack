@@ -1,9 +1,5 @@
-import {
-	errorToast,
-	successFormToast,
-	successToast,
-} from '../modules/toastify';
-import { activateEl, toggleActivateEl } from '../utils/functions';
+import { errorToast, successFormToast } from '../modules/toastify';
+import { toggleActivateEl } from '../utils/functions';
 
 const Pricing = () => {
 	const pricingCollapseHandle = document.getElementById(
