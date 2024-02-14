@@ -1,108 +1,116 @@
 @use '../utils/' as *;
 
 input {
-	appearance: none;
-	cursor: pointer;
-	display: inline-block;
-	transition: border-color 0.3s ease;
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: border-color 0.3s ease;
 
-	&::-webkit-inner-spin-button {
-		display: none;
-		margin: 0;
-	}
+  &::-webkit-inner-spin-button {
+    display: none;
+    margin: 0;
+  }
 
-	&[type='radio'] {
-		width: $s_6;
-		height: $s_6;
-		background-color: #fff;
-		border-radius: 50%;
-		border: $b_2;
+  &[type='radio'] {
+    width: $s_6;
+    height: $s_6;
+    background-color: #fff;
+    border-radius: 50%;
+    border: $b_2;
 
-		@include pseudo(3px, unset) {
-			border-radius: inherit;
-			background-color: $clr_accent_dark;
-			transform: scale(0);
-			transition: transform 0.3s ease;
-		}
+    @include pseudo(3px, unset) {
+      border-radius: inherit;
+      background-color: $clr_accent_dark;
+      transform: scale(0);
+      transition: transform 0.3s ease;
+    }
 
-		&:checked {
-			border-color: $clr_accent_dark;
-			&::after {
-				transform: scale(1);
-			}
-		}
-	}
+    &:checked {
+      border-color: $clr_accent_dark;
+      &::after {
+        transform: scale(1);
+      }
+    }
+  }
 
-	&[type='file'] {
-		position: absolute;
-		inset: 0;
-		opacity: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 10;
-		cursor: pointer;
-	}
+  &[type='file'] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+  }
 
-	&.w-half {
-		width: auto;
-		flex-basis: calc(50% - ($s_2));
-	}
+  &.w-half {
+    width: auto;
+    flex-basis: calc(50% - ($s_2));
+  }
 
-	&:focus {
-		border-color: $clr_accent_dark;
-	}
+  &:focus {
+    border-color: $clr_accent_dark;
+  }
 }
 
 label {
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	gap: $s_1;
-	cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: $s_1;
+  cursor: pointer;
 }
 
 .input {
-	&-primary {
-		background: transparent;
-		border: none;
-		border-bottom: $b_3;
-		padding: $s_3;
-		text-align: right;
-	}
+  &-primary {
+    background: transparent;
+    border: none;
+    border-bottom: $b_3;
+    padding: $s_3;
+    text-align: right;
+  }
 
-	&-label {
-		@include fs('h5');
-		display: block;
-		color: $clr_text_dark;
-		margin-block-start: $s_4;
-	}
+  &-label {
+    @include fs('h5');
+    display: block;
+    color: $clr_text_dark;
+    margin-block-start: $s_4;
+  }
 
-	&-radio {
-		&-wrapper {
-			@include d_flex();
-			column-gap: $s_6;
-		}
-	}
+  &-radio {
+    &-wrapper {
+      @include d_flex();
+      column-gap: $s_6;
+    }
+  }
 
-	&-group {
-		width: 100%;
-		@include d_flex($wrap: wrap, $gap: $s_4);
+  &-group {
+    width: 100%;
+    @include d_flex($wrap: wrap, $gap: $s_4);
 
-		&-even {
-			> * {
-				flex: 1;
-			}
-		}
-	}
+    &-even {
+      > * {
+        flex: 1;
+      }
+    }
+  }
 
-	&-file {
-		&-wrapper {
-			position: relative;
-			@include d_flex(row, space-between, center);
+  &-file {
+    &-wrapper {
+      position: relative;
+      @include d_flex(row, space-between, center);
 
-			i {
-				color: $clr_accent_dark;
-			}
-		}
-	}
+      i {
+        color: $clr_accent_dark;
+      }
+    }
+  }
+}
+.search-input {
+  .input-primary {
+    @include d_flex(row, center, center, nowrap, false, $s_3);
+    i {
+      @include d_flex(row, center, center, nowrap);
+    }
+  }
 }

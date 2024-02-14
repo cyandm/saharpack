@@ -241,6 +241,7 @@ input {
 }
 
 .breadcrumb-wrapper {
+  margin-bottom: 1.5rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -348,13 +349,13 @@ a {
   flex-wrap: nowrap;
   gap: 0;
 }
+.header section .menu-handler > i {
+  width: fit-content;
+}
 @media (max-width: 1260px) {
   .header section .menu-handler {
     min-width: 33%;
   }
-}
-.header section .menu-handler > i {
-  width: fit-content;
 }
 .header section .right-header {
   display: flex;
@@ -936,6 +937,23 @@ label {
 }
 .input-file-wrapper i {
   color: #1b51de;
+}
+
+.search-input .input-primary {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+.search-input .input-primary i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
 }
 
 .title-has-line {
@@ -1754,6 +1772,7 @@ main.single-product-page .product-detail-container .product-detail-and-thumbnail
   gap: 1rem;
 }
 main.single-product-page .product-detail-container .product-detail-and-thumbnail .product-thumbnail img {
+  min-height: 12.5rem;
   width: 100%;
   max-height: 32.25rem;
   object-fit: contain;
@@ -1988,6 +2007,7 @@ main.single-product-page .favorite-products__title {
 }
 main.single-product-page .favorite-products__favorite_post-wrapper {
   display: grid;
+  justify-content: stretch;
   grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
   gap: 0.75rem 1rem;
 }
@@ -2405,6 +2425,36 @@ main.single-product-page .favorite-products__favorite_post-wrapper {
 
 .without-cover {
   display: none;
+}
+
+main.product-page .products-container .category-and-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+@media screen and (max-width: 768px) {
+  main.product-page .products-container .category-and-search {
+    flex-direction: column;
+  }
+}
+main.product-page .products-wrapper {
+  display: grid;
+  justify-content: stretch;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  gap: 0.75rem 1rem;
+}
+@media screen and (max-width: 768px) {
+  main.product-page .products-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  }
+}
+@media screen and (max-width: 480px) {
+  main.product-page .products-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  }
 }
 
 @font-face {

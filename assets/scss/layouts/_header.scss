@@ -1,4 +1,4 @@
-@use "../utils/" as *;
+@use '../utils/' as *;
 
 .header {
   padding-block: $s_6;
@@ -7,11 +7,11 @@
     @include d_flex(row, space-between, center, nowrap);
 
     .menu-handler {
-      @media (max-width: 1260px) {
-        min-width: 33%;
-      }
       > i {
         width: fit-content;
+      }
+      @media (max-width: 1260px) {
+        min-width: 33%;
       }
     }
 
@@ -28,7 +28,7 @@
           max-width: 6.875rem;
           height: auto;
 
-          @include mq("md") {
+          @include mq('md') {
             max-width: 5.375rem;
           }
         }
@@ -51,12 +51,12 @@
 
             > a {
               color: $clr_gray_text;
-              @include fs("body-s");
+              @include fs('body-s');
               position: relative;
               display: block;
 
               &::before {
-                content: "";
+                content: '';
                 display: block;
                 position: absolute;
                 border-radius: 1.25rem;
@@ -88,14 +88,14 @@
             &.menu-item-has-children {
               > a {
                 @include d_flex(row, center, center, $gap: $s_1);
-                @include make_icon("\eb75");
+                @include make_icon('\eb75');
 
                 &::after {
                   transition: $t_1;
                 }
               }
 
-              &:has(.sub-menu[data-active="true"]) {
+              &:has(.sub-menu[data-active='true']) {
                 a {
                   color: #1e1e1e;
                   &::before {
@@ -119,7 +119,7 @@
                 top: $s_12;
                 right: 0;
 
-                &[data-active="true"] {
+                &[data-active='true'] {
                   display: block;
                 }
 
@@ -175,7 +175,7 @@
         }
 
         &.has-children {
-          @include make_icon("\eb75");
+          @include make_icon('\eb75');
           position: relative;
           cursor: pointer;
 
@@ -183,7 +183,7 @@
             transition: $t_1;
           }
 
-          &:has(.children[data-active="true"]) {
+          &:has(.children[data-active='true']) {
             &::after {
               rotate: 180deg;
               transition: $t_1;
@@ -203,7 +203,7 @@
             min-width: 250px;
             margin-inline-start: -1px;
 
-            &[data-active="true"] {
+            &[data-active='true'] {
               display: block;
             }
 
@@ -219,7 +219,7 @@
               li {
                 a {
                   display: block;
-                  @include fs("body-s");
+                  @include fs('body-s');
 
                   min-width: 100%;
                   border-bottom: 1px solid $clr_border_light;
@@ -248,14 +248,14 @@
       &__cart-btn {
         @include d_flex($j_c: center, $a_i: center, $gap: $s_1);
         padding: $s_1 $s_4;
-        @include fs("body-s");
+        @include fs('body-s');
 
-        @include mq("md") {
+        @include mq('md') {
           padding: $s_2;
         }
 
         > span {
-          @include mq("md") {
+          @include mq('md') {
             display: none;
           }
         }

@@ -12,7 +12,7 @@ if (isset($social)) {
 }
 
 if (isset($logo)) {
-	$img_logo = $logo['ID'];
+	$img_logo = $logo;
 }
 
 if (isset($phone)) {

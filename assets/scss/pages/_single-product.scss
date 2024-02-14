@@ -16,6 +16,7 @@ main.single-product-page {
 
       .product-thumbnail {
         img {
+          min-height: px_to_rem(200);
           width: 100%;
           max-height: px_to_rem(516);
           object-fit: contain;
@@ -165,6 +166,7 @@ main.single-product-page {
     }
     &__favorite_post-wrapper {
       display: grid;
+      justify-content: stretch;
       grid-template-columns: repeat(auto-fill, minmax(px_to_rem(352), 1fr));
       gap: px_to_rem(12) px_to_rem(16);
       @include mq('md') {
