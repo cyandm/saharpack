@@ -1,11 +1,13 @@
-@use './variables' as *;
-@use './functions' as *;
-@use './mixins' as *;
+@use "./variables" as *;
+@use "./functions" as *;
+@use "./mixins" as *;
 
 .container {
   max-width: 1440px;
   margin-inline: auto;
-  padding-inline: px_to_rem(16);
+  @media (max-width: 1460px) {
+    padding-inline: px_to_rem(16);
+  }
 }
 
 .even-columns {
@@ -28,7 +30,7 @@ textarea {
 button,
 ::placeholder,
 textarea {
-  font-family: 'Yekan Bakh';
+  font-family: "Yekan Bakh";
 }
 
 a {

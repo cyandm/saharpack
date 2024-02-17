@@ -1,4 +1,4 @@
-@use './functions' as *;
+@use "./functions" as *;
 
 //#region colors
 $clr_primary_light: #969696;
@@ -19,12 +19,6 @@ $clr_bg_menu: #f2f2f2;
 $clr_border_light: #dddddd;
 $clr_border_gray: #e6e6e6;
 
-$clr_dark_text: #1e1e1e;
-$clr_main_text: #505050;
-$clr_light_text: #969696;
-$clr_gray_text: #626262;
-$clr_contrast_text: #ffffff;
-
 $clr_success_light: #4caf50;
 $clr_success_main: #2e7d32;
 $clr_success_dark: #1b5e20;
@@ -44,7 +38,10 @@ $clr_info_dark: #01579b;
 $clr_text_dark: #1e1e1e;
 $clr_text_main: #505050;
 $clr_text_light: #969696;
+$clr_text_gray: #626262;
 $clr_text_contrast: #ffffff;
+
+$clr_text_border: #acacac;
 
 $clr_natural_1: #ffffff;
 $clr_natural_2: #eaeaea;

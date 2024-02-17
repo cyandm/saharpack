@@ -50,7 +50,7 @@
             padding-block: $s_2;
 
             > a {
-              color: $clr_gray_text;
+              color: $clr_text_gray;
               @include fs("body-s");
               position: relative;
               display: block;
@@ -64,14 +64,14 @@
                 left: 0;
                 height: 2px;
                 width: 100%;
-                background: $clr_dark_text;
+                background: $clr_text_dark;
                 transform-origin: right top;
                 transform: scale(0, 1);
                 transition: color 0.1s, transform 0.2s ease-out;
               }
 
               &:active::before {
-                background-color: $clr_dark_text;
+                background-color: $clr_text_dark;
               }
 
               &:hover::before,
@@ -81,7 +81,7 @@
               }
 
               &:hover {
-                color: $clr_dark_text;
+                color: $clr_text_dark;
               }
             }
 
@@ -149,9 +149,9 @@
             &::before {
               transform-origin: left top;
               transform: scale(1, 1);
-              background-color: $clr_dark_text;
+              background-color: $clr_text_dark;
             }
-            color: $clr_dark_text;
+            color: $clr_text_dark;
           }
         }
       }

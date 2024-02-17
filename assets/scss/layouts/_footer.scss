@@ -66,7 +66,7 @@
           .social-icon {
             @include d_flex(row, center, center);
             border-radius: 50%;
-            background: $clr_contrast_text;
+            background: $clr_text_contrast;
             width: $s_8;
             height: $s_8;
             transition: $t_1;
@@ -75,7 +75,7 @@
               background: $clr_secondary_dark;
 
               path {
-                fill: $clr_contrast_text;
+                fill: $clr_text_contrast;
                 transition: $t_1;
               }
             }

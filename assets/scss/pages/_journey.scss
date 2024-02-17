@@ -1,0 +1,148 @@
+@use "../utils/" as *;
+
+.journey {
+  &__title {
+    min-width: 100%;
+    margin-block: $s_11 $s_8;
+
+    h1 {
+      @include fs("h1");
+      @include d_flex(row, center, center);
+      @include border_title;
+    }
+  }
+
+  &__content {
+    @include d_flex(column, $gap: 112px);
+    counter-reset: number-title;
+
+    @include mq("lg") {
+      gap: $s_12;
+    }
+
+    &__card {
+      @include d_flex(row, start, center, $gap: $s_4);
+      min-width: 100%;
+
+      @include mq("lg") {
+        flex-direction: column-reverse !important;
+        gap: $s_3;
+      }
+
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      div {
+        flex: 1;
+      }
+
+      &__details {
+        @include d_flex(column, $gap: $s_4);
+
+        &__title {
+          h3 {
+            @include fs("h3");
+            @include d_flex(row, center, center, $gap: $s_2);
+            color: $clr_text_dark;
+            position: relative;
+
+            @media (max-width: 395px) {
+              @include fs("h4");
+            }
+
+            &::before {
+              @include d_flex(row, center, center);
+              font-size: 28px;
+              font-weight: bold;
+              counter-increment: number-title;
+              content: counter(number-title);
+              border: $b_1;
+              border-radius: 50%;
+              width: 53px;
+              height: 53px;
+
+              @include mq("sm") {
+                width: $s_10;
+                height: $s_10;
+              }
+            }
+
+            &::after {
+              position: absolute;
+              content: "";
+              right: 4px;
+              top: 1px;
+              border: $b_1;
+              border-radius: 50%;
+              width: 53px;
+              height: 53px;
+
+              @include mq("sm") {
+                width: $s_10;
+                height: $s_10;
+                right: 3px;
+              }
+            }
+          }
+        }
+
+        &__description {
+          @include fs("body-s");
+          color: $clr_text_dark;
+          text-align: justify;
+
+          & ul {
+            > li {
+              list-style: disc;
+              margin-inline-start: $s_6;
+            }
+          }
+        }
+      }
+
+      &__img {
+        @include d_flex(row, center, center);
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  &__end {
+    @include d_flex(column, center, center, $gap: $s_3);
+    @include mq("lg") {
+      margin-block-start: $s_9;
+    }
+
+    &__img {
+      @include d_flex(row, center, center);
+    }
+
+    &__text {
+      @include d_flex(row, center, center);
+      h3 {
+        @include fs("h3");
+        color: $clr_text_dark;
+        @media (max-width: 395px) {
+          @include fs("h4");
+        }
+      }
+    }
+  }
+
+  .scroll-line {
+    position: relative;
+    &::before {
+      position: absolute;
+      content: url("../img/svg/scroll-line.svg");
+      display: block;
+      z-index: -1;
+      left: 50%;
+      top: 55%;
+      translate: -50% -50%;
+    }
+  }
+}

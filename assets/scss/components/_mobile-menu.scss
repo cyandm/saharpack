@@ -51,7 +51,7 @@ body[data-popup-open="true"] {
     &.menu {
       > li {
         padding-block: 1rem;
-        color: $clr_main_text;
+        color: $clr_text_main;
 
         &:not(:last-child) {
           border-bottom: 1px solid $clr_border_light;
@@ -89,7 +89,7 @@ body[data-popup-open="true"] {
       }
 
       &[data-active="true"] {
-        color: $clr_dark_text;
+        color: $clr_text_dark;
 
         > a:after {
           rotate: 180deg;
