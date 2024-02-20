@@ -16,6 +16,7 @@ $last_product = new WP_Query(
     ]
 );
 
+
 ?>
 
 
@@ -42,10 +43,12 @@ $last_product = new WP_Query(
 
                 </form>
                 <div class="input-primary">
-                    <select>
-                        <?php foreach ($cats as $cat) : ?>
-                            <option><?= $cat->name ?></option>
-                        <?php endforeach ?>
+                    <select id="productDropDown">
+                        <option disabled selected><?= pll__('انتخاب دسته بندی') ?></option>
+
+                        <?php for ($i = 0; $i < count($cats); $i++) : ?>
+                            <option data-uri="<?= get_category_link($cats[$i]->term_id) ?>"><?= $cats[$i]->name ?></option>
+                        <?php endfor ?>
                     </select>
                 </div>
             </div>

@@ -1,14 +1,30 @@
 @use '../utils/' as *;
 main.product-page {
   .products-container {
+    @include d_flex(column, flex-start, center, nowrap, false, $s_4);
+    width: 100%;
     .category-and-search {
-      @include d_flex(row, center, stretch, nowrap, false, $s_4);
+      width: 60%;
+      @include d_flex(row, center, center, nowrap, true, $s_4);
+      > * {
+        width: 100%;
+      }
+      #searchPageInput {
+        width: 100%;
+      }
+      .input-primary {
+        select {
+          width: 100%;
+        }
+      }
       @include mq('md') {
         flex-direction: column;
+        width: 100%;
       }
     }
   }
   .products-wrapper {
+    width: 100%;
     display: grid;
     justify-content: stretch;
     grid-template-columns: repeat(auto-fill, minmax(px_to_rem(352), 1fr));

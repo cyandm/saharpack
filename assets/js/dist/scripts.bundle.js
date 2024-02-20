@@ -600,6 +600,23 @@
   var elementWidth = document.querySelector(".left-header").clientWidth;
   console.log(elementWidth);
 
+  // assets/js/modules/drop-down.js
+  var selectHandler = document.getElementById("productDropDown");
+  var optionSelect = document.querySelectorAll("#productDropDown option");
+  console.log(selectHandler);
+  if (selectHandler && optionSelect) {
+    selectHandler.addEventListener("change", (e) => {
+      optionSelect.forEach((el) => {
+        if (el.value === e.target.value) {
+          window.location = el.dataset.uri;
+        }
+      });
+    });
+  }
+
+  // assets/js/modules/__index.js
+  console.log("object");
+
   // assets/js/pages/single-product.js
   var btnShare = document.getElementById("btnShare");
   var titlePage = document.querySelector("#title").textContent;
@@ -758,6 +775,9 @@
   };
   window.addEventListener("load", setCssVariableGroup);
   window.addEventListener("resize", setCssVariableGroup);
+
+  // assets/js/index.js
+  console.log("object");
 })();
 /*! Bundled license information:
 
