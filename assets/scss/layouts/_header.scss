@@ -1,10 +1,14 @@
 @use "../utils/" as *;
 
 .header {
-  padding-block: $s_6;
+  @include d_flex(row, center);
+  z-index: 1000;
+  position: relative;
 
   section {
+    padding-block: $s_6;
     @include d_flex(row, space-between, center, nowrap);
+    width: 100%;
 
     .menu-handler {
       @media (max-width: 1260px) {
@@ -113,6 +117,7 @@
               .sub-menu {
                 display: none;
                 position: absolute;
+                z-index: 12;
                 background: $clr_bg_default;
                 border: $b_1;
                 min-width: 22.5rem;
@@ -262,4 +267,8 @@
       }
     }
   }
+}
+
+.backabsolute {
+  position: absolute;
 }

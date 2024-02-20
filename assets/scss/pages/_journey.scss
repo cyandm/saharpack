@@ -119,6 +119,9 @@
 
     &__img {
       @include d_flex(row, center, center);
+      > img {
+        translate: -38% 4%;
+      }
     }
 
     &__text {
@@ -143,6 +146,9 @@
       left: 50%;
       top: 55%;
       translate: -50% -50%;
+      @media (max-width: 1290px) {
+        display: none;
+      }
     }
   }
 }

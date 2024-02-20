@@ -1,3 +1,3 @@
-import './single-product';
-import './pricing';
-import './search';
+import "./single-product";
+import "./pricing";
+import "./search";

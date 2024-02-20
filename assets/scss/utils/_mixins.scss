@@ -153,7 +153,9 @@
     background: #fff;
     padding-inline: 1rem;
     z-index: 2;
+    @include fs("h1");
     position: relative;
+    text-align: center;
     @include mq("md") {
       @include fs("h2");
       padding-inline: 0;

@@ -1,0 +1,144 @@
+@use "../utils/" as *;
+
+.home {
+  .slider {
+    &__content {
+      position: relative;
+      @include d_flex(row, center, center);
+
+      &__front {
+        position: absolute;
+        top: 60%;
+        right: 5%;
+        translate: 0% -50%;
+        max-width: 375px;
+
+        &__text {
+          text-align: justify;
+        }
+
+        &__img {
+          > img {
+            max-width: 290px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .banner {
+    @include d_flex(row, center, center);
+    background: $clr_primary_dark;
+
+    &__img {
+      @include d_flex(row, center, center);
+      padding: $s_5 $s_3;
+    }
+  }
+
+  .titles-home {
+    @include d_flex(row, center, center);
+    margin-block-end: $s_6;
+
+    @include mq("md") {
+      margin-block-end: $s_3;
+    }
+
+    > h2 {
+      @include fs("h1");
+      text-align: center;
+      max-width: 100%;
+
+      @include mq("md") {
+        @include fs("h2");
+      }
+    }
+    @include border_title();
+  }
+
+  .products {
+    &__content {
+      margin-block-start: $s_11;
+
+      @include mq("md") {
+        margin-block-start: $s_6;
+      }
+
+      &__cards {
+        --min-width: 360px;
+        gap: $s_3;
+
+        @media (max-width: 1152px) {
+          --min-width: 305px;
+        }
+
+        @media (max-width: 990px) {
+          --min-width: 250px;
+        }
+
+        @media (max-width: 561px) {
+          --min-width: 184px;
+        }
+
+        &__item {
+          @include d_flex();
+          position: relative;
+
+          &:hover .products__content__cards__item__name {
+            min-height: 100%;
+          }
+
+          &__name {
+            min-height: 0;
+            transition: $t_1;
+            min-width: 100%;
+            @include fs("h4");
+            position: absolute;
+            bottom: 0;
+            color: $clr_text_contrast;
+            background: $clr_bg_card;
+            backdrop-filter: blur(10px);
+            padding: $s_4;
+            @include d_flex(row, center, center);
+
+            @include mq("lg") {
+              @include fs("h6");
+            }
+
+            @include mq("md") {
+              padding: $s_2;
+            }
+
+            @media (min-width: 429px) and (max-width: 485px) {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .importance {
+    &__content {
+      margin-block-start: $s_11;
+
+      &__img {
+        @include d_flex(row-reverse, center, center);
+        div {
+          flex: 1;
+        }
+
+        @include mq("md") {
+          @include d_flex(column, center, center);
+        }
+      }
+
+      &__text {
+        @include fs("body-s");
+        color: $clr_text_dark;
+        margin-block-start: $s_6;
+      }
+    }
+  }
+}

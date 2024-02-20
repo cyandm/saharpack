@@ -4,3 +4,4 @@ import "./ajax-form";
 import "./toastify";
 import "./ajax-search";
 import "./video-cover";
+import "./swiper";

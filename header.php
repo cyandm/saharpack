@@ -7,12 +7,19 @@
 	<?php wp_head() ?>
 </head>
 
+
+<!-- if change position header -->
+<?php
+$backabsolute = false;
+isset($args['backabsolute']) && $backabsolute = $args['backabsolute'];
+?>
+
 <body <?php body_class() ?>>
 	<?php wp_body_open() ?>
 
 	<header class="header">
 
-		<section class="container">
+		<section class="container <?php echo $backabsolute == true ? 'backabsolute' : '' ?>">
 
 			<?php get_template_part('/templates/components/mobile-menu') ?>
 

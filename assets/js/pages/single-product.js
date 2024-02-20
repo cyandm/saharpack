@@ -1,11 +1,11 @@
-const btnShare = document.getElementById('btnShare');
-const titlePage = document.querySelector('#title').textContent;
+const btnShare = document.getElementById("btnShare");
+const titlePageEl = document.querySelector("#title");
 
 if (btnShare) {
-  btnShare.addEventListener('click', () => {
+  btnShare.addEventListener("click", () => {
     navigator.share({
       url: window.location.href,
-      title: titlePage,
+      title: titlePageEl.textContent,
     });
   });
 }

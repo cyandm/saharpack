@@ -16,8 +16,11 @@ if (isset($logo)) {
 }
 
 if (isset($phone)) {
-	$phone_number = $phone;
+	$phone_number_1 = $phone['phone_1'];
+	$phone_number_2 = $phone['phone_2'];
+	$phone_number_3 = $phone['phone_3'];
 }
+
 
 if (isset($enamad)) {
 	$enamad_img = $enamad;
@@ -53,10 +56,26 @@ if (isset($enamad)) {
 							'menu_class' => 'f-menu'
 						]) ?>
 
-						<?php if (isset($phone_number)) : ?>
+						<?php if (isset($phone_number_1)) : ?>
 
-							<a href="<?= 'tel:' . $phone_number; ?>" class="phone-number">
-								<?= $phone_number ?>
+							<a href="<?= 'tel:' . $phone_number_1; ?>" class="phone-number">
+								<?= $phone_number_1 ?>
+							</a>
+
+						<?php endif; ?>
+
+						<?php if (isset($phone_number_2)) : ?>
+
+							<a href="<?= 'tel:' . $phone_number_2; ?>" class="phone-number">
+								<?= $phone_number_2 ?>
+							</a>
+
+						<?php endif; ?>
+
+						<?php if (isset($phone_number_3)) : ?>
+
+							<a href="<?= 'tel:' . $phone_number_3; ?>" class="phone-number">
+								<?= $phone_number_3 ?>
 							</a>
 
 						<?php endif; ?>
