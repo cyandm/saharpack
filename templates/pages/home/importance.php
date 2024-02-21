@@ -11,6 +11,7 @@ $text_importance = get_field('text_importance');
             <h2 class="titles-home"><span><?= $title_importance ?></span></h2>
         </div>
 
+
         <div class="importance__content__img">
 
             <?php foreach ($images_importance as $img_importance) : ?>
@@ -22,6 +23,7 @@ $text_importance = get_field('text_importance');
             <?php endforeach ?>
 
         </div>
+
 
         <div class="importance__content__text">
 

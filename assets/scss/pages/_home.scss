@@ -135,10 +135,113 @@
       }
 
       &__text {
-        @include fs("body-s");
+        @include fs("body");
         color: $clr_text_dark;
         margin-block-start: $s_6;
       }
     }
   }
+
+  .flex-wrapper {
+    flex: 1;
+    @include d_flex(column);
+    gap: $s_1;
+    @include mq("md") {
+      gap: $s_3;
+    }
+  }
+
+  .travel {
+    &__content {
+      margin-block-start: $s_11;
+
+      &__items {
+        @include d_flex(row, space-between, center, $gap: $s_4);
+
+        @include mq("md") {
+          flex-direction: column-reverse;
+        }
+
+        &__text {
+          text-align: justify;
+          max-width: 500px;
+          @include fs("body");
+          color: $clr_text_dark;
+        }
+
+        &__btn {
+          > a {
+            @include d_flex(row-reverse, start, center, $gap: $s_1);
+            color: $clr_accent_dark;
+            @include fs("h5");
+            @include make_icon("\e87f");
+          }
+        }
+
+        &__img {
+          @include d_flex(row, center, center);
+          flex: 1;
+
+          @include mq("md") {
+            margin-block-start: $s_3;
+          }
+
+          > img {
+            min-width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .club {
+    &__content {
+      margin-block-start: $s_11;
+
+      &__items {
+        @include d_flex(row-reverse, space-between, center);
+
+        @include mq("md") {
+          flex-direction: column-reverse;
+        }
+
+        .flex-wrapper {
+          gap: $s_3;
+        }
+
+        &__text {
+          text-align: justify;
+          @include fs("body");
+          color: $clr_text_dark;
+        }
+
+        &__btn {
+          > a {
+            @include d_flex();
+            @include fs("body-s");
+          }
+        }
+
+        &__img {
+          @include d_flex(row, center, center);
+          flex: 1;
+
+          @include mq("md") {
+            margin-block: $s_3;
+          }
+
+          > img {
+            max-width: 390px;
+
+            @include mq("md") {
+              max-width: 346px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // .home-blogs {
+  // }
 }
