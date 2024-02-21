@@ -1,36 +1,36 @@
 @use '../utils/' as *;
 main.contact-us-page {
-  @include d_flex(row, space-between, center, nowrap, true, $s_2);
-  > div {
-    width: 50%;
-  }
-  .title {
-    margin-bottom: $s_2;
-    color: $clr_primary_dark;
-    @include fs('h2');
-  }
-  .page-thumbnail {
-    img {
-      width: 100%;
-      object-fit: contain;
-    }
-  }
-  .form-wrapper {
-    button {
-      align-self: flex-end;
-      @include d_flex(row, center, center, nowrap, false, $s_1);
-      @include make_icon('\e806') {
-        font-family: 'iconsax' !important;
-        font-size: 20px;
-      }
-    }
-  }
-  @include mq('md') {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    > div {
-      width: 100%;
-    }
-  }
+	@include d_flex(row, space-between, center, nowrap, true, $s_2);
+	> div {
+		width: 50%;
+	}
+	.title {
+		margin-bottom: $s_2;
+		color: $clr_primary_dark;
+		@include fs('h2');
+	}
+	.page-thumbnail {
+		img {
+			width: 100%;
+			object-fit: contain;
+		}
+	}
+	.form-wrapper {
+		button {
+			align-self: flex-end;
+			@include d_flex(row, center, center, nowrap, false, $s_1);
+			@include make_icon('\e806') {
+				font-family: 'iconsax' !important;
+				font-size: 20px;
+			}
+		}
+	}
+	@include mq('md') {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch;
+		> div {
+			width: 100%;
+		}
+	}
 }
