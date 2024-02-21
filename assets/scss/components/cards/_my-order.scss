@@ -1,0 +1,81 @@
+@use "../../utils/" as *;
+.my-order {
+  @include d_flex(row, center, center, wrap, false, $s_5);
+  padding: $s_6;
+  @include mq("md") {
+    flex-direction: column-reverse;
+    padding: $s_3;
+  }
+  h3 {
+    width: 100%;
+    @include fs("h3");
+    color: $clr_primary_dark;
+  }
+  .orders {
+    width: 60%;
+    @include mq("md") {
+      width: 100%;
+    }
+  }
+  .order-card {
+    @include d_flex($a_i: center, $gap: $s_3);
+    border-bottom: $b_3;
+    padding: $s_6 0;
+    &:last-child{
+      border: 0;
+    }
+    @include mq("md") {
+      flex-direction: column;
+      border: 0;
+    }
+  
+    img {
+      width: 30%;
+      @include mq("md") {
+        width: 100%;
+        height: 241px;
+      }
+    }
+    .odrer-title p {
+      @include fs("caption");
+      color: rgba(64, 64, 64, 0.4);
+    }
+    h5 {
+      color: $clr_primary_dark;
+    }
+    .order-box {
+      width: 65%;
+      @include mq("md") {
+        width: 100%;
+      }
+
+      .order-details-row {
+        @include d_flex(row, space-between, center, nowrap, false, $s_5);
+        border-bottom: $b_3;
+        padding: $s_2;
+        span.order-date {
+          @include fs("caption");
+        }
+        .status {
+          @include fs("caption");
+          padding: $s-2;
+          border-radius: $r_1;
+        }
+        .send {
+          color: $clr_success_dark;
+          background: rgba(66, 234, 83, 0.12);
+        }
+        .awaiting {
+          color: $clr_error_main;
+          background: rgba(255, 152, 0, 0.2);
+        }
+      }
+    }
+  }
+  .order-tempnail {
+    width: 38%;
+    @include mq("md") {
+      width: 322px;
+    }
+  }
+}

@@ -3,7 +3,26 @@
 $author_name = get_the_author_meta( 'display_name', get_post_field( 'post_author', get_the_ID() ) );
 
 
-$post_id = get_queried_object_id();
+$post_id = get_queried_object_id();?>
+<? function custom_share_buttons() {
+
+	global $post;
+	
+	$post_url = urlencode(get_permalink());
+	
+	$post_title = urlencode(get_the_title());
+	
+	$linkedin_url = 'LinkedIn Login, Sign in | LinkedIn' . $post_url . '&title=' . $post_title;
+	
+	echo '<div class="custom-share-buttons">';
+	
+	echo '<a href="' . $linkedin_url . '" target="_blank" class="custom-share-button custom-share-button-linkedin"><i class="iconsax"
+	icon-name="share"></i></a>';
+	
+	echo '</div>';
+	
+	}
+	
 ?>
 
 
@@ -49,8 +68,8 @@ $post_id = get_queried_object_id();
 							   icon-name="message-dots"></i><?php echo get_comments_number( $post_id ); ?></span>
 						<span class="author-single-blog meta"><i class="iconsax"
 							   icon-name="heart"></i><?= $author_name ?></span>
-						<span class="author-single-blog meta"><i class="iconsax"
-							   icon-name="share"></i><? ?></span>
+						<span class="author-single-blog meta">	<?php custom_share_buttons(); ?>
+</span>
 					</div>
 				</div>
 				<h1><?= get_the_title( $post_id ) ?></h1>
@@ -95,6 +114,7 @@ $post_id = get_queried_object_id();
 			</div>
 		</div>
 	</div>
+	
 </main>
 
 <?php get_footer() ?>

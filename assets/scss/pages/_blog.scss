@@ -13,9 +13,8 @@
 		}
 		ul {
 			display: inline-flex;
-			padding: 20px 0;
+			padding: $s_3 0;
 			gap: $s_10;
-			width: 100%;
 			overflow: auto;
 		}
 	}

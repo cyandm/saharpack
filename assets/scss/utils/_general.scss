@@ -60,3 +60,6 @@ ul {
 	-webkit-box-orient: vertical;
 	@include fs('h6');
 }
+img{
+	object-fit:cover;
+}

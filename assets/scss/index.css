@@ -178,6 +178,10 @@ textarea {
   font-family: "Yekan Bakh";
 }
 
+::-moz-placeholder {
+  color: #969696;
+}
+
 ::placeholder {
   color: #969696;
 }
@@ -216,6 +220,10 @@ input,
 textarea {
   border: none;
   outline: none;
+}
+
+::-moz-placeholder {
+  font-family: "Yekan Bakh";
 }
 
 button,
@@ -263,10 +271,6 @@ ul {
   line-height: 28px;
 }
 
-img {
-  object-fit: cover;
-}
-
 .btn {
   cursor: pointer;
 }
@@ -276,6 +280,7 @@ img {
   border: 1px solid #1e1e1e;
   transition: all 0.4s ease-in-out;
   padding: 0.25rem 1rem;
+  width: -moz-max-content;
   width: max-content;
 }
 .btn[variant=primary]:hover {
@@ -526,7 +531,8 @@ img {
 .card-job-offer .job-offer-thumbnail img {
   max-height: 12rem;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media screen and (max-width: 480px) {
   .card-job-offer .job-offer-thumbnail img {
@@ -713,115 +719,10 @@ img {
 .my-order {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  padding: 1.5rem;
-}
-@media screen and (max-width: 768px) {
-  .my-order {
-    flex-direction: column-reverse;
-    padding: 0.75rem;
-  }
-}
-.my-order h3 {
-  width: 100%;
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 36px;
-  color: #1e1e1e;
-}
-.my-order .orders {
-  width: 60%;
-}
-@media screen and (max-width: 768px) {
-  .my-order .orders {
-    width: 100%;
-  }
-}
-.my-order .order-card {
-  display: flex;
-  flex-direction: row;
   justify-content: start;
-  align-items: center;
+  align-items: start;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  border-bottom: 1px solid #c5c5c5;
-  padding: 1.5rem 0;
-}
-.my-order .order-card:last-child {
-  border: 0;
-}
-@media screen and (max-width: 768px) {
-  .my-order .order-card {
-    flex-direction: column;
-    border: 0;
-  }
-}
-.my-order .order-card img {
-  width: 30%;
-}
-@media screen and (max-width: 768px) {
-  .my-order .order-card img {
-    width: 100%;
-    height: 241px;
-  }
-}
-.my-order .order-card .odrer-title p {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 20px;
-  color: rgba(64, 64, 64, 0.4);
-}
-.my-order .order-card h5 {
-  color: #1e1e1e;
-}
-.my-order .order-card .order-box {
-  width: 65%;
-}
-@media screen and (max-width: 768px) {
-  .my-order .order-card .order-box {
-    width: 100%;
-  }
-}
-.my-order .order-card .order-box .order-details-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 1.25rem;
-  border-bottom: 1px solid #c5c5c5;
-  padding: 0.5rem;
-}
-.my-order .order-card .order-box .order-details-row span.order-date {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 20px;
-}
-.my-order .order-card .order-box .order-details-row .status {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 20px;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-}
-.my-order .order-card .order-box .order-details-row .send {
-  color: #1b5e20;
-  background: rgba(66, 234, 83, 0.12);
-}
-.my-order .order-card .order-box .order-details-row .awaiting {
-  color: #d32f2f;
-  background: rgba(255, 152, 0, 0.2);
-}
-.my-order .order-tempnail {
-  width: 38%;
-}
-@media screen and (max-width: 768px) {
-  .my-order .order-tempnail {
-    width: 322px;
-  }
+  gap: 0;
 }
 
 .blog-comments {
@@ -971,7 +872,8 @@ main.contact-us-page .title {
 }
 main.contact-us-page .page-thumbnail img {
   width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 main.contact-us-page .form-wrapper button {
   align-self: flex-end;
@@ -1031,7 +933,8 @@ main.login-page .title {
 }
 main.login-page .page-thumbnail img {
   width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 main.login-page .form-wrapper .dynamic-section {
   display: none;
@@ -1114,7 +1017,8 @@ main.otp-page .title {
 }
 main.otp-page .page-thumbnail img {
   width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 main.otp-page .form-wrapper .dynamic-section {
   display: none;
@@ -1197,7 +1101,8 @@ main.alert-login-page .title {
 }
 main.alert-login-page .page-thumbnail img {
   width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 main.alert-login-page .form-wrapper .dynamic-section {
   display: none;
@@ -1350,7 +1255,8 @@ main.single-job-offer-page .job-detail-container .job-thumbnail-and-description 
   height: auto;
   max-height: 22.5rem;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 main.single-job-offer-page .job-detail-container .job-thumbnail-and-description .job-description-and-title {
   display: flex;
@@ -1482,7 +1388,8 @@ main.single-post-page .single-blog .post-main img.aligncenter {
   height: 320px;
 }
 main.single-post-page img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 0.5rem;
 }
 main.single-post-page .mb-meta {
@@ -5170,6 +5077,4 @@ main.single-post-page blog-comments {
 
 .iconsax[icon-name=x-square]:before {
   content: "\e871";
-}
-
-/*# sourceMappingURL=compiled.css.map */
+}/*# sourceMappingURL=index.css.map */
