@@ -1,0 +1,40 @@
+@use '../utils/' as *;
+.sidebar {
+	width: 30%;
+	@include mq('md') {
+		width: 100%;
+		border-bottom: $b_3;
+		margin: $s_5;
+	}
+
+
+	ul {
+		padding: 20px 0;
+		@include mq('md') {
+			display: inline-flex;
+		}
+	}
+
+	.cat-item {
+		line-height: $s_10;
+		border-bottom: $b_3;
+		list-style: none;
+		@include mq('md') {
+			margin-left: $s-3;
+			border: 0;
+		}
+	}
+}
+.search-blog {
+	@include d_flex($a_i:center);
+	border-bottom: $b_3;
+	margin-bottom: $s-2;		@include mq('md') {
+
+	width: 100%;}
+i{
+color: $clr_natural_4;
+}
+	input {
+		line-height: $s_10;
+	}
+}

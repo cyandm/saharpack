@@ -12,10 +12,9 @@
     ),
     $viewport
   );
-
-  @media #{$type} and (max-width: #{$window_width}) {
-    @content;
-  }
+	@media #{$type} and (max-width: #{$window_width}) {
+		@content;
+	}
 }
 
 @mixin fs($type: "body") {
@@ -41,13 +40,13 @@
   } @else {
     @error "You'r input #{$type} is wrong";
   }
-}
+
 
 @mixin max_line($line) {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: $line;
-  -webkit-box-orient: vertical;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: $line;
+	-webkit-box-orient: vertical;
 }
 
 //#region pseudo
@@ -59,18 +58,18 @@
   $content: "",
   $position: absolute
 ) {
-  position: relative;
-  isolation: isolate;
+	position: relative;
+	isolation: isolate;
 
-  &::#{$el} {
-    content: $content;
-    position: $position;
-    inset: $inset;
-    width: $square;
-    height: $square;
-    z-index: $z-index;
-    @content;
-  }
+	&::#{$el} {
+		content: $content;
+		position: $position;
+		inset: $inset;
+		width: $square;
+		height: $square;
+		z-index: $z-index;
+		@content;
+	}
 }
 //#endregion
 
@@ -92,26 +91,27 @@
 
 //#region d-flex
 @mixin d_flex(
-  $dir: row,
-  $j_c: start,
-  $a_i: start,
-  $wrap: wrap,
-  $even_column: false,
-  $gap: 0
+	$dir: row,
+	$j_c: start,
+	$a_i: start,
+	$wrap: wrap,
+	$even_column: false,
+	$gap: 0
 ) {
-  display: flex;
-  flex-direction: $dir;
-  justify-content: $j_c;
-  align-items: $a_i;
-  flex-wrap: $wrap;
-  gap: $gap;
+	display: flex;
+	flex-direction: $dir;
+	justify-content: $j_c;
+	align-items: $a_i;
+	flex-wrap: $wrap;
+	gap: $gap;
 
-  @if ($even_column) {
-    > * {
-      flex: 1;
-    }
-  }
+	@if ($even_column) {
+		> * {
+			flex: 1;
+		}
+	}
 }
+
 //#endregion
 
 @mixin border_title {

@@ -1,0 +1,107 @@
+@use "../utils" as *;
+hr {
+  margin: $s_3 0;
+  border: 1px solid $clr_natural_4;
+}
+main.single-post-page {
+  .breadcrumb {
+    @include d_flex(row, start, center, nowrap, false, $s_5);
+    @include fs("caption");
+    line-height: $s_10;
+    margin-top: $s_5;
+    @include mq("md") {
+      margin: 0;
+    }
+  }
+
+  .single-blog {
+    @include d_flex(row, start, start, nowrap, false, $s_4);
+    @include mq("md") {
+      flex-direction: column;
+    }
+    .post-main {
+      width: 70%;
+      @include mq("md") {
+        width: 100%;
+      }
+      .post-content {
+        width: 100%;
+        img {
+          @include mq("md") {
+            width: 100% !important;
+            padding: 0 !important;
+          }
+        }
+        p {
+          text-align: justify;
+        }
+      }
+      .post-images img {
+        width: 100%;
+        height: 400px;
+        @include mq("md") {
+          height: 210px;
+        }
+      }
+      img.alignnone {
+        padding: $s_4;
+        width: 50%;
+        height: 320px;
+        @include mq("md") {
+          width: 100%;
+          padding: 0;
+        }
+      }
+      img.alignleft {
+        width: 500px;
+        height: 350px;
+        float: left;
+        padding-right: $s_3;
+      }
+      img.aligncenter {
+        width: 100%;
+        height: 320px;
+      }
+    }
+  }
+  img {
+    object-fit: cover;
+    border-radius: $r_1;
+  }
+
+  .mb-meta {
+    font-size: 12px;
+    gap: $s_12;
+  }
+
+  blog-comments {
+    width: 100%;
+  }
+
+  @include mq("md") {
+    flex-direction: column;
+    align-items: stretch;
+
+    .single-blog {
+      @include d_flex($dir: column);
+    }
+  }
+}
+.postmeta {
+  @include d_flex($j_c: space-between);
+  line-height: $s_9 !important;
+  @include fs("caption");
+  border-bottom: $b_3;
+  color: $clr_primary_main;
+  div {
+    @include d_flex(row, $gap: $s_1);
+  }
+  @include mq("md") {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    div {
+      width: 100%;
+    }
+  }
+}
