@@ -1,0 +1,68 @@
+@use '../utils/' as *;
+main.default-page {
+  .wp-block-woocommerce-cart {
+    .wc-block-components-sidebar-layout {
+      .wc-block-cart-items__header-total {
+        display: none;
+      }
+      table.wc-block-cart-items {
+        padding: $s_3;
+        border: 1px solid $clr_natural_3;
+        thead {
+          tr.wc-block-cart-items__header {
+            @include fs('h3');
+            color: $clr_text_dark;
+            .wc-block-cart-items__header-image {
+              span {
+                opacity: 0;
+              }
+              @include pseudo() {
+                content: 'سبد خرید';
+              }
+            }
+          }
+        }
+        tbody {
+          .wc-block-cart-item__wrap {
+            .wc-block-components-product-name {
+              @include fs('h4');
+              color: $clr_text_dark;
+            }
+          }
+          .price {
+            &.wc-block-components-product-price {
+              @include fs('h5');
+            }
+          }
+        }
+      }
+    }
+    .wc-block-cart-item__quantity {
+      button.wc-block-cart-item__remove-link {
+        display: none;
+      }
+      .wc-block-components-quantity-selector {
+        border: none;
+        border-radius: 0;
+        button {
+          border: 1px solid $clr_natural_2;
+          font-size: px_to_rem(20);
+          font-weight: 700;
+          border-radius: 0;
+          height: max-content;
+        }
+        input {
+          outline: none;
+          &:focus {
+            box-shadow: none;
+          }
+        }
+        &::after {
+          display: none;
+        }
+      }
+    }
+    .wc-block-components-sidebar {
+    }
+  }
+}

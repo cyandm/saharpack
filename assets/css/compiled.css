@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Yekan Bakh";
   src: url("../fonts/yekan-bakh/woff2/YekanBakhFaNum-Thin.woff2");
@@ -2481,6 +2482,69 @@ main.product-page .products-wrapper {
   }
 }
 
+main.default-page .wp-block-woocommerce-cart .wc-block-components-sidebar-layout .wc-block-cart-items__header-total {
+  display: none;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-components-sidebar-layout table.wc-block-cart-items {
+  padding: 0.75rem;
+  border: 1px solid #dddddd;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-components-sidebar-layout table.wc-block-cart-items thead tr.wc-block-cart-items__header {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 36px;
+  color: #1e1e1e;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-components-sidebar-layout table.wc-block-cart-items thead tr.wc-block-cart-items__header .wc-block-cart-items__header-image {
+  position: relative;
+  isolation: isolate;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-components-sidebar-layout table.wc-block-cart-items thead tr.wc-block-cart-items__header .wc-block-cart-items__header-image span {
+  opacity: 0;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-components-sidebar-layout table.wc-block-cart-items thead tr.wc-block-cart-items__header .wc-block-cart-items__header-image::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: 0.25rem;
+  height: 0.25rem;
+  z-index: 1;
+  content: "سبد خرید";
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-components-sidebar-layout table.wc-block-cart-items tbody .wc-block-cart-item__wrap .wc-block-components-product-name {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #1e1e1e;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-components-sidebar-layout table.wc-block-cart-items tbody .price.wc-block-components-product-price {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-cart-item__quantity button.wc-block-cart-item__remove-link {
+  display: none;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-cart-item__quantity .wc-block-components-quantity-selector {
+  border: none;
+  border-radius: 0;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-cart-item__quantity .wc-block-components-quantity-selector button {
+  border: 1px solid #eaeaea;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 0;
+  height: max-content;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-cart-item__quantity .wc-block-components-quantity-selector input {
+  outline: none;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-cart-item__quantity .wc-block-components-quantity-selector input:focus {
+  box-shadow: none;
+}
+main.default-page .wp-block-woocommerce-cart .wc-block-cart-item__quantity .wc-block-components-quantity-selector::after {
+  display: none;
+}
 @font-face {
   font-family: "iconsax";
   src: url("../fonts/icons/iconsax/iconsax.eot");
