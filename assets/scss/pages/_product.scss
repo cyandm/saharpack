@@ -1,0 +1,39 @@
+@use '../utils/' as *;
+main.product-page {
+  .products-container {
+    @include d_flex(column, flex-start, center, nowrap, false, $s_4);
+    width: 100%;
+    .category-and-search {
+      width: 60%;
+      @include d_flex(row, center, center, nowrap, true, $s_4);
+      > * {
+        width: 100%;
+      }
+      #searchPageInput {
+        width: 100%;
+      }
+      .input-primary {
+        select {
+          width: 100%;
+        }
+      }
+      @include mq('md') {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+  }
+  .products-wrapper {
+    width: 100%;
+    display: grid;
+    justify-content: stretch;
+    grid-template-columns: repeat(auto-fill, minmax(px_to_rem(352), 1fr));
+    gap: px_to_rem(12) px_to_rem(16);
+    @include mq('md') {
+      grid-template-columns: repeat(auto-fill, minmax(px_to_rem(200), 1fr));
+    }
+    @include mq('sm') {
+      grid-template-columns: repeat(auto-fill, minmax(px_to_rem(152), 1fr));
+    }
+  }
+}

@@ -1,29 +1,15 @@
-<?php /* Template Name: Product Page */ ?>
-
+<?php get_header() ?>
 <?php
+
 $cats = get_categories([
     'taxonomy' => 'product_cat',
     'orderby' => 'id',
     'hide_empty' => true,
 ]);
 
-
-$last_product = new WP_Query(
-    [
-        'post_type' => 'product',
-        'posts_per_page' => 10,
-        'orderby'   => 'post_date',
-    ]
-);
-
-
+$cat_id = get_queried_object()->term_id;
 ?>
-
-
-<?php get_header() ?>
-
-
-<main class="product-page">
+<main class="archive-product-page product-page">
     <div class="breadcrumb-wrapper">
         <div class="breadcrumb-product container">
             <?php if (function_exists('rank_math_the_breadcrumbs'))
@@ -44,20 +30,18 @@ $last_product = new WP_Query(
                 </form>
                 <div class="input-primary">
                     <select id="productDropDown">
-                        <option disabled selected><?= pll__('انتخاب دسته بندی') ?></option>
-
                         <?php for ($i = 0; $i < count($cats); $i++) : ?>
-                            <option data-uri="<?= get_category_link($cats[$i]->term_id) ?>"><?= $cats[$i]->name ?></option>
+                            <option <?php if ($cat_id === $cats[$i]->term_id) echo 'selected' ?> data-uri="<?= get_category_link($cats[$i]->term_id) ?>"><?= $cats[$i]->name ?></option>
                         <?php endfor ?>
                     </select>
                 </div>
             </div>
         <?php endif ?>
-        <?php if ($last_product->have_posts()) : ?>
+        <?php if (have_posts()) : ?>
             <div class="products-wrapper">
                 <?php
-                while ($last_product->have_posts()) {
-                    $last_product->the_post();
+                while (have_posts()) {
+                    the_post();
                     get_template_part('templates/components/cards/product');
                 }
                 ?>
@@ -66,5 +50,4 @@ $last_product = new WP_Query(
     </section>
     <?php wp_reset_postdata() ?>
 </main>
-
 <?php get_footer() ?>

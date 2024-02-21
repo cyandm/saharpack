@@ -11,11 +11,11 @@
     width: 100%;
 
     .menu-handler {
-      @media (max-width: 1260px) {
-        min-width: 33%;
-      }
       > i {
         width: fit-content;
+      }
+      @media (max-width: 1260px) {
+        min-width: 33%;
       }
     }
 
@@ -54,7 +54,7 @@
             padding-block: $s_2;
 
             > a {
-              color: $clr_text_gray;
+              color: $clr_gray_text;
               @include fs("body-s");
               position: relative;
               display: block;

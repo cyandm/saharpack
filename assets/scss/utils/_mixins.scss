@@ -53,7 +53,7 @@
 //#region pseudo
 @mixin pseudo(
   $inset: 0 0 auto auto,
-  $square: PxToRem(4),
+  $square: px_to_rem(4),
   $z-index: 1,
   $el: after,
   $content: "",

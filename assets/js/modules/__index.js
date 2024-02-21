@@ -5,3 +5,4 @@ import "./toastify";
 import "./ajax-search";
 import "./video-cover";
 import "./swiper";
+import "./drop-down";

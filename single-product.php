@@ -16,6 +16,7 @@ $product_attributes = $wc_product->get_attributes();
 $product_gallery = $wc_product->get_gallery_image_ids();
 $favorite_products = wc_get_related_products($product_id);
 
+
 $product_template = [
     'post_type' => 'page',
     'fields' => 'ids',
@@ -55,6 +56,7 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
 
                 foreach ($product_attributes as $key => $attribute) : ?>
                     <div class="single-product__property">
+                        <?= $attribute['data']['name']   ?>
                         <p><?= $attribute['data']['name'] ?></p>
                         <?php foreach ($attribute['data']['options'] as $key => $att) : ?>
                             <p><?= $att ?></p>
@@ -69,6 +71,17 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
                 </div>
                 <div class="product-order-count">
                     <?= pll__('تعداد') ?>
+                    <?php
+                    woocommerce_quantity_input(
+                        array(
+                            'min_value' => apply_filters('woocommerce_quantity_input_min', $wc_product->get_min_purchase_quantity(), $wc_product),
+                            'max_value' => apply_filters('woocommerce_quantity_input_max', $wc_product->get_max_purchase_quantity(), $wc_product),
+                            'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $wc_product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
+                            'classes' => "form-control"
+                        )
+                    );
+
+                    ?>
                 </div>
                 <div class="product-stock">
                     <div><?= pll__('وضعیت موجودی') ?></div>
@@ -80,7 +93,7 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
                 </div>
                 <div class="add-cart">
                     <div class="share-and-add-cart">
-                        <a href="<?= $product->add_to_cart_url() ?>" class="btn" variant="primary"><?= pll__('افزودن به سبد خرید') ?></a>
+                        <a href="<?= $wc_product->add_to_cart_url() ?>" class="btn" variant="primary"><?= pll__('افزودن به سبد خرید') ?></a>
                         <div id="btnShare" class="btn-share btn" variant="secondary">
                             <i class=" iconsax" icon-name="share"></i>
                         </div>

@@ -4828,6 +4828,19 @@
     }
   });
 
+  // assets/js/modules/drop-down.js
+  var selectHandler = document.getElementById("productDropDown");
+  var optionSelect = document.querySelectorAll("#productDropDown option");
+  if (selectHandler && optionSelect) {
+    selectHandler.addEventListener("change", (e) => {
+      optionSelect.forEach((el) => {
+        if (el.value === e.target.value) {
+          window.location = el.dataset.uri;
+        }
+      });
+    });
+  }
+
   // assets/js/pages/single-product.js
   var btnShare = document.getElementById("btnShare");
   var titlePageEl = document.querySelector("#title");
