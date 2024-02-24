@@ -16,13 +16,14 @@ $description = get_field('description');
     <section class="about-us">
 
         <div class="about-us__content">
+            <?php if ($title) : ?>
 
-            <div class="about-us__content__title">
+                <div class="about-us__content__title">
 
-                <h1><span><?= $title ?></span></h1>
+                    <h1><span><?= $title ?></span></h1>
 
-            </div>
-
+                </div>
+            <?php endif ?>
 
             <?php
             $video_show = !$video_file && !$video_link;
