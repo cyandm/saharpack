@@ -10,42 +10,50 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see         https://woo.com/document/template-structure/
+ * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates
  * @version     3.9.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
-if ( $related_products ) : ?>
+if ($related_products): ?>
 
-	<section class="related products">
+	<section  class="related swiper products mt-16 relative productSlider">
 
 		<?php
-		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
+		$heading = apply_filters('woocommerce_product_related_products_heading', __('Related products', 'woocommerce'));
 
-		if ( $heading ) :
+		if ($heading):
 			?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
+			<h2 class="text-2xl">
+				<?php echo esc_html($heading); ?>
+			</h2>
 		<?php endif; ?>
-		
-		<?php woocommerce_product_loop_start(); ?>
 
-			<?php foreach ( $related_products as $related_product ) : ?>
+		<div class="swiper-wrapper">
 
-					<?php
-					$post_object = get_post( $related_product->get_id() );
+			<?php foreach ($related_products as $related_product): ?>
 
-					setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+				<?php
+				$post_object = get_post($related_product->get_id());
 
-					wc_get_template_part( 'content', 'product' );
+				setup_postdata($GLOBALS['post'] =& $post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+				echo '<div class="swiper-slide">';
+				wc_get_template_part('content', 'product');
+				echo '</div>'
 					?>
 
 			<?php endforeach; ?>
 
-		<?php woocommerce_product_loop_end(); ?>
+		</div>
+
+		<div class="swiper-navigation">
+			<div class="swiper-btn-next max-md:hidden"><i class="stroke-2" data-feather="arrow-left"></i></div>
+			<div class="swiper-btn-prev max-md:hidden"><i class="stroke-2" data-feather="arrow-right"></i></div>
+		</div>
 
 	</section>
 	<?php

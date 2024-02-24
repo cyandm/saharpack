@@ -10,7 +10,7 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://woo.com/document/template-structure/
+ * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
  * @version 3.6.0
  * @global WC_Checkout $checkout
@@ -21,11 +21,11 @@ defined( 'ABSPATH' ) || exit;
 <div class="woocommerce-billing-fields">
 	<?php if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
 
-		<h3><?php esc_html_e( 'Billing &amp; Shipping', 'woocommerce' ); ?></h3>
+		<p class="text-center text-xl text-primary-600 bg-gray-50 p-3 mb-2">ورود اطلاعات</p>
 
 	<?php else : ?>
 
-		<h3><?php esc_html_e( 'Billing details', 'woocommerce' ); ?></h3>
+		<p class="text-center text-xl text-primary-600 bg-gray-50 p-3 mb-2"> ورود اطلاعات</p>
 
 	<?php endif; ?>
 

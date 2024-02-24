@@ -12,7 +12,7 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see https://woo.com/document/template-structure/
+ * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
  * @version 7.3.0
  */
@@ -49,7 +49,6 @@ $calculator_text          = '';
 					if ( $formatted_destination ) {
 						// Translators: $s shipping destination.
 						printf( esc_html__( 'Shipping to %s.', 'woocommerce' ) . ' ', '<strong>' . esc_html( $formatted_destination ) . '</strong>' );
-						$calculator_text = esc_html__( 'Change address', 'woocommerce' );
 					} else {
 						echo wp_kses_post( apply_filters( 'woocommerce_shipping_estimate_html', __( 'Shipping options will be updated during checkout.', 'woocommerce' ) ) );
 					}

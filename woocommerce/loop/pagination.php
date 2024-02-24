@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pagination - Show numbered pagination for catalog pages
  *
@@ -10,21 +11,21 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://woo.com/document/template-structure/
+ * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
  * @version 3.3.1
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
-$total   = isset( $total ) ? $total : wc_get_loop_prop( 'total_pages' );
-$current = isset( $current ) ? $current : wc_get_loop_prop( 'current_page' );
-$base    = isset( $base ) ? $base : esc_url_raw( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) );
-$format  = isset( $format ) ? $format : '';
+$total   = isset($total) ? $total : wc_get_loop_prop('total_pages');
+$current = isset($current) ? $current : wc_get_loop_prop('current_page');
+$base    = isset($base) ? $base : esc_url_raw(str_replace(999999999, '%#%', remove_query_arg('add-to-cart', get_pagenum_link(999999999, false))));
+$format  = isset($format) ? $format : '';
 
-if ( $total <= 1 ) {
+if ($total <= 1) {
 	return;
 }
 ?>
@@ -37,10 +38,10 @@ if ( $total <= 1 ) {
 				'base'      => $base,
 				'format'    => $format,
 				'add_args'  => false,
-				'current'   => max( 1, $current ),
+				'current'   => max(1, $current),
 				'total'     => $total,
-				'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
-				'next_text' => is_rtl() ? '&larr;' : '&rarr;',
+				'prev_text' => is_rtl() ? '<i class="stroke-2" data-feather="arrow-right"></i>' : '<i class="stroke-2" data-feather="arrow-left"></i>',
+				'next_text' => is_rtl() ? '<i class="stroke-2" data-feather="arrow-left"></i>' : '<i class="stroke-2" data-feather="arrow-right"></i>',
 				'type'      => 'list',
 				'end_size'  => 3,
 				'mid_size'  => 3,
