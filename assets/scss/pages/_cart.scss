@@ -1,194 +1,102 @@
 @use '../utils/' as *;
 main.default-page {
-  .wp-block-woocommerce-cart {
-    .wc-block-components-sidebar-layout {
-      align-items: flex-start;
-      gap: $s_5;
-      flex-wrap: nowrap;
-      .wc-block-components-main {
-        padding-left: 0;
-      }
-      @include mq('lg') {
-        .wc-block-components-sidebar {
-          width: 50%;
-        }
-      }
-      @include mq('md') {
-        flex-direction: column;
-        > div {
-          width: 100%;
-        }
-        .wc-block-components-sidebar {
-          width: 100%;
-        }
-      }
-    }
-    .wc-block-components-sidebar-layout {
-      padding-left: 0;
-      .wc-block-cart-items__header-total {
-        display: none;
-      }
-      table.wc-block-cart-items {
-        padding: $s_3;
-        border: 1px solid $clr_natural_3;
-        thead {
-          tr.wc-block-cart-items__header {
-            @include fs('h3');
-            color: $clr_text_dark;
-            .wc-block-cart-items__header-image {
-              span {
-                opacity: 0;
-              }
-              @include pseudo() {
-                content: 'سبد خرید';
-                width: max-content;
-              }
-            }
-          }
-          tr {
-            border-bottom: $b_1;
-            th {
-              margin: 0;
-              margin-block: $s_3;
-            }
-            @media (max-width: 732px) {
-              display: flex;
-            }
-          }
-        }
-        tbody {
-          tr {
-            &:not(:last-child) {
-              border-bottom: $b_3;
-            }
-            td {
-              margin: 0;
-            }
-          }
-          .wc-block-cart-item__wrap {
-            .wc-block-components-product-name {
-              @include fs('h4');
-              color: $clr_text_dark;
-              @include mq('md') {
-                @include fs('h6');
-              }
-            }
-          }
-          .wc-block-cart-item__prices {
-            display: none;
-          }
-          .price {
-            &.wc-block-components-product-price {
-              @include fs('h5');
-            }
-          }
-          @include mq('md') {
-            .wc-block-formatted-money-amount,
-            .wc-block-cart-item__wrap {
-              @include fs('h6');
-            }
-          }
-        }
-      }
-    }
-    .wc-block-cart-item__quantity {
-      button.wc-block-cart-item__remove-link {
-        display: none;
-      }
-      .wc-block-components-quantity-selector {
-        border: none;
-        border-radius: 0;
-        button {
-          border: 1px solid $clr_natural_2;
-          font-size: px_to_rem(20);
-          font-weight: 700;
-          border-radius: 0;
-          height: max-content;
-        }
-        input {
-          outline: none;
-          &:focus {
-            box-shadow: none;
-          }
-        }
-        &::after {
-          display: none;
-        }
-      }
-    }
-    .wc-block-components-sidebar {
+  .cart-wrapper {
+    @include d_flex(row, space-between, flex-start, nowrap, false, $s_4);
+    .product-property-in-cart {
+      width: 70%;
+      border: $b_5;
       padding: $s_3;
-      border: 1px solid $clr_natural_3;
-      .wp-block-woocommerce-cart-order-summary-heading-block,
-      .wp-block-woocommerce-cart-order-summary-coupon-form-block,
-      .wc-block-components-totals-coupon,
-      .wp-block-woocommerce-cart-order-summary-subtotal-block {
-        display: none;
+      h3 {
+        padding-block: $s_3;
+        border-bottom: $b_2;
       }
-
-      .wc-block-components-totals-wrapper {
-        border: none;
-        background-color: rgba($clr_info_light, 0.1);
-        padding-inline: $s_3;
-        .wc-block-components-totals-item {
-          padding-left: 0;
-          padding-right: 0;
-        }
-        .wc-block-components-totals-item__label {
-          color: transparent;
-          @include pseudo($content: 'مبلغ قابل پرداخت') {
-            @include fs('h5');
-            color: $clr_text_dark;
-            width: 100%;
+      .cart-items-wrapper {
+        @include d_flex(column, flex-start, stretch, nowrap, false, $s_3);
+        .cart-items-inner-wrapper {
+          padding-block: $s_3;
+          &:not(:last-child) {
+            border-bottom: $b_5;
           }
-        }
-        .wc-block-formatted-money-amount {
-          color: $clr_accent_dark;
-        }
-      }
-      .wc-block-cart__submit {
-        margin-top: $s_5;
-        background-color: $clr_primary_dark;
-        color: $clr_primary_text;
-        border: 1px solid $clr_primary_dark;
-        transition: $t_1;
-        max-height: px_to_rem(36);
-        @include d_flex(row, center, center, nowrap);
-        &:hover {
-          cursor: pointer;
-          background-color: transparent;
-          color: $clr_primary_dark;
-        }
-        span.wc-block-components-button__text {
-          display: none;
-        }
-        .wc-block-cart__submit-container {
-          width: 100%;
-
-          a {
-            width: 100%;
-            &:focus {
-              outline: none;
-              box-shadow: unset;
+          @include d_flex(row, space-between, flex-start, nowrap, false, $s_2);
+          .items-property {
+            @include d_flex(row, space-between, center, nowrap, false, $s_4);
+            .product-code {
+              color: $clr_text_light;
             }
           }
-          button {
-            background: transparent;
-            outline: none;
-            border: none;
-            box-shadow: unset;
+          .product-name,
+          .product-subtotal {
+            color: $clr_text_dark;
           }
         }
-        @include pseudo($content: 'تکمیل سفارش و پرداخت ') {
-          width: 100%;
-          text-align: center;
-          inset: unset;
-          height: 100%;
-          pointer-events: none;
+      }
+    }
+    .price-and-pay-method {
+      width: 30%;
+      .cart_totals {
+        width: 100%;
+        float: none;
+        .shop_table {
+          border: $b_5;
+          border-radius: 0;
+          padding: $s_3;
+          th,
+          td {
+            border: none;
+          }
+
+          .title-shipping-method {
+            border-bottom: $b_3;
+          }
+        }
+        .order-total {
+          background-color: rgba($clr_info_light, 0.1);
+          border-bottom: none;
+
+          th {
+            text-align: start;
+            @include fs('h5');
+            width: 50%;
+          }
+          td {
+            text-align: end;
+            @include fs('h5');
+            color: $clr_accent_dark;
+          }
         }
       }
-      .wc-block-cart__submit-container--sticky {
-        display: none;
+      .btn-proceed-wrapper {
+        &::before {
+          display: none;
+          background-color: none;
+        }
+      }
+    }
+    @include mq('xl') {
+      .product-property-in-cart {
+        width: 60%;
+      }
+      .price-and-pay-method {
+        flex: 1;
+      }
+    }
+    @include mq('lg') {
+      .product-property-in-cart {
+        width: 50%;
+      }
+    }
+    @include mq('md') {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      > div {
+        width: 100%;
+      }
+      .product-property-in-cart {
+        width: 100%;
+      }
+      .price-and-pay-method {
+        width: 100%;
       }
     }
   }
