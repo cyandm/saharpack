@@ -1437,17 +1437,11 @@ label {
 .my-order {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
   gap: 1.25rem;
   padding: 1.5rem;
-}
-@media screen and (max-width: 768px) {
-  .my-order {
-    flex-direction: column-reverse;
-    padding: 0.75rem;
-  }
 }
 .my-order h3 {
   width: 100%;
@@ -1459,6 +1453,11 @@ label {
 .my-order .orders {
   width: 60%;
 }
+@media screen and (max-width: 992px) {
+  .my-order .orders {
+    width: 55%;
+  }
+}
 @media screen and (max-width: 768px) {
   .my-order .orders {
     width: 100%;
@@ -1469,7 +1468,7 @@ label {
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.75rem;
   border-bottom: 1px solid #c5c5c5;
   padding: 1.5rem 0;
@@ -1477,19 +1476,32 @@ label {
 .my-order .order-card:last-child {
   border: 0;
 }
+.my-order .order-card .order-thumbnail {
+  width: 30%;
+}
+.my-order .order-card .order-thumbnail img {
+  width: 100%;
+  object-fit: contain;
+}
+@media screen and (max-width: 768px) {
+  .my-order .order-card .order-thumbnail img {
+    width: 100%;
+    height: 241px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .my-order .order-card .order-thumbnail {
+    width: 100%;
+  }
+  .my-order .order-card .order-thumbnail img {
+    width: 100%;
+    height: 241px;
+  }
+}
 @media screen and (max-width: 768px) {
   .my-order .order-card {
     flex-direction: column;
     border: 0;
-  }
-}
-.my-order .order-card img {
-  width: 30%;
-}
-@media screen and (max-width: 768px) {
-  .my-order .order-card img {
-    width: 100%;
-    height: 241px;
   }
 }
 .my-order .order-card .odrer-title p {
@@ -1516,8 +1528,10 @@ label {
   align-items: center;
   flex-wrap: nowrap;
   gap: 1.25rem;
-  border-bottom: 1px solid #c5c5c5;
   padding: 0.5rem;
+}
+.my-order .order-card .order-box .order-details-row:not(:last-child) {
+  border-bottom: 1px solid #c5c5c5;
 }
 .my-order .order-card .order-box .order-details-row span.order-date {
   font-size: 12px;
@@ -1540,11 +1554,28 @@ label {
   background: rgba(255, 152, 0, 0.2);
 }
 .my-order .order-tempnail {
-  width: 38%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2rem;
+}
+.my-order .order-tempnail img {
+  object-fit: contain;
 }
 @media screen and (max-width: 768px) {
+  .my-order {
+    flex-direction: column-reverse;
+    padding: 0.75rem;
+  }
   .my-order .order-tempnail {
-    width: 322px;
+    width: 100%;
+    position: initial;
   }
 }
 
@@ -3956,6 +3987,14 @@ form.checkout .select2-selection--single {
     justify-content: flex-start;
     align-items: stretch;
   }
+}
+.woocommerce-order .order-information .page-thumbnail {
+  width: 100%;
+}
+.woocommerce-order .order-information .page-thumbnail img {
+  width: 100%;
+  object-fit: contain;
+  max-height: 24.5rem;
 }
 @media screen and (max-width: 480px) {
   .woocommerce-order .order-information {

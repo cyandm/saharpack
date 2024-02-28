@@ -81,6 +81,9 @@ $thumbnail = get_field('successful_submit_order', $home_id);
 						<a class="btn" variant="secondary" href="#"><i class="iconsax" icon-name="document-download"></i><?= pll__('دانلود فایل PDF') ?></a>
 						<a class="btn" variant="primary" href="/"><?= pll__('بازگشت به صفحه اصلی') ?></a>
 					</div>
+					<div class="page-thumbnail">
+						<?= wp_get_attachment_image($thumbnail, 'full') ?>
+					</div>
 				</div>
 			<?php endif; ?>
 
