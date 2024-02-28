@@ -31,16 +31,16 @@ main.alert-login-page {
       color: $clr_accent_dark;
       cursor: pointer;
     }
-    .welcome-section {
+  }
+  .welcome-section {
+    width: 100%;
+    .button-group {
       width: 100%;
-      .button-group {
-        width: 100%;
-        @include d_flex(row, flex-start, center, nowrap, false, $s_1);
-        @include mq('sm') {
-          @include d_flex(row, stretch, center, nowrap, true, $s_1);
-          a {
-            text-align: center;
-          }
+      @include d_flex(row, flex-start, center, nowrap, false, $s_1);
+      @include mq('sm') {
+        @include d_flex(row, stretch, center, nowrap, true, $s_1);
+        a {
+          text-align: center;
         }
       }
     }

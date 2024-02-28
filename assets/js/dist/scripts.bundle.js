@@ -4862,6 +4862,39 @@
     parallax: true
   });
 
+  // assets/js/modules/minus-plus-products.js
+  var plusButton = document.querySelectorAll(".plus-step");
+  var minusButton = document.querySelectorAll(".minus-step");
+  var quantity = document.querySelectorAll(
+    "#quantityProductWrapper .quantity input"
+  );
+  console.log(quantity);
+  console.log(minusButton);
+  console.log(plusButton);
+  if (plusButton) {
+    plusButton.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        quantity.forEach((count) => {
+          if (btn.parentElement === count.parentElement.parentElement) {
+            count.value = Number(count.value) + 1;
+          }
+        });
+      });
+    });
+  }
+  if (minusButton) {
+    minusButton.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        quantity.forEach((count) => {
+          if (btn.parentElement === count.parentElement.parentElement) {
+            if (count.value >= 1)
+              count.value = Number(count.value) - 1;
+          }
+        });
+      });
+    });
+  }
+
   // assets/js/pages/single-product.js
   var btnShare = document.getElementById("btnShare");
   var titlePageEl = document.querySelector("#title");

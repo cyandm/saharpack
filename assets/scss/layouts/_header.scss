@@ -6,6 +6,9 @@
   position: relative;
 
   section {
+    &.login_page {
+      display: none;
+    }
     padding-block: $s_6;
     @include d_flex(row, space-between, center, nowrap);
     width: 100%;
@@ -171,7 +174,7 @@
       }
 
       &__login-btn {
-        @include d_flex($j_c: center, $a_i: center);
+        @include d_flex(row-reverse, $j_c: center, $a_i: center);
         border: $b_1;
         padding: $s_2 $s_2;
 
@@ -184,12 +187,12 @@
           position: relative;
           cursor: pointer;
 
-          &::after {
+          &::before {
             transition: $t_1;
           }
 
           &:has(.children[data-active='true']) {
-            &::after {
+            &::before {
               rotate: 180deg;
               transition: $t_1;
               color: $clr_secondary_dark;
@@ -257,10 +260,8 @@
 
         @include mq('md') {
           padding: $s_2;
-        }
-
-        > span {
-          @include mq('md') {
+          width: max-content;
+          > span {
             display: none;
           }
         }

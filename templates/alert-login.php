@@ -1,7 +1,18 @@
-<?php get_header(null, ['login_page' => true]); ?>
 <?php
 /*Template Name: Alert Login Page */
-
+$login = [
+    'post_type' => 'page',
+    'fields' => 'ids',
+    'nopaging' => true,
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'templates/login.php'
+];
+$login_link = get_permalink(get_posts($login)[0]);
+var_dump($login_link);
+if (!(is_user_logged_in())) {
+    wp_redirect($login_link); // @need : back to last url
+    exit();
+}
 
 $prePass = constant('SECURE_AUTH_KEY');
 
@@ -95,6 +106,8 @@ if ($otpCondition) {
 }
 
 ?>
+<?php get_header(null, ['login_page' => true]); ?>
+
 <main class="alert-login-page container">
     <?php //check_empty($contact_us_description, 'description'); 
     ?>
@@ -115,8 +128,8 @@ if ($otpCondition) {
             <?php endforeach; ?>
         <?php endif; ?>
         <div class="button-group">
-            <a class="btn" variant="primary"><?= pll__('user-dashboard') ?></a>
-            <a class="btn" variant="secondary" href="/"><?= pll__('exit') ?></a>
+            <a class="btn" variant="primary"><?= pll__('حساب کاربری') ?></a>
+            <a class="btn" variant="secondary" href="<?= wp_logout_url() ?>"><?= pll__('exit') ?></a>
         </div>
     </div>
 

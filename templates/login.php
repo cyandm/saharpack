@@ -1,12 +1,17 @@
-<?php get_header(null, ['login_page' => true]); ?>
 <?php
 /*Template Name: Login Page */
-
-$userLink = get_permalink(get_option('woocommerce_myaccount_page_id')) . 'orders';
-// if (is_user_logged_in()) {
-//     wp_redirect($userLink); // @need : back to last url
-//     exit();
-// }
+$my_order_template = [
+    'post_type' => 'page',
+    'fields' => 'ids',
+    'nopaging' => true,
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'templates/my-order.php'
+];
+$page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
+if (is_user_logged_in()) {
+    wp_redirect($page_my_order_link); // @need : back to last url
+    exit();
+}
 
 $prePass = constant('SECURE_AUTH_KEY');
 
@@ -14,7 +19,7 @@ $pageCondition = $_POST
     && isset($_POST["user_tel"])
     && isset($_POST['user_name']);
 
-$otpCondition  = $_POST
+$otpCondition = $_POST
     && isset($_POST["user_tel_h"])
     && isset($_POST["otp_inp"]);
 
@@ -107,6 +112,8 @@ if ($otpCondition) {
 }
 
 ?>
+<?php get_header(null, ['login_page' => true]); ?>
+
 <main class="login-page container">
     <div class="form-wrapper" id="formWrapper">
         <?php //check_empty($contact_us_description, 'description'); 

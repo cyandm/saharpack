@@ -407,6 +407,9 @@ img {
   gap: 0;
   width: 100%;
 }
+.header section.login_page {
+  display: none;
+}
 .header section .menu-handler > i {
   width: fit-content;
 }
@@ -579,7 +582,7 @@ img {
 }
 .header section .left-header__login-btn {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -608,10 +611,10 @@ img {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.header section .left-header__login-btn.has-children::after {
+.header section .left-header__login-btn.has-children::before {
   transition: all 0.4s ease-in-out;
 }
-.header section .left-header__login-btn.has-children:has(.children[data-active=true])::after {
+.header section .left-header__login-btn.has-children:has(.children[data-active=true])::before {
   rotate: 180deg;
   transition: all 0.4s ease-in-out;
   color: #c74217;
@@ -678,9 +681,8 @@ img {
 @media screen and (max-width: 768px) {
   .header section .left-header__cart-btn {
     padding: 0.5rem;
+    width: max-content;
   }
-}
-@media screen and (max-width: 768px) {
   .header section .left-header__cart-btn > span {
     display: none;
   }
@@ -2407,10 +2409,10 @@ main.alert-login-page .form-wrapper .btn-edit-number {
   color: #1b51de;
   cursor: pointer;
 }
-main.alert-login-page .form-wrapper .welcome-section {
+main.alert-login-page .welcome-section {
   width: 100%;
 }
-main.alert-login-page .form-wrapper .welcome-section .button-group {
+main.alert-login-page .welcome-section .button-group {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -2420,7 +2422,7 @@ main.alert-login-page .form-wrapper .welcome-section .button-group {
   gap: 0.25rem;
 }
 @media screen and (max-width: 480px) {
-  main.alert-login-page .form-wrapper .welcome-section .button-group {
+  main.alert-login-page .welcome-section .button-group {
     display: flex;
     flex-direction: row;
     justify-content: stretch;
@@ -2428,10 +2430,10 @@ main.alert-login-page .form-wrapper .welcome-section .button-group {
     flex-wrap: nowrap;
     gap: 0.25rem;
   }
-  main.alert-login-page .form-wrapper .welcome-section .button-group > * {
+  main.alert-login-page .welcome-section .button-group > * {
     flex: 1;
   }
-  main.alert-login-page .form-wrapper .welcome-section .button-group a {
+  main.alert-login-page .welcome-section .button-group a {
     text-align: center;
   }
 }
@@ -3626,7 +3628,7 @@ main.default-page .cart-wrapper .product-property-in-cart .cart-items-wrapper .c
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: nowrap;
   gap: 1rem;
 }
@@ -3636,6 +3638,52 @@ main.default-page .cart-wrapper .product-property-in-cart .cart-items-wrapper .c
 main.default-page .cart-wrapper .product-property-in-cart .cart-items-wrapper .cart-items-inner-wrapper .product-name,
 main.default-page .cart-wrapper .product-property-in-cart .cart-items-wrapper .cart-items-inner-wrapper .product-subtotal {
   color: #1e1e1e;
+}
+main.default-page .cart-wrapper .product-property-in-cart .cart-items-wrapper .cart-items-inner-wrapper .quantity-count-changer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+main.default-page .cart-wrapper .product-property-in-cart .cart-items-wrapper .cart-items-inner-wrapper .quantity-count-changer .quantity label {
+  display: none;
+}
+main.default-page .cart-wrapper .product-property-in-cart .cart-items-wrapper .cart-items-inner-wrapper .quantity-count-changer .quantity input {
+  max-width: 2rem;
+}
+main.default-page .cart-wrapper .product-property-in-cart .cart-items-wrapper .cart-items-inner-wrapper .quantity-count-changer button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  cursor: pointer;
+  color: #1e1e1e;
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  font-size: 1.25rem;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+main.default-page .cart-wrapper .product-property-in-cart form .btn-updater-price-wrapper button {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #1e1e1e;
+  transition: all 0.4s ease-in-out;
+  padding: 0.25rem 1rem;
+  width: max-content;
+}
+main.default-page .cart-wrapper .product-property-in-cart form .btn-updater-price-wrapper button:hover {
+  background-color: transparent;
+  color: #1e1e1e;
+}
+@media screen and (max-width: 480px) {
+  main.default-page .cart-wrapper .product-property-in-cart form .btn-updater-price-wrapper button {
+    width: 100%;
+  }
 }
 main.default-page .cart-wrapper .price-and-pay-method {
   width: 30%;
@@ -3648,6 +3696,12 @@ main.default-page .cart-wrapper .price-and-pay-method .cart_totals .shop_table {
   border: 1px solid #dddddd;
   border-radius: 0;
   padding: 0.75rem;
+}
+main.default-page .cart-wrapper .price-and-pay-method .cart_totals .shop_table td::before {
+  display: none;
+}
+main.default-page .cart-wrapper .price-and-pay-method .cart_totals .shop_table th.title-shipping-method {
+  display: table-cell;
 }
 main.default-page .cart-wrapper .price-and-pay-method .cart_totals .shop_table th,
 main.default-page .cart-wrapper .price-and-pay-method .cart_totals .shop_table td {
@@ -3674,6 +3728,15 @@ main.default-page .cart-wrapper .price-and-pay-method .cart_totals .order-total 
   line-height: 28px;
   color: #1b51de;
 }
+main.default-page .cart-wrapper .price-and-pay-method .btn-proceed-wrapper {
+  text-align: center;
+  background-color: unset;
+}
+main.default-page .cart-wrapper .price-and-pay-method .btn-proceed-wrapper a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 main.default-page .cart-wrapper .price-and-pay-method .btn-proceed-wrapper::before {
   display: none;
   background-color: none;
@@ -3689,6 +3752,17 @@ main.default-page .cart-wrapper .price-and-pay-method .btn-proceed-wrapper::befo
 @media screen and (max-width: 992px) {
   main.default-page .cart-wrapper .product-property-in-cart {
     width: 50%;
+  }
+  main.default-page .cart-wrapper .product-name,
+  main.default-page .cart-wrapper .product-subtotal {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+  main.default-page .cart-wrapper .product-code {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -3796,6 +3870,97 @@ form.checkout div#payment .payment_box::before {
 form.checkout .select2-selection--single {
   border: 1px solid #c5c5c5;
   border-radius: 0;
+}
+
+.woocommerce-order {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+.woocommerce-order .woocommerce-order-details {
+  display: none;
+}
+.woocommerce-order .woocommerce-customer-details {
+  display: none;
+}
+.woocommerce-order .order-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1.25rem;
+}
+.woocommerce-order .order-information > p.h4 {
+  color: #1e1e1e;
+}
+.woocommerce-order .order-information ul {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+}
+.woocommerce-order .order-information ul li {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  border-inline: 1px solid #dddddd;
+  margin: 0;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  border-top: 1px solid #dddddd;
+}
+.woocommerce-order .order-information ul li:last-child {
+  border: 1px solid #dddddd;
+}
+.woocommerce-order .order-information .btn-group-submit-order-page {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+.woocommerce-order .order-information .btn-group-submit-order-page > * {
+  flex: 1;
+}
+.woocommerce-order .order-information .btn-group-submit-order-page .btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  min-width: max-content;
+}
+.woocommerce-order .order-information .btn-group-submit-order-page .btn i {
+  padding-inline: 0.25rem;
+}
+@media screen and (max-width: 480px) {
+  .woocommerce-order .order-information .btn-group-submit-order-page {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+}
+@media screen and (max-width: 480px) {
+  .woocommerce-order .order-information {
+    width: 100%;
+  }
 }
 
 @font-face {

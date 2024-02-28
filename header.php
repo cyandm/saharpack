@@ -11,15 +11,18 @@
 <!-- if change position header -->
 <?php
 $backabsolute = false;
+$login_page = false;
 isset($args['backabsolute']) && $backabsolute = $args['backabsolute'];
+isset($args['login_page']) ? $login_page = true : $login_page = false;
+
 ?>
 
 <body <?php body_class() ?>>
 	<?php wp_body_open() ?>
 
-	<header class="header">
+	<header class="header ">
 
-		<section class="container <?php echo $backabsolute == true ? 'backabsolute' : '' ?>">
+		<section class="container <?php if ($login_page) echo 'login_page' ?> <?php echo $backabsolute == true ? 'backabsolute' : '' ?>">
 
 			<?php get_template_part('/templates/components/mobile-menu') ?>
 
@@ -87,7 +90,9 @@ isset($args['backabsolute']) && $backabsolute = $args['backabsolute'];
 			</div>
 
 		</section>
+		<section class="login-header">
 
+		</section>
 
 	</header>
 

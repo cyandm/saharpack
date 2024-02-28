@@ -90,8 +90,10 @@ defined('ABSPATH') || exit;
 
 
 
-									<div class="product-quantity flex gap-1 justify-center items-center h-24" data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>">
+									<div id="quantityProductWrapper" class="quantity-count-changer" data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>">
 										<?php
+										echo '<div class="minus-step"><button type="button">-</button>';
+										echo '</div>';
 										if ($_product->is_sold_individually()) {
 											$min_quantity = 1;
 											$max_quantity = 1;
@@ -99,7 +101,6 @@ defined('ABSPATH') || exit;
 											$min_quantity = 0;
 											$max_quantity = $_product->get_max_purchase_quantity();
 										}
-
 										$product_quantity = woocommerce_quantity_input(
 											array(
 												'input_name' => "cart[{$cart_item_key}][qty]",
@@ -113,6 +114,8 @@ defined('ABSPATH') || exit;
 										);
 
 										echo apply_filters('woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item); // PHPCS: XSS ok.
+										echo '<div class="plus-step"><button  type="button">+</button>';
+										echo '</div>';
 										?>
 
 										<?php
@@ -156,11 +159,8 @@ defined('ABSPATH') || exit;
 			</div>
 
 			<div>
-				<div class="flex w-full justify-between p-3 bg-gray-50 my-5 max-sm:flex-col gap-4">
-
-
-
-					<button type="submit" class="btn-secondary  max-sm:text-base" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
+				<div class="btn-updater-price-wrapper ">
+					<button type="submit" class="btn-secondary" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
 
 					<?php do_action('woocommerce_cart_actions'); ?>
 
@@ -172,7 +172,7 @@ defined('ABSPATH') || exit;
 	<div class="price-and-pay-method">
 		<?php do_action('woocommerce_before_cart_collaterals'); ?>
 
-		<div class="cart-collaterals flex justify-center items-center">
+		<div class="">
 			<?php
 			/**
 			 * Cart collaterals hook.
