@@ -4843,13 +4843,6 @@
 
   // assets/js/modules/slider-blog.js
   var swiper = new Swiper(".swiper-container", {
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
-    pagination: {
-      el: ".swiper-pagination"
-    },
     loop: true,
     slidesPerView: 1,
     spaceBetween: 20,
@@ -4858,8 +4851,34 @@
       delay: 2500,
       disableOnInteraction: true
     },
-    speed: 5e3,
-    parallax: true
+    speed: 1e3,
+    parallax: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    pagination: {
+      el: ".swiper-pagination"
+    }
+  });
+
+  // assets/js/modules/tabs.js
+  var handlerBtn = document.querySelectorAll(".tabs__handler__btn");
+  var contents = document.querySelectorAll(".tabs__content__item");
+  handlerBtn.forEach((tab) => {
+    tab.addEventListener("click", (e) => {
+      handlerBtn.forEach((handler) => {
+        handler.classList.remove("active");
+      });
+      e.target.classList.add("active");
+      const slide2 = e.target.dataset.tab;
+      contents.forEach((c) => {
+        c.classList.remove("active");
+        if (c.dataset.tab == slide2) {
+          c.classList.add("active");
+        }
+      });
+    });
   });
 
   // assets/js/pages/single-product.js

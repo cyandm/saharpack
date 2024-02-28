@@ -2,17 +2,8 @@
 
 .icon-menu {
   padding: 1rem;
-  display: none;
   border: $b_1;
   padding: $s_2 $s_2;
-
-  @include mq("lg") {
-    display: block;
-  }
-
-  @media (max-width: 1260px) {
-    display: block;
-  }
 }
 
 body[data-popup-open="true"] {

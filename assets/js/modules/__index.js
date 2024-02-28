@@ -6,4 +6,5 @@ import "./ajax-search";
 import "./video-cover";
 import "./swiper";
 import "./drop-down";
-import './slider-blog';
+import "./slider-blog";
+import "./tabs";

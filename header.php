@@ -63,7 +63,7 @@ isset($args['backabsolute']) && $backabsolute = $args['backabsolute'];
 									</li>
 
 									<li>
-										<a href="#">
+										<a href="<?= wp_logout_url(); ?>">
 											<?php pll_e("خروج از حساب") ?>
 										</a>
 									</li>

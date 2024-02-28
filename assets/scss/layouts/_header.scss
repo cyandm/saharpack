@@ -11,6 +11,12 @@
     width: 100%;
 
     .menu-handler {
+      display: none;
+
+      @media (max-width: 1260px) {
+        display: block;
+      }
+
       > i {
         width: fit-content;
       }

@@ -34,27 +34,29 @@ $slider_blogs = new WP_Query([
 	</div><!-- @TODO breadcrumb change to rank math-->
 	<hr />
 	<div class="blog-main">
-	<?php 
-	if(count(array_filter($selected_blog))> 0){
+		<?php
+		if ($selected_blog) {
+			if (count(array_filter($selected_blog)) > 0) {
 
-		foreach ($selected_blog as  $blog_id) {
-			get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $blog_id]);
-		}
-	}
-	else {
-		while ($first_blogs->have_posts()) {
+				foreach ($selected_blog as  $blog_id) {
+					get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $blog_id]);
+				}
+			}
+		} else {
+			while ($first_blogs->have_posts()) {
 				$first_blogs->the_post();
 				$post_id = get_the_ID();
 				get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $post_id]);
 			}
-	}
-		?>
-		<!-- <?php while ($first_blogs->have_posts()) {
-			$first_blogs->the_post();
-			$post_id = get_the_ID();
-			get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $post_id]);
 		}
-		?> -->
+		?>
+
+		<!-- <?php while ($first_blogs->have_posts()) {
+					$first_blogs->the_post();
+					$post_id = get_the_ID();
+					get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $post_id]);
+				}
+				?> -->
 		<?php wp_reset_postdata() ?>
 	</div>
 	<div class="swiper-container">
