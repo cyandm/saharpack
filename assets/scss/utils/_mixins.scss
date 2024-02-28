@@ -74,7 +74,7 @@
 //#endregion
 
 @mixin make_icon($content) {
-  &::before {
+  &::after {
     content: $content;
     font-family: "iconsax" !important;
     font-style: normal;

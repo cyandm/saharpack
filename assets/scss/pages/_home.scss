@@ -9,6 +9,20 @@
 
       &__back {
         @include d_flex();
+
+        &.s-mobile {
+          display: none;
+
+          @include mq("lg") {
+            display: flex;
+          }
+        }
+
+        &.s-desktop {
+          @include mq("lg") {
+            display: none;
+          }
+        }
       }
 
       &__front {
