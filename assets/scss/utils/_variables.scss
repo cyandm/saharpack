@@ -1,4 +1,4 @@
-@use "./functions" as *;
+@use './functions' as *;
 
 //#region colors
 $clr_primary_light: #969696;
@@ -93,6 +93,8 @@ $b_1: 1px solid $clr_primary_main;
 $b_2: 1px solid $clr_primary_light;
 $b_3: 1px solid $clr_natural_4;
 $b_4: 1px solid $clr_primary_dark;
+$b_5: 1px solid $clr_natural_3;
+
 //#endregion
 
 //#region transition
@@ -106,53 +108,53 @@ $t_1: all 0.4s ease-in-out;
 
 //#region colors css
 :root {
-	--clr-primary-light: #{$clr_primary_light};
-	--clr-primary-main: #{$clr_primary_main};
-	--clr-primary-dark: #{$clr_primary_dark};
-	--clr-primary-text-contrast: #{$clr_primary_text};
+  --clr-primary-light: #{$clr_primary_light};
+  --clr-primary-main: #{$clr_primary_main};
+  --clr-primary-dark: #{$clr_primary_dark};
+  --clr-primary-text-contrast: #{$clr_primary_text};
 
-	--clr-secondary-dark: #{$clr_secondary_dark};
-	--clr-secondary-text-contrast: #{$clr_secondary_text};
+  --clr-secondary-dark: #{$clr_secondary_dark};
+  --clr-secondary-text-contrast: #{$clr_secondary_text};
 
-	--clr-accent-dark: #{$clr_accent_dark};
-	--clr-accent-text-contrast: #{$clr_accent_text};
+  --clr-accent-dark: #{$clr_accent_dark};
+  --clr-accent-text-contrast: #{$clr_accent_text};
 
-	--clr-bg-default: #{$clr_bg_default};
-	--clr-bg-paper: #{$clr_bg_paper};
+  --clr-bg-default: #{$clr_bg_default};
+  --clr-bg-paper: #{$clr_bg_paper};
 }
 
 :root {
-	--clr-error-light: #{$clr_error_light};
-	--clr-error-main: #{$clr_error_main};
-	--clr-error-dark: #{$clr_error_dark};
+  --clr-error-light: #{$clr_error_light};
+  --clr-error-main: #{$clr_error_main};
+  --clr-error-dark: #{$clr_error_dark};
 
-	--clr-warning-light: #{$clr_warning_light};
-	--clr-warning-main: #{$clr_warning_main};
-	--clr-warning-dark: #{$clr_warning_dark};
+  --clr-warning-light: #{$clr_warning_light};
+  --clr-warning-main: #{$clr_warning_main};
+  --clr-warning-dark: #{$clr_warning_dark};
 
-	--clr-success-light: #{$clr_success_light};
-	--clr-success-main: #{$clr_success_main};
-	--clr-success-dark: #{$clr_success_dark};
+  --clr-success-light: #{$clr_success_light};
+  --clr-success-main: #{$clr_success_main};
+  --clr-success-dark: #{$clr_success_dark};
 
-	--clr-information-light: #{$clr_info_light};
-	--clr-information-main: #{$clr_info_main};
-	--clr-information-dark: #{$clr_info_dark};
+  --clr-information-light: #{$clr_info_light};
+  --clr-information-main: #{$clr_info_main};
+  --clr-information-dark: #{$clr_info_dark};
 }
 
 :root {
-	--clr-text-dark: #{$clr_text_dark};
-	--clr-text-main: #{$clr_text_main};
-	--clr-text-light: #{$clr_text_light};
-	--clr-text-contrast: #{$clr_text_contrast};
+  --clr-text-dark: #{$clr_text_dark};
+  --clr-text-main: #{$clr_text_main};
+  --clr-text-light: #{$clr_text_light};
+  --clr-text-contrast: #{$clr_text_contrast};
 
-	--clr-natural-1: #{$clr_natural_1};
-	--clr-natural-2: #{$clr_natural_2};
-	--clr-natural-3: #{$clr_natural_3};
-	--clr-natural-4: #{$clr_natural_4};
-	--clr-natural-5: #{$clr_natural_5};
-	--clr-natural-6: #{$clr_natural_6};
-	--clr-natural-7: #{$clr_natural_7};
-	--clr-natural-8: #{$clr_natural_8};
-	--clr-natural-9: #{$clr_natural_9};
+  --clr-natural-1: #{$clr_natural_1};
+  --clr-natural-2: #{$clr_natural_2};
+  --clr-natural-3: #{$clr_natural_3};
+  --clr-natural-4: #{$clr_natural_4};
+  --clr-natural-5: #{$clr_natural_5};
+  --clr-natural-6: #{$clr_natural_6};
+  --clr-natural-7: #{$clr_natural_7};
+  --clr-natural-8: #{$clr_natural_8};
+  --clr-natural-9: #{$clr_natural_9};
 }
 //#endregion

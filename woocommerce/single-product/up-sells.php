@@ -10,7 +10,7 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see         https://woo.com/document/template-structure/
+ * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates
  * @version     3.0.0
  */
@@ -21,17 +21,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( $upsells ) : ?>
 
-	<section class="up-sells upsells products">
+	<section class="up-sells swiper upsells products mt-16 productSlider">
 		<?php
-		$heading = apply_filters( 'woocommerce_product_upsells_products_heading', __( 'You may also like&hellip;', 'woocommerce' ) );
+		$heading = 'پیشنهادهایی مخصوص شما';
 
 		if ( $heading ) :
 			?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
+			<h2 class="text-2xl"><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
 
-		<?php woocommerce_product_loop_start(); ?>
-
+		<div class="swiper-wrapper">
+		
 			<?php foreach ( $upsells as $upsell ) : ?>
 
 				<?php
@@ -39,12 +39,15 @@ if ( $upsells ) : ?>
 
 				setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-				wc_get_template_part( 'content', 'product' );
+				echo '<div class="swiper-slide">';
+				wc_get_template_part('content', 'product');
+				echo '</div>'
+
 				?>
 
 			<?php endforeach; ?>
 
-		<?php woocommerce_product_loop_end(); ?>
+		<div>
 
 	</section>
 

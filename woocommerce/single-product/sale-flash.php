@@ -10,7 +10,7 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see         https://woo.com/document/template-structure/
+ * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates
  * @version     1.6.4
  */
@@ -21,10 +21,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post, $product;
 
+if ($product->is_on_sale()) {
+	if ($product->is_type('simple')) {
+		$sale_price = $product->get_sale_price();
+		$regular_price = $product->get_regular_price();
+	} elseif ($product->is_type('variable')) {
+		$product_prices = $product->get_variation_prices();
+
+		$sale_price = min($product_prices['sale_price']);
+		$regular_price = min($product_prices['regular_price']);
+	}
+	$sale_price && $discount = round(($sale_price / $regular_price - 1) * -100);
+} else {
+	if ($product->is_type('simple')) {
+		$sale_price = $product->get_regular_price();
+	} elseif ($product->is_type('variable')) {
+		$product_prices = $product->get_variation_prices();
+
+		$sale_price = min($product_prices['regular_price']);
+	}
+}
+
 ?>
 <?php if ( $product->is_on_sale() ) : ?>
 
-	<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
+	<span class="offer bg-primary-900 text-white rounded-tl rounded-br absolute left-0 top-0 p-2 max-sm:p-1 max-sm:text-sm z-50">%
+                    <?php echo $discount ?>
+    </span>
 
 	<?php
 endif;

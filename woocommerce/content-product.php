@@ -1,67 +1,102 @@
 <?php
-/**
- * The template for displaying product content within loops
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/content-product.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see     https://woo.com/document/template-structure/
- * @package WooCommerce\Templates
- * @version 3.6.0
- */
 
-defined( 'ABSPATH' ) || exit;
+
+defined('ABSPATH') || exit;
 
 global $product;
 
 // Ensure visibility.
-if ( empty( $product ) || ! $product->is_visible() ) {
-	return;
+if (empty($product) || !$product->is_visible()) {
+    return;
 }
 ?>
-<li <?php wc_product_class( '', $product ); ?>>
-	<?php
-	/**
-	 * Hook: woocommerce_before_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_open - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item' );
+<div>
+    <?php
+    $product_name = $product->get_name();
+    $product_image = $product->get_image(["full", 700]);
+    $product_id = $product->get_id();
+    $product_permalink = $product->get_permalink();
 
-	/**
-	 * Hook: woocommerce_before_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_show_product_loop_sale_flash - 10
-	 * @hooked woocommerce_template_loop_product_thumbnail - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item_title' );
+    $product->is_type('variable') && $all_variations = $product->get_variation_attributes();
 
-	/**
-	 * Hook: woocommerce_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_product_title - 10
-	 */
-	do_action( 'woocommerce_shop_loop_item_title' );
+    /*Check If Product is On Sale for prices 
+    note: in products what not on sale $sale_price = $regular_price
+    */
+    if ($product->is_on_sale()) {
+        if ($product->is_type('simple')) {
+            $sale_price = $product->get_sale_price();
+            $regular_price = $product->get_regular_price();
+        } elseif ($product->is_type('variable')) {
+            $product_prices = $product->get_variation_prices();
 
-	/**
-	 * Hook: woocommerce_after_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_rating - 5
-	 * @hooked woocommerce_template_loop_price - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item_title' );
+            $sale_price = min($product_prices['sale_price']);
+            $regular_price = min($product_prices['regular_price']);
+        }
+        $sale_price && $discount = round(($sale_price / $regular_price - 1) * -100);
+    } else {
+        if ($product->is_type('simple')) {
+            $sale_price = $product->get_regular_price();
+        } elseif ($product->is_type('variable')) {
+            $product_prices = $product->get_variation_prices();
 
-	/**
-	 * Hook: woocommerce_after_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_close - 5
-	 * @hooked woocommerce_template_loop_add_to_cart - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item' );
-	?>
-</li>
+            $sale_price = min($product_prices['regular_price']);
+        }
+    }
+    ?>
+
+    <div class="product-card bg-white p-2 rounded mx-auto">
+
+        <div class="relative">
+            <a href="<?php echo $product_permalink ?>">
+                <?php echo $product_image ?>
+            </a>
+            <?php if ($product->is_on_sale()) : ?>
+                <span class="offer bg-primary-900 text-white rounded-tl rounded-br absolute left-0 top-0 p-2 max-sm:p-1 max-sm:text-sm">%
+                    <?php echo $discount ?>
+                </span>
+            <?php endif; ?>
+
+            <!-- Product Variables-->
+            <?php if ($product->is_type('variable')) : ?>
+                <div class="variables absolute bottom-0 w-full bg-white gap-2 p-1  transition-all z-0 max-md:hidden">
+                    <div class="productCardVars overflow-x-scroll flex gap-4 px-7">
+                        <i data-feather="chevron-right" class="absolute right-0 bg-white hover:bg-primary-900 hover:text-white transition-all productCardRightArrow"></i>
+                        <?php
+
+                        foreach ($all_variations as $key => $variations) {
+                            foreach ($variations as $variation) {
+                        ?>
+                                <a href="<?php echo $product_permalink . '?' . $key . '=' . $variation ?>" class="uppercase min-w-fit">
+                                    <?php echo str_replace("-", " ", urldecode($variation)); ?>
+                                </a>
+
+                        <?php
+                            }
+                        }
+                        ?>
+                        <i data-feather="chevron-left" class="absolute left-0  bg-white hover:bg-primary-900 hover:text-white transition-all productCardLeftArrow"></i>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <div class="grid gap-1 bg-white z-10 relative">
+            <a href="<?php echo $product_permalink ?>" class="my-2 max-sm:text-xs max-sm:text-ellipsis max-sm:whitespace-nowrap max-sm:overflow-hidden">
+                <?php echo $product_name; ?>
+            </a>
+            <div class="flex justify-end gap-1 max-sm:text-xs">
+                <?php if ($product->is_in_stock()) : ?>
+                    <span class="no-currency">
+                        <?php if ($product->is_on_sale()) {
+                            echo (wc_price($regular_price));
+                        } ?>
+                    </span>
+                    <?php echo (wc_price($sale_price)) ?>
+                <?php else : ?>
+                    <p class="stock out-of-stock">ناموجود</p>
+                <?php endif; ?>
+            </div>
+        </div>
+
+    </div>
+</div>

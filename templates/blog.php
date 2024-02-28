@@ -30,14 +30,13 @@ $slider_blogs = new WP_Query([
 				]
 			) ?>
 		</ul>
-		<p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder="جستجو" /></p>
+		<p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder="جستجو" /> </p>
 	</div><!-- @TODO breadcrumb change to rank math-->
 	<hr />
 	<div class="blog-main">
 		<?php
 		if ($selected_blog) {
 			if (count(array_filter($selected_blog)) > 0) {
-
 				foreach ($selected_blog as  $blog_id) {
 					get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $blog_id]);
 				}
@@ -50,7 +49,6 @@ $slider_blogs = new WP_Query([
 			}
 		}
 		?>
-
 		<!-- <?php while ($first_blogs->have_posts()) {
 					$first_blogs->the_post();
 					$post_id = get_the_ID();

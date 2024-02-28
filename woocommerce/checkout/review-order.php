@@ -10,7 +10,7 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see https://woo.com/document/template-structure/
+ * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
  * @version 5.2.0
  */
@@ -52,13 +52,9 @@ defined( 'ABSPATH' ) || exit;
 	</tbody>
 	<tfoot>
 
-		<tr class="cart-subtotal">
-			<th><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
-			<td><?php wc_cart_totals_subtotal_html(); ?></td>
-		</tr>
 
 		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
-			<tr class="cart-discount coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
+			<tr class="cart-discount bg-green-50 text-green-600 border-green-600 coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
 				<th><?php wc_cart_totals_coupon_label( $coupon ); ?></th>
 				<td><?php wc_cart_totals_coupon_html( $coupon ); ?></td>
 			</tr>
@@ -76,7 +72,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
 			<tr class="fee">
-				<th><?php echo esc_html( $fee->name ); ?></th>
+				<th ><?php echo esc_html( $fee->name ); ?></th>
 				<td><?php wc_cart_totals_fee_html( $fee ); ?></td>
 			</tr>
 		<?php endforeach; ?>

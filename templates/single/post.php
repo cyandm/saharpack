@@ -3,8 +3,9 @@
 $author_name = get_the_author_meta( 'display_name', get_post_field( 'post_author', get_the_ID() ) );
 
 
-$post_id = get_queried_object_id();?>
-<? function custom_share_buttons() {
+$post_id = get_queried_object_id();
+
+function custom_share_buttons() {
 
 	global $post;
 	
@@ -22,18 +23,25 @@ $post_id = get_queried_object_id();?>
 	echo '</div>';
 	
 	}
+
+	$new_blogs = new WP_Query( [ 
+		'post_type' => 'post',
+		'posts_per_page' => 4,
+		'post__not_in' => [ get_the_ID() ],
+	] );
 	
 ?>
 
 
 <main class="container single-post-page">
 
-	<!-- @TODO breadcrumb change to rank math-->
-	<p class="breadcrumb"><a href="<?php home_url() ?>">صفحه اصلی</a>
-		<i class="iconsax"
-		   icon-name="arrow-left"></i>
-		<?php echo the_title(); ?>
-	</p>
+	
+    <div class="breadcrumb-wrapper">
+        <div class="breadcrumb-product container">
+            <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+        </div>
+        <i class="divider"></i>
+    </div>
 	<hr />
 	<div class="single-blog">
 		<div class="sidebar">
@@ -68,8 +76,7 @@ $post_id = get_queried_object_id();?>
 							   icon-name="message-dots"></i><?php echo get_comments_number( $post_id ); ?></span>
 						<span class="author-single-blog meta"><i class="iconsax"
 							   icon-name="heart"></i><?= $author_name ?></span>
-						<span class="author-single-blog meta">	<?php custom_share_buttons(); ?>
-</span>
+						<span class="author-single-blog meta">	<?php custom_share_buttons(); ?></span>
 					</div>
 				</div>
 				<h1><?= get_the_title( $post_id ) ?></h1>
@@ -87,19 +94,11 @@ $post_id = get_queried_object_id();?>
 				<div class="single-comment-number">
 					<h6><span> <?php echo get_comments_number( $post_id ); ?></span> دیدگاه</h6>
 				</div>
-				<?php echo comments_template();
-				?>
+				<?php echo comments_template();	?>
 			</div>
 
 		</div>
 
-		<?php
-		$new_blogs = new WP_Query( [ 
-			'post_type' => 'post',
-			'posts_per_page' => 4,
-			'post__not_in' => [ get_the_ID() ],
-		] );
-		?>
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
 				<?php

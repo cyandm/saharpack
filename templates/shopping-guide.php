@@ -16,12 +16,13 @@ $description = get_field('description');
     <section class="shop-guide">
 
         <div class="shop-guide__content">
+            <?php if ($title) : ?>
+                <div class="shop-guide__content__title">
 
-            <div class="shop-guide__content__title">
+                    <h1><span><?= $title ?></span></h1>
 
-                <h1><span><?= $title ?></span></h1>
-
-            </div>
+                </div>
+            <?php endif ?>
 
 
             <?php

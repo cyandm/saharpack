@@ -7,7 +7,9 @@ $cats = get_categories([
     'hide_empty' => true,
 ]);
 
-$cat_id = get_queried_object()->term_id;
+$cat_id = (isset(get_queried_object()->term_id)) ? get_queried_object()->term_id : '';
+
+
 ?>
 <main class="archive-product-page product-page">
     <div class="breadcrumb-wrapper">
