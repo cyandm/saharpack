@@ -5,6 +5,11 @@
     &__content {
       position: relative;
       @include d_flex(row, center, center);
+      margin-block-start: $s_3;
+
+      &__back {
+        @include d_flex();
+      }
 
       &__front {
         position: absolute;
@@ -12,6 +17,18 @@
         right: 5%;
         translate: 0% -50%;
         max-width: 375px;
+        @include d_flex(column, $gap: $s_2);
+
+        @include mq("lg") {
+          right: unset;
+          top: 18%;
+          transition: unset;
+          translate: unset;
+        }
+
+        @media (max-width: 1125px) {
+          max-width: 295px;
+        }
 
         &__text {
           text-align: justify;
@@ -54,7 +71,7 @@
         @include fs("h2");
       }
     }
-    @include border_title();
+    @include border_title(true);
   }
 
   .products {
@@ -63,6 +80,20 @@
 
       @include mq("md") {
         margin-block-start: $s_6;
+      }
+
+      .titles-home {
+        &::before {
+          @include mq("md") {
+            display: none;
+          }
+        }
+
+        > span {
+          @include mq("md") {
+            margin-block-start: $s_4;
+          }
+        }
       }
 
       &__cards {
@@ -136,6 +167,7 @@
 
       &__text {
         @include fs("body");
+        text-align: justify;
         color: $clr_text_dark;
         margin-block-start: $s_6;
       }
@@ -236,12 +268,102 @@
             @include mq("md") {
               max-width: 346px;
             }
+
+            @media (max-width: 385px) {
+              max-width: 100%;
+            }
           }
         }
       }
     }
   }
 
-  // .home-blogs {
-  // }
+  .home-blogs {
+    &__content {
+      margin-block-start: $s_11;
+
+      .btn-slider {
+        &__mobile {
+          display: none;
+          @include mq("md") {
+            display: flex;
+            width: fit-content;
+          }
+        }
+
+        &__desktop {
+          display: flex;
+          @include mq("md") {
+            display: none;
+          }
+        }
+      }
+
+      &__header {
+        flex-direction: row !important;
+        align-items: center !important;
+        margin-block-end: $s_5;
+        > ul {
+          gap: $s_4 !important;
+        }
+      }
+    }
+  }
+
+  .tabs {
+    &__handler {
+      @include d_flex(row, center, center, $gap: $s_9);
+      @include mq("md") {
+        gap: $s_5;
+      }
+
+      &__btn {
+        border: none;
+        background: none;
+        cursor: pointer;
+        @include fs("h6");
+        transition: $t_1;
+
+        &:hover {
+          color: $clr_secondary_dark;
+        }
+
+        &.active {
+          color: $clr_secondary_dark;
+        }
+      }
+    }
+
+    &__content {
+      @include mq("md") {
+        display: none;
+      }
+      &__item {
+        display: grid !important;
+        grid-template-rows: 0fr;
+        transition: $t_1;
+
+        &.active {
+          display: grid !important;
+          grid-template-rows: 1fr;
+        }
+
+        .blog-main {
+          overflow: hidden;
+        }
+
+        > div {
+          overflow: hidden;
+        }
+      }
+    }
+
+    &__item {
+      display: none !important;
+
+      @include mq("md") {
+        display: block !important;
+      }
+    }
+  }
 }

@@ -66,7 +66,7 @@ isset($args['login_page']) ? $login_page = true : $login_page = false;
 									</li>
 
 									<li>
-										<a href="#">
+										<a href="<?= wp_logout_url(); ?>">
 											<?php pll_e("خروج از حساب") ?>
 										</a>
 									</li>

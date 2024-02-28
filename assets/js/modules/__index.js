@@ -8,3 +8,4 @@ import './swiper';
 import './drop-down';
 import './slider-blog';
 import './minus-plus-products';
+import './tabs';
