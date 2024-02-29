@@ -1,18 +1,26 @@
 <?php
 /*Template Name: Alert Login Page */
-$login = [
+// $login = [
+//     'post_type' => 'page',
+//     'fields' => 'ids',
+//     'nopaging' => true,
+//     'meta_key' => '_wp_page_template',
+//     'meta_value' => 'templates/login.php'
+// ];
+// $login_link = get_permalink(get_posts($login)[0]);
+
+// if (!(is_user_logged_in())) {
+//     wp_redirect($login_link); // @need : back to last url
+//     exit();
+// }
+$my_order_template = [
     'post_type' => 'page',
     'fields' => 'ids',
     'nopaging' => true,
     'meta_key' => '_wp_page_template',
-    'meta_value' => 'templates/login.php'
+    'meta_value' => 'templates/my-order.php'
 ];
-$login_link = get_permalink(get_posts($login)[0]);
-
-if (!(is_user_logged_in())) {
-    wp_redirect($login_link); // @need : back to last url
-    exit();
-}
+$page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
 
 $prePass = constant('SECURE_AUTH_KEY');
 
@@ -92,7 +100,7 @@ if ($otpCondition) {
 
             if (!is_wp_error($signon)) {
                 update_user_meta($userID, "cyn_otp", "");
-                wp_redirect($userLink);
+                wp_redirect($login_link);
                 exit();
             } else {
                 $alerts[] = 'مشکلی در ورود به وجود آمده. لطفا دوباره امتحان کنید';
@@ -120,24 +128,24 @@ if ($otpCondition) {
     </div> -->
     <div class="welcome-section dynamic-section">
         <?php if (count($alerts) > 0) : ?>
-            <!-- <div class="title"><?= pll__('welcome') ?></div> -->
-            <?php foreach ($alerts as $alert) : ?>
-                <div class="">
-                    <p class="title"><?= $alert; ?></p>
-                </div>
-            <?php endforeach; ?>
+        <!-- <div class="title"><?= pll__('welcome') ?></div> -->
+        <?php foreach ($alerts as $alert) : ?>
+        <div class="">
+            <p class="title"><?= $alert; ?></p>
+        </div>
+        <?php endforeach; ?>
         <?php endif; ?>
         <div class="button-group">
-            <a class="btn" variant="primary"><?= pll__('حساب کاربری') ?></a>
+            <a class="btn" variant="primary" href="<?= $page_my_order_link ?>"><?= pll__('حساب کاربری') ?></a>
             <a class="btn" variant="secondary" href="<?= wp_logout_url() ?>"><?= pll__('exit') ?></a>
         </div>
     </div>
 
     <div class="page-thumbnail">
         <?php if (!empty(get_the_post_thumbnail())) : ?>
-            <?php the_post_thumbnail() ?>
+        <?php the_post_thumbnail() ?>
         <? else : ?>
-            <img src="<?= get_stylesheet_directory_uri() . '/assets/img/placeholder.png' ?>" />
+        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/placeholder.png' ?>" />
         <?php endif ?>
     </div>
 </main>
