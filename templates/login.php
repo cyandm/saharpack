@@ -1,5 +1,10 @@
 <?php
 /*Template Name: Login Page */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 $my_order_template = [
     'post_type' => 'page',
     'fields' => 'ids',
@@ -98,7 +103,7 @@ if ($otpCondition) {
 
             if (!is_wp_error($signon)) {
                 update_user_meta($userID, "cyn_otp", "");
-                wp_redirect($userLink);
+                wp_redirect($page_my_order_link);
                 exit();
             } else {
                 $alerts[] = 'مشکلی در ورود به وجود آمده. لطفا دوباره امتحان کنید';
@@ -120,29 +125,34 @@ if ($otpCondition) {
         ?>
         <form action="<?= $page_otp_link ?>" method="post" id="login-form">
             <?php if (!$pageCondition) : ?>
-                <div class="title"><?= pll__('login-or-signup') ?></div>
-                <div class="input-primary">
-                    <i class="iconsax" icon-name="user-2"></i>
-                    <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
-                </div>
-                <div class="input-primary">
-                    <i class="iconsax" icon-name="phone"></i>
-                    <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel" placeholder="<?= pll__('phone-number') ?>" required>
-                </div>
+            <div class="title"><?= pll__('login-or-signup') ?></div>
+            <div class="input-primary">
+                <i class="iconsax" icon-name="user-2"></i>
+                <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
+            </div>
+            <div class="input-primary">
+                <i class="iconsax" icon-name="phone"></i>
+                <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel"
+                    placeholder="<?= pll__('phone-number') ?>" required>
+            </div>
 
             <?php else : ?>
-                <div class="input-primary">
-                    <i class="iconsax" icon-name="user-2"></i>
-                    <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
-                </div>
-                <div class="input-primary">
-                    <i class="iconsax" icon-name="phone"></i>
-                    <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel" id="user_tel_inp" value="<?= isset($params["user_tel"]) ? $params["user_tel"] : ''; ?>" placeholder="<?= pll__('phone-number') ?>" required>
-                </div>
-                <input class="data" type="hidden" name="user_tel_h" value="<?= isset($params["user_tel"]) ? $params["user_tel"] : ''; ?>" required>
+            <div class="input-primary">
+                <i class="iconsax" icon-name="user-2"></i>
+                <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
+            </div>
+            <div class="input-primary">
+                <i class="iconsax" icon-name="phone"></i>
+                <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel"
+                    id="user_tel_inp" value="<?= isset($params["user_tel"]) ? $params["user_tel"] : ''; ?>"
+                    placeholder="<?= pll__('phone-number') ?>" required>
+            </div>
+            <input class="data" type="hidden" name="user_tel_h"
+                value="<?= isset($params["user_tel"]) ? $params["user_tel"] : ''; ?>" required>
 
             <?php endif ?>
-            <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit"><?= pll__('continue') ?></button>
+            <button id="login-form-submit send_otp" class="btn" variant="primary"
+                type="submit"><?= pll__('continue') ?></button>
 
 
             <!-- <?php if (!$pageCondition) : ?>
@@ -157,28 +167,30 @@ if ($otpCondition) {
 
 
             <?php if ($pageCondition) : ?>
-                <div class="otp-inputs" id="otp-inputs">
-                    <input class="data input-primary" type="number" name="otp_inp" min="100000" max="999999" maxlength="6" required>
-                    <input class="data" type="hidden" name="number-and-name" value="" required>
-                </div>
-                <button id="login-form-submit submit_otp" class="btn" type="submit" variant="primary"><?= pll__('continue'); ?></button>
+            <div class="otp-inputs" id="otp-inputs">
+                <input class="data input-primary" type="number" name="otp_inp" min="100000" max="999999" maxlength="6"
+                    required>
+                <input class="data" type="hidden" name="number-and-name" value="" required>
+            </div>
+            <button id="login-form-submit submit_otp" class="btn" type="submit"
+                variant="primary"><?= pll__('continue'); ?></button>
             <?php endif; ?>
 
             <?php if (count($alerts) > 0) : ?>
 
-                <div class="welcome-section dynamic-section">
-                    <!-- <div class="title"><?= pll__('welcome') ?></div> -->
-                    <?php foreach ($alerts as $alert) : ?>
-                        <div class="">
-                            <p class="title"><?= $alert; ?></p>
-                        </div>
-                    <?php endforeach; ?>
-
-                    <div class="button-group">
-                        <a class="btn" variant="primary"><?= pll__('user-dashboard') ?></a>
-                        <a class="btn" variant="secondary" href="/"><?= pll__('exit') ?></a>
-                    </div>
+            <div class="welcome-section dynamic-section">
+                <!-- <div class="title"><?= pll__('welcome') ?></div> -->
+                <?php foreach ($alerts as $alert) : ?>
+                <div class="">
+                    <p class="title"><?= $alert; ?></p>
                 </div>
+                <?php endforeach; ?>
+
+                <div class="button-group">
+                    <a class="btn" variant="primary"><?= pll__('user-dashboard') ?></a>
+                    <a class="btn" variant="secondary" href="/"><?= pll__('exit') ?></a>
+                </div>
+            </div>
 
             <?php endif; ?>
 
@@ -186,9 +198,9 @@ if ($otpCondition) {
     </div>
     <div class="page-thumbnail">
         <?php if (!empty(get_the_post_thumbnail())) : ?>
-            <?php the_post_thumbnail() ?>
+        <?php the_post_thumbnail() ?>
         <? else : ?>
-            <img src="<?= get_stylesheet_directory_uri() . '/assets/img/placeholder.png' ?>" />
+        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/placeholder.png' ?>" />
         <?php endif ?>
     </div>
 </main>

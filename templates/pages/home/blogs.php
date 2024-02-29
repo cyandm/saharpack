@@ -6,10 +6,9 @@ $blogs_new = new WP_Query([
     'post_per_page' => 4,
 ]);
 
-var_dump($blogs_new);
 ?>
 
-
+<?php if($blogs_new->have_posts()): ?>
 <section class="home-blogs">
 
     <div class="home-blogs__content container">
@@ -23,12 +22,11 @@ var_dump($blogs_new);
         </div>
 
         <?php while ($blogs_new->have_posts()) {
-            $blogs_new->the_post();
-            $post_id = get_the_ID();
-
-            var_dump($blogs_new);
+                $blogs_new->the_post();
+                $post_id = get_the_ID();
         } ?>
 
     </div>
 
 </section>
+<?php endif; ?>
