@@ -92,17 +92,57 @@ function cyn_page_register() {
 		wp_insert_post( [ 
 			'post_type' => 'page',
 			'post_status' => 'publish',
-			'post_title' => __( 'تماس با ما', 'cyn-dm' ),
-			'post_name' => 'contact-us',
-			'page_template' => 'templates/contact-us.php'
+			'post_title' => __( 'درباره ی ما', 'cyn-dm' ),
+			'post_name' => 'about-us',
+			'page_template' => 'templates/about-us.php'
 		] );
 
 		wp_insert_post( [ 
 			'post_type' => 'page',
 			'post_status' => 'publish',
-			'post_title' => __( 'درباره ی ما', 'cyn-dm' ),
-			'post_name' => 'about-us',
-			'page_template' => 'templates/about-us.php'
+			'post_title' => __( 'پیام لاگین', 'cyn-dm' ),
+			'post_name' => 'alert-login',
+			'page_template' => 'templates/alert-login.php'
+		] );
+
+		wp_insert_post( [ 
+			'post_type' => 'page',
+			'post_status' => 'publish',
+			'post_title' => __( 'بلاگ', 'cyn-dm' ),
+			'post_name' => 'blog',
+			'page_template' => 'templates/blog.php'
+		] );
+
+		wp_insert_post( [ 
+			'post_type' => 'page',
+			'post_status' => 'publish',
+			'post_title' => __( 'تماس با ما', 'cyn-dm' ),
+			'post_name' => 'contact-us',
+			'page_template' => 'templates/contact-us.php'
+		] );
+		
+		wp_insert_post( [ 
+			'post_type' => 'page',
+			'post_status' => 'publish',
+			'post_title' => __( 'صفحه اصلی', 'cyn-dm' ),
+			'post_name' => 'home',
+			'page_template' => 'templates/home.php'
+		] );
+	
+		wp_insert_post( [ 
+			'post_type' => 'page',
+			'post_status' => 'publish',
+			'post_title' => __( 'فرصت های شغلی', 'cyn-dm' ),
+			'post_name' => 'job-offer',
+			'page_template' => 'templates/job-offer.php'
+		] );
+
+		wp_insert_post( [ 
+			'post_type' => 'page',
+			'post_status' => 'publish',
+			'post_title' => __( 'فرصت های شغلی', 'cyn-dm' ),
+			'post_name' => 'journey',
+			'page_template' => 'templates/journey.php'
 		] );
 
 		wp_insert_post( [ 
@@ -116,16 +156,33 @@ function cyn_page_register() {
 		wp_insert_post( [ 
 			'post_type' => 'page',
 			'post_status' => 'publish',
-			'post_title' => __( 'otp', 'cyn-dm' ),
-			'post_name' => 'otp',
-			'page_template' => 'templates/otp.php'
+			'post_title' => __( 'سفارش های من', 'cyn-dm' ),
+			'post_name' => 'my-order',
+			'page_template' => 'templates/my-order.php'
 		] );
+
 		wp_insert_post( [ 
 			'post_type' => 'page',
 			'post_status' => 'publish',
-			'post_title' => __( 'alert login', 'cyn-dm' ),
-			'post_name' => 'alert-login',
-			'page_template' => 'templates/alert-login.php'
+			'post_title' => __( 'ارسال کد لاگین', 'cyn-dm' ),
+			'post_name' => 'otp',
+			'page_template' => 'templates/otp.php'
+		] );
+		
+		wp_insert_post( [ 
+			'post_type' => 'page',
+			'post_status' => 'publish',
+			'post_title' => __( 'درخواست سفارش اختصاصی', 'cyn-dm' ),
+			'post_name' => 'pricing',
+			'page_template' => 'templates/pricing.php'
+		] );
+		
+		wp_insert_post( [ 
+			'post_type' => 'page',
+			'post_status' => 'publish',
+			'post_title' => __( 'راهنمای خرید', 'cyn-dm' ),
+			'post_name' => 'shopping-guide',
+			'page_template' => 'templates/shopping-guide.php'
 		] );
 
 		update_option( 'cyn_theme_installed', true );
