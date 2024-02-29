@@ -29,7 +29,7 @@ $blog_page_link = [
 $page_blog = get_posts($blog_page_link);
 ?>
 
-
+<?php if($blogs_new->have_posts()): ?>
 <section class="home-blogs">
 
     <div class="home-blogs__content container blog-archive">
@@ -48,7 +48,8 @@ $page_blog = get_posts($blog_page_link);
 
             </div>
 
-            <a href="<?= get_permalink($page_blog[0]); ?>" class="btn btn-slider__desktop" size='have-underline'><?php pll_e("مشاهده همه") ?></a>
+            <a href="<?= get_permalink($page_blog[0]); ?>" class="btn btn-slider__desktop"
+                size='have-underline'><?php pll_e("مشاهده همه") ?></a>
         </div>
 
         <div class="home-blogs__content__items">
@@ -174,7 +175,12 @@ $page_blog = get_posts($blog_page_link);
             <a href="/blog" class="btn btn-slider__mobile" size='have-underline'><?php pll_e("مشاهده همه") ?></a>
 
         </div>
+        <?php while ($blogs_new->have_posts()) {
+                $blogs_new->the_post();
+                $post_id = get_the_ID();
+        } ?>
 
     </div>
 
 </section>
+<?php endif; ?>

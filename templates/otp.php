@@ -1,3 +1,22 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
+$my_order_template = [
+    'post_type' => 'page',
+    'fields' => 'ids',
+    'nopaging' => true,
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'templates/my-order.php'
+];
+$page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
+if (is_user_logged_in()) {
+    wp_redirect($page_my_order_link); // @need : back to last url
+    exit();
+}
+?>
+
 <?php get_header(null, ['login_page' => true]); ?>
 <?php
 /*Template Name: OTP Page */
@@ -111,11 +130,13 @@ if ($otpCondition) {
         <div class=" btn-edit-number"><?= pll__('edit-phone-number') ?></div>
         <form action="<?= $page_alert_link ?>" id="code-entry-form">
             <?php if ($pageCondition) : ?>
-                <div class="otp-inputs" id="otp-inputs">
-                    <input class="data input-primary" type="number" name="otp_inp" min="100000" max="999999" maxlength="6" required>
-                    <input class="data" type="hidden" name="number-and-name" value="" required>
-                </div>
-                <button id="login-form-submit submit_otp" class="btn" type="submit" variant="primary"><?= pll__('continue'); ?></button>
+            <div class="otp-inputs" id="otp-inputs">
+                <input class="data input-primary" type="number" name="otp_inp" min="100000" max="999999" maxlength="6"
+                    required>
+                <input class="data" type="hidden" name="number-and-name" value="" required>
+            </div>
+            <button id="login-form-submit submit_otp" class="btn" type="submit"
+                variant="primary"><?= pll__('continue'); ?></button>
             <?php endif; ?>
 
             <!-- <input class="data input-primary" type="number" name="otp_inp" min="100000" max="999999" maxlength="6" required>
@@ -125,9 +146,9 @@ if ($otpCondition) {
     </div>
     <div class="page-thumbnail">
         <?php if (!empty(get_the_post_thumbnail())) : ?>
-            <?php the_post_thumbnail() ?>
+        <?php the_post_thumbnail() ?>
         <? else : ?>
-            <img src="<?= get_stylesheet_directory_uri() . '/assets/img/placeholder.png' ?>" />
+        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/placeholder.png' ?>" />
         <?php endif ?>
     </div>
 </main>

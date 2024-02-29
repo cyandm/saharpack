@@ -8,7 +8,7 @@ $login = [
     'meta_value' => 'templates/login.php'
 ];
 $login_link = get_permalink(get_posts($login)[0]);
-var_dump($login_link);
+
 if (!(is_user_logged_in())) {
     wp_redirect($login_link); // @need : back to last url
     exit();
