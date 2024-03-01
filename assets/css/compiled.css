@@ -2270,6 +2270,9 @@ main.login-page .page-thumbnail img {
   width: 100%;
   object-fit: contain;
 }
+main.login-page .form-wrapper #otp-inputs input {
+  width: 100%;
+}
 main.login-page .form-wrapper .dynamic-section {
   display: none;
 }
@@ -2328,31 +2331,6 @@ main.login-page .form-wrapper .welcome-section .button-group {
   }
 }
 
-main.otp-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.5rem;
-}
-main.otp-page > * {
-  flex: 1;
-}
-main.otp-page > div {
-  width: 50%;
-}
-main.otp-page .title {
-  margin-bottom: 0.5rem;
-  color: #1e1e1e;
-  font-size: 44px;
-  font-weight: 500;
-  line-height: 61.6px;
-}
-main.otp-page .page-thumbnail img {
-  width: 100%;
-  object-fit: contain;
-}
 main.otp-page .form-wrapper #otp-inputs input {
   width: 100%;
 }
@@ -2403,42 +2381,7 @@ main.otp-page .form-wrapper .welcome-section .button-group {
     text-align: center;
   }
 }
-@media screen and (max-width: 768px) {
-  main.otp-page {
-    flex-direction: column-reverse;
-    justify-content: flex-start;
-    align-items: stretch;
-  }
-  main.otp-page > div {
-    width: 100%;
-  }
-}
 
-main.alert-login-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.5rem;
-}
-main.alert-login-page > * {
-  flex: 1;
-}
-main.alert-login-page > div {
-  width: 50%;
-}
-main.alert-login-page .title {
-  margin-bottom: 0.5rem;
-  color: #1e1e1e;
-  font-size: 44px;
-  font-weight: 500;
-  line-height: 61.6px;
-}
-main.alert-login-page .page-thumbnail img {
-  width: 100%;
-  object-fit: contain;
-}
 main.alert-login-page .form-wrapper .dynamic-section {
   display: none;
 }
@@ -2484,16 +2427,6 @@ main.alert-login-page .welcome-section .button-group {
   }
   main.alert-login-page .welcome-section .button-group a {
     text-align: center;
-  }
-}
-@media screen and (max-width: 768px) {
-  main.alert-login-page {
-    flex-direction: column-reverse;
-    justify-content: flex-start;
-    align-items: stretch;
-  }
-  main.alert-login-page > div {
-    width: 100%;
   }
 }
 

@@ -22,6 +22,15 @@ $login = [
     'meta_value' => 'templates/login.php'
 ];
 $login_link = get_permalink(get_posts($login)[0]);
+
+$my_order_template = [
+    'post_type' => 'page',
+    'fields' => 'ids',
+    'nopaging' => true,
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'templates/my-order.php'
+];
+$page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
 ?>
 
     <body <?php body_class() ?>>
@@ -68,13 +77,13 @@ $login_link = get_permalink(get_posts($login)[0]);
                             <div>
                                 <ul>
                                     <li>
-                                        <a href="#">
+                                        <a href="<?= $page_my_order_link ?>">
                                             <?php pll_e("پیگیری سفارش") ?>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="<?= wp_logout_url(); ?>">
+                                        <a href="<?= wp_logout_url(home_url()) ?>">
                                             <?php pll_e("خروج از حساب") ?>
                                         </a>
                                     </li>

@@ -137,7 +137,7 @@ if ($otpCondition) {
         <?php endif; ?>
         <div class="button-group">
             <a class="btn" variant="primary" href="<?= $page_my_order_link ?>"><?= pll__('حساب کاربری') ?></a>
-            <a class="btn" variant="secondary" href="<?= wp_logout_url() ?>"><?= pll__('exit') ?></a>
+            <a class="btn" variant="secondary" href="<?= wp_logout_url(home_url()) ?>"><?= pll__('exit') ?></a>
         </div>
     </div>
 

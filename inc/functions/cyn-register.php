@@ -97,13 +97,7 @@ function cyn_page_register() {
 			'page_template' => 'templates/about-us.php'
 		] );
 
-		wp_insert_post( [ 
-			'post_type' => 'page',
-			'post_status' => 'publish',
-			'post_title' => __( 'پیام لاگین', 'cyn-dm' ),
-			'post_name' => 'alert-login',
-			'page_template' => 'templates/alert-login.php'
-		] );
+		
 
 		wp_insert_post( [ 
 			'post_type' => 'page',
@@ -161,13 +155,6 @@ function cyn_page_register() {
 			'page_template' => 'templates/my-order.php'
 		] );
 
-		wp_insert_post( [ 
-			'post_type' => 'page',
-			'post_status' => 'publish',
-			'post_title' => __( 'ارسال کد لاگین', 'cyn-dm' ),
-			'post_name' => 'otp',
-			'page_template' => 'templates/otp.php'
-		] );
 		
 		wp_insert_post( [ 
 			'post_type' => 'page',
