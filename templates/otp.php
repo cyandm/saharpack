@@ -2,6 +2,14 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
+$login = [
+    'post_type' => 'page',
+    'fields' => 'ids',
+    'nopaging' => true,
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'templates/login.php'
+];
+$login_link = get_permalink(get_posts($login)[0]);
 
 $my_order_template = [
     'post_type' => 'page',
@@ -127,7 +135,7 @@ if ($otpCondition) {
         <?php //check_empty($contact_us_description, 'description'); 
         ?>
         <div class="title"><?= pll__('enter-code') ?></div>
-        <div class=" btn-edit-number"><?= pll__('edit-phone-number') ?></div>
+        <a href="<?= $login_link ?>" class=" btn-edit-number"><?= pll__('edit-phone-number') ?></a>
         <form action="<?= $page_alert_link ?>" id="code-entry-form">
             <?php if ($pageCondition) : ?>
             <div class="otp-inputs" id="otp-inputs">
