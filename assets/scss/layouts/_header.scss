@@ -1,5 +1,9 @@
 @use "../utils/" as *;
 
+:root {
+  --menu-width: 0px;
+}
+
 .header {
   @include d_flex(row, center);
   z-index: 1000;
@@ -180,7 +184,7 @@
       }
 
       &__login-btn {
-        @include d_flex(row-reverse, $j_c: center, $a_i: center);
+        @include d_flex(row, $j_c: center, $a_i: center);
         border: $b_1;
         padding: $s_2 $s_2;
 
@@ -193,12 +197,12 @@
           position: relative;
           cursor: pointer;
 
-          &::before {
+          &::after {
             transition: $t_1;
           }
 
           &:has(.children[data-active="true"]) {
-            &::before {
+            &::after {
               rotate: 180deg;
               transition: $t_1;
               color: $clr_secondary_dark;
@@ -214,8 +218,8 @@
             position: absolute;
             top: $s_10;
             right: 0;
-            min-width: 250px;
             margin-inline-start: -1px;
+            min-width: var(--menu-width);
 
             &[data-active="true"] {
               display: block;

@@ -401,7 +401,7 @@
     });
   });
   var elementWidth = document.querySelector(".left-header").clientWidth;
-  console.log(elementWidth);
+  document.documentElement.style.setProperty("--menu-width", elementWidth + "px");
 
   // assets/js/modules/mobile-menu.js
   var MobileMenu = () => {

@@ -387,6 +387,10 @@ img {
   object-fit: cover;
 }
 
+:root {
+  --menu-width: 0px;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -590,7 +594,7 @@ img {
 }
 .header section .left-header__login-btn {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -619,10 +623,10 @@ img {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.header section .left-header__login-btn.has-children::before {
+.header section .left-header__login-btn.has-children::after {
   transition: all 0.4s ease-in-out;
 }
-.header section .left-header__login-btn.has-children:has(.children[data-active=true])::before {
+.header section .left-header__login-btn.has-children:has(.children[data-active=true])::after {
   rotate: 180deg;
   transition: all 0.4s ease-in-out;
   color: #c74217;
@@ -635,8 +639,8 @@ img {
   position: absolute;
   top: 2.5rem;
   right: 0;
-  min-width: 250px;
   margin-inline-start: -1px;
+  min-width: var(--menu-width);
 }
 .header section .left-header__login-btn.has-children .children[data-active=true] {
   display: block;
@@ -3357,6 +3361,7 @@ main.single-product-page .favorite-products__favorite_post-wrapper {
   background-size: cover;
   background-repeat: no-repeat;
   background-clip: border-box;
+  transition: all 0.4s ease-in-out;
 }
 @keyframes scaleup {
   0% {
@@ -3397,6 +3402,7 @@ main.single-product-page .favorite-products__favorite_post-wrapper {
   left: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
+  color: #1e1e1e;
 }
 @media screen and (max-width: 768px) {
   .about-us__content__video .video-cover > p,
