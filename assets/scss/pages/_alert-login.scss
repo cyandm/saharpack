@@ -1,21 +1,5 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 main.alert-login-page {
-  @include d_flex(row, space-between, center, nowrap, true, $s_2);
-  > div {
-    width: 50%;
-  }
-  .title {
-    margin-bottom: $s_2;
-    color: $clr_primary_dark;
-    @include fs('h1');
-  }
-
-  .page-thumbnail {
-    img {
-      width: 100%;
-      object-fit: contain;
-    }
-  }
   .form-wrapper {
     .dynamic-section {
       display: none;
@@ -31,26 +15,18 @@ main.alert-login-page {
       color: $clr_accent_dark;
       cursor: pointer;
     }
-    .welcome-section {
+  }
+  .welcome-section {
+    width: 100%;
+    .button-group {
       width: 100%;
-      .button-group {
-        width: 100%;
-        @include d_flex(row, flex-start, center, nowrap, false, $s_1);
-        @include mq('sm') {
-          @include d_flex(row, stretch, center, nowrap, true, $s_1);
-          a {
-            text-align: center;
-          }
+      @include d_flex(row, flex-start, center, nowrap, false, $s_1);
+      @include mq("sm") {
+        @include d_flex(row, stretch, center, nowrap, true, $s_1);
+        a {
+          text-align: center;
         }
       }
-    }
-  }
-  @include mq('md') {
-    flex-direction: column-reverse;
-    justify-content: flex-start;
-    align-items: stretch;
-    > div {
-      width: 100%;
     }
   }
 }

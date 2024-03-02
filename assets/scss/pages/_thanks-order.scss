@@ -1,0 +1,61 @@
+@use '../utils/' as *;
+.woocommerce-order {
+  @include d_flex(row, center, flex-start, nowrap);
+  .woocommerce-order-details {
+    display: none;
+  }
+  .woocommerce-customer-details {
+    display: none;
+  }
+  .order-information {
+    > p.h4 {
+      color: $clr_text_dark;
+    }
+    @include d_flex(column, flex-start, center, nowrap, false, $s_5);
+    ul {
+      margin: 0;
+      @include d_flex(column, flex-start, stretch, nowrap, false);
+      width: 100%;
+      li {
+        @include fs('h6');
+        @include d_flex(row, space-between, center, nowrap, false, $s_3);
+        border-inline: $b_5;
+        margin: 0;
+        padding-inline: $s_4;
+        padding-block: $s_4;
+
+        border-top: $b_5;
+        &:last-child {
+          border: $b_5;
+        }
+      }
+    }
+    .btn-group-submit-order-page {
+      width: 100%;
+      @include d_flex(row, space-between, stretch, nowrap, true, $s_3);
+      .btn {
+        @include d_flex(row, center, center, nowrap);
+        min-width: max-content;
+        i {
+          padding-inline: $s_1;
+        }
+      }
+      @include mq('sm') {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+      }
+    }
+    .page-thumbnail {
+      width: 100%;
+      img {
+        width: 100%;
+        object-fit: contain;
+        max-height: px_to_rem(392);
+      }
+    }
+    @include mq('sm') {
+      width: 100%;
+    }
+  }
+}

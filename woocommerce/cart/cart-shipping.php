@@ -46,54 +46,11 @@ $calculator_text          = '';
 					</li>
 				<?php endforeach; ?>
 			</ul>
-			<?php if (is_cart()) : ?>
-				<p class="woocommerce-shipping-destination">
-					<?php
-					if ($formatted_destination) {
-						// Translators: $s shipping destination.
-						printf(esc_html__('Shipping to %s.', 'woocommerce') . ' ', '<strong>' . esc_html($formatted_destination) . '</strong>');
-					} else {
-						echo wp_kses_post(apply_filters('woocommerce_shipping_estimate_html', __('Shipping options will be updated during checkout.', 'woocommerce')));
-					}
-					?>
-				</p>
-			<?php endif; ?>
+
 		<?php
-		elseif (!$has_calculated_shipping || !$formatted_destination) :
-			if (is_cart() && 'no' === get_option('woocommerce_enable_shipping_calc')) {
-				echo wp_kses_post(apply_filters('woocommerce_shipping_not_enabled_on_cart_html', __('Shipping costs are calculated during checkout.', 'woocommerce')));
-			} else {
-				echo wp_kses_post(apply_filters('woocommerce_shipping_may_be_available_html', __('Enter your address to view shipping options.', 'woocommerce')));
-			}
-		elseif (!is_cart()) :
-			echo wp_kses_post(apply_filters('woocommerce_no_shipping_available_html', __('There are no shipping options available. Please ensure that your address has been entered correctly, or contact us if you need any help.', 'woocommerce')));
-		else :
-			echo wp_kses_post(
-				/**
-				 * Provides a means of overriding the default 'no shipping available' HTML string.
-				 *
-				 * @since 3.0.0
-				 *
-				 * @param string $html                  HTML message.
-				 * @param string $formatted_destination The formatted shipping destination.
-				 */
-				apply_filters(
-					'woocommerce_cart_no_shipping_available_html',
-					// Translators: $s shipping destination.
-					sprintf(esc_html__('No shipping options were found for %s.', 'woocommerce') . ' ', '<strong>' . esc_html($formatted_destination) . '</strong>'),
-					$formatted_destination
-				)
-			);
-			$calculator_text = esc_html__('Enter a different address', 'woocommerce');
 		endif;
 		?>
 
-		<?php if ($show_package_details) : ?>
-			<?php echo '<p class="woocommerce-shipping-contents"><small>' . esc_html($package_details) . '</small></p>'; ?>
-		<?php endif; ?>
 
-		<?php if ($show_shipping_calculator) : ?>
-			<?php woocommerce_shipping_calculator($calculator_text); ?>
-		<?php endif; ?>
 	</td>
 </tr>

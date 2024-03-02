@@ -19,7 +19,14 @@ main.default-page {
           }
           @include d_flex(row, space-between, flex-start, nowrap, false, $s_2);
           .items-property {
-            @include d_flex(row, space-between, center, nowrap, false, $s_4);
+            @include d_flex(
+              row,
+              space-between,
+              flex-start,
+              nowrap,
+              false,
+              $s_4
+            );
             .product-code {
               color: $clr_text_light;
             }
@@ -28,15 +35,64 @@ main.default-page {
           .product-subtotal {
             color: $clr_text_dark;
           }
+          .quantity-count-changer {
+            @include d_flex(row, flex-start, center, nowrap, false, $s_2);
+            .quantity {
+              label {
+                display: none;
+              }
+              input {
+                max-width: px_to_rem(32);
+              }
+            }
+            button {
+              @include d_flex(row, center, center, nowrap);
+              cursor: pointer;
+              color: $clr_text_dark;
+              border: $b_5;
+              background: $clr_bg_default;
+              font-size: px_to_rem(20);
+              width: px_to_rem(28);
+              height: px_to_rem(28);
+            }
+          }
+        }
+      }
+      form {
+        .btn-updater-price-wrapper {
+          button {
+            background-color: $clr_primary_dark;
+            color: $clr_primary_text;
+            border: 1px solid $clr_primary_dark;
+            transition: $t_1;
+            padding: $s_1 $s_4;
+            width: max-content;
+            &:hover {
+              background-color: transparent;
+              color: $clr_primary_dark;
+            }
+            @include mq('sm') {
+              width: 100%;
+            }
+          }
         }
       }
     }
     .price-and-pay-method {
       width: 30%;
+
       .cart_totals {
         width: 100%;
         float: none;
         .shop_table {
+          td {
+            &::before {
+              display: none;
+            }
+          }
+          th.title-shipping-method {
+            display: table-cell;
+          }
           border: $b_5;
           border-radius: 0;
           padding: $s_3;
@@ -66,6 +122,13 @@ main.default-page {
         }
       }
       .btn-proceed-wrapper {
+        text-align: center;
+        background-color: unset;
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
         &::before {
           display: none;
           background-color: none;
@@ -83,6 +146,13 @@ main.default-page {
     @include mq('lg') {
       .product-property-in-cart {
         width: 50%;
+      }
+      .product-name,
+      .product-subtotal {
+        @include fs('h6');
+      }
+      .product-code {
+        @include fs('caption');
       }
     }
     @include mq('md') {
