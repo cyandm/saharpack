@@ -16,6 +16,10 @@
           @include mq("lg") {
             display: flex;
           }
+
+          @media (max-width: 600px) {
+            margin-block-start: $s_13;
+          }
         }
 
         &.s-desktop {
@@ -31,13 +35,14 @@
         right: 5%;
         translate: 0% -50%;
         max-width: 375px;
-        @include d_flex(column, $gap: $s_2);
+        @include d_flex(column, space-between, center, $gap: $s_2);
 
         @include mq("lg") {
           right: unset;
-          top: 18%;
+          top: 14%;
           transition: unset;
           translate: unset;
+          min-height: -webkit-fill-available;
         }
 
         @media (max-width: 1125px) {
@@ -46,12 +51,21 @@
 
         &__text {
           text-align: justify;
+          @include fs("body");
+
+          @include mq("lg") {
+            @include fs("body-s");
+          }
         }
 
         &__img {
           > img {
             max-width: 290px;
             height: auto;
+
+            @include mq("lg") {
+              max-width: 126px;
+            }
           }
         }
       }
