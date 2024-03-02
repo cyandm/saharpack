@@ -231,7 +231,7 @@
 
         &__btn {
           > a {
-            @include d_flex(row-reverse, start, center, $gap: $s_1);
+            @include d_flex(row, start, center, $gap: $s_1);
             color: $clr_accent_dark;
             @include fs("h5");
             @include make_icon("\e87f");
