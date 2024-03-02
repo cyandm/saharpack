@@ -31,8 +31,8 @@ $slider_blogs = new WP_Query([
 			) ?>
 		</ul>
 		<p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder="جستجو" /> </p>
-	</div><!-- @TODO breadcrumb change to rank math-->
-	<hr />
+	</div>
+
 	<div class="blog-main">
 		<?php
 		if ($selected_blog) {
