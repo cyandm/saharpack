@@ -1,9 +1,9 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 main.single-job-offer-page {
   .bread-crumb {
     margin-block: $s_5;
     @include d_flex(row, flex-start, center, nowrap, false, $s_3);
-    @include fs('caption');
+    @include fs("caption");
     span {
       @include d_flex(row, center, center, nowrap, false, $s_3);
       color: $clr_text_light;
@@ -39,7 +39,7 @@ main.single-job-offer-page {
           text-align: justify;
         }
       }
-      @include mq('md') {
+      @include mq("md") {
         flex-direction: column;
         .job-thumbnail {
           width: 100%;
@@ -58,8 +58,12 @@ main.single-job-offer-page {
       width: 100%;
       #job-offer-form {
         width: 50%;
-        @include mq('md') {
+        @include mq("md") {
           width: 100%;
+        }
+
+        #job-offer-form-submit {
+          flex-direction: row-reverse;
         }
       }
     }

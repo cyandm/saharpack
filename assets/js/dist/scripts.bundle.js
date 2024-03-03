@@ -4936,6 +4936,15 @@
       });
     }
   }
+  var footer = document.querySelector("footer");
+  if (footer) {
+    footer.addEventListener("mouseenter", () => {
+      mouse.classList.add("white");
+    });
+    footer.addEventListener("mouseleave", () => {
+      mouse.classList.remove("white");
+    });
+  }
 
   // assets/js/pages/single-product.js
   var btnShare = document.getElementById("btnShare");

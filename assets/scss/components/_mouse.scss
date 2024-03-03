@@ -24,6 +24,10 @@
     opacity: 0.5;
   }
 
+  &.white {
+    background-color: $clr_primary_light;
+  }
+
   @include mq("md") {
     display: none;
   }

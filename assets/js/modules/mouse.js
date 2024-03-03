@@ -22,3 +22,15 @@ if (mouse) {
     });
   }
 }
+
+const footer = document.querySelector("footer");
+
+if (footer) {
+  footer.addEventListener("mouseenter", () => {
+    mouse.classList.add("white");
+  });
+
+  footer.addEventListener("mouseleave", () => {
+    mouse.classList.remove("white");
+  });
+}
