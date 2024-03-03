@@ -117,11 +117,20 @@ if (isset($enamad)) {
 
 				<div class="footer__items__left">
 
-					<div class="enamad">
-						<?= $enamad_img ?>
-					</div>
+					<?php if (isset($enamad_img)) : ?>
 
-					<?= wp_get_attachment_image($img_logo, 'full') ?>
+						<div class="enamad">
+							<?= $enamad_img ?>
+						</div>
+
+					<?php endif ?>
+
+					<?php if (isset($img_logo)) : ?>
+
+						<?= wp_get_attachment_image($img_logo, 'full') ?>
+
+					<?php endif ?>
+
 				</div>
 
 			</div>

@@ -1,4 +1,4 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 main.job-offer-page {
   .hero-section {
     .page-thumbnail {
@@ -10,7 +10,6 @@ main.job-offer-page {
         width: 100%;
         height: auto;
         min-height: px_to_rem(240);
-        //min-height: px_to_rem(240);
       }
     }
     .description-job-offer {
@@ -23,7 +22,7 @@ main.job-offer-page {
       p {
         text-align: justify;
       }
-      @include mq('md') {
+      @include mq("md") {
         padding-bottom: $s_6;
         border-bottom: 1px solid $clr_natural_5;
         margin-bottom: $s_4;
@@ -35,7 +34,7 @@ main.job-offer-page {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(px_to_rem(472), 1fr));
       gap: $s_3;
-      @include mq('lg') {
+      @include mq("lg") {
         grid-template-columns: repeat(auto-fill, minmax(px_to_rem(320), 1fr));
       }
     }
