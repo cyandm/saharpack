@@ -1,0 +1,30 @@
+@use "../utils" as *;
+
+* {
+  cursor: none !important;
+}
+
+#mouse {
+  position: fixed;
+  background-color: $clr_primary_dark;
+  left: var(--left);
+  top: var(--top);
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: translate(-0.5rem, -0.25rem);
+  border-radius: 50%;
+  z-index: 10000000;
+  pointer-events: none;
+  transition: transform 0.3s ease-in, background-color 0.3s ease-in,
+    opacity 0.3s ease-in;
+
+  &.hovered {
+    transform: scale(1.5) translate(-0.375rem, -0.25rem);
+    background-color: $clr_primary_light;
+    opacity: 0.5;
+  }
+
+  @include mq("md") {
+    display: none;
+  }
+}

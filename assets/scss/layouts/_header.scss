@@ -142,9 +142,10 @@
                 }
 
                 li {
+                  border-bottom: 1px solid $clr_border_light;
+
                   > a {
                     padding: $s_4;
-                    border-bottom: 1px solid $clr_border_light;
 
                     &:hover {
                       background: $clr_bg_paper;
@@ -155,7 +156,7 @@
                     }
                   }
 
-                  &:last-child a {
+                  &:last-child {
                     border-bottom: none;
                   }
                 }
