@@ -720,6 +720,9 @@ img {
 .backabsolute {
   position: absolute;
 }
+.backabsolute > .mobile-menu {
+  top: 5rem;
+}
 
 .footer {
   background: #1e1e1e;
@@ -1830,11 +1833,12 @@ body[data-popup-open=true] .icon-menu::before {
 
 #mouse {
   position: fixed;
-  background-color: #1e1e1e;
+  background-color: #ffffff;
+  mix-blend-mode: difference;
   left: var(--left);
   top: var(--top);
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
   transform: translate(-0.5rem, -0.25rem);
   border-radius: 50%;
   z-index: 10000000;
@@ -1843,8 +1847,6 @@ body[data-popup-open=true] .icon-menu::before {
 }
 #mouse.hovered {
   transform: scale(1.5) translate(-0.375rem, -0.25rem);
-  background-color: #969696;
-  opacity: 0.5;
 }
 #mouse.white {
   background-color: #969696;
