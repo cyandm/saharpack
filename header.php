@@ -41,7 +41,7 @@ $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
 
         <section class="container <?php if ($login_page) echo 'login_page' ?> <?php echo $backabsolute == true ? 'backabsolute' : '' ?>">
 
-            <?php get_template_part('/templates/components/mobile-menu') ?>
+            <?php get_template_part('/templates/components/mobile-menu', null, ['page_my_order_link' => $page_my_order_link]) ?>
 
 
             <div class="right-header">

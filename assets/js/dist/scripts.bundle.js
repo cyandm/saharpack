@@ -5002,6 +5002,7 @@
           contentType: false,
           data: formData,
           success: (res) => {
+            console.log(res);
             successFormToast.showToast();
             priceForm.reset();
           },
