@@ -1,8 +1,8 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 form.checkout {
-  input[type='text'],
-  input[type='tel'],
-  input[type='email'] {
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"] {
     background: transparent;
     border: none;
     border-bottom: $b_3;
@@ -28,8 +28,8 @@ form.checkout {
       }
       background: rgba($clr_info_light, 0.1);
     }
-    button[variant='primary'] {
-      @include mq('md') {
+    button[variant="primary"] {
+      @include mq("md") {
         width: 100%;
         justify-content: center;
         align-items: center;
@@ -37,7 +37,19 @@ form.checkout {
     }
   }
   .select2-selection--single {
-    border: $b_3;
+    border: none;
+    border-bottom: $b_3;
     border-radius: 0;
+  }
+
+  .woocommerce-checkout-review-order {
+    @include d_flex(row, $gap: $s_4);
+    > * {
+      flex: 1;
+
+      @media (max-width: 1000px) {
+        flex: unset;
+      }
+    }
   }
 }

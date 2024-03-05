@@ -1015,6 +1015,14 @@ label {
   padding: 0.75rem;
   text-align: right;
 }
+.input-primary > i {
+  display: flex;
+  align-items: center;
+}
+.input-primary.textarea > i {
+  align-items: start;
+  padding-block-start: 0.5rem;
+}
 .input-label {
   display: block;
   color: #1e1e1e;
@@ -1412,9 +1420,23 @@ label {
 .blog-main .blog-posts .blog-cards .blog-detail {
   width: 59%;
   padding-right: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 .blog-main .blog-posts .blog-cards .postmeta {
   border: 0;
+}
+.blog-main .blog-posts .blog-cards .postmeta .postmeta-r {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .blogs-2 {
@@ -4025,8 +4047,25 @@ form.checkout div#payment .payment_box::before {
   }
 }
 form.checkout .select2-selection--single {
-  border: 1px solid #c5c5c5;
+  border: none;
+  border-bottom: 1px solid #c5c5c5;
   border-radius: 0;
+}
+form.checkout .woocommerce-checkout-review-order {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+form.checkout .woocommerce-checkout-review-order > * {
+  flex: 1;
+}
+@media (max-width: 1000px) {
+  form.checkout .woocommerce-checkout-review-order > * {
+    flex: unset;
+  }
 }
 
 .woocommerce-order {
