@@ -6,7 +6,7 @@
 
     <?php if (is_user_logged_in()) : ?>
 
-        <a href="#" class="btn tracking" variant="secondary">
+        <a href="<?= $args['page_my_order_link'] ?>" class="btn tracking" variant="secondary">
             <?php pll_e('پیگیری سفارش'); ?>
         </a>
 

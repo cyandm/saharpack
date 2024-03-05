@@ -4,6 +4,8 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
+
+
 $login = [
     'post_type' => 'page',
     'fields' => 'ids',
@@ -20,11 +22,21 @@ $my_order_template = [
     'meta_key' => '_wp_page_template',
     'meta_value' => 'templates/my-order.php'
 ];
+
 $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
+
+
 if (is_user_logged_in()) {
-    wp_redirect($page_my_order_link); // @need : back to last url
+
+    if (isset($_GET['redirect'])) {
+        wp_redirect($_GET['redirect']);
+    } else {
+        wp_redirect($page_my_order_link); // @need : back to last url
+    }
+
     exit();
 }
+
 
 $prePass = constant('SECURE_AUTH_KEY');
 
@@ -107,8 +119,14 @@ if ($otpCondition) {
 
             if (!is_wp_error($signon)) {
                 update_user_meta($userID, "cyn_otp", "");
-                // wp_redirect($page_my_order_link);
-                // exit();
+
+                if (isset($_GET['redirect'])) {
+                    wp_redirect($_GET['redirect']);
+                } else {
+                    wp_redirect($page_my_order_link);
+                }
+
+                exit();
             } else {
                 $alerts[] = 'مشکلی در ورود به وجود آمده. لطفا دوباره امتحان کنید';
             }
@@ -126,7 +144,8 @@ if ($otpCondition) {
 <main class="login-page container">
     <div class="form-wrapper" id="formWrapper">
 
-        <form action="./" method="post" id="login-form">
+        <form action="<?php $_SERVER['REQUEST_URI'] ?>" method="post" id="login-form">
+
             <?php if ($alertCondition) : ?>
 
                 <div class="title"><?= pll__('welcome') ?></div>
@@ -135,7 +154,10 @@ if ($otpCondition) {
                     <a class="btn" variant="primary" href="<?= $page_my_order_link ?>"><?= pll__('حساب کاربری') ?></a>
                     <a class="btn" variant="secondary" href="<?= wp_logout_url(home_url()) ?>"><?= pll__('exit') ?></a>
                 </div>
+
+
             <?php else : ?>
+
 
                 <?php if (!$pageCondition) : ?>
 
@@ -151,7 +173,6 @@ if ($otpCondition) {
                     </div>
                     <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit"><?= pll__('continue') ?></button>
 
-
                 <?php else : ?>
 
                     <div class="title"><?= pll__('enter-code') ?></div>
@@ -159,6 +180,7 @@ if ($otpCondition) {
                         <?= Pll__(' لطفا کد ارسال شده به شماره ') ?>
                         <?= isset($_POST["user_tel"]) ? $_POST["user_tel"] : '' ?>
                         <?= pll__(' وارد کنید ') ?>
+
                     </div>
                     <a href="<?= $login_link ?>" class=" btn-edit-number"><?= pll__('edit-phone-number') ?></a>
                     <div class="otp-inputs" id="otp-inputs">

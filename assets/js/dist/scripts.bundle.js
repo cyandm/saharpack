@@ -401,7 +401,7 @@
     });
   });
   var elementWidth = document.querySelector(".left-header").clientWidth;
-  console.log(elementWidth);
+  document.documentElement.style.setProperty("--menu-width", elementWidth + "px");
 
   // assets/js/modules/mobile-menu.js
   var MobileMenu = () => {
@@ -4862,25 +4862,6 @@
     }
   });
 
-  // assets/js/modules/tabs.js
-  var handlerBtn = document.querySelectorAll(".tabs__handler__btn");
-  var contents = document.querySelectorAll(".tabs__content__item");
-  handlerBtn.forEach((tab) => {
-    tab.addEventListener("click", (e) => {
-      handlerBtn.forEach((handler) => {
-        handler.classList.remove("active");
-      });
-      e.target.classList.add("active");
-      const slide2 = e.target.dataset.tab;
-      contents.forEach((c) => {
-        c.classList.remove("active");
-        if (c.dataset.tab == slide2) {
-          c.classList.add("active");
-        }
-      });
-    });
-  });
-
   // assets/js/modules/minus-plus-products.js
   var plusButton = document.querySelectorAll(".plus-step");
   var minusButton = document.querySelectorAll(".minus-step");
@@ -4914,6 +4895,57 @@
     });
   }
 
+  // assets/js/modules/tabs.js
+  var handlerBtn = document.querySelectorAll(".tabs__handler__btn");
+  var contents = document.querySelectorAll(".tabs__content__item");
+  handlerBtn.forEach((tab) => {
+    tab.addEventListener("click", (e) => {
+      handlerBtn.forEach((handler) => {
+        handler.classList.remove("active");
+      });
+      e.target.classList.add("active");
+      const slide2 = e.target.dataset.tab;
+      contents.forEach((c) => {
+        c.classList.remove("active");
+        if (c.dataset.tab == slide2) {
+          c.classList.add("active");
+        }
+      });
+    });
+  });
+
+  // assets/js/modules/mouse.js
+  var mouse = document.querySelector("#mouse");
+  var _a;
+  var hoverable = (_a = document.querySelectorAll(
+    ".btn , a , .tabs__handler__btn , .input-primary , button , input , .has-children"
+  )) != null ? _a : [];
+  if (mouse) {
+    document.addEventListener("mousemove", (e) => {
+      mouse.style.setProperty("--left", e.clientX + "px");
+      mouse.style.setProperty("--top", e.clientY + "px");
+    });
+    if (hoverable.length > 0) {
+      hoverable.forEach((elem) => {
+        elem.addEventListener("mouseenter", () => {
+          mouse.classList.add("hovered");
+        });
+        elem.addEventListener("mouseleave", () => {
+          mouse.classList.remove("hovered");
+        });
+      });
+    }
+  }
+  var footer = document.querySelector("footer");
+  if (footer) {
+    footer.addEventListener("mouseenter", () => {
+      mouse.classList.add("white");
+    });
+    footer.addEventListener("mouseleave", () => {
+      mouse.classList.remove("white");
+    });
+  }
+
   // assets/js/pages/single-product.js
   var btnShare = document.getElementById("btnShare");
   var titlePageEl = document.querySelector("#title");
@@ -4923,6 +4955,16 @@
         url: window.location.href,
         title: titlePageEl.textContent
       });
+    });
+  }
+  var quantityInput = document.querySelector('.quantity input[type="number"]');
+  var addToCartBtn = document.querySelector(
+    '.share-and-add-cart a[variant="primary"]'
+  );
+  if (quantityInput && addToCartBtn) {
+    const hrefBase = addToCartBtn.href;
+    quantityInput.addEventListener("change", (e) => {
+      addToCartBtn.href = hrefBase + "&quantity=" + e.target.value;
     });
   }
 
@@ -4960,6 +5002,7 @@
           contentType: false,
           data: formData,
           success: (res) => {
+            console.log(res);
             successFormToast.showToast();
             priceForm.reset();
           },
@@ -4974,12 +5017,12 @@
 
   // assets/js/pages/search.js
   var SearchPage = () => {
-    var _a;
+    var _a2;
     const searchPage = document.getElementById("searchPage");
     if (!searchPage)
       return;
     const urlParams = new URLSearchParams(window.location.search);
-    const post_type = (_a = urlParams.get("post_type")) != null ? _a : "default";
+    const post_type = (_a2 = urlParams.get("post_type")) != null ? _a2 : "default";
     const currentRadio = document.querySelector(
       'input[type="radio"][value='.concat(post_type, "]")
     );

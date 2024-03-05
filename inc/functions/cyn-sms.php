@@ -1,10 +1,10 @@
 <?php
 function cyn_send_verification($to, $code)
 {
-    $username = "09106762079";
-    $password = "12345678";
+    $username = "09101926252";
+    $password = "12345678Mm";
     $from = "3000505";
-    $verification_pattern = "42d3urtbfhm6p8g";
+    $verification_pattern = "31qu9ign7h6gzs9";
 
     $input_data = array(
         'verification-code' => $code

@@ -11,6 +11,7 @@ if (isset($social)) {
 	$pintrest_link = $social['pintrest'];
 }
 
+
 if (isset($logo)) {
 	$img_logo = $logo;
 }
@@ -56,7 +57,7 @@ if (isset($enamad)) {
 							'menu_class' => 'f-menu'
 						]) ?>
 
-						<?php if (isset($phone_number_1)) : ?>
+						<?php if ($phone_number_1 > 0) : ?>
 
 							<a href="<?= 'tel:' . $phone_number_1; ?>" class="phone-number">
 								<?= $phone_number_1 ?>
@@ -64,7 +65,7 @@ if (isset($enamad)) {
 
 						<?php endif; ?>
 
-						<?php if (isset($phone_number_2)) : ?>
+						<?php if ($phone_number_2 > 0) : ?>
 
 							<a href="<?= 'tel:' . $phone_number_2; ?>" class="phone-number">
 								<?= $phone_number_2 ?>
@@ -72,7 +73,7 @@ if (isset($enamad)) {
 
 						<?php endif; ?>
 
-						<?php if (isset($phone_number_3)) : ?>
+						<?php if ($phone_number_3 > 0) : ?>
 
 							<a href="<?= 'tel:' . $phone_number_3; ?>" class="phone-number">
 								<?= $phone_number_3 ?>
@@ -80,34 +81,38 @@ if (isset($enamad)) {
 
 						<?php endif; ?>
 
-						<div class="footer__items__right__social-media__items">
 
-							<?php if (isset($whats_app_link)) : ?>
+						<?php if ($social["whats_app"] > 0 || $social["instagram"] > 0 || $social["pintrest"] > 0) : ?>
 
-								<a href="<?= $whats_app_link['url']; ?>" class="social-icon">
-									<i class="whatsapp"><?php get_template_part("/assets/img/svg/whatsapp") ?></i>
-								</a>
+							<div class="footer__items__right__social-media__items">
 
-							<?php endif; ?>
+								<?php if ($whats_app_link > 0) : ?>
 
-							<?php if (isset($instagram_link)) : ?>
+									<a href="<?= $whats_app_link; ?>" class="social-icon">
+										<i class="whatsapp"><?php get_template_part("/assets/img/svg/whatsapp") ?></i>
+									</a>
 
-								<a href="<?= $instagram_link['url']; ?>" class="social-icon">
-									<i class="instagram"><?php get_template_part("/assets/img/svg/instagram") ?></i>
-								</a>
+								<?php endif; ?>
 
-							<?php endif; ?>
+								<?php if ($instagram_link > 0) : ?>
 
-							<?php if (isset($pintrest_link)) : ?>
+									<a href="<?= $instagram_link; ?>" class="social-icon">
+										<i class="instagram"><?php get_template_part("/assets/img/svg/instagram") ?></i>
+									</a>
 
-								<a href="<?= $pintrest_link['url']; ?>" class="social-icon">
-									<i class="pintrest"><?php get_template_part("/assets/img/svg/pintrest") ?></i>
-								</a>
+								<?php endif; ?>
 
-							<?php endif; ?>
+								<?php if ($pintrest_link > 0) : ?>
 
-						</div>
+									<a href="<?= $pintrest_link; ?>" class="social-icon">
+										<i class="pintrest"><?php get_template_part("/assets/img/svg/pintrest") ?></i>
+									</a>
 
+								<?php endif; ?>
+
+							</div>
+
+						<?php endif; ?>
 
 					</div>
 
@@ -117,11 +122,20 @@ if (isset($enamad)) {
 
 				<div class="footer__items__left">
 
-					<div class="enamad">
-						<?= $enamad_img ?>
-					</div>
+					<?php if (isset($enamad_img)) : ?>
 
-					<?= wp_get_attachment_image($img_logo, 'full') ?>
+						<div class="enamad">
+							<?= $enamad_img ?>
+						</div>
+
+					<?php endif ?>
+
+					<?php if (isset($img_logo)) : ?>
+
+						<?= wp_get_attachment_image($img_logo, 'full') ?>
+
+					<?php endif ?>
+
 				</div>
 
 			</div>

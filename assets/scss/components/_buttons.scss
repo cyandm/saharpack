@@ -2,7 +2,9 @@
 .btn {
   cursor: pointer;
   display: flex;
+  align-items: center;
   gap: $s_1;
+  @include fs("body-s");
 
   &[variant="primary"] {
     background-color: $clr_primary_dark;
@@ -17,6 +19,7 @@
     }
     @include mq("sm") {
       width: 100%;
+      justify-content: center;
     }
   }
 

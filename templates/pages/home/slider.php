@@ -13,8 +13,12 @@ $sliders = get_field("sliders");
 
                 <div class="slider__content swiper-slide">
 
-                    <div class="slider__content__back">
-                        <?= wp_get_attachment_image($slider['image'], 'full') ?>
+                    <div class="slider__content__back s-desktop">
+                        <?= wp_get_attachment_image($slider['image_d'], 'full') ?>
+                    </div>
+
+                    <div class="slider__content__back s-mobile">
+                        <?= wp_get_attachment_image($slider['image_m'], 'full') ?>
                     </div>
 
                     <div class="slider__content__front">

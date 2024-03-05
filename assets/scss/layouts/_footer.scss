@@ -21,6 +21,10 @@
         justify-content: start;
       }
 
+      @media (min-width: 635px) and (max-width: 802px) {
+        gap: 0;
+      }
+
       > div {
         min-width: 230px;
 
@@ -100,7 +104,12 @@
       @include d_flex(row, center, center, $gap: $s_2);
 
       .enamad {
-        max-width: 4.375rem;
+        @include mq("xs") {
+          margin-block-start: $s_4;
+        }
+        img {
+          max-width: 60px;
+        }
       }
 
       img {

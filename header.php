@@ -35,12 +35,13 @@ $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
 
 <body <?php body_class() ?>>
     <?php wp_body_open() ?>
+    <span id="mouse"></span>
 
     <header class="header ">
 
         <section class="container <?php if ($login_page) echo 'login_page' ?> <?php echo $backabsolute == true ? 'backabsolute' : '' ?>">
 
-            <?php get_template_part('/templates/components/mobile-menu') ?>
+            <?php get_template_part('/templates/components/mobile-menu', null, ['page_my_order_link' => $page_my_order_link]) ?>
 
 
             <div class="right-header">
@@ -99,7 +100,7 @@ $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
                     <i class="iconsax" icon-name="search-normal-2"></i>
                 </a>
 
-                <a href="<?= esc_url(wc_get_cart_url()); ?>" class="left-header__cart-btn btn" variant="primary">
+                <a href="<?= esc_url(wc_get_cart_url()); ?>" class="left-header__cart-btn btn hoverable" variant="primary">
                     <i class="iconsax" icon-name="shopping-cart"></i>
                     <span><?php pll_e('سبد خرید'); ?></span>
                 </a>
@@ -117,6 +118,3 @@ $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
         </section>
 
     </header>
-
-    <body <?php body_class() ?>>
-        <?php wp_body_open() ?>
