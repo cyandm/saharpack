@@ -68,6 +68,18 @@ label {
     border-bottom: $b_3;
     padding: $s_3;
     text-align: right;
+
+    > i {
+      display: flex;
+      align-items: center;
+    }
+
+    &.textarea {
+      > i {
+        align-items: start;
+        padding-block-start: $s_2;
+      }
+    }
   }
 
   &-label {

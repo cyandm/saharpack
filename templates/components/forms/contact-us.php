@@ -7,7 +7,7 @@
         <i class="iconsax" icon-name="user-2"></i>
         <input class="  data" type="text" name="name" placeholder="<?= pll__('your-name') ?>" required>
     </div>
-    <div class="input-primary">
+    <div class="input-primary textarea">
         <i class="iconsax" icon-name="message-dash-2"></i>
         <textarea class=" data" rows="5" name="describe" placeholder="<?= pll__('ask-question') ?>" required></textarea>
     </div>

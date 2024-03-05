@@ -64,9 +64,14 @@
       .blog-detail {
         width: 59%;
         padding-right: $s_3;
+        @include d_flex(column, $gap: $s_2);
       }
       .postmeta {
         border: 0;
+
+        .postmeta-r {
+          @include d_flex(row, $gap: $s_6);
+        }
       }
     }
   }
