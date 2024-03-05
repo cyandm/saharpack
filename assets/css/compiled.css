@@ -695,6 +695,21 @@ img {
     display: none;
   }
 }
+.header .login-header {
+  display: none;
+}
+.header .login-header.login-page {
+  display: flex;
+}
+.header .login-header button {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
 
 .backabsolute {
   position: absolute;
@@ -1447,17 +1462,11 @@ label {
 .my-order {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
   gap: 1.25rem;
   padding: 1.5rem;
-}
-@media screen and (max-width: 768px) {
-  .my-order {
-    flex-direction: column-reverse;
-    padding: 0.75rem;
-  }
 }
 .my-order h3 {
   width: 100%;
@@ -1469,6 +1478,11 @@ label {
 .my-order .orders {
   width: 60%;
 }
+@media screen and (max-width: 992px) {
+  .my-order .orders {
+    width: 55%;
+  }
+}
 @media screen and (max-width: 768px) {
   .my-order .orders {
     width: 100%;
@@ -1479,7 +1493,7 @@ label {
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.75rem;
   border-bottom: 1px solid #c5c5c5;
   padding: 1.5rem 0;
@@ -1487,19 +1501,32 @@ label {
 .my-order .order-card:last-child {
   border: 0;
 }
+.my-order .order-card .order-thumbnail {
+  width: 30%;
+}
+.my-order .order-card .order-thumbnail img {
+  width: 100%;
+  object-fit: contain;
+}
+@media screen and (max-width: 768px) {
+  .my-order .order-card .order-thumbnail img {
+    width: 100%;
+    height: 241px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .my-order .order-card .order-thumbnail {
+    width: 100%;
+  }
+  .my-order .order-card .order-thumbnail img {
+    width: 100%;
+    height: 241px;
+  }
+}
 @media screen and (max-width: 768px) {
   .my-order .order-card {
     flex-direction: column;
     border: 0;
-  }
-}
-.my-order .order-card img {
-  width: 30%;
-}
-@media screen and (max-width: 768px) {
-  .my-order .order-card img {
-    width: 100%;
-    height: 241px;
   }
 }
 .my-order .order-card .odrer-title p {
@@ -1526,8 +1553,10 @@ label {
   align-items: center;
   flex-wrap: nowrap;
   gap: 1.25rem;
-  border-bottom: 1px solid #c5c5c5;
   padding: 0.5rem;
+}
+.my-order .order-card .order-box .order-details-row:not(:last-child) {
+  border-bottom: 1px solid #c5c5c5;
 }
 .my-order .order-card .order-box .order-details-row span.order-date {
   font-size: 12px;
@@ -1550,11 +1579,28 @@ label {
   background: rgba(255, 152, 0, 0.2);
 }
 .my-order .order-tempnail {
-  width: 38%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2rem;
+}
+.my-order .order-tempnail img {
+  object-fit: contain;
 }
 @media screen and (max-width: 768px) {
+  .my-order {
+    flex-direction: column-reverse;
+    padding: 0.75rem;
+  }
   .my-order .order-tempnail {
-    width: 322px;
+    width: 100%;
+    position: initial;
   }
 }
 
@@ -2364,6 +2410,9 @@ main.login-page .page-thumbnail img {
   width: 100%;
   object-fit: contain;
 }
+main.login-page .form-wrapper #otp-inputs input {
+  width: 100%;
+}
 main.login-page .form-wrapper .dynamic-section {
   display: none;
 }
@@ -2383,10 +2432,7 @@ main.login-page .form-wrapper .btn-edit-number {
   color: #1b51de;
   cursor: pointer;
 }
-main.login-page .form-wrapper .welcome-section {
-  width: 100%;
-}
-main.login-page .form-wrapper .welcome-section .button-group {
+main.login-page .form-wrapper .button-group {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -2396,7 +2442,7 @@ main.login-page .form-wrapper .welcome-section .button-group {
   gap: 0.25rem;
 }
 @media screen and (max-width: 480px) {
-  main.login-page .form-wrapper .welcome-section .button-group {
+  main.login-page .form-wrapper .button-group {
     display: flex;
     flex-direction: row;
     justify-content: stretch;
@@ -2404,10 +2450,10 @@ main.login-page .form-wrapper .welcome-section .button-group {
     flex-wrap: nowrap;
     gap: 0.25rem;
   }
-  main.login-page .form-wrapper .welcome-section .button-group > * {
+  main.login-page .form-wrapper .button-group > * {
     flex: 1;
   }
-  main.login-page .form-wrapper .welcome-section .button-group a {
+  main.login-page .form-wrapper .button-group a {
     text-align: center;
   }
 }
@@ -2422,30 +2468,8 @@ main.login-page .form-wrapper .welcome-section .button-group {
   }
 }
 
-main.otp-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.5rem;
-}
-main.otp-page > * {
-  flex: 1;
-}
-main.otp-page > div {
-  width: 50%;
-}
-main.otp-page .title {
-  margin-bottom: 0.5rem;
-  color: #1e1e1e;
-  font-size: 44px;
-  font-weight: 500;
-  line-height: 61.6px;
-}
-main.otp-page .page-thumbnail img {
+main.otp-page .form-wrapper #otp-inputs input {
   width: 100%;
-  object-fit: contain;
 }
 main.otp-page .form-wrapper .dynamic-section {
   display: none;
@@ -2494,42 +2518,7 @@ main.otp-page .form-wrapper .welcome-section .button-group {
     text-align: center;
   }
 }
-@media screen and (max-width: 768px) {
-  main.otp-page {
-    flex-direction: column-reverse;
-    justify-content: flex-start;
-    align-items: stretch;
-  }
-  main.otp-page > div {
-    width: 100%;
-  }
-}
 
-main.alert-login-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.5rem;
-}
-main.alert-login-page > * {
-  flex: 1;
-}
-main.alert-login-page > div {
-  width: 50%;
-}
-main.alert-login-page .title {
-  margin-bottom: 0.5rem;
-  color: #1e1e1e;
-  font-size: 44px;
-  font-weight: 500;
-  line-height: 61.6px;
-}
-main.alert-login-page .page-thumbnail img {
-  width: 100%;
-  object-fit: contain;
-}
 main.alert-login-page .form-wrapper .dynamic-section {
   display: none;
 }
@@ -2575,16 +2564,6 @@ main.alert-login-page .welcome-section .button-group {
   }
   main.alert-login-page .welcome-section .button-group a {
     text-align: center;
-  }
-}
-@media screen and (max-width: 768px) {
-  main.alert-login-page {
-    flex-direction: column-reverse;
-    justify-content: flex-start;
-    align-items: stretch;
-  }
-  main.alert-login-page > div {
-    width: 100%;
   }
 }
 
@@ -4098,6 +4077,14 @@ form.checkout .select2-selection--single {
     justify-content: flex-start;
     align-items: stretch;
   }
+}
+.woocommerce-order .order-information .page-thumbnail {
+  width: 100%;
+}
+.woocommerce-order .order-information .page-thumbnail img {
+  width: 100%;
+  object-fit: contain;
+  max-height: 24.5rem;
 }
 @media screen and (max-width: 480px) {
   .woocommerce-order .order-information {

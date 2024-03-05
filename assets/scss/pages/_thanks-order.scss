@@ -46,7 +46,14 @@
         align-items: stretch;
       }
     }
-
+    .page-thumbnail {
+      width: 100%;
+      img {
+        width: 100%;
+        object-fit: contain;
+        max-height: px_to_rem(392);
+      }
+    }
     @include mq('sm') {
       width: 100%;
     }

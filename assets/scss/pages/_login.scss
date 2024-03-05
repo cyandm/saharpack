@@ -9,7 +9,6 @@ main.login-page {
     color: $clr_primary_dark;
     @include fs('h1');
   }
-
   .page-thumbnail {
     img {
       width: 100%;
@@ -17,6 +16,11 @@ main.login-page {
     }
   }
   .form-wrapper {
+    #otp-inputs {
+      input {
+        width: 100%;
+      }
+    }
     .dynamic-section {
       display: none;
       &.active {
@@ -31,16 +35,14 @@ main.login-page {
       color: $clr_accent_dark;
       cursor: pointer;
     }
-    .welcome-section {
+
+    .button-group {
       width: 100%;
-      .button-group {
-        width: 100%;
-        @include d_flex(row, flex-start, center, nowrap, false, $s_1);
-        @include mq('sm') {
-          @include d_flex(row, stretch, center, nowrap, true, $s_1);
-          a {
-            text-align: center;
-          }
+      @include d_flex(row, flex-start, center, nowrap, false, $s_1);
+      @include mq('sm') {
+        @include d_flex(row, stretch, center, nowrap, true, $s_1);
+        a {
+          text-align: center;
         }
       }
     }

@@ -132,12 +132,6 @@ defined('ABSPATH') || exit;
 										);
 										?>
 
-										<!-- Remove Default X from woocommerce -->
-										<script>
-											document.querySelector('#removeProduct').firstChild.data = "";
-										</script>
-
-
 									</div>
 								</div>
 

@@ -13,3 +13,4 @@ require_once(__DIR__ . '/inc/functions/cyn-ajax-general.php');
 require_once(__DIR__ . '/inc/functions/cyn-search.php');
 require_once(__DIR__ . '/inc/functions/cyn-meta-box.php');
 require_once(__DIR__ . '/inc/functions/cyn-woocommerce.php');
+require_once(__DIR__ . '/inc/functions/cyn-update-checker.php' );

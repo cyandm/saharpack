@@ -1,5 +1,18 @@
 <?php
 /*Template Name: Login Page */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+$login = [
+    'post_type' => 'page',
+    'fields' => 'ids',
+    'nopaging' => true,
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'templates/login.php'
+];
+$login_link = get_permalink(get_posts($login)[0]);
+
 $my_order_template = [
     'post_type' => 'page',
     'fields' => 'ids',
@@ -23,17 +36,13 @@ $otpCondition = $_POST
     && isset($_POST["user_tel_h"])
     && isset($_POST["otp_inp"]);
 
+$alertCondition = $_POST
+    && isset($_POST["user_name_h"]);
+
 $params = array();
 $alerts = array();
 
-$otp_link_template = [
-    'post_type' => 'page',
-    'fields' => 'ids',
-    'nopaging' => true,
-    'meta_key' => '_wp_page_template',
-    'meta_value' => 'templates/otp.php'
-];
-$page_otp_link = get_permalink(get_posts($otp_link_template)[0]);
+
 
 if ($pageCondition) {
     $tel = substr((string)$_POST["user_tel"], -10);
@@ -98,8 +107,8 @@ if ($otpCondition) {
 
             if (!is_wp_error($signon)) {
                 update_user_meta($userID, "cyn_otp", "");
-                wp_redirect($userLink);
-                exit();
+                // wp_redirect($page_my_order_link);
+                // exit();
             } else {
                 $alerts[] = 'مشکلی در ورود به وجود آمده. لطفا دوباره امتحان کنید';
             }
@@ -116,71 +125,57 @@ if ($otpCondition) {
 
 <main class="login-page container">
     <div class="form-wrapper" id="formWrapper">
-        <?php //check_empty($contact_us_description, 'description'); 
-        ?>
-        <form action="<?= $page_otp_link ?>" method="post" id="login-form">
-            <?php if (!$pageCondition) : ?>
-                <div class="title"><?= pll__('login-or-signup') ?></div>
-                <div class="input-primary">
-                    <i class="iconsax" icon-name="user-2"></i>
-                    <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
-                </div>
-                <div class="input-primary">
-                    <i class="iconsax" icon-name="phone"></i>
-                    <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel" placeholder="<?= pll__('phone-number') ?>" required>
-                </div>
 
+        <form action="./" method="post" id="login-form">
+            <?php if ($alertCondition) : ?>
+
+                <div class="title"><?= pll__('welcome') ?></div>
+                <div class="name-user"><?= pll__(' سلام ') ?><?= $_POST['user_name_h'] ?><?= pll__(' خوشحالیم سحرپک رو انتخاب کردی ') ?></div>
+                <div class="button-group">
+                    <a class="btn" variant="primary" href="<?= $page_my_order_link ?>"><?= pll__('حساب کاربری') ?></a>
+                    <a class="btn" variant="secondary" href="<?= wp_logout_url(home_url()) ?>"><?= pll__('exit') ?></a>
+                </div>
             <?php else : ?>
-                <div class="input-primary">
-                    <i class="iconsax" icon-name="user-2"></i>
-                    <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
-                </div>
-                <div class="input-primary">
-                    <i class="iconsax" icon-name="phone"></i>
-                    <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel" id="user_tel_inp" value="<?= isset($params["user_tel"]) ? $params["user_tel"] : ''; ?>" placeholder="<?= pll__('phone-number') ?>" required>
-                </div>
-                <input class="data" type="hidden" name="user_tel_h" value="<?= isset($params["user_tel"]) ? $params["user_tel"] : ''; ?>" required>
+
+                <?php if (!$pageCondition) : ?>
+
+                    <div class="title"><?= pll__('login-or-signup') ?></div>
+                    <div class="description"><?= pll__('برای ورود  به سحرپک لطفا شماره خودتون رو وارد کنید') ?></div>
+                    <div class="input-primary">
+                        <i class="iconsax" icon-name="user-2"></i>
+                        <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
+                    </div>
+                    <div class="input-primary">
+                        <i class="iconsax" icon-name="phone"></i>
+                        <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel" placeholder="<?= pll__('phone-number') ?>" required>
+                    </div>
+                    <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit"><?= pll__('continue') ?></button>
+
+
+                <?php else : ?>
+
+                    <div class="title"><?= pll__('enter-code') ?></div>
+                    <div class="description">
+                        <?= Pll__(' لطفا کد ارسال شده به شماره ') ?>
+                        <?= isset($_POST["user_tel"]) ? $_POST["user_tel"] : '' ?>
+                        <?= pll__(' وارد کنید ') ?>
+                    </div>
+                    <a href="<?= $login_link ?>" class=" btn-edit-number"><?= pll__('edit-phone-number') ?></a>
+                    <div class="otp-inputs" id="otp-inputs">
+                        <input class="data input-primary" type="number" name="otp_inp" min="100000" max="999999" maxlength="6" required>
+                        <input class="data" type="hidden" name="number-and-name" value="" required>
+                    </div>
+
+                    <input class="data" type="hidden" name="user_name_h" value="<?= isset($_POST["user_name"]) ? $_POST["user_name"] : ''; ?>">
+
+                    <input class="data" type="hidden" name="user_tel_h" value="<?= isset($_POST["user_tel"]) ? $_POST["user_tel"] : ''; ?>">
+
+                    <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit">
+                        <?= pll__('continue') ?>
+                    </button>
+                <?php endif; ?>
 
             <?php endif ?>
-            <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit"><?= pll__('continue') ?></button>
-
-
-            <!-- <?php if (!$pageCondition) : ?>
-                <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit"><?= pll__('continue') ?></button>
-
-            <?php else : ?>
-                <button id="login-form-submit otp_timer" class="btn" variant="primary" type="button" disabled><?= pll__('continue') ?></button>
-
-            <?php endif; ?> -->
-
-            <!-- <button id="login-form-submit" class="btn" variant="primary" type="submit"><?= pll__('continue') ?></button> -->
-
-
-            <?php if ($pageCondition) : ?>
-                <div class="otp-inputs" id="otp-inputs">
-                    <input class="data input-primary" type="number" name="otp_inp" min="100000" max="999999" maxlength="6" required>
-                    <input class="data" type="hidden" name="number-and-name" value="" required>
-                </div>
-                <button id="login-form-submit submit_otp" class="btn" type="submit" variant="primary"><?= pll__('continue'); ?></button>
-            <?php endif; ?>
-
-            <?php if (count($alerts) > 0) : ?>
-
-                <div class="welcome-section dynamic-section">
-                    <!-- <div class="title"><?= pll__('welcome') ?></div> -->
-                    <?php foreach ($alerts as $alert) : ?>
-                        <div class="">
-                            <p class="title"><?= $alert; ?></p>
-                        </div>
-                    <?php endforeach; ?>
-
-                    <div class="button-group">
-                        <a class="btn" variant="primary"><?= pll__('user-dashboard') ?></a>
-                        <a class="btn" variant="secondary" href="/"><?= pll__('exit') ?></a>
-                    </div>
-                </div>
-
-            <?php endif; ?>
 
         </form>
     </div>

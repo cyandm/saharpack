@@ -3,6 +3,7 @@ $title_products = get_field('title_products');
 $home_products = get_field('products');
 ?>
 
+<?php if(!empty($home_products)) : ?>
 <section class="products">
 
     <div class="products__content container">
@@ -16,20 +17,20 @@ $home_products = get_field('products');
 
             <?php foreach ($home_products as $home_product) : ?>
 
-                <a href="<?= $home_product['link'] ?>" class="products__content__cards__item">
+            <a href="<?= $home_product['link'] ?>" class="products__content__cards__item">
 
 
-                    <?= wp_get_attachment_image($home_product['img'], 'full') ?>
+                <?= wp_get_attachment_image($home_product['img'], 'full') ?>
 
-                    <?php if (!empty($home_product['name'])) : ?>
+                <?php if (!empty($home_product['name'])) : ?>
 
-                        <div class="products__content__cards__item__name">
-                            <p><?= $home_product['name'] ?></p>
-                        </div>
+                <div class="products__content__cards__item__name">
+                    <p><?= $home_product['name'] ?></p>
+                </div>
 
-                    <?php endif ?>
+                <?php endif ?>
 
-                </a>
+            </a>
 
             <?php endforeach ?>
 
@@ -40,3 +41,4 @@ $home_products = get_field('products');
     </div>
 
 </section>
+<?php endif ?>

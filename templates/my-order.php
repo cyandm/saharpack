@@ -1,4 +1,19 @@
 <?php
+$login = [
+    'post_type' => 'page',
+    'fields' => 'ids',
+    'nopaging' => true,
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'templates/login.php'
+];
+$login_link = get_permalink(get_posts($login)[0]);
+
+if (!(is_user_logged_in())) {
+    wp_redirect($login_link); // @need : back to last url
+    exit();
+}
+?>
+<?php
 /*Template Name: Order */
 get_header() ?>
 
@@ -6,9 +21,6 @@ get_header() ?>
 $orders = wc_get_orders([
     'status' => 'any'
 ]);
-echo '<pre>';
-var_dump($orders[0]->data);
-echo '</pre>';
 
 ?>
 <main class="my-order container">
@@ -19,13 +31,17 @@ echo '</pre>';
         <?php
 
         foreach ($orders as $key => $order) {
-            get_template_part('/templates/components/cards/order', null, ['order' => $order->data]);
+
+            get_template_part('/templates/components/cards/order', null, ['order' => $order]);
         }
         ?>
 
 
     </div>
-    <img class="order-tempnail" src="<?= get_stylesheet_directory_uri() . '/assets/img/51437301.png' ?>" />
+    <div class="order-tempnail">
+
+        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/51437301.png' ?>" />
+    </div>
 
 
 </main>
