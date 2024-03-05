@@ -119,13 +119,13 @@ if ($otpCondition) {
 
             if (!is_wp_error($signon)) {
                 update_user_meta($userID, "cyn_otp", "");
-                // if (isset($_GET['redirect'])) {
-                //     wp_redirect($_GET['redirect']);
-                // } else {
-                //     wp_redirect($login_link);
-                // }
+                if (isset($_GET['redirect'])) {
+                    wp_redirect($_GET['redirect']);
+                } else {
+                    wp_redirect($login_link);
+                }
 
-                // exit();
+                exit();
             } else {
                 $alerts[] = 'مشکلی در ورود به وجود آمده. لطفا دوباره امتحان کنید';
             }
