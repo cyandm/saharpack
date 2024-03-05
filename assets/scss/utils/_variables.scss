@@ -1,4 +1,4 @@
-@use './functions' as *;
+@use "./functions" as *;
 
 //#region colors
 $clr_primary_light: #969696;
@@ -94,6 +94,7 @@ $b_2: 1px solid $clr_primary_light;
 $b_3: 1px solid $clr_natural_4;
 $b_4: 1px solid $clr_primary_dark;
 $b_5: 1px solid $clr_natural_3;
+$b_6: 1px solid $clr_secondary_dark;
 
 //#endregion
 
