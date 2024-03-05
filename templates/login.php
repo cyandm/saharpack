@@ -119,11 +119,10 @@ if ($otpCondition) {
 
             if (!is_wp_error($signon)) {
                 update_user_meta($userID, "cyn_otp", "");
-
                 if (isset($_GET['redirect'])) {
                     wp_redirect($_GET['redirect']);
                 } else {
-                    wp_redirect($page_my_order_link);
+                    wp_redirect($login_link);
                 }
 
                 exit();
@@ -146,43 +145,40 @@ if ($otpCondition) {
 
         <form action="<?php $_SERVER['REQUEST_URI'] ?>" method="post" id="login-form">
 
-            <?php if (!$pageCondition) : ?>
+            <?php if ($alertCondition) : ?>
 
-                <div class="title"><?= pll__('login-or-signup') ?></div>
-                <div class="description"><?= pll__('برای ورود  به سحرپک لطفا شماره خودتون رو وارد کنید') ?></div>
-                <div class="input-primary">
-                    <i class="iconsax" icon-name="user-2"></i>
-                    <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
+                <div class="title"><?= pll__('welcome') ?></div>
+                <div class="name-user"><?= pll__(' سلام ') ?><?= $_POST['user_name_h'] ?><?= pll__(' خوشحالیم سحرپک رو انتخاب کردی ') ?></div>
+                <div class="button-group">
+                    <a class="btn" variant="primary" href="<?= $page_my_order_link ?>"><?= pll__('حساب کاربری') ?></a>
+                    <a class="btn" variant="secondary" href="<?= wp_logout_url(home_url()) ?>"><?= pll__('exit') ?></a>
                 </div>
-                <div class="input-primary">
-                    <i class="iconsax" icon-name="phone"></i>
-                    <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel" placeholder="<?= pll__('phone-number') ?>" required>
-                </div>
-                <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit"><?= pll__('continue') ?></button>
 
 
             <?php else : ?>
 
-                <?php if ($alertCondition) : ?>
 
-                    <div class="title"><?= pll__('welcome') ?></div>
-                    <div class="name-user"><?= $_POST['user_name_h'] ?></div>
-                    <div class="button-group">
-                        <a class="btn" variant="primary" href="<?= $page_my_order_link ?>"><?= pll__('حساب کاربری') ?></a>
-                        <a class="btn" variant="secondary" href="<?= wp_logout_url(home_url()) ?>"><?= pll__('exit') ?></a>
+                <?php if (!$pageCondition) : ?>
+
+                    <div class="title"><?= pll__('login-or-signup') ?></div>
+                    <div class="description"><?= pll__('برای ورود  به سحرپک لطفا شماره خودتون رو وارد کنید') ?></div>
+                    <div class="input-primary">
+                        <i class="iconsax" icon-name="user-2"></i>
+                        <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
                     </div>
-
+                    <div class="input-primary">
+                        <i class="iconsax" icon-name="phone"></i>
+                        <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel" placeholder="<?= pll__('phone-number') ?>" required>
+                    </div>
+                    <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit"><?= pll__('continue') ?></button>
 
                 <?php else : ?>
 
-
-
                     <div class="title"><?= pll__('enter-code') ?></div>
                     <div class="description">
-                        <?= Pll__('کد ارسال شده به شماره ') ?>
-                        <? isset($_POST["user_tel"]) ? $_POST["user_tel"] : '' ?>
-                        <?= $_POST["user_tel"] ?>
-                        <?= pll__('را وارد کنید') ?>
+                        <?= Pll__(' لطفا کد ارسال شده به شماره ') ?>
+                        <?= isset($_POST["user_tel"]) ? $_POST["user_tel"] : '' ?>
+                        <?= pll__(' وارد کنید ') ?>
 
                     </div>
                     <a href="<?= $login_link ?>" class=" btn-edit-number"><?= pll__('edit-phone-number') ?></a>
@@ -201,12 +197,6 @@ if ($otpCondition) {
                 <?php endif; ?>
 
             <?php endif ?>
-
-
-
-
-
-
 
         </form>
     </div>
