@@ -128,12 +128,12 @@ if ($otpCondition) {
     </div> -->
     <div class="welcome-section dynamic-section">
         <?php if (count($alerts) > 0) : ?>
-        <!-- <div class="title"><?= pll__('welcome') ?></div> -->
-        <?php foreach ($alerts as $alert) : ?>
-        <div class="">
-            <p class="title"><?= $alert; ?></p>
-        </div>
-        <?php endforeach; ?>
+            <!-- <div class="title"><?= pll__('welcome') ?></div> -->
+            <?php foreach ($alerts as $alert) : ?>
+                <div class="">
+                    <p class="title"><?= $alert; ?></p>
+                </div>
+            <?php endforeach; ?>
         <?php endif; ?>
         <div class="button-group">
             <a class="btn" variant="primary" href="<?= $page_my_order_link ?>"><?= pll__('حساب کاربری') ?></a>
@@ -143,9 +143,9 @@ if ($otpCondition) {
 
     <div class="page-thumbnail">
         <?php if (!empty(get_the_post_thumbnail())) : ?>
-        <?php the_post_thumbnail() ?>
+            <?php the_post_thumbnail() ?>
         <? else : ?>
-        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/placeholder.png' ?>" />
+            <img src="<?= get_stylesheet_directory_uri() . '/assets/img/placeholder.png' ?>" />
         <?php endif ?>
     </div>
 </main>

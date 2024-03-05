@@ -105,7 +105,6 @@
     }
 
     &__description * {
-      @include fs("body-s");
       text-align: justify;
     }
   }

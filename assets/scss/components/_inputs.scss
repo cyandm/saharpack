@@ -1,4 +1,4 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 
 input {
   appearance: none;
@@ -11,7 +11,7 @@ input {
     margin: 0;
   }
 
-  &[type='radio'] {
+  &[type="radio"] {
     width: $s_6;
     height: $s_6;
     background-color: #fff;
@@ -33,7 +33,7 @@ input {
     }
   }
 
-  &[type='file'] {
+  &[type="file"] {
     position: absolute;
     inset: 0;
     opacity: 0;
@@ -71,7 +71,6 @@ label {
   }
 
   &-label {
-    @include fs('h5');
     display: block;
     color: $clr_text_dark;
     margin-block-start: $s_4;

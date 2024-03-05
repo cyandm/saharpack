@@ -24,14 +24,19 @@ $my_order_template = [
 ];
 
 $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
+
+
 if (is_user_logged_in()) {
+
     if (isset($_GET['redirect'])) {
         wp_redirect($_GET['redirect']);
-        exit();
+    } else {
+        wp_redirect($page_my_order_link); // @need : back to last url
     }
-    wp_redirect($page_my_order_link); // @need : back to last url
+
     exit();
 }
+
 
 $prePass = constant('SECURE_AUTH_KEY');
 
@@ -114,7 +119,13 @@ if ($otpCondition) {
 
             if (!is_wp_error($signon)) {
                 update_user_meta($userID, "cyn_otp", "");
-                wp_redirect($page_my_order_link);
+
+                if (isset($_GET['redirect'])) {
+                    wp_redirect($_GET['redirect']);
+                } else {
+                    wp_redirect($page_my_order_link);
+                }
+
                 exit();
             } else {
                 $alerts[] = 'مشکلی در ورود به وجود آمده. لطفا دوباره امتحان کنید';
@@ -170,7 +181,9 @@ if ($otpCondition) {
                     <div class="description">
                         <?= Pll__('کد ارسال شده به شماره ') ?>
                         <? isset($_POST["user_tel"]) ? $_POST["user_tel"] : '' ?>
-                        <?= pll__('وارد کنید') ?>
+                        <?= $_POST["user_tel"] ?>
+                        <?= pll__('را وارد کنید') ?>
+
                     </div>
                     <a href="<?= $login_link ?>" class=" btn-edit-number"><?= pll__('edit-phone-number') ?></a>
                     <div class="otp-inputs" id="otp-inputs">

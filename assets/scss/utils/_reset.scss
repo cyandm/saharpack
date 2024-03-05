@@ -15,9 +15,13 @@ body {
   padding: 0;
   font-family: "Yekan Bakh";
   background: $clr_bg_default;
-  @include fs("body-s");
+  @include fs("body");
   color: $clr_primary_main;
   position: relative;
+
+  @include mq("md") {
+    @include fs("body-s");
+  }
 }
 
 img {

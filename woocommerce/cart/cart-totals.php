@@ -106,7 +106,12 @@ defined('ABSPATH') || exit;
 
 		<tr class="wc-proceed-to-checkout">
 			<td class="btn-proceed-wrapper" colspan="2">
-				<?php do_action('woocommerce_proceed_to_checkout'); ?>
+				<?php //do_action('woocommerce_proceed_to_checkout'); 
+				?>
+
+				<a href="<?= is_user_logged_in() ? wc_get_checkout_url() : '/login' . '?redirect=' . wc_get_checkout_url() ?>" class="btn" variant="primary">
+					تکمیل سفارش و پرداخت
+				</a>
 			</td>
 		</tr>
 	</table>
