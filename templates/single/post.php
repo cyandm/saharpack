@@ -28,12 +28,18 @@ $post_id = get_queried_object_id();?>
 
 <main class="container single-post-page">
 
-	<!-- @TODO breadcrumb change to rank math-->
-	<p class="breadcrumb"><a href="<?php home_url() ?>">صفحه اصلی</a>
+<div class="breadcrumb-wrapper">
+        <div class="breadcrumb-product container">
+            <?php if (function_exists('rank_math_the_breadcrumbs'))
+                rank_math_the_breadcrumbs(); ?>
+        </div>
+        <i class="divider"></i>
+    </div>
+		<!-- <p class="breadcrumb"><a href="<?php home_url() ?>">صفحه اصلی</a>
 		<i class="iconsax"
 		   icon-name="arrow-left"></i>
 		<?php echo the_title(); ?>
-	</p>
+	</p> -->
 	<hr />
 	<div class="single-blog">
 		<div class="sidebar">
