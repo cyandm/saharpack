@@ -69,18 +69,24 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
                     <?= $product_price ?>
                 </div>
                 <div class="product-order-count">
-                    <?= pll__('تعداد') ?>
-                    <?php
-                    woocommerce_quantity_input(
-                        array(
-                            'min_value' => apply_filters('woocommerce_quantity_input_min', $wc_product->get_min_purchase_quantity(), $wc_product),
-                            'max_value' => apply_filters('woocommerce_quantity_input_max', $wc_product->get_max_purchase_quantity(), $wc_product),
-                            'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $wc_product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
-                            'classes' => "form-control"
-                        )
-                    );
+                    <div class="title-quantity"><?= pll__('تعداد') ?></div>
 
-                    ?>
+                    <div id="quantityProductWrapper" class="quantity-count-changer" data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>">
+                        <div class="minus-step"><button type="button">-</button></div>
+
+                        <?php
+                        woocommerce_quantity_input(
+                            array(
+                                'min_value' => apply_filters('woocommerce_quantity_input_min', $wc_product->get_min_purchase_quantity(), $wc_product),
+                                'max_value' => apply_filters('woocommerce_quantity_input_max', $wc_product->get_max_purchase_quantity(), $wc_product),
+                                'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $wc_product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
+                                'classes' => "form-control"
+                            )
+                        );
+
+                        ?>
+                        <div class="plus-step"><button type="button">+</button></div>
+                    </div>
                 </div>
                 <div class="product-stock">
                     <div><?= pll__('وضعیت موجودی') ?></div>

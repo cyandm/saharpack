@@ -104,6 +104,32 @@ main.single-product-page {
             border-radius: $s_1;
           }
         }
+        .product-order-count {
+          @include d_flex(row, space-between, center, nowrap, false, $s_1);
+
+          .quantity-count-changer {
+            @include d_flex(row, flex-start, center, nowrap, false, $s_2);
+            .quantity {
+              label {
+                display: none;
+              }
+              input {
+                text-align: center;
+                max-width: px_to_rem(32);
+              }
+            }
+            button {
+              @include d_flex(row, center, center, nowrap);
+              cursor: pointer;
+              color: $clr_text_dark;
+              border: $b_5;
+              background: $clr_bg_default;
+              font-size: px_to_rem(20);
+              width: px_to_rem(28);
+              height: px_to_rem(28);
+            }
+          }
+        }
       }
       @include mq('lg') {
         grid-template-columns: 1fr 1fr;
