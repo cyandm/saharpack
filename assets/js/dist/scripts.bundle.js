@@ -402,6 +402,11 @@
   });
   var elementWidth = document.querySelector(".left-header").clientWidth;
   document.documentElement.style.setProperty("--menu-width", elementWidth + "px");
+  var headerHeight = document.querySelector("header").clientHeight;
+  document.documentElement.style.setProperty(
+    "--header-height",
+    headerHeight + "px"
+  );
 
   // assets/js/modules/mobile-menu.js
   var MobileMenu = () => {
@@ -5102,7 +5107,7 @@
   var containerEL = document.querySelector(".container");
   var headerEl = document.querySelector("header");
   var footerEl = document.querySelector("footer");
-  var headerHeight;
+  var headerHeight2;
   var marginFromSide;
   var footerHeight;
   var makeKebab = (str) => str.replace(
@@ -5114,7 +5119,7 @@
     parent.style.setProperty("--".concat(kebabName), value + prefix);
   };
   var setCssVariableGroup = () => {
-    headerHeight = headerEl.getClientRects()[0].height;
+    headerHeight2 = headerEl.getClientRects()[0].height;
     if (footerEl) {
       footerHeight = footerEl.getClientRects()[0].height;
     } else {
@@ -5122,7 +5127,7 @@
     }
     const containerWidth = containerEL.clientWidth;
     marginFromSide = (window.innerWidth - containerWidth) / 2;
-    setCssVariable(headerHeight, "headerHeight");
+    setCssVariable(headerHeight2, "headerHeight");
     setCssVariable(marginFromSide, "marginFromSide");
     setCssVariable(footerHeight, "footerHeight");
   };

@@ -23,3 +23,9 @@ menu.forEach((el) => {
 
 const elementWidth = document.querySelector(".left-header").clientWidth;
 document.documentElement.style.setProperty("--menu-width", elementWidth + "px");
+
+const headerHeight = document.querySelector("header").clientHeight;
+document.documentElement.style.setProperty(
+  "--header-height",
+  headerHeight + "px"
+);
