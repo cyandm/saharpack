@@ -1289,6 +1289,9 @@ label {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   margin-bottom: 0.75rem;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
 }
 @media screen and (max-width: 480px) {
   .card-job-offer .job-detail .job-description {
@@ -2627,6 +2630,9 @@ main.job-offer-page .hero-section .description-job-offer .h2 {
   align-self: center;
 }
 main.job-offer-page .hero-section .description-job-offer p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
   text-align: justify;
 }
 @media screen and (max-width: 768px) {

@@ -24,6 +24,7 @@
       text-align: justify;
       @include max_line(3);
       margin-bottom: $s_3;
+      @include fs('body-s');
       @include mq('sm') {
         @include max_line(2);
       }
