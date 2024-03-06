@@ -1,5 +1,4 @@
 <?php
-/*Template Name: Category */
 get_header() ?>
 <?php
 $author_name = get_the_author_meta('display_name', get_post_field('post_author', get_the_ID()));

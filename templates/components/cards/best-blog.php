@@ -3,9 +3,8 @@ $author_name = get_the_author_meta('display_name', get_post_field('post_author',
 $post_id = isset($args['post_id']) ? $args['post_id'] : get_the_ID();
 ?>
 <div class="blog-posts">
-	<a href="<?php the_permalink($post_id) ?>" class="blog-cards">
-		<?php $thumbnail_id = get_post_thumbnail_id($post_id); ?>
-		<?= wp_get_attachment_image($thumbnail_id, 'full', false, []); ?>
+	<a href="<?= get_the_permalink($post_id) ?>" class="blog-cards">
+	<?= get_the_post_thumbnail($post_id , 'full') ?>
 		<div class="blog-detail">
 			<div class="postmeta">
 				<div class="postmeta-r">
@@ -14,7 +13,7 @@ $post_id = isset($args['post_id']) ? $args['post_id'] : get_the_ID();
 				</div>
 			</div>
 			<h5><?= get_the_title($post_id) ?></h5>
-			<div class="paragraph"> <?php the_content() ?></div>
+			<div class="paragraph"> <?php echo get_the_content(post:$post_id) ?></div>
 		</div>
 	</a>
 </div>
