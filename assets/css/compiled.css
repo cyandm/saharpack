@@ -889,6 +889,9 @@ img {
   line-height: 32px;
 }
 .btn[variant=primary] {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
   background-color: #1e1e1e;
   color: #ffffff;
   border: 1px solid #1e1e1e;
@@ -1319,17 +1322,25 @@ label {
   border: 1px solid #c74217;
 }
 .card-product .product-thumbnail img {
-  max-height: 17rem;
   object-fit: contain;
   width: 100%;
+  height: 12.5rem;
+}
+@media screen and (max-width: 480px) {
+  .card-product .product-thumbnail img {
+    height: 6.25rem;
+  }
 }
 .card-product .product-properties {
   color: #1e1e1e;
 }
 .card-product .product-properties .product-name {
   border-bottom: 1px solid #c5c5c5;
-  padding-block: 0.5rem;
   color: #1e1e1e;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .card-product .product-properties .product-sku {
   padding-top: 0.5rem;
