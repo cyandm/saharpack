@@ -64,7 +64,7 @@ $page_blog = get_posts($blog_page_link);
                                 $blogs_new->the_post();
                                 $post_id = get_the_ID();
 
-                                get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $post_id]);
+                                get_template_part('/templates/components/cards/best', 'blog', ['post_id' => $post_id]);
                             } ?>
                             <?php wp_reset_postdata() ?>
 
@@ -80,7 +80,7 @@ $page_blog = get_posts($blog_page_link);
                                 $blogs_learn->the_post();
                                 $post_id = get_the_ID();
 
-                                get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $post_id]);
+                                get_template_part('/templates/components/cards/best', 'blog', ['post_id' => $post_id]);
                             } ?>
                             <?php wp_reset_postdata() ?>
 
@@ -96,7 +96,7 @@ $page_blog = get_posts($blog_page_link);
                                 $blogs_favorites->the_post();
                                 $post_id = get_the_ID();
 
-                                get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $post_id]);
+                                get_template_part('/templates/components/cards/best', 'blog', ['post_id' => $post_id]);
                             } ?>
                             <?php wp_reset_postdata() ?>
 
