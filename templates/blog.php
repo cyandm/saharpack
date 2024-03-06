@@ -21,7 +21,7 @@ $slider_blogs = new WP_Query([
 <main class="container blog-archive">
 	<div class="blog-head">
 		<ul>
-			<li><a href="<?= site_url() . '/blog' ?>">همه </a></li>
+			<li><a href="<?= site_url() . '/blog' ?>"><?= pll__('همه') ?> </a></li>
 			<?php wp_list_categories(
 				[
 					'orderby' => 'id',

@@ -4,7 +4,9 @@ $author_name = get_the_author_meta('display_name', get_post_field('post_author',
 ?>
 <a href="<?php the_permalink($post_id) ?>">
 	<div class="blog-posts">
-		<?= get_the_post_thumbnail($post_id , 'full') ?>
+		<div>
+			<?= get_the_post_thumbnail($post_id, 'full') ?>
+		</div>
 		<div class="post-detail">
 			<div class="postmeta">
 				<div class="postmeta-r">

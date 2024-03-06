@@ -9,7 +9,63 @@
     width: 70%;
   }
 }
+.blog-posts {
+  @include d_flex();
+  row-gap: $s_2;
 
+  &:first-child {
+    grid-column: 1 span;
+    grid-row: 3 span;
+    @include d_flex();
+    img {
+      width: 100% !important;
+      height: 478px !important;
+    }
+    .blog-cards {
+      @include d_flex($dir: column);
+      border: 0;
+    }
+    .paragraph {
+      -webkit-line-clamp: 3;
+    }
+    .postmeta {
+      border-bottom: $b_3 !important;
+    }
+    .blog-detail {
+      width: 100% !important;
+    }
+  }
+
+  &:last-child {
+    .blog-cards {
+      border: 0;
+    }
+  }
+
+  .blog-cards {
+    @include d_flex($a_i: center);
+    border-bottom: $b_3;
+    padding: $s_5 0;
+
+    img {
+      width: 40%;
+      height: 190px;
+      border-radius: $r_1;
+    }
+    .blog-detail {
+      width: 59%;
+      padding-right: $s_3;
+      @include d_flex(column, $gap: $s_2);
+    }
+    .postmeta {
+      border: 0;
+
+      .postmeta-r {
+        @include d_flex(row, $gap: $s_6);
+      }
+    }
+  }
+}
 .blog-main {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
@@ -17,63 +73,6 @@
   gap: $s-1;
   @include mq('md') {
     display: none;
-  }
-  .blog-posts {
-    @include d_flex();
-    row-gap: $s_2;
-
-    &:first-child {
-      grid-column: 1 span;
-      grid-row: 3 span;
-      @include d_flex();
-      img {
-        width: 100% !important;
-        height: 478px !important;
-      }
-      .blog-cards {
-        @include d_flex($dir: column);
-        border: 0;
-      }
-      .paragraph {
-        -webkit-line-clamp: 3;
-      }
-      .postmeta {
-        border-bottom: $b_3 !important;
-      }
-      .blog-detail {
-        width: 100% !important;
-      }
-    }
-
-    &:last-child {
-      .blog-cards {
-        border: 0;
-      }
-    }
-
-    .blog-cards {
-      @include d_flex($a_i: center);
-      border-bottom: $b_3;
-      padding: $s_5 0;
-
-      img {
-        width: 40%;
-        height: 190px;
-        border-radius: $r_1;
-      }
-      .blog-detail {
-        width: 59%;
-        padding-right: $s_3;
-        @include d_flex(column, $gap: $s_2);
-      }
-      .postmeta {
-        border: 0;
-
-        .postmeta-r {
-          @include d_flex(row, $gap: $s_6);
-        }
-      }
-    }
   }
 }
 
