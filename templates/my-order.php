@@ -1,4 +1,7 @@
 <?php
+
+$order_img = get_field('img');
+
 $login = [
     'post_type' => 'page',
     'fields' => 'ids',
@@ -12,6 +15,7 @@ if (!(is_user_logged_in())) {
     wp_redirect($login_link); // @need : back to last url
     exit();
 }
+
 ?>
 <?php
 /*Template Name: Order */
@@ -40,7 +44,8 @@ $orders = wc_get_orders([
     </div>
     <div class="order-tempnail">
 
-        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/51437301.png' ?>" />
+        <?= wp_get_attachment_image($order_img, 'full') ?>
+
     </div>
 
 
