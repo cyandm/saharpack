@@ -121,17 +121,15 @@ body {
   padding: 0;
   font-family: "Yekan Bakh";
   background: #ffffff;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 36px;
+  line-height: 32px;
   color: #505050;
   position: relative;
 }
 @media screen and (max-width: 768px) {
   body {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 32px;
+    font-size: 14px;
   }
 }
 
@@ -1397,7 +1395,7 @@ label {
   -webkit-line-clamp: 3;
 }
 .blog-posts:first-child .postmeta {
-  border-bottom: 1px solid #c5c5c5 !important;
+  border-bottom: 1px solid #c5c5c5;
 }
 .blog-posts:first-child .blog-detail {
   width: 100% !important;
@@ -4314,6 +4312,77 @@ form.checkout .woocommerce-checkout-review-order > * {
 @media screen and (max-width: 480px) {
   .woocommerce-order .order-information {
     width: 100%;
+  }
+}
+
+main.all-blogs-page .blogs-wrapper {
+  display: grid;
+  justify-content: stretch;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  gap: 0.75rem 1rem;
+}
+main.all-blogs-page .blogs-wrapper .blog-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+main.all-blogs-page .blogs-wrapper .blog-container .post-thumbnail img {
+  height: 18.75rem;
+  object-fit: contain;
+}
+@media screen and (max-width: 480px) {
+  main.all-blogs-page .blogs-wrapper .blog-container .post-thumbnail img {
+    height: 12.5rem;
+  }
+}
+main.all-blogs-page .blogs-wrapper .blog-container .postmeta-r {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  color: #505050;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  padding-bottom: 0.75rem;
+}
+main.all-blogs-page .blogs-wrapper .blog-container .post-detail > h5 {
+  padding-top: 0.75rem;
+  color: #1e1e1e;
+}
+@media screen and (max-width: 768px) {
+  main.all-blogs-page .blogs-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+  }
+  main.all-blogs-page .blogs-wrapper .blog-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+  }
+  main.all-blogs-page .blogs-wrapper .blog-container .post-thumbnail {
+    width: 30%;
+  }
+  main.all-blogs-page .blogs-wrapper .blog-container .post-detail {
+    flex: 1;
+  }
+  main.all-blogs-page .blogs-wrapper .blog-container .post-detail .postmeta {
+    border-bottom: none;
+  }
+  main.all-blogs-page .blogs-wrapper .blog-container .post-detail .paragraph {
+    display: none;
   }
 }
 

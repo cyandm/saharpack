@@ -17,7 +17,9 @@ $slider_blogs = new WP_Query([
 	'post_type' => 'post',
 	'posts_per_page' => 6,
 	'                                                                                                                                                                                                  post__not_in' => [get_the_ID()],
-]); ?>
+]);
+$all_blogs_page_id = get_option('page_for_posts');
+?>
 <main class="container blog-archive">
 	<div class="blog-head">
 		<ul>
@@ -80,7 +82,7 @@ $slider_blogs = new WP_Query([
 		<?php wp_reset_postdata() ?>
 	</div>
 	<div class="more">
-		<a href="<?= site_url() . '/blog' ?>"> مشاهده همه </a>
+		<a href="<?= get_permalink($all_blogs_page_id) ?>"> مشاهده همه </a>
 	</div>
 </main>
 <?php get_footer() ?>

@@ -1097,6 +1097,7 @@
   var browser;
   function calcBrowser() {
     const window2 = getWindow();
+    const device = getDevice();
     let needPerspectiveFix = false;
     function isSafari() {
       const ua = window2.navigator.userAgent.toLowerCase();
@@ -1109,10 +1110,14 @@
         needPerspectiveFix = major < 16 || major === 16 && minor < 2;
       }
     }
+    const isWebView = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window2.navigator.userAgent);
+    const isSafariBrowser = isSafari();
+    const need3dFix = isSafariBrowser || isWebView && device.ios;
     return {
-      isSafari: needPerspectiveFix || isSafari(),
+      isSafari: needPerspectiveFix || isSafariBrowser,
       needPerspectiveFix,
-      isWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window2.navigator.userAgent)
+      need3dFix,
+      isWebView
     };
   }
   function getBrowser() {
@@ -2428,7 +2433,7 @@
       wrapperEl,
       enabled
     } = swiper2;
-    if (swiper2.animating && params.preventInteractionOnTransition || !enabled && !internal && !initial) {
+    if (swiper2.animating && params.preventInteractionOnTransition || !enabled && !internal && !initial || swiper2.destroyed) {
       return false;
     }
     const skip = Math.min(swiper2.params.slidesPerGroupSkip, slideIndex);
@@ -2568,6 +2573,8 @@
       index = indexAsNumber;
     }
     const swiper2 = this;
+    if (swiper2.destroyed)
+      return;
     const gridEnabled = swiper2.grid && swiper2.params.grid && swiper2.params.grid.rows > 1;
     let newIndex = index;
     if (swiper2.params.loop) {
@@ -2633,7 +2640,7 @@
       params,
       animating
     } = swiper2;
-    if (!enabled)
+    if (!enabled || swiper2.destroyed)
       return swiper2;
     let perGroup = params.slidesPerGroup;
     if (params.slidesPerView === "auto" && params.slidesPerGroup === 1 && params.slidesPerGroupAuto) {
@@ -2676,7 +2683,7 @@
       enabled,
       animating
     } = swiper2;
-    if (!enabled)
+    if (!enabled || swiper2.destroyed)
       return swiper2;
     const isVirtual = swiper2.virtual && params.virtual.enabled;
     if (params.loop) {
@@ -2736,6 +2743,8 @@
       runCallbacks = true;
     }
     const swiper2 = this;
+    if (swiper2.destroyed)
+      return;
     return swiper2.slideTo(swiper2.activeIndex, speed, runCallbacks, internal);
   }
   function slideToClosest(speed, runCallbacks, internal, threshold) {
@@ -2749,6 +2758,8 @@
       threshold = 0.5;
     }
     const swiper2 = this;
+    if (swiper2.destroyed)
+      return;
     let index = swiper2.activeIndex;
     const skip = Math.min(swiper2.params.slidesPerGroupSkip, index);
     const snapIndex = skip + Math.floor((index - skip) / swiper2.params.slidesPerGroup);
@@ -2772,6 +2783,8 @@
   }
   function slideToClickedSlide() {
     const swiper2 = this;
+    if (swiper2.destroyed)
+      return;
     const {
       params,
       slidesEl
@@ -3012,7 +3025,7 @@
           if (byMousewheel) {
             swiper2.setTranslate(swiper2.translate - diff);
           } else {
-            swiper2.slideTo(activeIndex + slidesPrepended, 0, false, true);
+            swiper2.slideTo(activeIndex + Math.ceil(slidesPrepended), 0, false, true);
             if (setTranslate2) {
               swiper2.touchEventsData.startTranslate = swiper2.touchEventsData.startTranslate - diff;
               swiper2.touchEventsData.currentTranslate = swiper2.touchEventsData.currentTranslate - diff;
@@ -4091,6 +4104,7 @@
     init: true,
     direction: "horizontal",
     oneWayMovement: false,
+    swiperElementNodeName: "SWIPER-CONTAINER",
     touchEventsTarget: "wrapper",
     initialSlide: 0,
     speed: 300,
@@ -4517,11 +4531,11 @@
       if (typeof params.slidesPerView === "number")
         return params.slidesPerView;
       if (params.centeredSlides) {
-        let slideSize = slides[activeIndex] ? slides[activeIndex].swiperSlideSize : 0;
+        let slideSize = slides[activeIndex] ? Math.ceil(slides[activeIndex].swiperSlideSize) : 0;
         let breakLoop;
         for (let i = activeIndex + 1; i < slides.length; i += 1) {
           if (slides[i] && !breakLoop) {
-            slideSize += slides[i].swiperSlideSize;
+            slideSize += Math.ceil(slides[i].swiperSlideSize);
             spv += 1;
             if (slideSize > swiperSize)
               breakLoop = true;
@@ -4658,7 +4672,7 @@
         return false;
       }
       el.swiper = swiper2;
-      if (el.parentNode && el.parentNode.host && el.parentNode.host.nodeName === "SWIPER-CONTAINER") {
+      if (el.parentNode && el.parentNode.host && el.parentNode.host.nodeName === swiper2.params.swiperElementNodeName.toUpperCase()) {
         swiper2.isElement = true;
       }
       const getWrapperSelector = () => {
