@@ -3,8 +3,8 @@ $post_id = isset($args['post_id']) ? $args['post_id'] : get_the_ID();
 $author_name = get_the_author_meta('display_name', get_post_field('post_author', $post_id));
 ?>
 <a href="<?php the_permalink($post_id) ?>">
-	<div class="blog-posts">
-		<div>
+	<div class="blog-posts blog-container">
+		<div class="post-thumbnail">
 			<?= get_the_post_thumbnail($post_id, 'full') ?>
 		</div>
 		<div class="post-detail">
