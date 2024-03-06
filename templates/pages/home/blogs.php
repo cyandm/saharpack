@@ -42,15 +42,11 @@ $page_blog = get_posts($blog_page_link);
 
                 <div class="tabs__handler">
 
-                    <div class="home-blogs__content__items">
+                    <button class="tabs__handler__btn active" data-tab="0"><?php pll_e("جدیدترین ها") ?></button>
+                    <button class="tabs__handler__btn" data-tab="1"><?php pll_e("آموزشی") ?></button>
+                    <button class="tabs__handler__btn" data-tab="2"><?php pll_e("مجبوب‌ترین ها") ?></button>
 
-                        <button class="tabs__handler__btn active" data-tab="0"><?php pll_e("جدیدترین ها") ?></button>
-                        <button class="tabs__handler__btn" data-tab="1"><?php pll_e("آموزشی") ?></button>
-                        <button class="tabs__handler__btn" data-tab="2"><?php pll_e("مجبوب‌ترین ها") ?></button>
-
-                    </div>
                 </div>
-
 
                 <a href="<?= get_permalink($page_blog[0]); ?>" class="btn btn-slider__desktop" size='have-underline'><?php pll_e("مشاهده همه") ?></a>
             </div>
@@ -162,6 +158,7 @@ $page_blog = get_posts($blog_page_link);
                             ?>
                             <?php wp_reset_postdata() ?>
 
+
                         </div>
 
                         <div class="swiper-pagination"></div>
@@ -171,15 +168,16 @@ $page_blog = get_posts($blog_page_link);
 
                 </div>
 
+
+
+
+                <a href="/blog" class="btn btn-slider__mobile" size='have-underline'><?php pll_e("مشاهده همه") ?></a>
+
             </div>
-
-            <a href="/blog" class="btn btn-slider__mobile" size='have-underline'><?php pll_e("مشاهده همه") ?></a>
-
-        </div>
-        <?php while ($blogs_new->have_posts()) {
-            $blogs_new->the_post();
-            $post_id = get_the_ID();
-        } ?>
+            <?php while ($blogs_new->have_posts()) {
+                $blogs_new->the_post();
+                $post_id = get_the_ID();
+            } ?>
 
         </div>
 
