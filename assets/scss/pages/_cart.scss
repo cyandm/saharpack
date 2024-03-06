@@ -66,6 +66,7 @@ main.default-page {
             border: 1px solid $clr_primary_dark;
             transition: $t_1;
             padding: $s_1 $s_4;
+            @include fs('body-s');
             width: max-content;
             &:hover {
               background-color: transparent;
@@ -90,8 +91,14 @@ main.default-page {
               display: none;
             }
           }
+          tr.title-shipping-method {
+            border-bottom: $b_2;
+          }
           th.title-shipping-method {
             display: table-cell;
+            @include mq('md') {
+              border: none;
+            }
           }
           border: $b_5;
           border-radius: 0;
@@ -113,11 +120,19 @@ main.default-page {
             text-align: start;
             @include fs('h5');
             width: 50%;
+            @include mq('md') {
+              display: flex;
+            }
           }
           td {
+            flex: 1;
             text-align: end;
             @include fs('h5');
             color: $clr_accent_dark;
+          }
+          @include mq('md') {
+            display: flex;
+            @include fs('h6');
           }
         }
       }
@@ -169,5 +184,47 @@ main.default-page {
         width: 100%;
       }
     }
+  }
+  .return-to-shop {
+    .wc-backward {
+      background-color: $clr_primary_dark;
+      color: $clr_primary_text;
+      border: 1px solid $clr_primary_dark;
+      transition: $t_1;
+      width: max-content;
+      font-weight: normal;
+      border-radius: 0;
+      @include fs('body-s');
+      &:hover {
+        background-color: transparent;
+        color: $clr_primary_dark;
+      }
+    }
+  }
+  .woocommerce-notices-wrapper {
+    .woocommerce-message {
+      @include fs('h5');
+
+      a.button {
+        background-color: $clr_primary_dark;
+        color: $clr_primary_text;
+        border: 1px solid $clr_primary_dark;
+        transition: $t_1;
+        width: max-content;
+        font-weight: normal;
+        border-radius: 0;
+        @include fs('body-s');
+
+        &:hover {
+          background-color: transparent;
+          color: $clr_primary_dark;
+        }
+      }
+      a.restore-item {
+      }
+    }
+  }
+  .wc-empty-cart-message {
+    @include fs('h5');
   }
 }

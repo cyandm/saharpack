@@ -25,7 +25,7 @@ $has_calculated_shipping  = !empty($has_calculated_shipping);
 $show_shipping_calculator = !empty($show_shipping_calculator);
 $calculator_text          = '';
 ?>
-<tr>
+<tr class="title-shipping-method">
 	<th colspan="2" class="h4 title-shipping-method"><?php echo pll__('نوع ارسال') /*wp_kses_post( $package_name );*/ ?></th>
 </tr>
 <tr class="woocommerce-shipping-totals shipping">

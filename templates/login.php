@@ -124,7 +124,6 @@ if ($otpCondition) {
                 } else {
                     wp_redirect($login_link);
                 }
-
                 exit();
             } else {
                 $alerts[] = 'مشکلی در ورود به وجود آمده. لطفا دوباره امتحان کنید';

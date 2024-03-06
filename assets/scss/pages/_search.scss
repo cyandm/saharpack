@@ -1,64 +1,93 @@
 @use '../utils' as *;
 
 .search-bar {
-	background-color: $clr_bg_default;
-	margin-block: $s_4;
+  background-color: $clr_bg_default;
 
-	&__wrapper {
-		@include d_flex(row, space-between, center);
-	}
+  &__wrapper {
+    @include d_flex(row, space-between, center, $gap: $s_4);
+  }
 
-	&__form {
-		@include d_flex(row, space-between, center, $gap: $s_8);
-		padding-block: $s_4;
+  &__form {
+    @include d_flex(row, space-between, center, $gap: $s_8);
+    padding-block: $s_4;
 
-		.form-control {
-			@include d_flex();
-			padding-inline: $s_1;
-			border: 1px solid #ddd;
-			transition: 0.3s;
+    .form-control {
+      @include d_flex();
+      padding-inline: $s_1;
+      border: 1px solid #ddd;
+      transition: 0.3s;
 
-			input[type='text'] {
-				padding: $s_2;
-			}
+      input[type='text'] {
+        padding: $s_2;
+      }
 
-			&:has(input[type='text']:focus) {
-				border: 1px solid #000;
-			}
-		}
-	}
+      &:has(input[type='text']:focus) {
+        border: 1px solid #000;
+      }
+    }
+    .input-primary {
+      display: flex;
+      gap: $s_3;
+      input {
+        flex: 1;
+      }
+      @include mq('sm') {
+        width: 100%;
+      }
+    }
+  }
 
-	&__radio {
-		&-group {
-			@include d_flex($gap: $s_2);
+  &__radio {
+    &-group {
+      @include d_flex($gap: $s_2);
 
-			label {
-				@include d_flex();
-			}
-		}
+      label {
+        @include d_flex();
+      }
+    }
 
-		&-wrapper {
-			@include d_flex();
-			gap: $s_4;
-		}
+    &-wrapper {
+      @include d_flex();
+      gap: $s_4;
+      @include mq('sm') {
+        flex-direction: column;
+      }
+    }
 
-		&-title {
-			font-weight: bold;
-		}
-	}
+    &-title {
+      font-weight: bold;
+    }
+  }
+  &__result {
+    @include mq('sm') {
+      width: 100%;
+      border-bottom: $b_2;
+      padding-block-end: $s_2;
+      text-align: center;
+    }
+  }
 }
 
 .search-posts {
-	display: grid;
-	gap: $s_3;
-	.search-result-item {
-		@include d_flex(column, start, start);
-		background-color: $clr_bg_default;
-		border-bottom: $b_2;
-		padding: $s_2;
+  display: grid;
+  gap: $s_3;
+  .search-result-item {
+    @include d_flex(column, start, start);
+    background-color: $clr_bg_default;
+    border-bottom: $b_2;
+    padding: $s_2;
 
-		.post-type {
-			@include fs('body-s');
-		}
-	}
+    .post-type {
+      @include fs('body-s');
+    }
+  }
+  .empty-search-result {
+    color: $clr_text_dark;
+    @include d_flex(row, center);
+    border-top: $b_3;
+    padding-top: $s_3;
+    @include mq('sm') {
+      border-top: none;
+    }
+  }
 }
