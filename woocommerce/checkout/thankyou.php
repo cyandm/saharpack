@@ -70,8 +70,8 @@ $thumbnail = get_field('successful_submit_order', $home_id);
 						<?php if ($order->get_status()) : ?>
 							<li class="woocommerce-order-overview__payment-method method">
 								<span><?php esc_html_e('Status:', 'woocommerce'); ?></span>
-								<span>
-									<?php _e($order->get_status(), 'woocommerce'); ?>
+								<span class="status-order">
+									<?= wc_get_order_status_name($order->data['status']) ?>
 								</span>
 							</li>
 						<?php endif; ?>

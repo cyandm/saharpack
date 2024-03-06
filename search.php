@@ -74,6 +74,11 @@ $radios = [
 					['complete' => true]
 				);
 			endwhile;
+		else :
+			echo '<div class="empty-search-result">';
+			pll_e('نتیجه ای برای قاب خالی یافت نشد');
+			echo '</div>';
+
 		endif;
 		?>
 	</div>

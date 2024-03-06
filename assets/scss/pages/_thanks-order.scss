@@ -28,6 +28,12 @@
         &:last-child {
           border: $b_5;
         }
+        .status-order {
+          background-color: rgba($clr_success_light, 0.2);
+          color: $clr_success_dark;
+          padding: $s_1;
+          border-radius: $s_1;
+        }
       }
     }
     .btn-group-submit-order-page {

@@ -4868,9 +4868,12 @@
   var quantity = document.querySelectorAll(
     "#quantityProductWrapper .quantity input"
   );
-  console.log(quantity);
-  console.log(minusButton);
-  console.log(plusButton);
+  var quantityInputSingleProduct = document.querySelector(
+    '.quantity input[type="number"]'
+  );
+  var addToCartBtnSingleProduct = document.querySelector(
+    '.share-and-add-cart a[variant="primary"]'
+  );
   if (plusButton) {
     plusButton.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -4879,6 +4882,10 @@
             count.value = Number(count.value) + 1;
           }
         });
+        if (quantityInputSingleProduct && addToCartBtnSingleProduct) {
+          const hrefBaseQuantityPlus = addToCartBtnSingleProduct.href;
+          addToCartBtnSingleProduct.href = hrefBaseQuantityPlus + "&quantity=" + quantityInputSingleProduct.value;
+        }
       });
     });
   }
@@ -4891,6 +4898,10 @@
               count.value = Number(count.value) - 1;
           }
         });
+        if (quantityInputSingleProduct && addToCartBtnSingleProduct) {
+          const hrefBaseQuantityMinus = addToCartBtnSingleProduct.href;
+          addToCartBtnSingleProduct.href = hrefBaseQuantityMinus + "&quantity=" + quantityInputSingleProduct.value;
+        }
       });
     });
   }

@@ -21,6 +21,7 @@ $slider_blogs = new WP_Query([
 <main class="container blog-archive">
 	<div class="blog-head">
 		<ul>
+			<li><a href="<?= site_url() . '/blog' ?>"><?= pll__('همه') ?> </a></li>
 			<?php wp_list_categories(
 				[
 					'orderby' => 'id',
@@ -45,7 +46,7 @@ $slider_blogs = new WP_Query([
 			while ($first_blogs->have_posts()) {
 				$first_blogs->the_post();
 				$post_id = get_the_ID();
-				get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $post_id]);
+				get_template_part('/templates/components/cards/best', 'blog', ['post_id' => $post_id]);
 			}
 		}
 		?>
@@ -69,7 +70,7 @@ $slider_blogs = new WP_Query([
 			<?php wp_reset_postdata() ?>
 		</div>
 	</div>
-	<div class="blogs-2">
+	<div class="best-blog">
 		<?php while ($second_blogs->have_posts()) {
 			$second_blogs->the_post();
 			$post_id = get_the_ID();
@@ -79,7 +80,7 @@ $slider_blogs = new WP_Query([
 		<?php wp_reset_postdata() ?>
 	</div>
 	<div class="more">
-		<a href="#"> مشاهده همه </a>
+		<a href="<?= site_url() . '/blog' ?>"> مشاهده همه </a>
 	</div>
 </main>
 <?php get_footer() ?>
