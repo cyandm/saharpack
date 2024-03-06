@@ -70,7 +70,7 @@ $slider_blogs = new WP_Query([
 			<?php wp_reset_postdata() ?>
 		</div>
 	</div>
-	<div class="best-blog">
+	<div class="best-blog even-columns">
 		<?php while ($second_blogs->have_posts()) {
 			$second_blogs->the_post();
 			$post_id = get_the_ID();

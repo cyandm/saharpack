@@ -1,55 +1,55 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 .blog-comments {
-	border-top: $b_3;
-	padding: $s_4;
-	.depth-2 {
-		border: $b_3;
-		padding: $s_3;
-		margin: $s_2;
-	}
+  border-top: $b_3;
+  padding: $s_4;
+  .depth-2 {
+    border: $b_3;
+    padding: $s_3;
+    margin: $s_2;
+  }
 
-	.comment-form {
-		padding: $s_4;
-	}
-	.form-submit {
-		display: block !important;
-		float: left;
-		background-color: $clr_primary_dark;
-		padding: $s_2;
-		border-radius: $r_1;
-		@include make_icon('\e806');
-		color: $clr_primary_text;
-		margin-top: $s_2;
-		width: 125px;
-		input {
-			color: $clr_primary_text;
-		}
-	}
-	.comment-list {
-		margin-top: $s_12;
-	}
-	.form-submit {
-		display: flex;
-		justify-content: flex-end;
-	}
+  .comment-form {
+    padding: $s_4;
+  }
+  .form-submit {
+    flex-direction: row-reverse;
+    align-items: center;
+    float: left;
+    background-color: $clr_primary_dark;
+    padding: $s_2;
+    border-radius: $r_1;
+    @include make_icon("\e806");
+    color: $clr_primary_text;
+    margin-top: $s_2;
+    input {
+      color: $clr_primary_text;
+    }
+  }
+  .comment-list {
+    margin-top: $s_12;
+  }
+  .form-submit {
+    display: flex;
+    justify-content: flex-end;
+  }
 
-	.comment-input {
-		width: 100%;
-		line-height: $s_12;
-	}
-	.comment-author {
-		display: flex;
-		gap: 10px;
-	}
-	.comment-meta {
-		@include fs('caption');
-		margin-right: $s_12;
-	}
-	.input-box {
-		@include d_flex(row, start, center, nowrap, false, $s_5);
-		border-bottom: $b_3;
-		i {
-			color: $clr_natural_4;
-		}
-	}
+  .comment-input {
+    width: 100%;
+    line-height: $s_12;
+  }
+  .comment-author {
+    display: flex;
+    gap: 10px;
+  }
+  .comment-meta {
+    @include fs("caption");
+    margin-right: $s_12;
+  }
+  .input-box {
+    @include d_flex(row, start, center, nowrap, false, $s_5);
+    border-bottom: $b_3;
+    i {
+      color: $clr_natural_4;
+    }
+  }
 }

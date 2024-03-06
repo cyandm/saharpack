@@ -1,19 +1,6 @@
 @use "../utils" as *;
-hr {
-  margin: $s_3 0;
-  border: 1px solid $clr_natural_4;
-}
-main.single-post-page {
-  .breadcrumb {
-    @include d_flex(row, start, center, nowrap, false, $s_5);
-    @include fs("caption");
-    line-height: $s_10;
-    margin-top: $s_5;
-    @include mq("md") {
-      margin: 0;
-    }
-  }
 
+main.single-post-page {
   .single-blog {
     @include d_flex(row, start, start, nowrap, false, $s_4);
     @include mq("md") {

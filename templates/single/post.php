@@ -42,12 +42,7 @@ $new_blogs = new WP_Query([
 		</div>
 		<i class="divider"></i>
 	</div>
-	<!-- <p class="breadcrumb"><a href="<?php home_url() ?>">صفحه اصلی</a>
-		<i class="iconsax"
-		   icon-name="arrow-left"></i>
-		<?php echo the_title(); ?>
-	</p> -->
-	<hr />
+
 	<div class="single-blog">
 		<div class="sidebar">
 

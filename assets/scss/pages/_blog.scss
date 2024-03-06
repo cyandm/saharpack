@@ -1,39 +1,35 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 .blog-archive {
-	li:hover,
-	li:active,
-	h5:hover {
-		color: $clr_secondary_dark;
-	}
-	.blog-head {
-		@include d_flex($j_c: space-between, $a_i: center);
-		@include mq('md') {
-			flex-direction: column-reverse;
-			align-items: start;
-		}
-		ul {
-			display: inline-flex;
-			padding: $s_3 0;
-			gap: $s_10;
-			overflow: auto;
-		}
-	}
-	.best-blog {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: $s_3;
-	}
-	.more {
-		@include d_flex($j_c: center);
-		margin: $s-7;
-		a {
-			color: $clr_accent_dark;
-			border-bottom: $b_1;
-		}
-	}
-	.blogs-1 {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: $s_3;
-	}
+  li:hover,
+  li:active,
+  h5:hover {
+    color: $clr_secondary_dark;
+  }
+  .blog-head {
+    @include d_flex($j_c: space-between, $a_i: center);
+    @include mq("md") {
+      flex-direction: column-reverse;
+      align-items: start;
+    }
+    ul {
+      display: inline-flex;
+      padding: $s_3 0;
+      gap: $s_10;
+      overflow: auto;
+    }
+  }
+
+  .more {
+    @include d_flex($j_c: center);
+    margin: $s-7;
+    a {
+      color: $clr_accent_dark;
+      border-bottom: $b_1;
+    }
+  }
+  .blogs-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $s_3;
+  }
 }
