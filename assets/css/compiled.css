@@ -901,6 +901,11 @@ img {
   background-color: transparent;
   color: #1e1e1e;
 }
+@media screen and (max-width: 768px) {
+  .btn[variant=primary] {
+    font-size: 14px;
+  }
+}
 @media screen and (max-width: 480px) {
   .btn[variant=primary] {
     width: 100%;
@@ -1287,9 +1292,6 @@ label {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   margin-bottom: 0.75rem;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 32px;
 }
 @media screen and (max-width: 480px) {
   .card-job-offer .job-detail .job-description {
@@ -1466,7 +1468,21 @@ label {
   gap: 0.75rem;
 }
 .best-blog .post-detail {
-  width: 100%;
+  flex: 1;
+}
+.best-blog .post-detail > h5 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.best-blog .post-thumbnail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
 }
 .best-blog .blog-posts {
   padding: 1.5rem;
@@ -1510,11 +1526,15 @@ label {
     object-fit: contain;
   }
   .best-blog .blog-posts .post-detail {
-    width: 100%;
     color: #1e1e1e;
   }
   .best-blog .blog-posts .post-detail .paragraph {
     display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .best-blog .blog-posts .post-thumbnail {
+    width: 40%;
   }
 }
 
@@ -4250,6 +4270,10 @@ main.default-page .wc-empty-cart-message {
   align-items: center;
   flex-wrap: wrap;
   gap: 0;
+}
+.blog-archive .blog-head ul {
+  width: 100%;
+  overflow-x: scroll;
 }
 @media screen and (max-width: 768px) {
   .blog-archive .blog-head {

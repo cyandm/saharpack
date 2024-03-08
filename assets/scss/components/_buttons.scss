@@ -1,13 +1,13 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 .btn {
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: $s_1;
-  @include fs('body-s');
+  @include fs("body-s");
 
-  &[variant='primary'] {
-    @include fs('body-s');
+  &[variant="primary"] {
+    @include fs("body-s");
     background-color: $clr_primary_dark;
     color: $clr_primary_text;
     border: 1px solid $clr_primary_dark;
@@ -18,13 +18,16 @@
       background-color: transparent;
       color: $clr_primary_dark;
     }
-    @include mq('sm') {
+    @include mq("md") {
+      font-size: 14px;
+    }
+    @include mq("sm") {
       width: 100%;
       justify-content: center;
     }
   }
 
-  &[variant='secondary'] {
+  &[variant="secondary"] {
     background-color: transparent;
     color: $clr_primary_dark;
     border: 1px solid $clr_primary_dark;
@@ -47,7 +50,7 @@
     }
   }
 
-  &[size='radio'] {
+  &[size="radio"] {
     width: px_to_rem(24);
     height: px_to_rem(24);
     border: 1px solid $clr_primary_light;
@@ -58,7 +61,7 @@
     }
   }
 
-  &[size='have-underline'] {
+  &[size="have-underline"] {
     color: $clr_accent_dark;
     border-bottom: 2px solid $clr_primary_dark;
     transition: t_1;

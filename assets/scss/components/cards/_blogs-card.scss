@@ -90,7 +90,13 @@
   grid-template-columns: repeat(auto-fill, minmax(px_to_rem(352), 1fr));
   gap: $s_3;
   .post-detail {
-    width: 100%;
+    flex: 1;
+    > h5 {
+      @include max_line(2);
+    }
+  }
+  .post-thumbnail {
+    @include d_flex(row, center, center);
   }
   .blog-posts {
     padding: $s_6;
@@ -120,11 +126,17 @@
         object-fit: contain;
       }
       .post-detail {
-        width: 100%;
         color: $clr_text_dark;
         .paragraph {
           display: none;
         }
+      }
+    }
+  }
+  @include mq("sm") {
+    .blog-posts {
+      .post-thumbnail {
+        width: 40%;
       }
     }
   }
