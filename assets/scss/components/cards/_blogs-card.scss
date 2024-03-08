@@ -105,15 +105,26 @@
   @include mq("md") {
     display: block !important;
     .blog-posts {
-      @include d_flex($a_i: center, $gap: $s_2);
+      @include d_flex($a_i: center, $gap: $s_2, $wrap: nowrap);
       padding: $s_1;
-
-      img {
+      .postmeta {
+        border-bottom: none;
+        @include fs("caption");
+      }
+      .post-thumbnail {
         width: 35%;
-        height: 120px;
+      }
+      img {
+        width: 100%;
+        max-height: px_to_rem(120);
+        object-fit: contain;
       }
       .post-detail {
-        width: 60%;
+        width: 100%;
+        color: $clr_text_dark;
+        .paragraph {
+          display: none;
+        }
       }
     }
   }

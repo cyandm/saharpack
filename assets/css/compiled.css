@@ -1491,16 +1491,30 @@ label {
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.5rem;
     padding: 0.25rem;
   }
-  .best-blog .blog-posts img {
+  .best-blog .blog-posts .postmeta {
+    border-bottom: none;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  .best-blog .blog-posts .post-thumbnail {
     width: 35%;
-    height: 120px;
+  }
+  .best-blog .blog-posts img {
+    width: 100%;
+    max-height: 7.5rem;
+    object-fit: contain;
   }
   .best-blog .blog-posts .post-detail {
-    width: 60%;
+    width: 100%;
+    color: #1e1e1e;
+  }
+  .best-blog .blog-posts .post-detail .paragraph {
+    display: none;
   }
 }
 
