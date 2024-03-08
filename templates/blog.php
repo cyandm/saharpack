@@ -21,10 +21,10 @@ $slider_blogs = new WP_Query([
 $all_blogs_page_id = get_option('page_for_posts');
 ?>
 <main class="container blog-archive">
-	<div class="blog-head">
-		<ul>
-			<li><a href="<?= site_url() . '/blog' ?>"><?= pll__('همه') ?> </a></li>
-			<?php wp_list_categories(
+    <div class="blog-head">
+        <ul>
+            <li><a href="<?=  get_permalink($all_blogs_page_id) ?>"><?= pll__('همه') ?> </a></li>
+            <?php wp_list_categories(
 				[
 					'orderby' => 'id',
 					'hide_empty' => false,
@@ -32,12 +32,12 @@ $all_blogs_page_id = get_option('page_for_posts');
 					'current_category' => 1
 				]
 			) ?>
-		</ul>
-		<p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder="جستجو" /> </p>
-	</div>
+        </ul>
+        <p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder="جستجو" /> </p>
+    </div>
 
-	<div class="blog-main">
-		<?php
+    <div class="blog-main">
+        <?php
 		if ($selected_blog) {
 			if (count(array_filter($selected_blog)) > 0) {
 				foreach ($selected_blog as  $blog_id) {
@@ -52,37 +52,37 @@ $all_blogs_page_id = get_option('page_for_posts');
 			}
 		}
 		?>
-		<!-- <?php while ($first_blogs->have_posts()) {
+        <!-- <?php while ($first_blogs->have_posts()) {
 					$first_blogs->the_post();
 					$post_id = get_the_ID();
 					get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $post_id]);
 				}
 				?> -->
-		<?php wp_reset_postdata() ?>
-	</div>
-	<div class="swiper-container">
-		<div class="swiper-wrapper">
-			<?php
+        <?php wp_reset_postdata() ?>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <?php
 			while ($slider_blogs->have_posts()) {
 				$slider_blogs->the_post();
 				$post_id = get_the_ID();
 				get_template_part('/templates/components/cards/blog', 'slider', ['post_id' => $post_id]);
 			}
 			?>
-			<?php wp_reset_postdata() ?>
-		</div>
-	</div>
-	<div class="best-blog even-columns">
-		<?php while ($second_blogs->have_posts()) {
+            <?php wp_reset_postdata() ?>
+        </div>
+    </div>
+    <div class="best-blog even-columns">
+        <?php while ($second_blogs->have_posts()) {
 			$second_blogs->the_post();
 			$post_id = get_the_ID();
 			get_template_part('/templates/components/cards/blogs', 'card', ['post_id' => $post_id]);
 		}
 		?>
-		<?php wp_reset_postdata() ?>
-	</div>
-	<div class="more">
-		<a href="<?= get_permalink($all_blogs_page_id) ?>"> مشاهده همه </a>
-	</div>
+        <?php wp_reset_postdata() ?>
+    </div>
+    <div class="more">
+        <a href="<?= get_permalink($all_blogs_page_id) ?>"> مشاهده همه </a>
+    </div>
 </main>
 <?php get_footer() ?>

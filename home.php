@@ -14,14 +14,14 @@ $all_blogs = new WP_Query([
         <i class="divider"></i>
     </div>
     <?php if ($all_blogs->have_posts()) :  ?>
-        <section class="blogs-wrapper container">
-            <?php
+    <section class="best-blog container">
+        <?php
             while ($all_blogs->have_posts()) {
                 $all_blogs->the_post();
                 get_template_part('/templates/components/cards/blogs', 'card');
             }
             ?>
-        </section>
+    </section>
     <?php endif  ?>
 
 </main>
