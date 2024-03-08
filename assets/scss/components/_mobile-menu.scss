@@ -27,7 +27,9 @@ body[data-popup-open="true"] {
   padding-block-start: 1rem;
   padding-inline: $s_4;
   @include fs("body-s");
-
+  @include mq("md") {
+    font-size: 14px;
+  }
   &[data-active="true"] {
     clip-path: inset(0 0 0 0);
   }

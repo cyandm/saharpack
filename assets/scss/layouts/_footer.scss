@@ -44,8 +44,6 @@
           transition: $t_1;
           width: fit-content;
 
-          @include fs("body-s");
-
           &:hover {
             color: $clr_secondary_dark;
           }

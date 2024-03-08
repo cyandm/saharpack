@@ -228,6 +228,13 @@ select {
   font-weight: 400;
   line-height: 32px;
 }
+@media screen and (max-width: 768px) {
+  input,
+  textarea,
+  select {
+    font-size: 14px;
+  }
+}
 
 ::placeholder {
   color: #969696;
@@ -252,6 +259,7 @@ input {
 }
 
 .breadcrumb-wrapper {
+  overflow-x: scroll;
   margin-bottom: 1.5rem;
   width: 100%;
   display: flex;
@@ -301,6 +309,10 @@ input {
 }
 .breadcrumb-wrapper > div nav p .last {
   color: #1e1e1e;
+}
+.breadcrumb-wrapper > div nav p a,
+.breadcrumb-wrapper > div nav p span {
+  min-width: max-content;
 }
 .breadcrumb-wrapper .divider {
   display: inline-block;
@@ -785,9 +797,6 @@ img {
   margin-inline-start: 1rem;
   transition: all 0.4s ease-in-out;
   width: fit-content;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 32px;
 }
 .footer__items__right .f-menu > li:hover {
   color: #c74217;
@@ -1739,6 +1748,11 @@ body[data-popup-open=true] .icon-menu::before {
   font-size: 16px;
   font-weight: 400;
   line-height: 32px;
+}
+@media screen and (max-width: 768px) {
+  .mobile-menu {
+    font-size: 14px;
+  }
 }
 .mobile-menu[data-active=true] {
   clip-path: inset(0 0 0 0);
