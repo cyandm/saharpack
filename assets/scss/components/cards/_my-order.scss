@@ -1,19 +1,19 @@
-@use "../../utils/" as *;
+@use '../../utils/' as *;
 .my-order {
   @include d_flex(row, space-between, flex-start, nowrap, false, $s_5);
   padding: $s_6;
 
   h3 {
     width: 100%;
-    @include fs("h3");
+    @include fs('h3');
     color: $clr_primary_dark;
   }
   .orders {
     width: 60%;
-    @include mq("lg") {
+    @include mq('lg') {
       width: 55%;
     }
-    @include mq("md") {
+    @include mq('md') {
       width: 100%;
     }
   }
@@ -29,12 +29,12 @@
       img {
         width: 100%;
         object-fit: contain;
-        @include mq("md") {
+        @include mq('md') {
           width: 100%;
           height: 241px;
         }
       }
-      @include mq("md") {
+      @include mq('md') {
         width: 100%;
         img {
           width: 100%;
@@ -42,13 +42,13 @@
         }
       }
     }
-    @include mq("md") {
+    @include mq('md') {
       flex-direction: column;
       border: 0;
     }
 
     .odrer-title p {
-      @include fs("caption");
+      @include fs('caption');
       color: rgba(64, 64, 64, 0.4);
     }
     h5 {
@@ -56,7 +56,7 @@
     }
     .order-box {
       width: 65%;
-      @include mq("md") {
+      @include mq('md') {
         width: 100%;
       }
 
@@ -67,10 +67,10 @@
         }
         padding: $s_2;
         span.order-date {
-          @include fs("caption");
+          @include fs('caption');
         }
         .status {
-          @include fs("caption");
+          @include fs('caption');
           padding: $s-2;
           border-radius: $r_1;
         }
@@ -91,12 +91,12 @@
     position: -webkit-sticky;
     position: sticky;
     top: px_to_rem(32);
-    max-width: 360px;
     img {
       object-fit: contain;
+      max-width: px_to_rem(400);
     }
   }
-  @include mq("md") {
+  @include mq('md') {
     flex-direction: column-reverse;
 
     padding: $s_3;

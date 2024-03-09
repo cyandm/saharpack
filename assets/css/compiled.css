@@ -1729,10 +1729,10 @@ label {
   position: -webkit-sticky;
   position: sticky;
   top: 2rem;
-  max-width: 360px;
 }
 .my-order .order-tempnail img {
   object-fit: contain;
+  max-width: 25rem;
 }
 @media screen and (max-width: 768px) {
   .my-order {

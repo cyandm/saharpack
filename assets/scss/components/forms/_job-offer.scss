@@ -3,10 +3,10 @@
   @include d_flex(column, flex-start, stretch, nowrap, false, $s_5);
 
   .input-primary {
+    @include d_flex(row, flex-start, flex-start, nowrap, false, $s_2);
     i {
       color: $clr_text_light;
     }
-    @include d_flex(row, flex-start, flex-start, nowrap, false, $s_2);
     width: 100%;
     input {
       flex: 1;
