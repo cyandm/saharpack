@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Yekan Bakh";
   src: url("../fonts/yekan-bakh/woff2/YekanBakhFaNum-Thin.woff2");
@@ -1256,6 +1257,13 @@ label {
   font-family: "iconsax" !important;
   font-size: 20px;
 }
+#job-offer-form .input-file {
+  justify-content: space-between;
+  align-items: center;
+}
+#job-offer-form .input-file::before {
+  content: "رزومه خود را پیوست کنید";
+}
 #job-offer-form .input-file i {
   color: #1b51de;
 }
@@ -1438,7 +1446,6 @@ label {
 .blog-main .blog-posts .blog-cards img {
   width: 40%;
   height: 190px;
-  border-radius: 0.5rem;
 }
 .blog-main .blog-posts .blog-cards .blog-detail {
   width: 59%;
@@ -1450,8 +1457,13 @@ label {
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+.blog-main .blog-posts .blog-cards .blog-detail h5 {
+  color: #1e1e1e;
+  transition: all 0.4s ease-in;
+}
 .blog-main .blog-posts .blog-cards .postmeta {
   border: 0;
+  width: 100%;
 }
 .blog-main .blog-posts .blog-cards .postmeta .postmeta-r {
   display: flex;
@@ -1460,6 +1472,9 @@ label {
   align-items: start;
   flex-wrap: wrap;
   gap: 1.5rem;
+}
+.blog-main .blog-posts .blog-detail:hover h5 {
+  color: #c74217;
 }
 
 .blogs-2 {
@@ -1493,10 +1508,17 @@ label {
   flex-wrap: wrap;
   gap: 0;
 }
-.best-blog .blog-posts {
-  padding: 1.5rem;
+.best-blog .post-thumbnail img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 15rem;
+}
+.best-blog .blog-posts:hover .post-detail h5 {
+  color: #c74217;
 }
 .best-blog .blog-posts h5 {
+  transition: all 0.3s ease-in;
+  color: #1e1e1e;
   padding-top: 0.5rem;
 }
 .best-blog .blog-posts blogs-1 {
@@ -1925,7 +1947,7 @@ body[data-popup-open=true] .icon-menu::before {
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0;
   border-bottom: 1px solid #c5c5c5;
   margin-bottom: 0.5rem;
@@ -2540,9 +2562,18 @@ main.contact-us-page .title {
   font-weight: 500;
   line-height: 44.5px;
 }
+main.contact-us-page .page-thumbnail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
 main.contact-us-page .page-thumbnail img {
   max-width: 360px;
   object-fit: contain;
+  width: 100%;
 }
 main.contact-us-page .form-wrapper button {
   align-self: flex-end;
@@ -2795,6 +2826,14 @@ main.single-job-offer-page .job-offer-send-request .form-wrapper {
 }
 main.single-job-offer-page .job-offer-send-request .form-wrapper .input-primary.input-file {
   position: relative;
+}
+main.single-job-offer-page .job-offer-send-request .form-wrapper .input-primary.input-file i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
 }
 main.single-job-offer-page .job-offer-send-request .form-wrapper #job-offer-form {
   width: 50%;
@@ -3217,7 +3256,7 @@ main.single-post-page .blog-comments {
   justify-content: start;
   align-items: start;
   flex-wrap: wrap;
-  gap: 0.25rem;
+  gap: 1rem;
 }
 @media screen and (max-width: 768px) {
   .postmeta {
@@ -3275,6 +3314,19 @@ main.single-post-page .blog-comments {
 .pricing-image {
   position: sticky;
   top: 0;
+}
+.pricing-image .img-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+.pricing-image .img-wrapper img {
+  width: 100%;
+  object-fit: contain;
+  max-height: 33.75rem;
 }
 @media screen and (max-width: 992px) {
   .pricing-image {
@@ -3881,6 +3933,11 @@ main.single-post-page .blog-comments {
   list-style: disc;
   margin-inline-start: 1.5rem;
 }
+@media screen and (max-width: 768px) {
+  .journey__content__card__details__description {
+    font-size: 14px;
+  }
+}
 .journey__content__card__img {
   display: flex;
   flex-direction: row;
@@ -4272,17 +4329,12 @@ main.default-page .wc-empty-cart-message {
   line-height: 28px;
 }
 
-.blog-archive li:hover,
-.blog-archive li:active,
-.blog-archive h5:hover {
-  color: #c74217;
-}
 .blog-archive .blog-head {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0;
 }
 .blog-archive .blog-head ul {

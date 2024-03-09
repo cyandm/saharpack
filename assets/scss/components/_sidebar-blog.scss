@@ -25,7 +25,7 @@
   }
 }
 .search-blog {
-  @include d_flex($a_i: center);
+  @include d_flex($a_i: center, $wrap: nowrap);
   border-bottom: $b_3;
   margin-bottom: $s-2;
   @include mq('md') {

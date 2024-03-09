@@ -1,4 +1,4 @@
-@use "../utils/" as *;
+@use '../utils/' as *;
 
 .journey {
   &__title {
@@ -6,7 +6,7 @@
     margin-block: $s_11 $s_8;
 
     h1 {
-      @include fs("h1");
+      @include fs('h1');
       @include d_flex(row, center, center);
       @include border_title;
     }
@@ -16,7 +16,7 @@
     @include d_flex(column, $gap: 112px);
     counter-reset: number-title;
 
-    @include mq("lg") {
+    @include mq('lg') {
       gap: $s_12;
     }
 
@@ -24,7 +24,7 @@
       @include d_flex(row, start, center, $gap: $s_4);
       min-width: 100%;
 
-      @include mq("lg") {
+      @include mq('lg') {
         flex-direction: column-reverse !important;
         gap: $s_3;
       }
@@ -42,13 +42,13 @@
 
         &__title {
           h3 {
-            @include fs("h3");
+            @include fs('h3');
             @include d_flex(row, center, center, $gap: $s_2);
             color: $clr_text_dark;
             position: relative;
 
             @media (max-width: 395px) {
-              @include fs("h4");
+              @include fs('h4');
             }
 
             &::before {
@@ -62,7 +62,7 @@
               width: 53px;
               height: 53px;
 
-              @include mq("sm") {
+              @include mq('sm') {
                 width: $s_10;
                 height: $s_10;
               }
@@ -70,7 +70,7 @@
 
             &::after {
               position: absolute;
-              content: "";
+              content: '';
               right: 4px;
               top: 1px;
               border: $b_1;
@@ -78,7 +78,7 @@
               width: 53px;
               height: 53px;
 
-              @include mq("sm") {
+              @include mq('sm') {
                 width: $s_10;
                 height: $s_10;
                 right: 3px;
@@ -88,7 +88,7 @@
         }
 
         &__description {
-          @include fs("body-s");
+          @include fs('body-s');
           color: $clr_text_dark;
           text-align: justify;
 
@@ -97,6 +97,9 @@
               list-style: disc;
               margin-inline-start: $s_6;
             }
+          }
+          @include mq('md') {
+            font-size: 14px;
           }
         }
       }
@@ -113,7 +116,7 @@
 
   &__end {
     @include d_flex(column, center, center, $gap: $s_3);
-    @include mq("lg") {
+    @include mq('lg') {
       margin-block-start: $s_9;
     }
 
@@ -127,10 +130,10 @@
     &__text {
       @include d_flex(row, center, center);
       h3 {
-        @include fs("h3");
+        @include fs('h3');
         color: $clr_text_dark;
         @media (max-width: 395px) {
-          @include fs("h4");
+          @include fs('h4');
         }
       }
     }
@@ -140,7 +143,7 @@
     position: relative;
     &::before {
       position: absolute;
-      content: url("../img/svg/scroll-line.svg");
+      content: url('../img/svg/scroll-line.svg');
       display: block;
       z-index: -1;
       left: 50%;

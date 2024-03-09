@@ -1,10 +1,10 @@
-@use "../utils" as *;
+@use '../utils' as *;
 
 .pricing {
   margin-block: 2rem; //@dev
 
   @include d_flex(row, center, flex-start, nowrap, true);
-  @include mq("lg") {
+  @include mq('lg') {
     flex-direction: column;
     align-items: center;
   }
@@ -19,11 +19,11 @@
 
   &-content {
     &-title {
-      @include fs("h2");
+      @include fs('h2');
     }
 
     &-description {
-      @include fs("h6");
+      @include fs('h6');
 
       a {
         color: $clr_accent_dark;
@@ -34,8 +34,15 @@
   &-image {
     position: sticky;
     top: 0;
-
-    @include mq("lg") {
+    .img-wrapper {
+      @include d_flex(row, center, center, nowrap);
+      img {
+        width: 100%;
+        object-fit: contain;
+        max-height: px_to_rem(540);
+      }
+    }
+    @include mq('lg') {
       position: static;
     }
   }
@@ -49,7 +56,7 @@
       }
     }
 
-    @include mq("md") {
+    @include mq('md') {
       .w-half {
         width: 100%;
         flex-basis: 100%;
@@ -66,7 +73,7 @@
       overflow: hidden;
     }
 
-    &[data-active="true"] {
+    &[data-active='true'] {
       grid-template-rows: 1fr;
 
       + .pricing-collapse-handle {

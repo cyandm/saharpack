@@ -59,6 +59,10 @@ main.single-job-offer-page {
       .input-primary {
         &.input-file {
           position: relative;
+
+          i {
+            @include d_flex(row, center, center, nowrap);
+          }
         }
       }
       #job-offer-form {

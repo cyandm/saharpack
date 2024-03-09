@@ -22,6 +22,11 @@
     }
   }
   .input-file {
+    justify-content: space-between;
+    align-items: center;
+    &::before {
+      content: 'رزومه خود را پیوست کنید';
+    }
     i {
       color: $clr_accent_dark;
     }

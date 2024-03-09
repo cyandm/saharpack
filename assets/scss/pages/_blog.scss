@@ -1,17 +1,12 @@
-@use "../utils/" as *;
+@use '../utils/' as *;
 .blog-archive {
-  li:hover,
-  li:active,
-  h5:hover {
-    color: $clr_secondary_dark;
-  }
   .blog-head {
-    @include d_flex($j_c: space-between, $a_i: center);
+    @include d_flex($j_c: space-between, $a_i: center, $wrap: nowrap);
     ul {
       width: 100%;
       overflow-x: scroll;
     }
-    @include mq("md") {
+    @include mq('md') {
       flex-direction: column-reverse;
       align-items: start;
     }
