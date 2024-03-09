@@ -63,6 +63,78 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/woff/Poppins-Thin.woff");
+  src: url("../fonts/Poppins/TTF/Poppins-Thin.ttf") format("truetype"), url("../fonts/Poppins/woff2/Poppins-Thin.woff2") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/woff/Poppins-Thin.woff");
+  src: url("../fonts/Poppins/TTF/Poppins-ExtraLight.ttf") format("truetype"), url("../fonts/Poppins/woff/Poppins-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/woff2/Poppins-Light.woff2");
+  src: url("../fonts/Poppins/TTF/Poppins-Light.ttf") format("truetype"), url("../fonts/Poppins/woff/Poppins-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/woff2/Poppins-Regular.woff2");
+  src: url("../fonts/Poppins/TTF/Poppins-Regular.ttf") format("truetype"), url("../fonts/Poppins/woff/Poppins-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/woff2/Poppins-Medium.woff2");
+  src: url("../fonts/Poppins/TTF/Poppins-Medium.ttf") format("truetype"), url("../fonts/Poppins/woff/Poppins-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/woff2/Poppins-SemiBold.woff2");
+  src: url("../fonts/Poppins/TTF/Poppins-SemiBold.ttf") format("truetype"), url("../fonts/Poppins/woff/Poppins-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/woff2/Poppins-Bold.woff2");
+  src: url("../fonts/Poppins/TTF/Poppins-Bold.ttf") format("truetype"), url("../fonts/Poppins/woff/Poppins-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/woff2/Poppins-ExtraBold.woff2");
+  src: url("../fonts/Poppins/TTF/Poppins-ExtraBold.ttf") format("truetype"), url("../fonts/Poppins/woff/Poppins-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/woff2/Poppins-Black.woff2");
+  src: url("../fonts/Poppins/TTF/Poppins-Black.ttf") format("truetype"), url("../fonts/Poppins/woff/Poppins-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   --clr-primary-light: #969696;
   --clr-primary-main: #505050;
@@ -118,6 +190,7 @@
 }
 
 body {
+  text-transform: capitalize;
   margin: 0;
   padding: 0;
   font-family: "Yekan Bakh";
@@ -260,6 +333,7 @@ input {
 }
 
 .breadcrumb-wrapper {
+  border-bottom: 1px solid #c5c5c5;
   overflow-x: scroll;
   margin-bottom: 1.5rem;
   width: 100%;
@@ -269,6 +343,9 @@ input {
   align-items: stretch;
   flex-wrap: nowrap;
   gap: 0;
+}
+.breadcrumb-wrapper::-webkit-scrollbar {
+  display: none;
 }
 .breadcrumb-wrapper > div {
   width: 100%;
@@ -315,11 +392,25 @@ input {
 .breadcrumb-wrapper > div nav p span {
   min-width: max-content;
 }
-.breadcrumb-wrapper .divider {
-  display: inline-block;
-  width: 100%;
-  height: 1px;
-  background-color: #c5c5c5;
+html[lang=en-US] .breadcrumb-wrapper > div nav p .separator {
+  transform: rotate(-180deg);
+}
+html[lang=en-US] #job-offer-form .input-file::before {
+  content: "Attach your resume";
+}
+html[lang=en-US] input {
+  direction: ltr;
+  text-align: start;
+}
+html[lang=en-US] body,
+html[lang=en-US] button,
+html[lang=en-US] ::placeholder,
+html[lang=en-US] textarea,
+html[lang=en-US] i,
+html[lang=en-US] span,
+html[lang=en-US] input,
+html[lang=en-US] select {
+  font-family: "poppins";
 }
 
 .container {
@@ -1166,7 +1257,6 @@ label {
 #login-form input,
 #login-form textarea {
   flex: 1;
-  text-align: right;
 }
 #login-form .input-primary {
   display: flex;
@@ -1482,8 +1572,10 @@ label {
   grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
   gap: 0.75rem;
 }
-.blogs-2 .blog-posts {
-  padding: 1.5rem;
+.blogs-2 .post-thumbnail img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 15rem;
 }
 
 .best-blog {
@@ -2739,40 +2831,6 @@ main.job-offer-page .selected-jobs .jobs-container {
   }
 }
 
-main.single-job-offer-page .bread-crumb {
-  margin-block: 1.25rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.75rem;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 20px;
-}
-main.single-job-offer-page .bread-crumb span {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.75rem;
-  color: #969696;
-}
-main.single-job-offer-page .bread-crumb span i {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.75rem;
-}
-main.single-job-offer-page .divider {
-  width: 100%;
-  height: 1px;
-  background-color: #c5c5c5;
-}
 main.single-job-offer-page .job-detail-container .job-thumbnail-and-description {
   display: flex;
   flex-direction: row;

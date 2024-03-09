@@ -1,22 +1,5 @@
 @use '../utils/' as *;
 main.single-job-offer-page {
-  .bread-crumb {
-    margin-block: $s_5;
-    @include d_flex(row, flex-start, center, nowrap, false, $s_3);
-    @include fs('caption');
-    span {
-      @include d_flex(row, center, center, nowrap, false, $s_3);
-      color: $clr_text_light;
-      i {
-        @include d_flex(row, center, center, nowrap, false, $s_3);
-      }
-    }
-  }
-  .divider {
-    width: 100%;
-    height: 1px;
-    background-color: $clr_natural_4;
-  }
   .job-detail-container {
     .job-thumbnail-and-description {
       @include d_flex(row, space-between, center, nowrap, true, $s_3);

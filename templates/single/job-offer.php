@@ -11,14 +11,14 @@ $page_job_offer_link = get_permalink(get_posts($job_offer_template)[0]);
 
 ?>
 <main class="single-job-offer-page">
-    <div class="bread-crumb container">
-        <span>
-            <a href="<?= $page_job_offer_link ?>"><?= pll__('job-offer') ?></a>
-            <i class="iconsax" icon-name="arrow-left"></i>
-        </span>
-        <?= pll__('request-form') ?>
+
+    <div class="breadcrumb-wrapper">
+        <div class="breadcrumb-job container">
+            <?php if (function_exists('rank_math_the_breadcrumbs'))
+                rank_math_the_breadcrumbs(); ?>
+        </div>
+        <i class="divider"></i>
     </div>
-    <div class="divider"></div>
     <div class="job-detail-container container">
         <div class="title-has-line">
             <i></i>

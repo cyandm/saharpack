@@ -28,7 +28,7 @@ defined('ABSPATH') || exit;
 		<?php do_action('woocommerce_cart_totals_before_order_total'); ?>
 
 		<tr class="order-total">
-			<th><?php /*esc_html_e('Total', 'woocommerce');*/ echo pll__('مبلغ قابل پرداخت')   ?></th>
+			<th><?php /*esc_html_e('Total', 'woocommerce');*/ echo pll__('total-price')   ?></th>
 			<td data-title="<?php esc_attr_e('Total', 'woocommerce'); ?>"><?php wc_cart_totals_order_total_html(); ?></td>
 		</tr>
 
@@ -107,8 +107,7 @@ defined('ABSPATH') || exit;
 				?>
 
 				<a href="<?= is_user_logged_in() ? wc_get_checkout_url() : '/login' . '?redirect=' . wc_get_checkout_url() ?>" class="btn" variant="primary">
-					تکمیل سفارش و پرداخت
-				</a>
+					<?php pll_e('order-completion-payment') ?> </a>
 			</td>
 		</tr>
 	</table>

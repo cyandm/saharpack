@@ -24,5 +24,5 @@ if (!defined('ABSPATH')) {
 ?>
 
 <a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="btn<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : '');  ?>" variant="primary">
-	<?php pll_e('تکمیل سفارش و پرداخت') /*esc_html_e( 'Proceed to checkout', 'woocommerce' );*/ ?>
+	<?php pll_e('order-completion-payment') /*esc_html_e( 'Proceed to checkout', 'woocommerce' );*/ ?>
 </a>

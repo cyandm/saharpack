@@ -23,7 +23,7 @@ defined('ABSPATH') || exit;
 <div class="cart-wrapper">
 	<div class="product-property-in-cart">
 
-		<h3><?= pll__('سبد خرید') ?></h3>
+		<h3><?= pll__('cart') ?></h3>
 
 		<form class="" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
 

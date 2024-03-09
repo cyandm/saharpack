@@ -1,5 +1,5 @@
-@use "../utils/variables" as *;
-@use "../utils/mixins" as *;
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
 
 *,
 *::after,
@@ -11,15 +11,16 @@
 }
 
 body {
+  text-transform: capitalize;
   margin: 0;
   padding: 0;
-  font-family: "Yekan Bakh";
+  font-family: 'Yekan Bakh';
   background: $clr_bg_default;
-  @include fs("body-s");
+  @include fs('body-s');
   color: $clr_primary_main;
   position: relative;
 
-  @include mq("md") {
+  @include mq('md') {
     font-size: 14px;
   }
 }
@@ -70,36 +71,36 @@ ul {
 
 h1,
 .h1 {
-  @include fs("h1");
+  @include fs('h1');
 }
 h2,
 .h2 {
-  @include fs("h2");
+  @include fs('h2');
 }
 h3,
 .h3 {
-  @include fs("h3");
+  @include fs('h3');
 }
 h4,
 .h4 {
-  @include fs("h4");
+  @include fs('h4');
 }
 h5,
 .h5 {
-  @include fs("h5");
+  @include fs('h5');
 }
 h6,
 .h6 {
-  @include fs("h6");
+  @include fs('h6');
 }
 
 input,
 textarea,
 select {
   background: transparent;
-  font-family: "Yekan Bakh";
-  @include fs("body-s");
-  @include mq("md") {
+  font-family: 'Yekan Bakh';
+  @include fs('body-s');
+  @include mq('md') {
     font-size: 14px;
   }
 }
@@ -135,10 +136,14 @@ input {
 }
 
 .breadcrumb-wrapper {
+  border-bottom: 1px solid $clr_natural_4;
   overflow-x: scroll;
   margin-bottom: $s_6;
   width: 100%;
   @include d_flex(column, flex-start, stretch, nowrap, false);
+  &::-webkit-scrollbar {
+    display: none;
+  }
   > div {
     width: 100%;
     nav {
@@ -146,12 +151,12 @@ input {
         color: $clr_text_light;
         margin-block: $s_5;
         @include d_flex(row, flex-start, center, nowrap, false, $s_3);
-        @include fs("caption");
+        @include fs('caption');
         .separator {
           @include d_flex(row, center, center, nowrap, false, $s_3);
 
-          @include make_icon("\e87f") {
-            font-family: "iconsax" !important;
+          @include make_icon('\e87f') {
+            font-family: 'iconsax' !important;
             font-size: 20px;
           }
         }
@@ -167,9 +172,41 @@ input {
   }
 
   .divider {
-    display: inline-block;
-    width: 100%;
-    height: 1px;
-    background-color: $clr_natural_4;
+    // display: inline-block;
+    // width: 100%;
+    // height: 1px;
+    // background-color: $clr_natural_4;
+  }
+}
+html[lang='en-US'] {
+  .breadcrumb-wrapper {
+    > div {
+      nav {
+        p {
+          .separator {
+            transform: rotate(-180deg);
+          }
+        }
+      }
+    }
+  }
+  #job-offer-form {
+    .input-file::before {
+      content: 'Attach your resume';
+    }
+  }
+  input {
+    direction: ltr;
+    text-align: start;
+  }
+  body,
+  button,
+  ::placeholder,
+  textarea,
+  i,
+  span,
+  input,
+  select {
+    font-family: 'poppins';
   }
 }

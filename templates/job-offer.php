@@ -10,9 +10,15 @@ $selected_job_offers = get_field('job_offer_page')['selected_job'];
 $last_job_offers = new WP_Query([
     'post_type' => 'job-offer',
     'post_per_page' => 4,
-    'post_status' => ['publish']
-
+    'post_status' => ['publish'],
+    'lang' => pll_current_language()
 ]);
+
+
+// $last_job_offers = get_posts(array(
+//     'post_type' => 'job-offer',
+//     'lang' => 'en', // query German and French posts
+// ));
 
 ?>
 <main class="job-offer-page container">

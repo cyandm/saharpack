@@ -9,6 +9,9 @@ register_translate_general();
 register_translate_form();
 register_translate_template();
 register_translate_bread_crumb();
+register_translate_login();
+register_translate_product();
+register_translate_header_footer();
 function register_translate_general()
 {
     pll_register_string('close', 'close', 'Cyan');
@@ -48,4 +51,24 @@ function register_translate_bread_crumb()
 {
     pll_register_string('job-offer', 'job-offer', 'Cyan');
     pll_register_string('request-form', 'request-form', 'Cyan');
+}
+function register_translate_login()
+{
+    pll_register_string('please-enter-code-send-to', 'please-enter-code-send-to', 'Cyan');
+    pll_register_string('enter', 'enter', 'Cyan');
+
+    pll_register_string('enter-number-for-login', 'enter-number-for-login', 'Cyan');
+}
+function register_translate_product()
+{
+    pll_register_string('free-consultation', 'free-consultation', 'Cyan');
+    pll_register_string('cart', 'cart', 'Cyan');
+    pll_register_string('total-price', 'total-price', 'Cyan');
+    pll_register_string('type-of-shipment', 'type-of-shipment', 'Cyan');
+    pll_register_string('order-completion-payment', 'order-completion-payment', 'Cyan');
+}
+function register_translate_header_footer()
+{
+    pll_register_string('exit-account', 'exit-account', 'Cyan');
+    pll_register_string('order-tracking', 'order-tracking', 'Cyan');
 }
