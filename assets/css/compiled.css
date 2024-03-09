@@ -392,6 +392,7 @@ input {
 .breadcrumb-wrapper > div nav p span {
   min-width: max-content;
 }
+
 html[lang=en-US] .breadcrumb-wrapper > div nav p .separator {
   transform: rotate(-180deg);
 }
@@ -402,13 +403,19 @@ html[lang=en-US] input {
   direction: ltr;
   text-align: start;
 }
-html[lang=en-US] body,
+html[lang=en-US] body {
+  font-family: "poppins";
+}
+html[lang=en-US] input {
+  font-family: "poppins";
+}
+html[lang=en-US] ::placeholder {
+  font-family: "poppins";
+}
 html[lang=en-US] button,
-html[lang=en-US] ::placeholder,
 html[lang=en-US] textarea,
 html[lang=en-US] i,
 html[lang=en-US] span,
-html[lang=en-US] input,
 html[lang=en-US] select {
   font-family: "poppins";
 }

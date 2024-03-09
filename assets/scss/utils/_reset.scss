@@ -170,13 +170,6 @@ input {
       }
     }
   }
-
-  .divider {
-    // display: inline-block;
-    // width: 100%;
-    // height: 1px;
-    // background-color: $clr_natural_4;
-  }
 }
 html[lang='en-US'] {
   .breadcrumb-wrapper {
@@ -199,13 +192,19 @@ html[lang='en-US'] {
     direction: ltr;
     text-align: start;
   }
-  body,
+  body {
+    font-family: 'poppins';
+  }
+  input {
+    font-family: 'poppins';
+  }
+  ::placeholder {
+    font-family: 'poppins';
+  }
   button,
-  ::placeholder,
   textarea,
   i,
   span,
-  input,
   select {
     font-family: 'poppins';
   }
