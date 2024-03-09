@@ -6,25 +6,25 @@ if (post_password_required()) {
 comment_form(
 	array(
 		'logged_in_as' => null,
-		'title_reply' => "شماهم توی این بحث شرکت کنید",
-		'title_reply_to' => "ارسال پاسخ به %s",
+		'title_reply' => pll__("join-in-this-discussion"),
+		'title_reply_to' => pll__("send-reply-to") . " %s",
 		'comment_field' => '
 		<div class="input-gp">
 
 		<div class="input-box"><i class="iconsax"
-		icon-name="mail"></i><input id="mail" name="mail" class="comment-input" rows="1" maxlength="6525" placeholder="ایمیل شما" required/>
+		icon-name="mail"></i><input id="mail" name="mail" class="comment-input" rows="1" maxlength="6525" placeholder="\<?php pll_e("your-email"); ?>"\ required/>
 		</div>
 
 		<div class="input-box"><i class="iconsax"
-		icon-name="user-1"></i><input id="name" name="name" class="comment-input" rows="1" maxlength="6525" placeholder="نام شما" required/></div>
+		icon-name="user-1"></i><input id="name" name="name" class="comment-input" rows="1" maxlength="6525" placeholder="\<?php pll_e("your-name"); ?>"\ required/></div>
 		
 		<div class="input-box"><i class="iconsax"
 		icon-name="message-dots"></i>
-		<textarea id="comment" name="comment" class="comment-input" rows="3" maxlength="65525" placeholder="نظرتون رو اینجا بنویسید" required></textarea></div></div>',
+		<textarea id="comment" name="comment" class="comment-input" rows="3" maxlength="65525" placeholder="\<?php pll_e("write-your-comment-here"); ?>"\ required></textarea></div></div>',
 		'id_submit' => "submit-commentform",
 		'class_submit' => "btn-primary cursor-pointer",
 		'name_submit' => "submit-commentform",
-		'label_submit' => 'ارسال دیدگاه',
+		'label_submit' => pll__('submit-comment'),
 		'submit_field' => '<div class="form-submit">%1$s %2$s</div>',
 		'comment_notes_before' => '',
 		''
@@ -64,7 +64,7 @@ else :
 ?>
 	<div class="comment-list">
 
-		<p style="margin-top: 1rem;">دیدگاهی وجود ندارد.</p>
+		<p style="margin-top: 1rem;"><?php pll_e("there-are-no-comments") ?></p>
 	</div>
 <?php
 endif;

@@ -34,7 +34,7 @@ $blog_link = get_permalink(get_posts($blog)[0]);
 					]
 				) ?>
 			</ul>
-			<p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder="جستجو" /></p>
+			<p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder=<?= pll__('search') ?> /></p>
 		</div>
 
 		<div class="blogs-2">
@@ -48,7 +48,7 @@ $blog_link = get_permalink(get_posts($blog)[0]);
 			<?php wp_reset_postdata() ?>
 		</div>
 		<div class="more">
-			<a href="<?= $blog_link ?>"> مشاهده همه </a>
+			<a href="<?= $blog_link ?>"><?= pll__('view-all') ?></a>
 		</div>
 	</section>
 </main>

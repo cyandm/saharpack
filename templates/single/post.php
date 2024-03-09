@@ -86,7 +86,7 @@ $new_blogs = new WP_Query([
 
 			<div class="blog-comments">
 				<div class="single-comment-number">
-					<h6><span> <?php echo get_comments_number($post_id); ?></span> دیدگاه</h6>
+					<h6><span> <?php echo get_comments_number($post_id); ?></span><?= pll__('comment') ?></h6>
 				</div>
 				<?php echo comments_template();	?>
 			</div>

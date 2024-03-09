@@ -8,7 +8,7 @@ $post_id = get_queried_object_id();
 <main class="container blog-archive">
 	<div class="blog-head">
 		<ul>
-			<li> <a href="#">همه</a></li>
+			<li> <a href="#"><?= pll__('all') ?></a></li>
 			<?php wp_list_categories(
 				[
 					'orderby' => 'id',
@@ -17,7 +17,7 @@ $post_id = get_queried_object_id();
 				]
 			) ?>
 		</ul>
-		<p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder="جستجو" /></p>
+		<p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder=<?= pll__('search') ?> /></p>
 	</div>
 	<!-- @TODO breadcrumb change to rank math-->
 	<hr />

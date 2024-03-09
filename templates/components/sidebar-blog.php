@@ -1,6 +1,6 @@
 <p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder="جستجو" /></p>
 
-<h4 class="mb-hide">دسته بندی ها </h4>
+<h4 class="mb-hide"><?= pll__('categories') ?></h4>
 <ul>
 	<?php wp_list_categories(
 		[
@@ -13,7 +13,7 @@
 </ul>
 
 <div class="mb-hide">
-	<h4> پیشنهاد برای ما</h4>
+	<h4><?= pll__('suggestion-for-us') ?></h4>
 
 	<?php
 	$new_blogs = new WP_Query([

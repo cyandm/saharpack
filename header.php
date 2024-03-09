@@ -5,6 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head() ?>
+
+
+    <!-- raychat  -->
+    <script type="text/javascript">
+        window.RAYCHAT_TOKEN = "9509744a-5e5a-4c56-ae05-b82c208aa1f5";
+        window.LOAD_TYPE = "SEO_FRIENDLY";
+        (function() {
+            d = document;
+            s = d.createElement("script");
+            s.src = "https://widget-react.raychat.io/install/widget.js";
+            s.async = 1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+    </script>
+
+
 </head>
 
 

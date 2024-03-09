@@ -26,7 +26,7 @@ $cat_id = (isset(get_queried_object()->term_id)) ? get_queried_object()->term_id
                 <form action="/" class="search-input">
                     <div class="input-primary">
                         <i class="iconsax" icon-name="search-normal-1"></i>
-                        <input placeholder="<?= pll__('جستجو') ?>" type="text" id="searchPageInput" name="s" value="<?php the_search_query() ?>">
+                        <input placeholder="<?= pll__('search') ?>" type="text" id="searchPageInput" name="s" value="<?php the_search_query() ?>">
                     </div>
 
                 </form>

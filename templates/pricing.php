@@ -34,19 +34,19 @@ $thumb_id = get_post_thumbnail_id();
 
 				<div class="input-radio-group">
 					<span class="input-label">
-						<?php pll_e('شخصیت') ?>
+						<?php pll_e('personality') ?>
 					</span>
 
 					<div class="input-radio-wrapper">
 						<label for="legalCharacter">
-							<input type="radio" required id="legalCharacter" value="<?php pll_e('حقوقی') ?>" name="character">
-							<?php pll_e('حقوقی') ?>
+							<input type="radio" required id="legalCharacter" value="<?php pll_e('legal') ?>" name="character">
+							<?php pll_e('legal') ?>
 
 						</label>
 
 						<label for="realCharacter">
-							<input type="radio" required id="realCharacter" value="<?php pll_e('حقیقی') ?>" name="character">
-							<?php pll_e('حقیقی') ?>
+							<input type="radio" required id="realCharacter" value="<?php pll_e('real') ?>" name="character">
+							<?php pll_e('real') ?>
 						</label>
 					</div>
 
@@ -54,30 +54,30 @@ $thumb_id = get_post_thumbnail_id();
 
 				<div>
 					<span class="input-label">
-						<?php pll_e('اطلاعات اولیه') ?>
+						<?php pll_e('basic-information') ?>
 					</span>
 
 					<div class="input-group">
-						<input class="w-half input-primary" required type="text" name="firstName" id="firstName" placeholder="<?php pll_e('نام') ?>">
+						<input class="w-half input-primary" required type="text" name="firstName" id="firstName" placeholder="<?php pll_e('name') ?>">
 
-						<input class="w-half input-primary" required type="text" name="lastName" id="lastName" placeholder="<?php pll_e('نام خانوادگی') ?>">
+						<input class="w-half input-primary" required type="text" name="lastName" id="lastName" placeholder="<?php pll_e('last-name') ?>">
 
-						<input class="w-half input-primary" required type="text" name="companyName" id="companyName" placeholder="<?php pll_e('نام شرکت یا سازمان') ?>">
+						<input class="w-half input-primary" required type="text" name="companyName" id="companyName" placeholder="<?php pll_e('company-or-organization-name') ?>">
 
-						<input class="w-half input-primary" required type="text" name="position" id="position" placeholder="<?php pll_e('سمت') ?>">
+						<input class="w-half input-primary" required type="text" name="position" id="position" placeholder="<?php pll_e('side') ?>">
 
-						<input class="w-half input-primary" required type="tel" name="phone" id="phone" placeholder="<?php pll_e('شماره همراه') ?>">
+						<input class="w-half input-primary" required type="tel" name="phone" id="phone" placeholder="<?php pll_e('phone-number') ?>">
 
-						<input class="w-half input-primary" required type="email" name="mail" id="mail" placeholder="<?php pll_e('آدرس ایمیل') ?>">
+						<input class="w-half input-primary" required type="email" name="mail" id="mail" placeholder="<?php pll_e('email') ?>">
 
 
 						<select name="introductionMethod" required id="introductionMethod" class="input-primary w-full">
-							<option value="" selected>روش آشنایی با مجموعه</option>
-							<option value="تبلیغات">تبلیغات</option>
-							<option value="وبسایت">وبسایت</option>
+							<option value="" selected><?= pll__('how-to-get-to-know-the-collection'); ?></option>
+							<option value=<?= pll__('advertising'); ?>><?= pll__('advertising'); ?></option>
+							<option value=<?= pll__('website'); ?>><?= pll__('website'); ?></option>
 						</select>
 
-						<input class="input-primary w-full" type="text" name="activity" id="activity" placeholder="<?php pll_e('حوزه فعالیت') ?>">
+						<input class="input-primary w-full" type="text" name="activity" id="activity" placeholder="<?php pll_e('field-of-activity') ?>">
 
 						</input>
 
@@ -86,32 +86,32 @@ $thumb_id = get_post_thumbnail_id();
 
 				<div>
 					<span class="input-label">
-						<?php pll_e('متوسط تیراژ در هر نوبت سفارش گذاری') ?>
+						<?php pll_e('average-circulation-per-order') ?>
 					</span>
 
-					<input type="number" name="averageCirculation" class="input-primary w-full" placeholder="<?php pll_e('تعداد') ?>">
+					<input type="number" name="averageCirculation" class="input-primary w-full" placeholder="<?php pll_e('number') ?>">
 				</div>
 
 				<div class="input-radio-group">
 					<span class="input-label">
-						<?php pll_e('مورد درخواست') ?>
+						<?php pll_e('requested') ?>
 					</span>
 
 					<div class="input-radio-wrapper">
 						<label for="contactExpert">
-							<input type="radio" required id="contactExpert" value="<?php pll_e('درخواست تماس کارشناس') ?>" name="requestItem">
-							<?php pll_e('درخواست تماس کارشناس') ?>
+							<input type="radio" required id="contactExpert" value="<?php pll_e('request-an-expert-call') ?>" name="requestItem">
+							<?php pll_e('request-an-expert-call') ?>
 
 						</label>
 
 						<label for="continue">
-							<input type="radio" required id="continue" value="<?php pll_e('تکمیل ادامه فرم استعلام') ?>" name="requestItem">
-							<?php pll_e('تکمیل ادامه فرم استعلام') ?>
+							<input type="radio" required id="continue" value="<?php pll_e('complete-the-inquiry-form') ?>" name="requestItem">
+							<?php pll_e('complete-the-inquiry-form') ?>
 						</label>
 
 						<label for="sendFile">
-							<input type="radio" required id="sendFile" value="<?php pll_e('ارسال فایل') ?>" name="requestItem">
-							<?php pll_e('ارسال فایل') ?>
+							<input type="radio" required id="sendFile" value="<?php pll_e('send-file') ?>" name="requestItem">
+							<?php pll_e('send-file') ?>
 						</label>
 					</div>
 
@@ -120,34 +120,34 @@ $thumb_id = get_post_thumbnail_id();
 				<div class="pricing-collapse" id="pricingCollapse" data-active="false">
 					<div>
 						<h4>
-							<?php pll_e('اطلاعات بسته بندی مورد نظر جهت استعلام قیمت ') ?>
+							<?php pll_e('the-desired-packaging-information-for-price-inquiry ') ?>
 						</h4>
 
 						<div class="input-radio-group">
 							<span class="input-label">
-								<?php pll_e('ساختار جعبه') ?>
+								<?php pll_e('box-structure') ?>
 							</span>
 
 							<div class="input-radio-wrapper">
 								<label for="medicDoor">
-									<input type="radio" id="medicDoor" value="<?php pll_e('درب دارویی') ?>" name="boxStructure">
-									<?php pll_e('درب دارویی') ?>
+									<input type="radio" id="medicDoor" value="<?php pll_e('medicine-door') ?>" name="boxStructure">
+									<?php pll_e('medicine-door') ?>
 
 								</label>
 
 								<label for="bottomLock">
-									<input type="radio" id="bottomLock" value="<?php pll_e('ته قفلی') ?>" name="boxStructure">
-									<?php pll_e('ته قفلی') ?>
+									<input type="radio" id="bottomLock" value="<?php pll_e('bottom-lock') ?>" name="boxStructure">
+									<?php pll_e('bottom-lock') ?>
 								</label>
 
 								<label for="bottomLock">
-									<input type="radio" id="bottomLock" value="<?php pll_e('لاک باتم') ?>" name="boxStructure">
-									<?php pll_e('لاک باتم') ?>
+									<input type="radio" id="bottomLock" value="<?php pll_e('bottom-lacquer') ?>" name="boxStructure">
+									<?php pll_e('bottom-lacquer') ?>
 								</label>
 
 								<label for="other">
-									<input type="radio" id="other" value="<?php pll_e('سایر') ?>" name="boxStructure">
-									<?php pll_e('سایر') ?>
+									<input type="radio" id="other" value="<?php pll_e('other') ?>" name="boxStructure">
+									<?php pll_e('other') ?>
 								</label>
 							</div>
 
@@ -155,29 +155,29 @@ $thumb_id = get_post_thumbnail_id();
 
 						<div class="input-radio-group">
 							<span class="input-label">
-								<?php pll_e('نوع مقوا') ?>
+								<?php pll_e('type-of-cardboard') ?>
 							</span>
 
 							<div class="input-radio-wrapper">
 								<label for="inderDoor">
-									<input type="radio" id="inderDoor" value="<?php pll_e('ایندربورد') ?>" name="cardBoardType">
-									<?php pll_e('ایندربورد') ?>
+									<input type="radio" id="inderDoor" value="<?php pll_e('inder-door') ?>" name="cardBoardType">
+									<?php pll_e('inder-door') ?>
 
 								</label>
 
 								<label for="craft">
-									<input type="radio" id="craft" value="<?php pll_e('کرافت') ?>" name="cardBoardType">
-									<?php pll_e('کرافت') ?>
+									<input type="radio" id="craft" value="<?php pll_e('craft') ?>" name="cardBoardType">
+									<?php pll_e('craft') ?>
 								</label>
 
 								<label for="backGrey">
-									<input type="radio" id="backGrey" value="<?php pll_e('پشت طوسی') ?>" name="cardBoardType">
-									<?php pll_e('پشت طوسی') ?>
+									<input type="radio" id="backGrey" value="<?php pll_e('back-grey') ?>" name="cardBoardType">
+									<?php pll_e('back-grey') ?>
 								</label>
 
 								<label for="glass">
-									<input type="radio" id="glass" value="<?php pll_e('گلاسه') ?>" name="cardBoardType">
-									<?php pll_e('گلاسه') ?>
+									<input type="radio" id="glass" value="<?php pll_e('glass') ?>" name="cardBoardType">
+									<?php pll_e('glass') ?>
 								</label>
 							</div>
 
@@ -185,33 +185,33 @@ $thumb_id = get_post_thumbnail_id();
 
 						<div>
 							<span class="input-label">
-								<?php pll_e('گرماژ مقوا') ?>
+								<?php pll_e('cardboard-grammage') ?>
 							</span>
 
-							<input class="w-full input-primary" type="text" name="gramageCardBoard" id="gramageCardBoard" placeholder="<?php pll_e('اینجا تایپ کنید') ?>">
+							<input class="w-full input-primary" type="text" name="gramageCardBoard" id="gramageCardBoard" placeholder="<?php pll_e('type-here') ?>">
 						</div>
 
 						<div>
 							<span class="input-label">
-								<?php pll_e('ابعاد جعبه') ?>
+								<?php pll_e('box-dimensions') ?>
 							</span>
 							<div class="input-group input-group-even">
-								<input class="input-primary" type="text" name="boxLength" id="boxLength" placeholder="<?php pll_e('طول (میلیمتر)') ?>">
+								<input class="input-primary" type="text" name="boxLength" id="boxLength" placeholder="<?php pll_e('length (mm)') ?>">
 
-								<input class="input-primary" type="text" name="boxWidth" id="boxWidth" placeholder="<?php pll_e('عرض (میلیمتر)') ?>">
+								<input class="input-primary" type="text" name="boxWidth" id="boxWidth" placeholder="<?php pll_e('width-(mm)') ?>">
 
-								<input class="input-primary" type="text" name="boxHeight" id="boxHeight" placeholder="<?php pll_e('ارتفاع (میلیمتر)') ?>">
+								<input class="input-primary" type="text" name="boxHeight" id="boxHeight" placeholder="<?php pll_e('height-(mm)') ?>">
 							</div>
 						</div>
 
 						<div>
 							<span class="input-label">
-								<?php pll_e('ابعاد تیغ به تیغ') ?>
+								<?php pll_e('Blade-to-blade-dimensions') ?>
 							</span>
 							<div class="input-group input-group-even">
-								<input class="input-primary" type="text" name="bladeLength" id="bladeLength" placeholder="<?php pll_e('طول (میلیمتر)') ?>">
+								<input class="input-primary" type="text" name="bladeLength" id="bladeLength" placeholder="<?php pll_e('length (mm)') ?>">
 
-								<input class="input-primary" type="text" name="bladeWidth" id="bladeWidth" placeholder="<?php pll_e('عرض (میلیمتر)') ?>">
+								<input class="input-primary" type="text" name="bladeWidth" id="bladeWidth" placeholder="<?php pll_e('height-(mm)') ?>">
 							</div>
 						</div>
 

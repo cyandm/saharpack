@@ -17,7 +17,7 @@ $login_link = get_permalink(get_posts($login)[0]);
     <?php if (is_user_logged_in()) : ?>
 
         <a href="<?= $args['page_my_order_link'] ?>" class="btn tracking" variant="secondary">
-            <?php pll_e('پیگیری سفارش'); ?>
+            <?php pll_e('order-tracking'); ?>
         </a>
 
     <?php endif ?>
@@ -25,7 +25,7 @@ $login_link = get_permalink(get_posts($login)[0]);
     <?php if (!is_user_logged_in()) : ?>
 
         <a href="<?= $login_link ?>" class="btn tracking" variant="secondary">
-            <?php pll_e('ورود یا ثبت‌نام'); ?>
+            <?php pll_e('login-or-signup'); ?>
         </a>
 
     <?php endif ?>

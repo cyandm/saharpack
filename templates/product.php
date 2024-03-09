@@ -38,13 +38,13 @@ $last_product = new WP_Query(
                 <form action="/" class="search-input">
                     <div class="input-primary">
                         <i class="iconsax" icon-name="search-normal-1"></i>
-                        <input placeholder="<?= pll__('جستجو') ?>" type="text" id="searchPageInput" name="s" value="<?php the_search_query() ?>">
+                        <input placeholder="<?= pll__('search') ?>" type="text" id="searchPageInput" name="s" value="<?php the_search_query() ?>">
                     </div>
 
                 </form>
                 <div class="input-primary">
                     <select id="productDropDown">
-                        <option disabled selected><?= pll__('انتخاب دسته بندی') ?></option>
+                        <option disabled selected><?= pll__('select-category') ?></option>
 
                         <?php for ($i = 0; $i < count($cats); $i++) : ?>
                             <option data-uri="<?= get_category_link($cats[$i]->term_id) ?>"><?= $cats[$i]->name ?></option>
