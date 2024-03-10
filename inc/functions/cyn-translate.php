@@ -87,9 +87,11 @@ function register_translate_form()
     pll_register_string('more-than-6-colors', 'more-than-6-colors', 'Cyan');
     pll_register_string('type-of-printing-cover', 'type-of-printing-cover', 'Cyan');
     pll_register_string('UV', 'UV', 'Cyan');
+    pll_register_string('vernie', 'vernie', 'Cyan');
     pll_register_string('matte-cellophane', 'matte-cellophane', 'Cyan');
     pll_register_string('shiny-cellophane', 'shiny-cellophane', 'Cyan');
     pll_register_string('UV-+-vernie', 'UV-+-vernie', 'Cyan');
+    pll_register_string('no-cover', 'no-cover', 'Cyan');
     pll_register_string('supplementary-printing-process', 'supplementary-printing-process', 'Cyan');
     pll_register_string('topical-UV', 'topical-UV', 'Cyan');
     pll_register_string('goldsmith/silversmith', 'goldsmith/silversmith', 'Cyan');
@@ -170,7 +172,6 @@ function register_translate_product()
     pll_register_string('cart', 'cart', 'Cyan');
     pll_register_string('total-price', 'total-price', 'Cyan');
     pll_register_string('type-of-shipment', 'type-of-shipment', 'Cyan');
-    pll_register_string('order-completion-payment', 'order-completion-payment', 'Cyan');
 }
 function register_translate_header_footer()
 {

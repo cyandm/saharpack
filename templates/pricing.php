@@ -120,7 +120,7 @@ $thumb_id = get_post_thumbnail_id();
 				<div class="pricing-collapse" id="pricingCollapse" data-active="false">
 					<div>
 						<h4>
-							<?php pll_e('the-desired-packaging-information-for-price-inquiry ') ?>
+							<?php pll_e('the-desired-packaging-information-for-price-inquiry') ?>
 						</h4>
 
 						<div class="input-radio-group">
