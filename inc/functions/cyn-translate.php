@@ -142,6 +142,15 @@ function register_translate_template()
     pll_register_string('price', 'price', 'Cyan');
     pll_register_string('special-offers-for-you', 'special-offers-for-you', 'Cyan');
     pll_register_string('size-guide', 'size-guide', 'Cyan');
+    pll_register_string('inventory-status', 'inventory-status', 'Cyan');
+    pll_register_string('available', 'available', 'Cyan');
+    pll_register_string('add-to-cart', 'add-to-cart', 'Cyan');
+    pll_register_string('money-back-guarantee', 'money-back-guarantee', 'Cyan');
+    pll_register_string('products', 'products', 'Cyan');
+    pll_register_string('blogs', 'blogs', 'Cyan');
+    pll_register_string('search-in', 'search-in', 'Cyan');
+    pll_register_string('result', 'result', 'Cyan');
+    pll_register_string('no-results-found-for-empty-frame', 'no-results-found-for-empty-frame', 'Cyan');
 }
 function register_translate_bread_crumb()
 {

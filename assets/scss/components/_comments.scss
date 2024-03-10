@@ -46,10 +46,19 @@
     margin-right: $s_12;
   }
   .input-box {
-    @include d_flex(row, start, center, nowrap, false, $s_5);
+    @include d_flex(row, start, stretch, nowrap, false, $s_5);
     border-bottom: $b_3;
     i {
       color: $clr_natural_4;
+      @include d_flex(column, center, center);
+    }
+
+    &.text-area {
+      i {
+        &:before {
+          padding-block-end: 6rem;
+        }
+      }
     }
   }
 }

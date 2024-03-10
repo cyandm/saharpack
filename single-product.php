@@ -65,11 +65,11 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
                 <?php endforeach ?>
                 <h3><?= pll__('price-and-order') ?></h3>
                 <div class="product-price">
-                    <?= pll__('قیمت') ?>
+                    <?= pll__('price') ?>
                     <?= $product_price ?>
                 </div>
                 <div class="product-order-count">
-                    <div class="title-quantity"><?= pll__('تعداد') ?></div>
+                    <div class="title-quantity"><?= pll__('number') ?></div>
 
                     <div id="quantityProductWrapper" class="quantity-count-changer" data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>">
                         <div class="minus-step"><button type="button">-</button></div>
@@ -89,20 +89,20 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
                     </div>
                 </div>
                 <div class="product-stock">
-                    <div><?= pll__('وضعیت موجودی') ?></div>
+                    <div><?= pll__('inventory-status') ?></div>
                     <?php if ($product_stock_status === 'instock') :  ?>
                         <div class="count-inventory">
-                            <i><?= get_template_part('assets/img/svg/icon-inventory') ?></i><span><?= pll__('موجود') ?></span>
+                            <i><?= get_template_part('assets/img/svg/icon-inventory') ?></i><span><?= pll__('available') ?></span>
                         </div>
                     <?php else : ?>
                         <div class="count-no-inventory">
-                            <i><?= get_template_part('assets/img/svg/icon-no-inventory') ?></i><span><?= pll__('ناموجود') ?></span>
+                            <i><?= get_template_part('assets/img/svg/icon-no-inventory') ?></i><span><?= pll__('out-of-stock') ?></span>
                         </div>
                     <?php endif; ?>
                 </div>
                 <div class="add-cart">
                     <div class="share-and-add-cart">
-                        <a href="<?= $wc_product->add_to_cart_url() ?>" class="btn" variant="primary"><?= pll__('افزودن به سبد خرید') ?></a>
+                        <a href="<?= $wc_product->add_to_cart_url() ?>" class="btn" variant="primary"><?= pll__('add-to-cart') ?></a>
                         <div id="btnShare" class="btn-share btn" variant="secondary">
                             <i class=" iconsax" icon-name="share"></i>
                         </div>
@@ -114,7 +114,7 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
                         </div>
                         <div>
                             <i class="iconsax" icon-name="money-change"></i>
-                            <?= pll__('ضمانت بازگشت وجه') ?>
+                            <?= pll__('money-back-guarantee') ?>
                         </div>
                     </div>
                 </div>

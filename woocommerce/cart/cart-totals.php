@@ -107,11 +107,7 @@ defined('ABSPATH') || exit;
 				?>
 
 				<a href="<?= is_user_logged_in() ? wc_get_checkout_url() : '/login' . '?redirect=' . wc_get_checkout_url() ?>" class="btn" variant="primary">
-					<<<<<<< HEAD <?= pll__('order-completion-and-payment') ?> </a>
-						=======
-						<?php pll_e('order-completion-payment') ?>
-				</a>
-				>>>>>>> 2edfe6f96ea2fb6ae77d33cf3d01b14114c124c3
+					<?= pll__('order-completion-and-payment') ?> </a>
 			</td>
 		</tr>
 	</table>

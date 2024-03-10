@@ -3,15 +3,15 @@ global $wp_query;
 
 $radios = [
 	[
-		'name' => pll__('همه'),
+		'name' => pll__('all'),
 		'value' => 'default'
 	],
 	[
-		'name' => pll__('محصولات'),
+		'name' => pll__('products'),
 		'value' => 'product'
 	],
 	[
-		'name' => pll__('بلاگ ها'),
+		'name' => pll__('blogs'),
 		'value' => 'post'
 	],
 ]
@@ -35,11 +35,11 @@ $radios = [
 			<form action="<?= get_bloginfo('url') ?>" class="search-bar__form" id="searchPageForm">
 				<div class="input-primary">
 					<i class="iconsax" icon-name="search-normal-1"></i>
-					<input placeholder="<?= pll__('جستجو') ?>" type="text" id="searchPageInput" name="s" value="<?php the_search_query() ?>">
+					<input placeholder="<?= pll__('search') ?>" type="text" id="searchPageInput" name="s" value="<?php the_search_query() ?>">
 				</div>
 				<div class="search-bar__radio-wrapper">
 					<span class="search-bar__radio-title">
-						<?= pll__('جستجو در') . ' :' ?>
+						<?= pll__('search-in') . ' :' ?>
 					</span>
 					<div class="input-radio-wrapper">
 						<?php foreach ($radios as $radio) : ?>
@@ -57,7 +57,7 @@ $radios = [
 
 			<div class="search-bar__result">
 				<span id="foundPosts"><?= $wp_query->found_posts ?></span>
-				<span><?= pll__('نتیجه') ?></span>
+				<span><?= pll__('result') ?></span>
 			</div>
 		</div>
 	</div>
@@ -76,7 +76,7 @@ $radios = [
 			endwhile;
 		else :
 			echo '<div class="empty-search-result">';
-			pll_e('نتیجه ای برای قاب خالی یافت نشد');
+			pll_e('no-results-found-for-empty-frame');
 			echo '</div>';
 
 		endif;

@@ -3,24 +3,29 @@ if (post_password_required()) {
 	return;
 }
 
+$your_email = pll__("your-email");
+$your_name = pll__("your-name");
+$your_comment = pll__("write-your-comment-here");
+
 comment_form(
 	array(
 		'logged_in_as' => null,
 		'title_reply' => pll__("join-in-this-discussion"),
 		'title_reply_to' => pll__("send-reply-to") . " %s",
 		'comment_field' => '
-		<div class="input-gp">
+			<div class="input-gp">
 
-		<div class="input-box"><i class="iconsax"
-		icon-name="mail"></i><input id="mail" name="mail" class="comment-input" rows="1" maxlength="6525" placeholder="\<?php pll_e("your-email"); ?>"\ required/>
-		</div>
+			<div class="input-box"><i class="iconsax"
+			icon-name="mail"></i><input id="mail" name="mail" class="comment-input" rows="1" maxlength="6525" placeholder= "' . $your_email . '" required/>
+			</div>
 
-		<div class="input-box"><i class="iconsax"
-		icon-name="user-1"></i><input id="name" name="name" class="comment-input" rows="1" maxlength="6525" placeholder="\<?php pll_e("your-name"); ?>"\ required/></div>
-		
-		<div class="input-box"><i class="iconsax"
-		icon-name="message-dots"></i>
-		<textarea id="comment" name="comment" class="comment-input" rows="3" maxlength="65525" placeholder="\<?php pll_e("write-your-comment-here"); ?>"\ required></textarea></div></div>',
+			<div class="input-box"><i class="iconsax"
+			icon-name="user-1"></i><input id="name" name="name" class="comment-input" rows="1" maxlength="6525" placeholder="' . $your_name . '" required/></div>
+			
+			<div class="input-box text-area"><i class="iconsax" icon-name="message-dots"></i>
+			<textarea id="comment" name="comment" class="comment-input" rows="3" maxlength="65525" placeholder="' . $your_comment . '" required></textarea>
+			</div>
+			</div>',
 		'id_submit' => "submit-commentform",
 		'class_submit' => "btn-primary cursor-pointer",
 		'name_submit' => "submit-commentform",
