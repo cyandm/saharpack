@@ -5,25 +5,25 @@ $phone = get_field("phone", $front_page_id);
 $logo = get_field('logo', $front_page_id);
 $enamad = get_field('enamad', $front_page_id);
 
-if (isset($social)) {
+if (!empty($social) && count(array_filter($social)) > 0) {
 	$whats_app_link = $social['whats_app'];
 	$instagram_link = $social['instagram'];
 	$pintrest_link = $social['pintrest'];
 }
 
 
-if (isset($logo)) {
+if (!empty($logo)) {
 	$img_logo = $logo;
 }
 
-if (isset($phone)) {
+if (!empty($phone)) {
 	$phone_number_1 = $phone['phone_1'];
 	$phone_number_2 = $phone['phone_2'];
 	$phone_number_3 = $phone['phone_3'];
 }
 
 
-if (isset($enamad)) {
+if (!empty($enamad)) {
 	$enamad_img = $enamad;
 }
 
@@ -57,54 +57,54 @@ if (isset($enamad)) {
 							'menu_class' => 'f-menu'
 						]) ?>
 
-						<?php if ($phone_number_1 > 0) : ?>
+						<?php if (!empty($phone['phone_1'])) : ?>
 
-							<a href="<?= 'tel:' . $phone_number_1; ?>" class="phone-number">
-								<?= $phone_number_1 ?>
+							<a href="<?= 'tel:' . $phone['phone_1']; ?>" class="phone-number">
+								<?= $phone['phone_1'] ?>
 							</a>
 
 						<?php endif; ?>
 
-						<?php if ($phone_number_2 > 0) : ?>
+						<?php if (!empty($phone['phone_2'])) : ?>
 
-							<a href="<?= 'tel:' . $phone_number_2; ?>" class="phone-number">
-								<?= $phone_number_2 ?>
+							<a href="<?= 'tel:' . $phone['phone_2']; ?>" class="phone-number">
+								<?= $phone['phone_2'] ?>
 							</a>
 
 						<?php endif; ?>
 
-						<?php if ($phone_number_3 > 0) : ?>
+						<?php if (!empty($phone['phone_3'])) : ?>
 
-							<a href="<?= 'tel:' . $phone_number_3; ?>" class="phone-number">
-								<?= $phone_number_3 ?>
+							<a href="<?= 'tel:' . $phone['phone_3']; ?>" class="phone-number">
+								<?= $phone['phone_3'] ?>
 							</a>
 
 						<?php endif; ?>
 
 
-						<?php if ($social["whats_app"] > 0 || $social["instagram"] > 0 || $social["pintrest"] > 0) : ?>
+						<?php if (!empty($social["whats_app"])   || !empty($social["instagram"])  || !empty($social["pintrest"])) : ?>
 
 							<div class="footer__items__right__social-media__items">
 
-								<?php if ($whats_app_link > 0) : ?>
+								<?php if (!empty($social["whats_app"])) : ?>
 
-									<a href="<?= $whats_app_link; ?>" class="social-icon">
+									<a href="<?= $social["whats_app"]; ?>" class="social-icon">
 										<i class="whatsapp"><?php get_template_part("/assets/img/svg/whatsapp") ?></i>
 									</a>
 
 								<?php endif; ?>
 
-								<?php if ($instagram_link > 0) : ?>
+								<?php if (!empty($social["instagram"])) : ?>
 
-									<a href="<?= $instagram_link; ?>" class="social-icon">
+									<a href="<?= $social["instagram"]; ?>" class="social-icon">
 										<i class="instagram"><?php get_template_part("/assets/img/svg/instagram") ?></i>
 									</a>
 
 								<?php endif; ?>
 
-								<?php if ($pintrest_link > 0) : ?>
+								<?php if (!empty($social["pintrest"])) : ?>
 
-									<a href="<?= $pintrest_link; ?>" class="social-icon">
+									<a href="<?= $social["pintrest"]; ?>" class="social-icon">
 										<i class="pintrest"><?php get_template_part("/assets/img/svg/pintrest") ?></i>
 									</a>
 

@@ -110,7 +110,7 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
                     <div class="counseling-and-guarantee">
                         <div>
                             <i class="iconsax" icon-name="headphones"></i>
-                            <?= pll__('مشاوره رایگان') ?>
+                            <?= pll__('free-consultation') ?>
                         </div>
                         <div>
                             <i class="iconsax" icon-name="money-change"></i>

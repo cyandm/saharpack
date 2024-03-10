@@ -91,8 +91,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(px_to_rem(352), 1fr));
   gap: $s_3;
-  .blog-posts {
-    padding: $s_6;
+  .post-thumbnail {
+    img {
+      object-fit: cover;
+      width: 100%;
+      max-height: px_to_rem(240);
+    }
   }
 }
 .best-blog {

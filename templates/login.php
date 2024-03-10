@@ -144,7 +144,8 @@ if ($otpCondition) {
 
         <form action="<?php $_SERVER['REQUEST_URI'] ?>" method="post" id="login-form">
 
-            <?php if ($alertCondition) : ?>
+            <!-- <?php //if ($alertCondition && $otpCondition) : 
+                    ?>
 
                 <div class="title"><?= pll__('welcome') ?></div>
                 <div class="name-user"><?= pll__(' سلام ') ?><?= $_POST['user_name_h'] ?><?= pll__(' خوشحالیم سحرپک رو انتخاب کردی ') ?></div>
@@ -154,48 +155,50 @@ if ($otpCondition) {
                 </div>
 
 
+            <?php //else : 
+            ?> -->
+
+
+            <?php if (!$pageCondition) : ?>
+
+                <div class="title"><?= pll__('login-or-signup') ?></div>
+                <div class="description"><?= pll__('enter-number-for-login') ?></div>
+                <div class="input-primary">
+                    <i class="iconsax" icon-name="user-2"></i>
+                    <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
+                </div>
+                <div class="input-primary">
+                    <i class="iconsax" icon-name="phone"></i>
+                    <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel" placeholder="<?= pll__('phone-number') ?>" required>
+                </div>
+                <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit"><?= pll__('continue') ?></button>
+
             <?php else : ?>
 
+                <div class="title"><?= pll__('enter-code') ?></div>
+                <div class="description">
+                    <?= Pll__('please-enter-code-send-to') ?>
+                    <?= isset($_POST["user_tel"]) ? $_POST["user_tel"] : '' ?>
+                    <?= pll__('enter') ?>
 
-                <?php if (!$pageCondition) : ?>
+                </div>
+                <a href="<?= $login_link ?>" class=" btn-edit-number"><?= pll__('edit-phone-number') ?></a>
+                <div class="otp-inputs" id="otp-inputs">
+                    <input class="data input-primary" type="number" name="otp_inp" min="100000" max="999999" maxlength="6" required>
+                    <input class="data" type="hidden" name="number-and-name" value="" required>
+                </div>
 
-                    <div class="title"><?= pll__('login-or-signup') ?></div>
-                    <div class="description"><?= pll__('برای ورود  به سحرپک لطفا شماره خودتون رو وارد کنید') ?></div>
-                    <div class="input-primary">
-                        <i class="iconsax" icon-name="user-2"></i>
-                        <input class="data" type="text" name="user_name" placeholder="<?= pll__('your-name') ?>" required>
-                    </div>
-                    <div class="input-primary">
-                        <i class="iconsax" icon-name="phone"></i>
-                        <input pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" class=" data" type="tel" name="user_tel" placeholder="<?= pll__('phone-number') ?>" required>
-                    </div>
-                    <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit"><?= pll__('continue') ?></button>
+                <input class="data" type="hidden" name="user_name_h" value="<?= isset($_POST["user_name"]) ? $_POST["user_name"] : ''; ?>">
 
-                <?php else : ?>
+                <input class="data" type="hidden" name="user_tel_h" value="<?= isset($_POST["user_tel"]) ? $_POST["user_tel"] : ''; ?>">
 
-                    <div class="title"><?= pll__('enter-code') ?></div>
-                    <div class="description">
-                        <?= Pll__(' لطفا کد ارسال شده به شماره ') ?>
-                        <?= isset($_POST["user_tel"]) ? $_POST["user_tel"] : '' ?>
-                        <?= pll__(' وارد کنید ') ?>
+                <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit">
+                    <?= pll__('continue') ?>
+                </button>
+            <?php endif; ?>
 
-                    </div>
-                    <a href="<?= $login_link ?>" class=" btn-edit-number"><?= pll__('edit-phone-number') ?></a>
-                    <div class="otp-inputs" id="otp-inputs">
-                        <input class="data input-primary" type="number" name="otp_inp" min="100000" max="999999" maxlength="6" required>
-                        <input class="data" type="hidden" name="number-and-name" value="" required>
-                    </div>
-
-                    <input class="data" type="hidden" name="user_name_h" value="<?= isset($_POST["user_name"]) ? $_POST["user_name"] : ''; ?>">
-
-                    <input class="data" type="hidden" name="user_tel_h" value="<?= isset($_POST["user_tel"]) ? $_POST["user_tel"] : ''; ?>">
-
-                    <button id="login-form-submit send_otp" class="btn" variant="primary" type="submit">
-                        <?= pll__('continue') ?>
-                    </button>
-                <?php endif; ?>
-
-            <?php endif ?>
+            <?php // endif 
+            ?>
 
         </form>
     </div>

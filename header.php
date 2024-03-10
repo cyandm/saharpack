@@ -46,7 +46,9 @@ $my_order_template = [
     'meta_key' => '_wp_page_template',
     'meta_value' => 'templates/my-order.php'
 ];
+
 $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
+
 ?>
 
 <body <?php body_class() ?>>
@@ -94,14 +96,14 @@ $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
                                 <ul>
                                     <li>
                                         <a href="<?= $page_my_order_link ?>">
-                                            <?php pll_e("پیگیری سفارش") ?>
+                                            <?php pll_e("order-tracking") ?>
                                         </a>
                                     </li>
 
 
                                     <li>
                                         <a href="<?= wp_logout_url(home_url()) ?>">
-                                            <?php pll_e("خروج از حساب") ?>
+                                            <?php pll_e("exit") ?>
                                         </a>
                                     </li>
                                 </ul>
@@ -118,7 +120,6 @@ $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
 
                 <a href="<?= esc_url(wc_get_cart_url()); ?>" class="left-header__cart-btn btn hoverable" variant="primary">
                     <i class="iconsax" icon-name="shopping-cart"></i>
-                    <span><?php pll_e('سبد خرید'); ?></span>
                 </a>
 
             </div>

@@ -5,7 +5,6 @@
   input,
   textarea {
     flex: 1;
-    text-align: right;
   }
   .input-primary {
     @include d_flex(row, flex-start, stretch, nowrap, false, $s_3);
