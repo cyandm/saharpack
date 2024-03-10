@@ -1,4 +1,5 @@
 <?php
+
 /**
  * My Account navigation
  *
@@ -25,22 +26,23 @@ do_action('woocommerce_before_account_navigation');
 ?>
 <div class="flex justify-center items-center flex-col bg-gray-50 p-6 gap-2">
 
-	<h1 class="text-3xl">حساب کاربری من</h1>
-			<p class="text-primary-400 text-center">
-			در این صفحه میتوانید سفارش‌های خود را مشاهده کنید و در جریان روند آن ها باشید.
-			همچنین میتوانید مشخصات خود را شخصی سازی کنید.
-			
-			</p>
+	<h1 class="text-3xl"><?= pll__('my-account') ?></h1>
+	<p class="text-primary-400 text-center">
+
+		<?= pll__('you-can-see-your-orders-on-this-page-and-keep-up-to-date.') ?>
+		<?= pll__('you-can-also-customize-your-profile.') ?>
+
+	</p>
 </div>
 <nav class="woocommerce-MyAccount-navigation container mx-auto">
 	<ul class="flex justify-center items-center gap-4 my-6 flex-wrap">
-		<?php foreach (wc_get_account_menu_items() as $endpoint => $label): ?>
+		<?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
 			<?php if ($endpoint == 'dashboard')
 				continue; ?>
 			<?php if ($endpoint == 'downloads')
 				continue; ?>
 			<li class="bg-gray-100 py-2 px-4 rounded <?php if (esc_url(wc_get_account_endpoint_url($endpoint)) == $current_url)
-				echo "bg-primary-800 text-white"; ?>">
+															echo "bg-primary-800 text-white"; ?>">
 				<a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>"><?php echo esc_html($label); ?></a>
 			</li>
 		<?php endforeach; ?>

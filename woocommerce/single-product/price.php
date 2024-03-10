@@ -25,7 +25,7 @@ global $product;
 if (!$product->is_in_stock()) :
 ?>
 	<div class="flex justify-end gap-2 max-sm:text-xs single-product-page items-end">
-		<h4 class="stock out-of-stock">ناموجود</h4>
+		<h4 class="stock out-of-stock"><?= pll__('out-of-stock') ?></h4>
 	</div>
 <?php
 	return;
@@ -84,7 +84,7 @@ $condition = $product->is_type('variable') && isset($product_prices) && isset($p
 
 	<?php if (!$condition) : ?>
 		<span class="text-sm">
-			قیمت
+			<?= pll__('price') ?>
 		</span>
 		<span class="single-product-price">
 			<?php echo wc_price($sale_price) ?>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product Up-Sells
  *
@@ -15,29 +16,29 @@
  * @version     3.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
-if ( $upsells ) : ?>
+if ($upsells) : ?>
 
 	<section class="up-sells swiper upsells products mt-16 productSlider">
 		<?php
-		$heading = 'پیشنهادهایی مخصوص شما';
+		$heading = pll_e('special-offers-for-you');
 
-		if ( $heading ) :
-			?>
-			<h2 class="text-2xl"><?php echo esc_html( $heading ); ?></h2>
+		if ($heading) :
+		?>
+			<h2 class="text-2xl"><?php echo esc_html($heading); ?></h2>
 		<?php endif; ?>
 
 		<div class="swiper-wrapper">
-		
-			<?php foreach ( $upsells as $upsell ) : ?>
+
+			<?php foreach ($upsells as $upsell) : ?>
 
 				<?php
-				$post_object = get_post( $upsell->get_id() );
+				$post_object = get_post($upsell->get_id());
 
-				setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+				setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
 				echo '<div class="swiper-slide">';
 				wc_get_template_part('content', 'product');
@@ -47,11 +48,11 @@ if ( $upsells ) : ?>
 
 			<?php endforeach; ?>
 
-		<div>
+			<div>
 
 	</section>
 
-	<?php
+<?php
 endif;
 
 wp_reset_postdata();

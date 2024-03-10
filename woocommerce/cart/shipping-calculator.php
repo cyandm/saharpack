@@ -22,7 +22,7 @@ do_action('woocommerce_before_shipping_calculator'); ?>
 
 <form class="woocommerce-shipping-calculator" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
 
-	<?php printf('<a href="#" class="shipping-calculator-button">%s</a>', 'حمل و نقل به یک آدرس دیگر'); ?>
+	<?php printf('<a href="#" class="shipping-calculator-button">%s</a>', pll_e('shipping-to-another-address')); ?>
 
 	<section class="shipping-calculator-form" style="display:none;">
 

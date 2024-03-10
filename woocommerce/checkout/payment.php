@@ -24,7 +24,9 @@ if (!wp_doing_ajax()) {
 ?>
 <div id="payment" class="woocommerce-checkout-payment">
 	<h3 class="p-3 text-xl ">
-		روش پرداخت خود را انتخاب نمایید
+
+		<?= pll__('choose-your-payment-method') ?>
+
 	</h3>
 	<?php if (WC()->cart->needs_payment()) : ?>
 		<ul class="wc_payment_methods payment_methods methods">

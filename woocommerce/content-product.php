@@ -93,7 +93,7 @@ if (empty($product) || !$product->is_visible()) {
                     </span>
                     <?php echo (wc_price($sale_price)) ?>
                 <?php else : ?>
-                    <p class="stock out-of-stock">ناموجود</p>
+                    <p class="stock out-of-stock"><?= pll__('out-of-stock') ?></p>
                 <?php endif; ?>
             </div>
         </div>

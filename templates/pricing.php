@@ -196,7 +196,7 @@ $thumb_id = get_post_thumbnail_id();
 								<?php pll_e('box-dimensions') ?>
 							</span>
 							<div class="input-group input-group-even">
-								<input class="input-primary" type="text" name="boxLength" id="boxLength" placeholder="<?php pll_e('length (mm)') ?>">
+								<input class="input-primary" type="text" name="boxLength" id="boxLength" placeholder="<?php pll_e('length-(mm)') ?>">
 
 								<input class="input-primary" type="text" name="boxWidth" id="boxWidth" placeholder="<?php pll_e('width-(mm)') ?>">
 
@@ -206,10 +206,10 @@ $thumb_id = get_post_thumbnail_id();
 
 						<div>
 							<span class="input-label">
-								<?php pll_e('Blade-to-blade-dimensions') ?>
+								<?php pll_e('blade-to-blade-dimensions') ?>
 							</span>
 							<div class="input-group input-group-even">
-								<input class="input-primary" type="text" name="bladeLength" id="bladeLength" placeholder="<?php pll_e('length (mm)') ?>">
+								<input class="input-primary" type="text" name="bladeLength" id="bladeLength" placeholder="<?php pll_e('length-(mm)') ?>">
 
 								<input class="input-primary" type="text" name="bladeWidth" id="bladeWidth" placeholder="<?php pll_e('height-(mm)') ?>">
 							</div>
@@ -217,24 +217,24 @@ $thumb_id = get_post_thumbnail_id();
 
 						<div class="input-radio-group">
 							<span class="input-label">
-								<?php pll_e('تعداد رنگ چاپ') ?>
+								<?php pll_e('number-of-printing-colors') ?>
 							</span>
 
 							<div class="input-radio-wrapper">
 								<label for="to4color">
-									<input type="radio" id="to4color" value="<?php pll_e('تا 4 رنگ') ?>" name="numberOfColor">
-									<?php pll_e('تا 4 رنگ') ?>
+									<input type="radio" id="to4color" value="<?php pll_e('up-to-4-colors') ?>" name="numberOfColor">
+									<?php pll_e('up-to-4-colors') ?>
 
 								</label>
 
 								<label for="to6color">
-									<input type="radio" id="to6color" value="<?php pll_e('تا 6 رنگ') ?>" name="numberOfColor">
-									<?php pll_e('تا 6 رنگ') ?>
+									<input type="radio" id="to6color" value="<?php pll_e('up-to-6-colors') ?>" name="numberOfColor">
+									<?php pll_e('up-to-6-colors') ?>
 								</label>
 
 								<label for="more6color">
-									<input type="radio" id="more6color" value="<?php pll_e('بیش از 6 رنگ') ?>" name="numberOfColor">
-									<?php pll_e('بیش از 6 رنگ') ?>
+									<input type="radio" id="more6color" value="<?php pll_e('more-than-6-colors') ?>" name="numberOfColor">
+									<?php pll_e('more-than-6-colors') ?>
 								</label>
 
 
@@ -244,39 +244,39 @@ $thumb_id = get_post_thumbnail_id();
 
 						<div class="input-radio-group">
 							<span class="input-label">
-								<?php pll_e('نوع پوشش چاپ') ?>
+								<?php pll_e('type-of-printing-cover') ?>
 							</span>
 
 							<div class="input-radio-wrapper">
 								<label for="vernie">
-									<input type="radio" id="vernie" value="<?php pll_e('ورنی') ?>" name="printCoverType">
-									<?php pll_e('ورنی') ?>
+									<input type="radio" id="vernie" value="<?php pll_e('vernie') ?>" name="printCoverType">
+									<?php pll_e('vernie') ?>
 
 								</label>
 
 								<label for="uv">
-									<input type="radio" id="uv" value="<?php pll_e('یووی') ?>" name="printCoverType">
-									<?php pll_e('یووی') ?>
+									<input type="radio" id="uv" value="<?php pll_e('UV') ?>" name="printCoverType">
+									<?php pll_e('UV') ?>
 								</label>
 
 								<label for="matteCellophane">
-									<input type="radio" id="matteCellophane" value="<?php pll_e('سلفون مات') ?>" name="printCoverType">
-									<?php pll_e('سلفون مات') ?>
+									<input type="radio" id="matteCellophane" value="<?php pll_e('matte-cellophane') ?>" name="printCoverType">
+									<?php pll_e('matte-cellophane') ?>
 								</label>
 
 								<label for="shinyCellophane">
-									<input type="radio" id="shinyCellophane" value="<?php pll_e('سلفون براق') ?>" name="printCoverType">
-									<?php pll_e('سلفون براق') ?>
+									<input type="radio" id="shinyCellophane" value="<?php pll_e('shiny-cellophane') ?>" name="printCoverType">
+									<?php pll_e('shiny-cellophane') ?>
 								</label>
 
 								<label for="uvAndVernie">
-									<input type="radio" id="uvAndVernie" value="<?php pll_e('یووی + ورنی') ?>" name="printCoverType">
-									<?php pll_e('یووی + ورنی') ?>
+									<input type="radio" id="uvAndVernie" value="<?php pll_e('UV-+-vernie') ?>" name="printCoverType">
+									<?php pll_e('UV-+-vernie') ?>
 								</label>
 
 								<label for="noCover">
-									<input type="radio" id="noCover" value="<?php pll_e('پوشش ندارد') ?>" name="printCoverType">
-									<?php pll_e('پوشش ندارد') ?>
+									<input type="radio" id="noCover" value="<?php pll_e('no-cover') ?>" name="printCoverType">
+									<?php pll_e('no-cover') ?>
 								</label>
 
 
@@ -286,34 +286,34 @@ $thumb_id = get_post_thumbnail_id();
 
 						<div class="input-radio-group">
 							<span class="input-label">
-								<?php pll_e('فرآیند تکمیلی چاپ') ?>
+								<?php pll_e('supplementary-printing-process') ?>
 							</span>
 
 							<div class="input-radio-wrapper">
 								<label for="LocalUV">
-									<input type="radio" id="LocalUV" value="<?php pll_e('یووی موضعی') ?>" name="additionalPrintingProcess">
-									<?php pll_e('یووی موضعی') ?>
+									<input type="radio" id="LocalUV" value="<?php pll_e('topical-UV') ?>" name="additionalPrintingProcess">
+									<?php pll_e('topical-UV') ?>
 
 								</label>
 
 								<label for="goldsmith">
-									<input type="radio" id="goldsmith" value="<?php pll_e('طلاکوب/ نقره کوب') ?>" name="additionalPrintingProcess">
-									<?php pll_e('طلاکوب/ نقره کوب') ?>
+									<input type="radio" id="goldsmith" value="<?php pll_e('goldsmith/silversmith') ?>" name="additionalPrintingProcess">
+									<?php pll_e('goldsmith/silversmith') ?>
 								</label>
 
 								<label for="coloredFoil">
-									<input type="radio" id="coloredFoil" value="<?php pll_e('فویل کوبی رنگی') ?>" name="additionalPrintingProcess">
-									<?php pll_e('فویل کوبی رنگی') ?>
+									<input type="radio" id="coloredFoil" value="<?php pll_e('colored-foil-smith') ?>" name="additionalPrintingProcess">
+									<?php pll_e('colored-foil-smith') ?>
 								</label>
 
 								<label for="windowsPatch">
-									<input type="radio" id="windowsPatch" value="<?php pll_e('ویندوپچ') ?>" name="additionalPrintingProcess">
-									<?php pll_e('ویندوپچ') ?>
+									<input type="radio" id="windowsPatch" value="<?php pll_e('windowspatch') ?>" name="additionalPrintingProcess">
+									<?php pll_e('windowspatch') ?>
 								</label>
 
 								<label for="embassies">
-									<input type="radio" id="embassies" value="<?php pll_e('امباس/برجسته سازی') ?>" name="additionalPrintingProcess">
-									<?php pll_e('امباس/برجسته سازی') ?>
+									<input type="radio" id="embassies" value="<?php pll_e('embassies/highlighting') ?>" name="additionalPrintingProcess">
+									<?php pll_e('embassies/highlighting') ?>
 								</label>
 
 							</div>
@@ -322,29 +322,29 @@ $thumb_id = get_post_thumbnail_id();
 
 						<div class="input-radio-group">
 							<span class="input-label">
-								<?php pll_e('اتصال') ?>
+								<?php pll_e('connection') ?>
 							</span>
 
 							<div class="input-radio-wrapper">
 								<label for="oneDot">
-									<input type="radio" id="oneDot" value="<?php pll_e('لب چسب / یک نقطه') ?>" name="connection">
-									<?php pll_e('لب چسب / یک نقطه') ?>
+									<input type="radio" id="oneDot" value="<?php pll_e('lip-glue-/-one-dot') ?>" name="connection">
+									<?php pll_e('lip-glue-/-one-dot') ?>
 
 								</label>
 
 								<label for="threeDots">
-									<input type="radio" id="threeDots" value="<?php pll_e('سه نقطه') ?>" name="connection">
-									<?php pll_e('سه نقطه') ?>
+									<input type="radio" id="threeDots" value="<?php pll_e('three-dot') ?>" name="connection">
+									<?php pll_e('three-dot') ?>
 								</label>
 
 								<label for="fourDots">
-									<input type="radio" id="fourDots" value="<?php pll_e('چهار نقطه') ?>" name="connection">
-									<?php pll_e('چهار نقطه') ?>
+									<input type="radio" id="fourDots" value="<?php pll_e('four-dot') ?>" name="connection">
+									<?php pll_e('four-dot') ?>
 								</label>
 
 								<label for="sixDots">
-									<input type="radio" id="sixDots" value="<?php pll_e('شش نقطه') ?>" name="connection">
-									<?php pll_e('شش نقطه') ?>
+									<input type="radio" id="sixDots" value="<?php pll_e('six-dot') ?>" name="connection">
+									<?php pll_e('six-dot') ?>
 								</label>
 
 							</div>
@@ -353,20 +353,20 @@ $thumb_id = get_post_thumbnail_id();
 
 						<div>
 							<span class="input-label">
-								<?php pll_e('حداقل تیراژ در هر نوبت سفارش گذاری (عدد)') ?>
+								<?php pll_e('minimum-circulation-per-order-(number)') ?>
 							</span>
 
-							<input class="w-full input-primary" type="text" name="minimumCirculation" id="minimumCirculation" placeholder="<?php pll_e('اینجا تایپ کنید') ?>">
+							<input class="w-full input-primary" type="text" name="minimumCirculation" id="minimumCirculation" placeholder="<?php pll_e('type-here') ?>">
 						</div>
 
 						<div>
 							<span class="input-label">
-								<?php pll_e('آپلود فایل') ?>
+								<?php pll_e('upload-file') ?>
 							</span>
 
 							<div class="input-file-wrapper w-full input-primary">
 								<span class="input-file-text">
-									<?php pll_e('فایل خود را پیوست کنید') ?>
+									<?php pll_e('attach-your-file') ?>
 								</span>
 								<i class="iconsax" icon-name="document-upload"></i>
 								<input class="w-full input-primary" type="file" name="file" id="file">
@@ -377,14 +377,14 @@ $thumb_id = get_post_thumbnail_id();
 				</div>
 
 				<div class="pricing-collapse-handle" id="pricingCollapseHandle">
-					<?php pll_e('اطلاعات تکمیلی') ?>
+					<?php pll_e('additional-information') ?>
 					<i class="iconsax" icon-name="chevron-down"></i>
 				</div>
 
 				<div class="pricing-form-submit">
 					<button class="btn" type="submit" variant="primary">
 						<i class="iconsax" icon-name="send-2"></i>
-						<?php pll_e('ارسال درخواست') ?>
+						<?php pll_e('submit-request') ?>
 					</button>
 				</div>
 			</form>

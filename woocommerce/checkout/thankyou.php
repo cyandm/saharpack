@@ -35,7 +35,7 @@ $thumbnail = get_field('successful_submit_order', $home_id);
 					<p class="woocommerce-notice h4 woocommerce-notice--success woocommerce-thankyou-order-received my-6 ">
 						<?php //echo apply_filters('woocommerce_thankyou_order_received_text', esc_html__('Thank you. Your order has been received.', 'woocommerce'), $order); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 						?>
-						<?= pll__('سفارش شما با موفقیت ثبت شد') ?>
+						<?= pll__('your-order-has-been-successfully-registered') ?>
 					</p>
 
 					<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details flex justify-center items-center mt-[20px]">
@@ -78,7 +78,7 @@ $thumbnail = get_field('successful_submit_order', $home_id);
 
 					</ul>
 					<div class="btn-group-submit-order-page">
-						<a class="btn" variant="primary" href="/"><?= pll__('بازگشت به صفحه اصلی') ?></a>
+						<a class="btn" variant="primary" href="/"><?= pll__('back-to-the-home-page') ?></a>
 					</div>
 					<div class="page-thumbnail">
 						<?= wp_get_attachment_image($thumbnail, 'full') ?>

@@ -75,6 +75,34 @@ function register_translate_form()
     pll_register_string('type-here', 'type-here', 'Cyan');
     pll_register_string('box-dimensions', 'box-dimensions', 'Cyan');
     pll_register_string('length-(mm)', 'length-(mm)', 'Cyan');
+    pll_register_string('width-(mm)', 'width-(mm)', 'Cyan');
+    pll_register_string('height-(mm)', 'height-(mm)', 'Cyan');
+    pll_register_string('blade-to-blade-dimensions', 'blade-to-blade-dimensions', 'Cyan');
+    pll_register_string('number-of-printing-colors', 'number-of-printing-colors', 'Cyan');
+    pll_register_string('up-to-4-colors', 'up-to-4-colors', 'Cyan');
+    pll_register_string('up-to-6-colors', 'up-to-6-colors', 'Cyan');
+    pll_register_string('more-than-6-colors', 'more-than-6-colors', 'Cyan');
+    pll_register_string('type-of-printing-cover', 'type-of-printing-cover', 'Cyan');
+    pll_register_string('UV', 'UV', 'Cyan');
+    pll_register_string('matte-cellophane', 'matte-cellophane', 'Cyan');
+    pll_register_string('shiny-cellophane', 'shiny-cellophane', 'Cyan');
+    pll_register_string('UV-+-vernie', 'UV-+-vernie', 'Cyan');
+    pll_register_string('supplementary-printing-process', 'supplementary-printing-process', 'Cyan');
+    pll_register_string('topical-UV', 'topical-UV', 'Cyan');
+    pll_register_string('goldsmith/silversmith', 'goldsmith/silversmith', 'Cyan');
+    pll_register_string('colored-foil-smith', 'colored-foil-smith', 'Cyan');
+    pll_register_string('windowspatch', 'windowspatch', 'Cyan');
+    pll_register_string('embassies/highlighting', 'embassies/highlighting', 'Cyan');
+    pll_register_string('connection', 'connection', 'Cyan');
+    pll_register_string('lip-glue-/-one-dot', 'lip-glue-/-one-dot', 'Cyan');
+    pll_register_string('three-dot', 'three-dot', 'Cyan');
+    pll_register_string('four-dot', 'four-dot', 'Cyan');
+    pll_register_string('six-dot', 'six-dot', 'Cyan');
+    pll_register_string('minimum-circulation-per-order-(number)', 'minimum-circulation-per-order-(number)', 'Cyan');
+    pll_register_string('upload-file', 'upload-file', 'Cyan');
+    pll_register_string('attach-your-file', 'attach-your-file', 'Cyan');
+    pll_register_string('additional-information', 'additional-information', 'Cyan');
+    pll_register_string('submit-request', 'submit-request', 'Cyan');
 }
 
 function register_translate_template()
@@ -94,6 +122,23 @@ function register_translate_template()
     pll_register_string('legal', 'legal', 'Cyan');
     pll_register_string('real', 'real', 'Cyan');
     pll_register_string('basic-information', 'basic-information', 'Cyan');
+    pll_register_string('post-type', 'post-type', 'Cyan');
+    pll_register_string('the-amount-payable', 'the-amount-payable', 'Cyan');
+    pll_register_string('order-completion-and-payment', 'order-completion-and-payment', 'Cyan');
+    pll_register_string('cart', 'cart', 'Cyan');
+    pll_register_string('shipping-to-another-address', 'shipping-to-another-address', 'Cyan');
+    pll_register_string('data-entry', 'data-entry', 'Cyan');
+    pll_register_string('do-you-want-your-order-sent-to-another-address?', 'do-you-want-your-order-sent-to-another-address?', 'Cyan');
+    pll_register_string('choose-your-payment-method', 'choose-your-payment-method', 'Cyan');
+    pll_register_string('your-order-has-been-successfully-registered', 'your-order-has-been-successfully-registered', 'Cyan');
+    pll_register_string('back-to-the-home-page', 'back-to-the-home-page', 'Cyan');
+    pll_register_string('my-account', 'my-account', 'Cyan');
+    pll_register_string('you-can-see-your-orders-on-this-page-and-keep-up-to-date.', 'you-can-see-your-orders-on-this-page-and-keep-up-to-date.', 'Cyan');
+    pll_register_string('you-can-also-customize-your-profile.', 'you-can-also-customize-your-profile.', 'Cyan');
+    pll_register_string('out-of-stock', 'out-of-stock', 'Cyan');
+    pll_register_string('price', 'price', 'Cyan');
+    pll_register_string('special-offers-for-you', 'special-offers-for-you', 'Cyan');
+    pll_register_string('size-guide', 'size-guide', 'Cyan');
 }
 function register_translate_bread_crumb()
 {

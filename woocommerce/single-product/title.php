@@ -34,7 +34,7 @@ if ($fieldCondition) {
 <div class="before-title flex items-center justify-end gap-4">
     <?php if ($fieldCondition) : ?>
         <button class="text-primary-500 cursor-pointer flex items-center gap-2" id="image-size-guide-show">
-            راهنمای اندازه
+            <?= pll__('size-guide') ?>
             <i>
                 <svg class="stroke-1" fill="currentColor" height="22px" width="22px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490" xml:space="preserve">
                     <g>
