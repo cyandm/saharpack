@@ -1,5 +1,5 @@
-@use '../utils/variables' as *;
-@use '../utils/mixins' as *;
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
 
 *,
 *::after,
@@ -14,14 +14,29 @@ body {
   text-transform: capitalize;
   margin: 0;
   padding: 0;
-  font-family: 'Yekan Bakh';
+  font-family: "Yekan Bakh";
   background: $clr_bg_default;
-  @include fs('body-s');
+  @include fs("body-s");
   color: $clr_primary_main;
   position: relative;
 
-  @include mq('md') {
+  @include mq("md") {
     font-size: 14px;
+  }
+}
+
+html[lang="en-GB"] body {
+  font-family: Poppins;
+
+  i span {
+    font-family: Poppins;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: Poppins;
+    text-align: left;
   }
 }
 
@@ -71,36 +86,36 @@ ul {
 
 h1,
 .h1 {
-  @include fs('h1');
+  @include fs("h1");
 }
 h2,
 .h2 {
-  @include fs('h2');
+  @include fs("h2");
 }
 h3,
 .h3 {
-  @include fs('h3');
+  @include fs("h3");
 }
 h4,
 .h4 {
-  @include fs('h4');
+  @include fs("h4");
 }
 h5,
 .h5 {
-  @include fs('h5');
+  @include fs("h5");
 }
 h6,
 .h6 {
-  @include fs('h6');
+  @include fs("h6");
 }
 
 input,
 textarea,
 select {
   background: transparent;
-  font-family: 'Yekan Bakh';
-  @include fs('body-s');
-  @include mq('md') {
+  font-family: "Yekan Bakh";
+  @include fs("body-s");
+  @include mq("md") {
     font-size: 14px;
   }
 }
@@ -151,12 +166,12 @@ input {
         color: $clr_text_light;
         margin-block: $s_5;
         @include d_flex(row, flex-start, center, nowrap, false, $s_3);
-        @include fs('caption');
+        @include fs("caption");
         .separator {
           @include d_flex(row, center, center, nowrap, false, $s_3);
 
-          @include make_icon('\e87f') {
-            font-family: 'iconsax' !important;
+          @include make_icon("\e87f") {
+            font-family: "iconsax" !important;
             font-size: 20px;
           }
         }
@@ -171,7 +186,7 @@ input {
     }
   }
 }
-html[lang='en-US'] {
+html[lang="en-US"] {
   .breadcrumb-wrapper {
     > div {
       nav {
@@ -185,7 +200,7 @@ html[lang='en-US'] {
   }
   #job-offer-form {
     .input-file::before {
-      content: 'Attach your resume';
+      content: "Attach your resume";
     }
   }
   input {
@@ -193,19 +208,19 @@ html[lang='en-US'] {
     text-align: start;
   }
   body {
-    font-family: 'poppins';
+    font-family: "poppins";
   }
   input {
-    font-family: 'poppins';
+    font-family: "poppins";
   }
   ::placeholder {
-    font-family: 'poppins';
+    font-family: "poppins";
   }
   button,
   textarea,
   i,
   span,
   select {
-    font-family: 'poppins';
+    font-family: "poppins";
   }
 }

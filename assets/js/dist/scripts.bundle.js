@@ -400,12 +400,19 @@
       deActivateEl(submenu);
     });
   });
-  var elementWidth = document.querySelector(".left-header").clientWidth;
+  var elementWidth = document.querySelector(
+    ".left-header__left-item"
+  ).clientWidth;
   document.documentElement.style.setProperty("--menu-width", elementWidth + "px");
   var headerHeight = document.querySelector("header").clientHeight;
   document.documentElement.style.setProperty(
     "--header-height",
     headerHeight + "px"
+  );
+  var langSwitcherWidth = document.querySelector("#langSwitcher").clientWidth;
+  document.documentElement.style.setProperty(
+    "--lang-width",
+    langSwitcherWidth + "px"
   );
 
   // assets/js/modules/mobile-menu.js

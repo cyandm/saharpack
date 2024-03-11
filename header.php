@@ -81,46 +81,56 @@ $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
 
             <div class="left-header">
 
-                <?php if (!is_user_logged_in()) : ?>
-                    <a href="<?= $login_link ?>" class="left-header__login-btn">
-                        <i class="iconsax" icon-name="login-2"></i>
-                    </a>
-                <?php endif ?>
+                <div id="langSwitcher">
+                    <?php
+                    get_template_part('/templates/components/lang-switcher');
+                    ?>
+                </div>
 
-                <?php if (is_user_logged_in()) : ?>
-                    <div class="left-header__login-btn has-children menu-item-has-children">
-                        <i class="iconsax" icon-name="user-2"></i>
+                <div class="left-header__left-item">
 
-                        <div class="children sub-menu">
-                            <div>
-                                <ul>
-                                    <li>
-                                        <a href="<?= $page_my_order_link ?>">
-                                            <?php pll_e("order-tracking") ?>
-                                        </a>
-                                    </li>
+                    <?php if (!is_user_logged_in()) : ?>
+                        <a href="<?= $login_link ?>" class="left-header__left-item__login-btn">
+                            <i class="iconsax" icon-name="login-2"></i>
+                        </a>
+                    <?php endif ?>
+
+                    <?php if (is_user_logged_in()) : ?>
+                        <div class="left-header__left-item__login-btn has-children menu-item-has-children">
+                            <i class="iconsax" icon-name="user-2"></i>
+
+                            <div class="children sub-menu">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <a href="<?= $page_my_order_link ?>">
+                                                <?php pll_e("order-tracking") ?>
+                                            </a>
+                                        </li>
 
 
-                                    <li>
-                                        <a href="<?= wp_logout_url(home_url()) ?>">
-                                            <?php pll_e("exit") ?>
-                                        </a>
-                                    </li>
-                                </ul>
+                                        <li>
+                                            <a href="<?= wp_logout_url(home_url()) ?>">
+                                                <?php pll_e("exit") ?>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
+
                         </div>
 
-                    </div>
+                    <?php endif ?>
 
-                <?php endif ?>
+                    <a href="/?s" class="left-header__left-item__search-btn">
+                        <i class="iconsax" icon-name="search-normal-2"></i>
+                    </a>
 
-                <a href="/?s" class="left-header__search-btn">
-                    <i class="iconsax" icon-name="search-normal-2"></i>
-                </a>
+                    <a href="<?= esc_url(wc_get_cart_url()); ?>" class="left-header__left-item__cart-btn btn hoverable" variant="primary">
+                        <i class="iconsax" icon-name="shopping-cart"></i>
+                    </a>
 
-                <a href="<?= esc_url(wc_get_cart_url()); ?>" class="left-header__cart-btn btn hoverable" variant="primary">
-                    <i class="iconsax" icon-name="shopping-cart"></i>
-                </a>
+                </div>
 
             </div>
 

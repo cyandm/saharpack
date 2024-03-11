@@ -184,96 +184,105 @@
         justify-content: end;
       }
 
-      &__login-btn {
-        @include d_flex(row, $j_c: center, $a_i: center);
-        border: $b_1;
-        padding: $s_2 $s_2;
+      &__left-item {
+        @include d_flex(row, center, stretch, $gap: $s_2);
 
-        @media (max-width: 1260px) {
-          display: none;
-        }
+        &__login-btn {
+          @include d_flex(row, $j_c: center, $a_i: center);
+          border: $b_1;
+          padding: $s_2 $s_2;
 
-        &.has-children {
-          @include make_icon("\eb75");
-          position: relative;
-          cursor: pointer;
-
-          &::after {
-            transition: $t_1;
-          }
-
-          &:has(.children[data-active="true"]) {
-            &::after {
-              rotate: 180deg;
-              transition: $t_1;
-              color: $clr_secondary_dark;
-            }
-          }
-
-          > i {
-            padding-inline-end: $s_1;
-          }
-
-          .children {
+          @media (max-width: 1260px) {
             display: none;
-            position: absolute;
-            top: $s_9;
-            right: 0;
-            margin-inline-start: -1px;
-            min-width: var(--menu-width);
+          }
 
-            &[data-active="true"] {
-              display: block;
+          &.has-children {
+            @include make_icon("\eb75");
+            position: relative;
+            cursor: pointer;
+
+            &::after {
+              transition: $t_1;
             }
 
-            > div {
-              padding-block-start: $s_1;
+            &:has(.children[data-active="true"]) {
+              &::after {
+                rotate: 180deg;
+                transition: $t_1;
+                color: $clr_secondary_dark;
+              }
             }
 
-            ul {
-              border: $b_1;
-              background: $clr_bg_default;
-              min-width: 100%;
+            > i {
+              padding-inline-end: $s_1;
+            }
 
-              li {
-                a {
-                  display: block;
-                  @include fs("body-s");
+            .children {
+              opacity: 0;
+              position: absolute;
+              top: $s_10;
+              right: 0;
+              margin-inline-start: -1px;
+              min-width: var(--menu-width);
+              transition: $t_1;
+              transform: translateY($s_3);
+              pointer-events: none;
 
-                  min-width: 100%;
-                  border-bottom: 1px solid $clr_border_light;
-                  padding: 1rem;
+              &[data-active="true"] {
+                opacity: 1;
+                transform: translate(0);
+                pointer-events: all;
+              }
 
-                  &:hover {
-                    background: $clr_bg_paper;
+              > div {
+                padding-block-start: $s_1;
+              }
+
+              ul {
+                border: $b_1;
+                background: $clr_bg_default;
+                min-width: 100%;
+
+                li {
+                  a {
+                    display: block;
+                    @include fs("body-s");
+
+                    min-width: 100%;
+                    border-bottom: 1px solid $clr_border_light;
+                    padding: 1rem;
+
+                    &:hover {
+                      background: $clr_bg_paper;
+                    }
                   }
-                }
 
-                &:last-child a {
-                  border-bottom: none;
+                  &:last-child a {
+                    border-bottom: none;
+                  }
                 }
               }
             }
           }
         }
-      }
 
-      &__search-btn {
-        @include d_flex($j_c: center, $a_i: center);
-        border: $b_1;
-        padding: $s_2 $s_2;
-      }
+        &__search-btn {
+          @include d_flex($j_c: center, $a_i: center);
+          border: $b_1;
+          padding: $s_2 $s_2;
+        }
 
-      &__cart-btn {
-        @include d_flex($j_c: center, $a_i: center, $gap: $s_1);
-        padding: $s_1 $s_4;
-        @include fs("body-s");
+        &__cart-btn {
+          @include d_flex($j_c: center, $a_i: center, $gap: $s_1);
+          padding: $s_1 $s_4;
+          @include fs("body-s");
 
-        @include mq("md") {
-          padding: $s_2;
-          width: max-content;
-          > span {
-            display: none;
+          @include mq("md") {
+            padding: $s_2;
+            width: max-content;
+            > span {
+              display: none;
+            }
           }
         }
       }
@@ -297,4 +306,10 @@
   > .mobile-menu {
     top: px_to_rem(80);
   }
+}
+
+.header-btn {
+  @include d_flex(row, $j_c: center, $a_i: center);
+  border: $b_1;
+  padding: $s_2 $s_2;
 }

@@ -1,0 +1,62 @@
+@use "../utils" as *;
+
+:root {
+  --lang-width: 0px;
+}
+
+.lang-switcher {
+  position: relative;
+  text-transform: capitalize;
+  border: $b_1;
+  padding: $s_1 $s_2;
+
+  @include d_flex(row, center, center, $gap: $s_1);
+  @include make_icon("\eb75");
+
+  &__current,
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $s_2;
+    cursor: pointer;
+    font-family: Poppins;
+  }
+
+  &__list {
+    position: absolute;
+    left: 0;
+    top: $s_10;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY($s_3);
+    transition: $t_1;
+    margin-inline: -1px;
+    padding-block-start: $s_1;
+    width: var(--lang-width);
+
+    > a {
+      border: $b_1;
+      padding: $s_1;
+    }
+  }
+
+  &::after {
+    transition: $t_1;
+  }
+
+  &:hover {
+    .lang-switcher {
+      &__list {
+        opacity: 1;
+        pointer-events: all;
+        transform: translate(0);
+      }
+    }
+
+    &::after {
+      rotate: 180deg;
+      color: $clr_secondary_dark;
+    }
+  }
+}
