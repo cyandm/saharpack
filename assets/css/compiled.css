@@ -2846,6 +2846,12 @@ main.contact-us-page .form-wrapper button::after {
   }
 }
 
+html[lang=en-US] #contact-us-form input,
+html[lang=en-US] #contact-us-form textarea {
+  direction: ltr;
+  text-align: start;
+}
+
 main.login-page {
   display: flex;
   flex-direction: row;
@@ -4284,6 +4290,11 @@ main.product-page .products-wrapper {
   main.product-page .products-wrapper {
     grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
   }
+}
+
+html[lang=en-US] #searchPageInput {
+  direction: ltr;
+  text-align: start;
 }
 
 main.default-page .cart-wrapper {

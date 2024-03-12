@@ -37,3 +37,9 @@ main.product-page {
     }
   }
 }
+html[lang='en-US'] {
+  #searchPageInput {
+    direction: ltr;
+    text-align: start;
+  }
+}
