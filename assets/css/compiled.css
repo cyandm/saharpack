@@ -65,15 +65,15 @@
 }
 @font-face {
   font-family: "Poppins";
-  src: url("../fonts/Poppins/woff/Poppins-Thin.woff");
-  src: url("../fonts/Poppins/TTF/Poppins-Thin.ttf") format("truetype"), url("../fonts/Poppins/woff2/Poppins-Thin.woff2") format("woff");
+  src: url("../fonts/Poppins/woff2/Poppins-Thin.woff");
+  src: url("../fonts/Poppins/TTF/Poppins-Thin.ttf") format("truetype"), url("../fonts/Poppins/woff/Poppins-Thin.woff2") format("woff");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Poppins";
-  src: url("../fonts/Poppins/woff/Poppins-ExtraLight.woff");
+  src: url("../fonts/Poppins/woff2/Poppins-ExtraLight.woff");
   src: url("../fonts/Poppins/TTF/Poppins-ExtraLight.ttf") format("truetype"), url("../fonts/Poppins/woff/Poppins-ExtraLight.woff") format("woff");
   font-weight: 200;
   font-style: normal;
