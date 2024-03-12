@@ -172,6 +172,11 @@ function register_translate_product()
     pll_register_string('cart', 'cart', 'Cyan');
     pll_register_string('total-price', 'total-price', 'Cyan');
     pll_register_string('type-of-shipment', 'type-of-shipment', 'Cyan');
+
+    pll_register_string('order-code', 'order-code', 'Cyan');
+    pll_register_string('order-count', 'order-count', 'Cyan');
+    pll_register_string('order-date', 'order-date', 'Cyan');
+    pll_register_string('order-status', 'order-status', 'Cyan');
 }
 function register_translate_header_footer()
 {

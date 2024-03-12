@@ -13,6 +13,7 @@ $last_product = new WP_Query(
         'post_type' => 'product',
         'posts_per_page' => 10,
         'orderby'   => 'post_date',
+
     ]
 );
 
