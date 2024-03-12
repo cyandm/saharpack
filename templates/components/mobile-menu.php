@@ -14,21 +14,32 @@ $login_link = get_permalink(get_posts($login)[0]);
 
 <div class="mobile-menu" id="mobileMenu">
 
-    <?php if (is_user_logged_in()) : ?>
+    <div class="mobile-menu__btn">
 
-        <a href="<?= $args['page_my_order_link'] ?>" class="btn tracking" variant="secondary">
-            <?php pll_e('order-tracking'); ?>
-        </a>
+        <div id="langSwitcher" class="width-lang">
+            <?php
+            get_template_part('/templates/components/lang-switcher');
+            ?>
+        </div>
 
-    <?php endif ?>
+        <?php if (is_user_logged_in()) : ?>
 
-    <?php if (!is_user_logged_in()) : ?>
+            <a href="<?= $args['page_my_order_link'] ?>" class="btn tracking" variant="secondary">
+                <?php pll_e('order-tracking'); ?>
+            </a>
 
-        <a href="<?= $login_link ?>" class="btn tracking" variant="secondary">
-            <?php pll_e('login-or-signup'); ?>
-        </a>
+        <?php endif ?>
 
-    <?php endif ?>
+        <?php if (!is_user_logged_in()) : ?>
+
+            <a href="<?= $login_link ?>" class="btn tracking" variant="secondary">
+                <?php pll_e('login-or-signup'); ?>
+            </a>
+
+        <?php endif ?>
+
+    </div>
+
 
     <div class="mobile-menu-nav">
         <?php wp_nav_menu([

@@ -403,3 +403,14 @@
     }
   }
 }
+
+@media (min-width: 1024px) {
+  .home-blogs .blog-posts {
+    filter: grayscale(1);
+    transition: $t_1;
+
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+}

@@ -128,7 +128,6 @@
               }
 
               .sub-menu {
-                display: none;
                 position: absolute;
                 z-index: 12;
                 background: $clr_bg_default;
@@ -136,9 +135,15 @@
                 min-width: 22.5rem;
                 top: $s_12;
                 right: 0;
+                transition: $t_1;
+                transform: translateY($s_3);
+                pointer-events: none;
+                opacity: 0;
 
                 &[data-active="true"] {
-                  display: block;
+                  opacity: 1;
+                  transform: translate(0);
+                  pointer-events: all;
                 }
 
                 li {
@@ -182,6 +187,12 @@
       @media (max-width: 1260px) {
         min-width: 33%;
         justify-content: end;
+      }
+
+      #langSwitcher {
+        @media (max-width: 1260px) {
+          display: none;
+        }
       }
 
       &__left-item {

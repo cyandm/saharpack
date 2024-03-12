@@ -1,5 +1,9 @@
 @use "../utils/_index" as *;
 
+:root {
+  --lang-mobile: 0px;
+}
+
 .icon-menu {
   padding: 1rem;
   border: $b_1;
@@ -34,9 +38,13 @@ body[data-popup-open="true"] {
     clip-path: inset(0 0 0 0);
   }
 
+  &__btn {
+    @include d_flex(row-reverse, space-between, center, nowrap, $gap: $s_2);
+  }
+
   .tracking {
     display: block;
-    min-width: 100%;
+    flex: 1;
     text-align: center;
   }
 

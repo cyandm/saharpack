@@ -91,6 +91,7 @@
         .phone-number {
           transition: $t_1;
           @include fs("body-s");
+
           &:hover {
             color: $clr_secondary_dark;
           }
@@ -115,5 +116,11 @@
         height: auto;
       }
     }
+  }
+}
+
+html[lang="en-GB"] body {
+  .phone-number {
+    font-family: Poppins;
   }
 }

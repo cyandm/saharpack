@@ -1,7 +1,7 @@
 const mouse = document.querySelector("#mouse");
 const hoverable =
   document.querySelectorAll(
-    ".btn , a , .tabs__handler__btn , .input-primary , button , input , .has-children"
+    ".btn , a , .tabs__handler__btn , .input-primary , button , input , .has-children , .journey__content__card"
   ) ?? [];
 
 if (mouse) {

@@ -4941,7 +4941,7 @@
   var mouse = document.querySelector("#mouse");
   var _a;
   var hoverable = (_a = document.querySelectorAll(
-    ".btn , a , .tabs__handler__btn , .input-primary , button , input , .has-children"
+    ".btn , a , .tabs__handler__btn , .input-primary , button , input , .has-children , .journey__content__card"
   )) != null ? _a : [];
   if (mouse) {
     document.addEventListener("mousemove", (e) => {
