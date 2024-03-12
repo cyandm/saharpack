@@ -36,7 +36,7 @@ html[lang="en-US"] body {
   textarea,
   select {
     font-family: Poppins;
-    text-align: left;
+    text-align: left !important;
   }
 }
 
@@ -54,6 +54,9 @@ textarea,
 select {
   font-family: Yekan Bakh;
   border: 0;
+  &:focus {
+    border-color: $clr_primary_main;
+  }
 }
 
 a {
