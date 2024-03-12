@@ -10,3 +10,4 @@ import "./slider-blog";
 import "./minus-plus-products";
 import "./tabs";
 import "./mouse";
+import "./look";

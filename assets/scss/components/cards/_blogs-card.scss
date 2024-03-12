@@ -1,4 +1,4 @@
-@use '../../utils/' as *;
+@use "../../utils/" as *;
 .blogs {
   .blog-posts {
     img {
@@ -15,7 +15,7 @@
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(2, 1fr);
   gap: $s-1;
-  @include mq('md') {
+  @include mq("md") {
     display: none;
   }
   .blog-posts {
@@ -136,14 +136,14 @@
     }
   }
 
-  @include mq('md') {
+  @include mq("md") {
     display: block !important;
     .blog-posts {
       @include d_flex($a_i: center, $gap: $s_2, $wrap: nowrap);
       padding: $s_1;
       .postmeta {
         border-bottom: none;
-        @include fs('caption');
+        @include fs("caption");
       }
       .post-thumbnail {
         width: 35%;
@@ -161,7 +161,7 @@
       }
     }
   }
-  @include mq('sm') {
+  @include mq("sm") {
     .blog-posts {
       .post-thumbnail {
         width: 40%;
