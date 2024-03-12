@@ -239,6 +239,13 @@
               transform: translateY($s_3);
               pointer-events: none;
 
+              html[lang="en-US"] body {
+                .children {
+                  right: unset;
+                  left: 0;
+                }
+              }
+
               &[data-active="true"] {
                 opacity: 1;
                 transform: translate(0);
@@ -323,4 +330,13 @@
   @include d_flex(row, $j_c: center, $a_i: center);
   border: $b_1;
   padding: $s_2 $s_2;
+}
+
+html[lang="en-US"] body {
+  .left-header__left-item__login-btn {
+    .children {
+      right: unset;
+      left: 0;
+    }
+  }
 }

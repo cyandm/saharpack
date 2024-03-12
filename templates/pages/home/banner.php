@@ -2,8 +2,7 @@
 
     <div class="banner__img">
 
-        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/banner.png' ?>" alt="">
-
+        <?php get_template_part('/assets/img/svg/new-look-packaging') ?>
     </div>
 
 </section>

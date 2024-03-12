@@ -207,17 +207,17 @@ body {
   }
 }
 
-html[lang=en-GB] body {
+html[lang=en-US] body {
   font-family: Poppins;
 }
-html[lang=en-GB] body i span {
+html[lang=en-US] body i span {
   font-family: Poppins;
 }
-html[lang=en-GB] body input,
-html[lang=en-GB] body textarea,
-html[lang=en-GB] body select {
+html[lang=en-US] body input,
+html[lang=en-US] body textarea,
+html[lang=en-US] body select {
   font-family: Poppins;
-  text-align: left;
+  text-align: left !important;
 }
 
 img {
@@ -234,6 +234,11 @@ textarea,
 select {
   font-family: Yekan Bakh;
   border: 0;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #505050;
 }
 
 a {
@@ -794,6 +799,10 @@ img {
   transform: translateY(0.75rem);
   pointer-events: none;
 }
+.header section .left-header__left-item__login-btn.has-children .children html[lang=en-US] body .children {
+  right: unset;
+  left: 0;
+}
 .header section .left-header__left-item__login-btn.has-children .children[data-active=true] {
   opacity: 1;
   transform: translate(0);
@@ -885,6 +894,11 @@ img {
   gap: 0;
   border: 1px solid #505050;
   padding: 0.5rem 0.5rem;
+}
+
+html[lang=en-US] body .left-header__left-item__login-btn .children {
+  right: unset;
+  left: 0;
 }
 
 .footer {
@@ -1032,7 +1046,7 @@ img {
   height: auto;
 }
 
-html[lang=en-GB] body .phone-number {
+html[lang=en-US] body .phone-number {
   font-family: Poppins;
 }
 
@@ -1162,7 +1176,7 @@ input.w-half {
   flex-basis: calc(50% - (0.5rem));
 }
 input:focus {
-  border-color: #1b51de;
+  border-color: #505050;
 }
 
 label {
@@ -2322,6 +2336,13 @@ body[data-popup-open=true] .icon-menu::before {
   flex-wrap: wrap;
   gap: 0;
   padding: 1.25rem 0.75rem;
+}
+.home .banner__img #look {
+  transform: translateY(20px);
+}
+.home .banner__img #look #rightEye,
+.home .banner__img #look #leftEye {
+  transform: translate(calc(var(--translate-right) + var(--translate-left)), calc(var(--translate-top) + var(--translate-down)));
 }
 .home .titles-home {
   display: flex;
