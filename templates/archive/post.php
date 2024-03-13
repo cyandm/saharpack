@@ -12,6 +12,8 @@ $blog = [
 	'meta_value' => 'templates/blog.php'
 ];
 $blog_link = get_permalink(get_posts($blog)[0]);
+$all_blogs_page_id = get_option('page_for_posts');
+
 ?>
 <main>
 	<?php if (function_exists('rank_math_the_breadcrumbs')) : ?>
@@ -25,6 +27,7 @@ $blog_link = get_permalink(get_posts($blog)[0]);
 	<section class="container blog-archive">
 		<div class="blog-head">
 			<ul>
+				<li><a href="<?= get_permalink($all_blogs_page_id) ?>"><?= pll__('all') ?></a></li>
 				<?php wp_list_categories(
 					[
 						'orderby' => 'id',
