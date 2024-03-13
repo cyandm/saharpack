@@ -1,7 +1,15 @@
-import Swiper from "swiper";
-import { FreeMode, Navigation, Scrollbar, Thumbs } from "swiper/modules";
+import Swiper from 'swiper';
+import {
+  FreeMode,
+  Navigation,
+  Scrollbar,
+  Thumbs,
+  Autoplay,
+} from 'swiper/modules';
 
-var swiper = new Swiper(".swiper-container", {
+var swiper = new Swiper('.swiper-container', {
+  modules: [Autoplay, Navigation],
+
   loop: true,
   slidesPerView: 1,
   spaceBetween: 20,
@@ -14,10 +22,10 @@ var swiper = new Swiper(".swiper-container", {
   parallax: true,
 
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
   pagination: {
-    el: ".swiper-pagination",
+    el: '.swiper-pagination',
   },
 });
