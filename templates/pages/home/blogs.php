@@ -108,61 +108,66 @@ $page_blog = get_posts($blog_page_link);
 
 
                 <div class="tabs__item">
+                    <div class="tabs__item__outer-container active" data-tab="0">
+                        <div class="swiper swiper-container tabs__content__item ">
+                            <div class="swiper-wrapper">
+                                <?php
+                                while ($blogs_new->have_posts()) {
+                                    $blogs_new->the_post();
+                                    $post_id = get_the_ID();
+                                    get_template_part('/templates/components/cards/blog', 'slider', ['post_id' => $post_id]);
+                                }
+                                ?>
+                                <?php wp_reset_postdata() ?>
 
-                    <div class="swiper swiper-container tabs__content__item active" data-tab="0">
-                        <div class="swiper-wrapper">
-                            <?php
-                            while ($blogs_new->have_posts()) {
-                                $blogs_new->the_post();
-                                $post_id = get_the_ID();
-                                get_template_part('/templates/components/cards/blog', 'slider', ['post_id' => $post_id]);
-                            }
-                            ?>
-                            <?php wp_reset_postdata() ?>
 
+                            </div>
+
+                            <div class="swiper-pagination"></div>
 
                         </div>
-
-                        <div class="swiper-pagination"></div>
-
                     </div>
 
+                    <div class="tabs__item__outer-container" data-tab="1">
 
-                    <div class="swiper swiper-container tabs__content__item" data-tab="1">
-                        <div class="swiper-wrapper">
-                            <?php
-                            while ($blogs_learn->have_posts()) {
-                                $blogs_learn->the_post();
-                                $post_id = get_the_ID();
-                                get_template_part('/templates/components/cards/blog', 'slider', ['post_id' => $post_id]);
-                            }
-                            ?>
-                            <?php wp_reset_postdata() ?>
+                        <div class="swiper swiper-container tabs__content__item">
+                            <div class="swiper-wrapper">
+                                <?php
+                                while ($blogs_learn->have_posts()) {
+                                    $blogs_learn->the_post();
+                                    $post_id = get_the_ID();
+                                    get_template_part('/templates/components/cards/blog', 'slider', ['post_id' => $post_id]);
+                                }
+                                ?>
+                                <?php wp_reset_postdata() ?>
 
+
+                            </div>
+
+                            <div class="swiper-pagination"></div>
 
                         </div>
-
-                        <div class="swiper-pagination"></div>
-
                     </div>
 
+                    <div class="tabs__item__outer-container" data-tab="2">
 
-                    <div class="swiper swiper-container tabs__content__item" data-tab="2">
-                        <div class="swiper-wrapper">
-                            <?php
-                            while ($blogs_favorites->have_posts()) {
-                                $blogs_favorites->the_post();
-                                $post_id = get_the_ID();
-                                get_template_part('/templates/components/cards/blog', 'slider', ['post_id' => $post_id]);
-                            }
-                            ?>
-                            <?php wp_reset_postdata() ?>
+                        <div class="swiper swiper-container tabs__content__item">
+                            <div class="swiper-wrapper">
+                                <?php
+                                while ($blogs_favorites->have_posts()) {
+                                    $blogs_favorites->the_post();
+                                    $post_id = get_the_ID();
+                                    get_template_part('/templates/components/cards/blog', 'slider', ['post_id' => $post_id]);
+                                }
+                                ?>
+                                <?php wp_reset_postdata() ?>
 
+
+                            </div>
+
+                            <div class="swiper-pagination"></div>
 
                         </div>
-
-                        <div class="swiper-pagination"></div>
-
                     </div>
 
 

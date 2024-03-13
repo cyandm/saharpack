@@ -71,6 +71,8 @@ $all_blogs_page_id = get_option('page_for_posts');
 			?>
 			<?php wp_reset_postdata() ?>
 		</div>
+		<div class="swiper-pagination"></div>
+
 	</div>
 	<div class="best-blog even-columns">
 		<?php while ($second_blogs->have_posts()) {

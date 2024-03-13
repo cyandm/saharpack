@@ -5,19 +5,19 @@ import {
   Scrollbar,
   Thumbs,
   Autoplay,
+  Pagination,
 } from 'swiper/modules';
 
 var swiper = new Swiper('.swiper-container', {
-  modules: [Autoplay, Navigation],
+  modules: [Autoplay, Navigation, Pagination],
 
-  loop: true,
   slidesPerView: 1,
   spaceBetween: 20,
   // effect: "cube",
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: true,
-  },
+  // autoplay: {
+  //   delay: 2500,
+  //   disableOnInteraction: true,
+  // },
   speed: 1000,
   parallax: true,
 
@@ -27,5 +27,6 @@ var swiper = new Swiper('.swiper-container', {
   },
   pagination: {
     el: '.swiper-pagination',
+    clickable: true,
   },
 });
