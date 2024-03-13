@@ -1,20 +1,20 @@
-@use '../utils' as *;
+@use "../utils" as *;
 
 main.single-post-page {
   .single-blog {
     @include d_flex(row, start, start, nowrap, false, $s_4);
-    @include mq('md') {
+    @include mq("md") {
       flex-direction: column;
     }
     .post-main {
       width: 70%;
-      @include mq('md') {
+      @include mq("md") {
         width: 100%;
       }
       .post-content {
         width: 100%;
         img {
-          @include mq('md') {
+          @include mq("md") {
             width: 100% !important;
             padding: 0 !important;
           }
@@ -26,7 +26,7 @@ main.single-post-page {
       .post-images img {
         width: 100%;
         height: 400px;
-        @include mq('md') {
+        @include mq("md") {
           height: 210px;
         }
       }
@@ -34,7 +34,7 @@ main.single-post-page {
         padding: $s_4;
         width: 50%;
         height: 320px;
-        @include mq('md') {
+        @include mq("md") {
           width: 100%;
           padding: 0;
         }
@@ -65,7 +65,7 @@ main.single-post-page {
     width: 100%;
   }
 
-  @include mq('md') {
+  @include mq("md") {
     flex-direction: column;
     align-items: stretch;
 
@@ -77,13 +77,13 @@ main.single-post-page {
 .postmeta {
   @include d_flex($j_c: space-between);
   line-height: $s_9 !important;
-  @include fs('caption');
+  @include fs("caption");
   border-bottom: $b_3;
   color: $clr_primary_main;
   div {
-    @include d_flex(row, $gap: $s_4);
+    @include d_flex(row, start, center, $gap: $s_4);
   }
-  @include mq('md') {
+  @include mq("md") {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;

@@ -74,6 +74,7 @@
     &__img {
       @include d_flex(row, center, center);
       padding: $s_5 $s_3;
+      max-width: 100%;
 
       #look {
         transform: translateY(20px);
@@ -176,6 +177,7 @@
             background: $clr_bg_card;
             backdrop-filter: blur(10px);
             padding: $s_4;
+            text-align: center;
             @include d_flex(row, center, center);
 
             @include mq("lg") {
@@ -423,6 +425,14 @@
 
     &:hover {
       filter: grayscale(0);
+    }
+  }
+}
+
+html[lang="en-US"] body {
+  .travel__content__items__btn > a {
+    &::after {
+      rotate: 180deg;
     }
   }
 }
