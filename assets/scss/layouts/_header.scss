@@ -333,10 +333,8 @@
 }
 
 html[lang="en-US"] body {
-  .left-header__left-item__login-btn {
-    .children {
-      right: unset;
-      left: 0;
-    }
+  .left-header__left-item__login-btn.has-children .children {
+    right: unset !important;
+    left: 0;
   }
 }
