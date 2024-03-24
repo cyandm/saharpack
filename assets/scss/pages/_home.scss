@@ -383,20 +383,33 @@
         }
       }
     }
-
+    &__item__outer-container {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: $t_1;
+      height: 0;
+      > div {
+        overflow: hidden;
+      }
+      &.active {
+        display: grid;
+        grid-template-rows: 1fr;
+        height: 100%;
+      }
+    }
     &__content {
       @include mq("md") {
         display: none;
       }
       &__item {
-        display: grid;
-        grid-template-rows: 0fr;
-        transition: $t_1;
+        // display: grid !important;
+        // grid-template-rows: 0fr;
+        // transition: $t_1;
 
-        &.active {
-          display: grid !important;
-          grid-template-rows: 1fr;
-        }
+        // &.active {
+        //   display: grid !important;
+        //   grid-template-rows: 1fr;
+        // }
 
         .blog-main {
           overflow: hidden;
