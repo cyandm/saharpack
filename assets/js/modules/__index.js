@@ -11,3 +11,5 @@ import "./minus-plus-products";
 import "./tabs";
 import "./mouse";
 import "./look";
+import "./delete-forms-comment";
+import "./scroll-to-top";

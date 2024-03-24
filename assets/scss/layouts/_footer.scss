@@ -14,6 +14,20 @@
       align-items: normal;
     }
 
+    #scrolltotop {
+      position: fixed;
+      width: $s_12;
+      height: $s_12;
+      bottom: $s_6;
+      right: $s_6;
+      border-radius: 50%;
+      border: none;
+      background: $clr_secondary_dark;
+      color: $clr_text_contrast;
+      cursor: pointer;
+      z-index: 999;
+    }
+
     &__right {
       @include d_flex(row, space-between, flex-start, $gap: $s_8);
 

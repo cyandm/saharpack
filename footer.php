@@ -38,6 +38,11 @@ if (!empty($enamad)) {
 
 			<div class="footer__items">
 
+
+				<button id="scrolltotop">
+					<i class="iconsax" icon-name="arrow-up"></i>
+				</button>
+
 				<div class="footer__items__right">
 
 					<?php wp_nav_menu([

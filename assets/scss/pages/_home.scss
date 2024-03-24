@@ -389,7 +389,7 @@
         display: none;
       }
       &__item {
-        display: grid !important;
+        display: grid;
         grid-template-rows: 0fr;
         transition: $t_1;
 
@@ -402,9 +402,9 @@
           overflow: hidden;
         }
 
-        > div {
-          overflow: hidden;
-        }
+        // > div {
+        //   overflow: hidden;
+        // }
       }
     }
 

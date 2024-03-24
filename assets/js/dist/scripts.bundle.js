@@ -1037,9 +1037,6 @@
     }
     return el.offsetWidth;
   }
-  function makeElementsArray(el) {
-    return (Array.isArray(el) ? el : [el]).filter((e) => !!e);
-  }
 
   // node_modules/swiper/shared/swiper-core.mjs
   var support;
@@ -1107,7 +1104,6 @@
   var browser;
   function calcBrowser() {
     const window2 = getWindow();
-    const device = getDevice();
     let needPerspectiveFix = false;
     function isSafari() {
       const ua = window2.navigator.userAgent.toLowerCase();
@@ -1120,14 +1116,10 @@
         needPerspectiveFix = major < 16 || major === 16 && minor < 2;
       }
     }
-    const isWebView = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window2.navigator.userAgent);
-    const isSafariBrowser = isSafari();
-    const need3dFix = isSafariBrowser || isWebView && device.ios;
     return {
-      isSafari: needPerspectiveFix || isSafariBrowser,
+      isSafari: needPerspectiveFix || isSafari(),
       needPerspectiveFix,
-      need3dFix,
-      isWebView
+      isWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window2.navigator.userAgent)
     };
   }
   function getBrowser() {
@@ -2443,7 +2435,7 @@
       wrapperEl,
       enabled
     } = swiper2;
-    if (swiper2.animating && params.preventInteractionOnTransition || !enabled && !internal && !initial || swiper2.destroyed) {
+    if (swiper2.animating && params.preventInteractionOnTransition || !enabled && !internal && !initial) {
       return false;
     }
     const skip = Math.min(swiper2.params.slidesPerGroupSkip, slideIndex);
@@ -2583,8 +2575,6 @@
       index = indexAsNumber;
     }
     const swiper2 = this;
-    if (swiper2.destroyed)
-      return;
     const gridEnabled = swiper2.grid && swiper2.params.grid && swiper2.params.grid.rows > 1;
     let newIndex = index;
     if (swiper2.params.loop) {
@@ -2650,7 +2640,7 @@
       params,
       animating
     } = swiper2;
-    if (!enabled || swiper2.destroyed)
+    if (!enabled)
       return swiper2;
     let perGroup = params.slidesPerGroup;
     if (params.slidesPerView === "auto" && params.slidesPerGroup === 1 && params.slidesPerGroupAuto) {
@@ -2693,7 +2683,7 @@
       enabled,
       animating
     } = swiper2;
-    if (!enabled || swiper2.destroyed)
+    if (!enabled)
       return swiper2;
     const isVirtual = swiper2.virtual && params.virtual.enabled;
     if (params.loop) {
@@ -2753,8 +2743,6 @@
       runCallbacks = true;
     }
     const swiper2 = this;
-    if (swiper2.destroyed)
-      return;
     return swiper2.slideTo(swiper2.activeIndex, speed, runCallbacks, internal);
   }
   function slideToClosest(speed, runCallbacks, internal, threshold) {
@@ -2768,8 +2756,6 @@
       threshold = 0.5;
     }
     const swiper2 = this;
-    if (swiper2.destroyed)
-      return;
     let index = swiper2.activeIndex;
     const skip = Math.min(swiper2.params.slidesPerGroupSkip, index);
     const snapIndex = skip + Math.floor((index - skip) / swiper2.params.slidesPerGroup);
@@ -2793,8 +2779,6 @@
   }
   function slideToClickedSlide() {
     const swiper2 = this;
-    if (swiper2.destroyed)
-      return;
     const {
       params,
       slidesEl
@@ -3035,7 +3019,7 @@
           if (byMousewheel) {
             swiper2.setTranslate(swiper2.translate - diff);
           } else {
-            swiper2.slideTo(activeIndex + Math.ceil(slidesPrepended), 0, false, true);
+            swiper2.slideTo(activeIndex + slidesPrepended, 0, false, true);
             if (setTranslate2) {
               swiper2.touchEventsData.startTranslate = swiper2.touchEventsData.startTranslate - diff;
               swiper2.touchEventsData.currentTranslate = swiper2.touchEventsData.currentTranslate - diff;
@@ -4114,7 +4098,6 @@
     init: true,
     direction: "horizontal",
     oneWayMovement: false,
-    swiperElementNodeName: "SWIPER-CONTAINER",
     touchEventsTarget: "wrapper",
     initialSlide: 0,
     speed: 300,
@@ -4541,11 +4524,11 @@
       if (typeof params.slidesPerView === "number")
         return params.slidesPerView;
       if (params.centeredSlides) {
-        let slideSize = slides[activeIndex] ? Math.ceil(slides[activeIndex].swiperSlideSize) : 0;
+        let slideSize = slides[activeIndex] ? slides[activeIndex].swiperSlideSize : 0;
         let breakLoop;
         for (let i = activeIndex + 1; i < slides.length; i += 1) {
           if (slides[i] && !breakLoop) {
-            slideSize += Math.ceil(slides[i].swiperSlideSize);
+            slideSize += slides[i].swiperSlideSize;
             spv += 1;
             if (slideSize > swiperSize)
               breakLoop = true;
@@ -4682,7 +4665,7 @@
         return false;
       }
       el.swiper = swiper2;
-      if (el.parentNode && el.parentNode.host && el.parentNode.host.nodeName === swiper2.params.swiperElementNodeName.toUpperCase()) {
+      if (el.parentNode && el.parentNode.host && el.parentNode.host.nodeName === "SWIPER-CONTAINER") {
         swiper2.isElement = true;
       }
       const getWrapperSelector = () => {
@@ -4912,6 +4895,7 @@
       nextEl: null,
       prevEl: null
     };
+    const makeElementsArray = (el) => (Array.isArray(el) ? el : [el]).filter((e) => !!e);
     function getEl(el) {
       let res;
       if (el && typeof el === "string" && swiper2.isElement) {
@@ -5569,6 +5553,36 @@
     });
   };
   lookPackaging();
+
+  // assets/js/modules/delete-forms-comment.js
+  var inputUnnecessary = document.querySelectorAll(
+    ".comment-form-author , .comment-form-email , .comment-form-url , .comment-form-cookies-consent"
+  );
+  inputUnnecessary.forEach((inputs) => {
+    inputs.remove();
+  });
+
+  // assets/js/modules/scroll-to-top.js
+  var scrollBtn = document.getElementById("scrolltotop");
+  if (scrollBtn) {
+    scrollBtn.addEventListener("click", () => {
+      document.documentElement.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+      document.body.scrollTop = 0;
+    });
+  }
+  window.onscroll = function() {
+    scrollFunction();
+  };
+  function scrollFunction() {
+    if (document.body.scrollTop > 860 || document.documentElement.scrollTop > 860) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  }
 
   // assets/js/pages/single-product.js
   var btnShare = document.getElementById("btnShare");
