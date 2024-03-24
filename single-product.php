@@ -33,7 +33,7 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
         <div class="breadcrumb-product container">
             <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
         </div>
-        <i class="divider"></i>
+        <!-- <i class="divider"></i> -->
     </section>
 
     <section class="container product-detail-container">

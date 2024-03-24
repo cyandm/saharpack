@@ -133,7 +133,7 @@
       }
 
       &__cards {
-        --min-width: 360px;
+        --min-width: 302px;
         gap: $s_3;
 
         @media (max-width: 1152px) {
@@ -157,6 +157,12 @@
           position: relative;
 
           @media (max-width: 822px) {
+            &:last-child {
+              display: none;
+            }
+          }
+
+          @media (min-width: 1293px) {
             &:last-child {
               display: none;
             }

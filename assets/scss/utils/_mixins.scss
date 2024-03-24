@@ -20,7 +20,7 @@
 @mixin fs($type: "body") {
   $font_map: map-get(
     (
-      "h1": make_font_list(44px, 500, 61.6px),
+      "h1": make_font_list(36px, 500, 61.6px),
       "h2": make_font_list(32px, 500, 44.5px),
       "h3": make_font_list(28px, 500, 36px),
       "h4": make_font_list(24px, 500, 28px),

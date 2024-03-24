@@ -17,7 +17,7 @@ $cat_id = (isset(get_queried_object()->term_id)) ? get_queried_object()->term_id
             <?php if (function_exists('rank_math_the_breadcrumbs'))
                 rank_math_the_breadcrumbs(); ?>
         </div>
-        <i class="divider"></i>
+        <!-- <i class="divider"></i> -->
     </div>
     <section class="container products-container">
 

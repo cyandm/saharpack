@@ -25,7 +25,7 @@ $radios = [
 		<?php if (function_exists('rank_math_the_breadcrumbs'))
 			rank_math_the_breadcrumbs(); ?>
 	</div>
-	<i class="divider"></i>
+	<!-- <i class="divider"></i> -->
 </div>
 
 <main id="searchPage">
