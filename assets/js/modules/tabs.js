@@ -1,21 +1,22 @@
-const handlerBtn = document.querySelectorAll('.tabs__handler__btn');
-const contents = document.querySelectorAll('.tabs__item__outer-container');
+const handlerBtn = document.querySelectorAll(".tabs__handler__btn");
+const contents = document.querySelectorAll(
+  ".tabs__item__outer-container, .tabs__content__item"
+);
 
-console.log(contents);
 handlerBtn.forEach((tab) => {
-  tab.addEventListener('click', (e) => {
+  tab.addEventListener("click", (e) => {
     handlerBtn.forEach((handler) => {
-      handler.classList.remove('active');
+      handler.classList.remove("active");
     });
-    e.target.classList.add('active');
+    e.target.classList.add("active");
 
     const slide = e.target.dataset.tab;
 
     contents.forEach((c) => {
-      c.classList.remove('active');
+      c.classList.remove("active");
 
       if (c.dataset.tab == slide) {
-        c.classList.add('active');
+        c.classList.add("active");
       }
     });
   });

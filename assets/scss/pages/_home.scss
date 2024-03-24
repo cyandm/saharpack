@@ -402,14 +402,13 @@
         display: none;
       }
       &__item {
-        // display: grid !important;
-        // grid-template-rows: 0fr;
-        // transition: $t_1;
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: $t_1;
 
-        // &.active {
-        //   display: grid !important;
-        //   grid-template-rows: 1fr;
-        // }
+        &.active {
+          grid-template-rows: 1fr;
+        }
 
         .blog-main {
           overflow: hidden;

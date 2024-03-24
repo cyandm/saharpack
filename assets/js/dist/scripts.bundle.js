@@ -5121,6 +5121,7 @@
     };
     let bulletSize;
     let dynamicBulletIndex = 0;
+    const makeElementsArray = (el) => (Array.isArray(el) ? el : [el]).filter((e) => !!e);
     function isPaginationDisabled() {
       return !swiper2.params.pagination.el || !swiper2.pagination.el || Array.isArray(swiper2.pagination.el) && swiper2.pagination.el.length === 0;
     }
@@ -5903,8 +5904,9 @@
 
   // assets/js/modules/tabs.js
   var handlerBtn = document.querySelectorAll(".tabs__handler__btn");
-  var contents = document.querySelectorAll(".tabs__item__outer-container");
-  console.log(contents);
+  var contents = document.querySelectorAll(
+    ".tabs__item__outer-container, .tabs__content__item"
+  );
   handlerBtn.forEach((tab) => {
     tab.addEventListener("click", (e) => {
       handlerBtn.forEach((handler) => {
