@@ -85,6 +85,10 @@
             calc(var(--translate-right) + var(--translate-left)),
             calc(var(--translate-top) + var(--translate-down))
           );
+
+          @include mq("md") {
+            transform: unset;
+          }
         }
       }
     }

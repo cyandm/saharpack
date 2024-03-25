@@ -10,6 +10,9 @@
   position: relative;
 
   section {
+    // position: fixed;
+    // background: #fff;
+
     &.login_page {
       display: none;
     }
@@ -200,7 +203,7 @@
 
         &__login-btn {
           @include d_flex(row, $j_c: center, $a_i: center);
-          border: $b_1;
+          // border: $b_1;
           padding: $s_2 $s_2;
 
           @media (max-width: 1260px) {
@@ -286,7 +289,7 @@
 
         &__search-btn {
           @include d_flex($j_c: center, $a_i: center);
-          border: $b_1;
+          // border: $b_1;
           padding: $s_2 $s_2;
         }
 
@@ -294,6 +297,10 @@
           @include d_flex($j_c: center, $a_i: center, $gap: $s_1);
           padding: $s_1 $s_4;
           @include fs("body-s");
+
+          background: unset;
+          border: unset;
+          color: $clr_text_main;
 
           @include mq("md") {
             padding: $s_2;
@@ -337,4 +344,8 @@ html[lang="en-US"] body {
     right: unset !important;
     left: 0;
   }
+}
+
+.popup {
+  overflow: hidden;
 }

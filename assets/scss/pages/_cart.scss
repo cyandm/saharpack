@@ -1,10 +1,10 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 main.default-page {
   .cart-wrapper {
     @include d_flex(row, space-between, flex-start, nowrap, false, $s_4);
     .product-property-in-cart {
       width: 70%;
-      border: $b_5;
+      // border: $b_5;
       padding: $s_3;
       h3 {
         padding-block: $s_3;
@@ -66,13 +66,13 @@ main.default-page {
             border: 1px solid $clr_primary_dark;
             transition: $t_1;
             padding: $s_1 $s_4;
-            @include fs('body-s');
+            @include fs("body-s");
             width: max-content;
             &:hover {
               background-color: transparent;
               color: $clr_primary_dark;
             }
-            @include mq('sm') {
+            @include mq("sm") {
               width: 100%;
             }
           }
@@ -96,11 +96,12 @@ main.default-page {
           }
           th.title-shipping-method {
             display: table-cell;
-            @include mq('md') {
+            @include mq("md") {
               border: none;
             }
           }
-          border: $b_5;
+          // border: $b_5;
+          border: unset;
           border-radius: 0;
           padding: $s_3;
           th,
@@ -118,21 +119,21 @@ main.default-page {
 
           th {
             text-align: start;
-            @include fs('h5');
+            @include fs("h5");
             width: 50%;
-            @include mq('md') {
+            @include mq("md") {
               display: flex;
             }
           }
           td {
             flex: 1;
             text-align: end;
-            @include fs('h5');
+            @include fs("h5");
             color: $clr_accent_dark;
           }
-          @include mq('md') {
+          @include mq("md") {
             display: flex;
-            @include fs('h6');
+            @include fs("h6");
           }
         }
       }
@@ -150,7 +151,7 @@ main.default-page {
         }
       }
     }
-    @include mq('xl') {
+    @include mq("xl") {
       .product-property-in-cart {
         width: 60%;
       }
@@ -158,19 +159,19 @@ main.default-page {
         flex: 1;
       }
     }
-    @include mq('lg') {
+    @include mq("lg") {
       .product-property-in-cart {
         width: 50%;
       }
       .product-name,
       .product-subtotal {
-        @include fs('h6');
+        @include fs("h6");
       }
       .product-code {
-        @include fs('caption');
+        @include fs("caption");
       }
     }
-    @include mq('md') {
+    @include mq("md") {
       flex-direction: column;
       justify-content: flex-start;
       align-items: stretch;
@@ -194,7 +195,7 @@ main.default-page {
       width: max-content;
       font-weight: normal;
       border-radius: 0;
-      @include fs('body-s');
+      @include fs("body-s");
       &:hover {
         background-color: transparent;
         color: $clr_primary_dark;
@@ -203,7 +204,7 @@ main.default-page {
   }
   .woocommerce-notices-wrapper {
     .woocommerce-message {
-      @include fs('h5');
+      @include fs("h5");
 
       a.button {
         background-color: $clr_primary_dark;
@@ -213,7 +214,7 @@ main.default-page {
         width: max-content;
         font-weight: normal;
         border-radius: 0;
-        @include fs('body-s');
+        @include fs("body-s");
 
         &:hover {
           background-color: transparent;
@@ -225,6 +226,6 @@ main.default-page {
     }
   }
   .wc-empty-cart-message {
-    @include fs('h5');
+    @include fs("h5");
   }
 }

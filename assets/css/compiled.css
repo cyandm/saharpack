@@ -351,7 +351,6 @@ input {
 }
 
 .breadcrumb-wrapper {
-  border-bottom: 1px solid #c5c5c5;
   overflow-x: scroll;
   margin-bottom: 1.5rem;
   width: 100%;
@@ -753,7 +752,6 @@ img {
   align-items: center;
   flex-wrap: wrap;
   gap: 0;
-  border: 1px solid #505050;
   padding: 0.5rem 0.5rem;
 }
 @media (max-width: 1260px) {
@@ -838,7 +836,6 @@ img {
   align-items: center;
   flex-wrap: wrap;
   gap: 0;
-  border: 1px solid #505050;
   padding: 0.5rem 0.5rem;
 }
 .header section .left-header__left-item__cart-btn {
@@ -852,6 +849,9 @@ img {
   font-size: 16px;
   font-weight: 400;
   line-height: 32px;
+  background: unset;
+  border: unset;
+  color: #505050;
 }
 @media screen and (max-width: 768px) {
   .header section .left-header__left-item__cart-btn {
@@ -899,6 +899,10 @@ img {
 html[lang=en-US] body .left-header__left-item__login-btn.has-children .children {
   right: unset !important;
   left: 0;
+}
+
+.popup {
+  overflow: hidden;
 }
 
 .footer {
@@ -2221,7 +2225,6 @@ body[data-popup-open=true] .icon-menu::before {
 .lang-switcher {
   position: relative;
   text-transform: capitalize;
-  border: 1px solid #505050;
   padding: 0.25rem 0.5rem;
   display: flex;
   flex-direction: row;
@@ -2379,6 +2382,12 @@ body[data-popup-open=true] .icon-menu::before {
 .home .banner__img #look #rightEye,
 .home .banner__img #look #leftEye {
   transform: translate(calc(var(--translate-right) + var(--translate-left)), calc(var(--translate-top) + var(--translate-down)));
+}
+@media screen and (max-width: 768px) {
+  .home .banner__img #look #rightEye,
+  .home .banner__img #look #leftEye {
+    transform: unset;
+  }
 }
 .home .titles-home {
   display: flex;
@@ -4384,7 +4393,6 @@ main.default-page .cart-wrapper {
 }
 main.default-page .cart-wrapper .product-property-in-cart {
   width: 70%;
-  border: 1px solid #dddddd;
   padding: 0.75rem;
 }
 main.default-page .cart-wrapper .product-property-in-cart h3 {
@@ -4483,7 +4491,7 @@ main.default-page .cart-wrapper .price-and-pay-method .cart_totals {
   float: none;
 }
 main.default-page .cart-wrapper .price-and-pay-method .cart_totals .shop_table {
-  border: 1px solid #dddddd;
+  border: unset;
   border-radius: 0;
   padding: 0.75rem;
 }

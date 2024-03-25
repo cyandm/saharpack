@@ -88,6 +88,8 @@ function cyn_make_taxonomy($name, $slug, $post_types, $is_hierarchical = true)
 function cyn_term_register()
 {
 	wp_insert_term('درخواست قیمت', 'form-cat', ['slug' => 'pricing']);
+	wp_insert_term('تماس با ما', 'form-cat', ['slug' => 'contact-us']);
+	wp_insert_term('فرصت های شغلی', 'form-cat', ['slug' => 'job-offer']);
 }
 
 function cyn_page_register()

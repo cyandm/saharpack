@@ -419,6 +419,7 @@
   var MobileMenu = () => {
     const mobileMenuToggle = document.querySelector("#mobileMenuToggle");
     const mobileMenu = document.querySelector("#mobileMenu");
+    const htmlDoc = document.querySelector("html");
     const menuItemHasChildren = mobileMenu.querySelectorAll(
       ".menu-item-has-children"
     );
@@ -437,6 +438,7 @@
     definePopUp(mobileMenu);
     mobileMenuToggle.addEventListener("click", () => {
       toggleActivateEl(mobileMenu);
+      htmlDoc.classList.toggle("popup");
     });
     if (!menuItemHasChildren)
       return;

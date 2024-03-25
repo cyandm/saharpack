@@ -7,7 +7,7 @@
 .lang-switcher {
   position: relative;
   text-transform: capitalize;
-  border: $b_1;
+  // border: $b_1;
   padding: $s_1 $s_2;
 
   @include d_flex(row, center, center, $gap: $s_1);
