@@ -1,22 +1,43 @@
-@use '../../utils/' as *;
+@use "../../utils/" as *;
 .card-product {
   @include d_flex(column, flex-start, stretch, nowrap, false, $s_2);
+
+  &:hover {
+    .product-thumbnail {
+      border: $b_6;
+
+      img {
+        &:last-child {
+          opacity: 1;
+          z-index: 2;
+        }
+      }
+    }
+  }
+
   .product-thumbnail {
+    position: relative;
     @include d_flex(row, center, center, nowrap);
     padding: $s_3;
     border: solid 1px transparent;
     transition: $t_1;
 
-    &:hover {
-      border: $b_6;
-    }
-
     img {
       object-fit: contain;
       width: 100%;
       height: px_to_rem(200);
-      @include mq('sm') {
+      @include mq("sm") {
         height: px_to_rem(100);
+      }
+    }
+
+    img {
+      &:last-child {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        z-index: 0;
+        transition: $t_1;
       }
     }
   }
@@ -34,7 +55,7 @@
     .product-price {
       .amount {
         bdi {
-          @include fs('h6');
+          @include fs("h6");
         }
       }
     }

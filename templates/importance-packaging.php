@@ -1,4 +1,4 @@
-<?php /* Template Name: Shopping guide Page */ ?>
+<?php /* Template Name: Importance Packaging Page */ ?>
 
 <?php
 $title = get_field('title');
@@ -6,6 +6,7 @@ $video_link = get_field('video_link');
 $video_file = get_field('video_file');
 $cover_video = get_field('cover_video');
 $cover_text = get_field('cover_text');
+$img = get_field("img");
 $description = get_field('description');
 ?>
 
@@ -13,19 +14,18 @@ $description = get_field('description');
 
 <main class="container">
 
-    <section class="shop-guide">
+    <section class="importance-packaging">
 
-        <div class="shop-guide__content">
+        <div class="importance-packaging__content">
             <?php if ($title) : ?>
-                <div class="shop-guide__content__title">
+                <div class="importance-packaging__content__title">
 
                     <h1><span><?= $title ?></span></h1>
 
                 </div>
             <?php endif ?>
 
-
-            <div class="shop-guide__content__item">
+            <div class="importance-packaging__content__item">
 
 
                 <?php
@@ -33,7 +33,7 @@ $description = get_field('description');
 
                 if (!$video_show) : ?>
 
-                    <div class="shop-guide__content__item__video">
+                    <div class="importance-packaging__content__item__video">
 
                         <video width="100%" height="100%" controls class="video">
 
@@ -48,20 +48,27 @@ $description = get_field('description');
 
                     </div>
 
-                <?php endif; ?>
+                <?php else : ?>
+
+                    <div class="importance-packaging__content__item__video">
+
+                        <?= wp_get_attachment_image($img, 'full') ?>
+
+                    </div>
+
+                <?php endif ?>
+
+
 
                 <?php if (!empty($description)) : ?>
 
-                    <div class="shop-guide__content__item__description">
+                    <div class="importance-packaging__content__item__description">
 
                         <?= $description ?>
 
                     </div>
 
                 <?php endif; ?>
-
-            </div>
-
 
     </section>
 

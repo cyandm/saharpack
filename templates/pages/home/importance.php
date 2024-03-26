@@ -2,6 +2,8 @@
 $title_importance = get_field('title_importance');
 $images_importance = get_field('images_importance');
 $text_importance = get_field('text_importance');
+$text_btn_importance = get_field('text_btn_importance');
+$link_importance = get_field('link_importance');
 ?>
 
 <section class="importance">
@@ -29,6 +31,10 @@ $text_importance = get_field('text_importance');
 
             <?= $text_importance ?>
 
+        </div>
+
+        <div class="importance__content__btn">
+            <a href="<?= $link_importance ?>" class="btn" variant='secondary'><?= $text_btn_importance ?></a>
         </div>
 
     </div>

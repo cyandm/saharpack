@@ -231,6 +231,11 @@
         color: $clr_text_dark;
         margin-block-start: $s_6;
       }
+
+      &__btn {
+        @include d_flex();
+        margin-block-start: $s_3;
+      }
     }
   }
 

@@ -25,37 +25,43 @@ $description = get_field('description');
                 </div>
             <?php endif ?>
 
-            <?php
-            $video_show = !$video_file && !$video_link;
+            <div class="about-us__content__item">
 
-            if (!$video_show) : ?>
+                <?php
+                $video_show = !$video_file && !$video_link;
 
-                <div class="about-us__content__video">
+                if (!$video_show) : ?>
 
-                    <video width="100%" height="100%" controls class="video">
+                    <div class="about-us__content__item__video">
 
-                        <source src="<?= $video_link ?>" />
-                        <source src="<?= $video_file ?>" />
-                    </video>
+                        <video width="100%" height="100%" controls class="video">
 
-                    <div class="video-cover" style="background-image: url(<?= $cover_video ?>);">
-                        <i class="iconsax" icon-name="play"></i>
-                        <p><?= $cover_text ?></p>
+                            <source src="<?= $video_link ?>" />
+                            <source src="<?= $video_file ?>" />
+                        </video>
+
+                        <div class="video-cover" style="background-image: url(<?= $cover_video ?>);">
+                            <i class="iconsax" icon-name="play"></i>
+                            <p><?= $cover_text ?></p>
+                        </div>
+
                     </div>
 
-                </div>
+                <?php endif; ?>
 
-            <?php endif; ?>
+                <?php if (!empty($description)) : ?>
 
-            <?php if (!empty($description)) : ?>
+                    <div class="about-us__content__item__description">
 
-                <div class="about-us__content__description">
+                        <?= $description ?>
 
-                    <?= $description ?>
+                    </div>
 
-                </div>
+                <?php endif; ?>
 
-            <?php endif; ?>
+            </div>
+
+
 
     </section>
 

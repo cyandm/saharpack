@@ -34,6 +34,22 @@
         flex-direction: row-reverse;
       }
 
+      @media (prefers-reduced-motion: no-preference) {
+        scale: 0.8;
+        opacity: 0;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: entry 200px;
+        transition: $t_1;
+
+        @keyframes fade-in {
+          to {
+            scale: 1;
+            opacity: 1;
+          }
+        }
+      }
+
       div {
         flex: 1;
       }

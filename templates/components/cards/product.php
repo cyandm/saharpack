@@ -1,6 +1,7 @@
 <?php
 $product_id = isset($args['product_id']) ? $args['product_id'] : get_the_ID();
 $product = wc_get_product($product_id);
+$attachment_ids = $product->get_gallery_image_ids();
 
 ?>
 
@@ -15,6 +16,12 @@ $product = wc_get_product($product_id);
                     get_stylesheet_directory_uri() . '/assets/img/placeholder.png'
                 );
             } ?>
+
+            <?php if (!empty($attachment_ids)) {
+                echo wp_get_attachment_image($attachment_ids[0], 'full');
+            } ?>
+
+
         </div>
         <div class="product-properties">
             <h5 class="product-name"><?= get_the_title($product_id) ?></h5>
