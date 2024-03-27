@@ -37,3 +37,14 @@ document.documentElement.style.setProperty(
   "--lang-width",
   langSwitcherWidth + "px"
 );
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+  if (currentScroll > 100) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+});

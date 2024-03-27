@@ -27,7 +27,7 @@
         $fields['billing']['billing_postcode']['label_class'] = 'text-base';
 
         $fields['billing']['billing_email']['required'] = false;
-        $fields['billing']['billing_postcode']['required'] = false;
+        $fields['billing']['billing_postcode']['required'] = true;
 
 
         return $fields;

@@ -1,5 +1,9 @@
 @use "../utils/" as *;
 
+footer {
+  position: relative;
+}
+
 .footer {
   background: $clr_primary_dark;
   color: $clr_accent_text;
@@ -138,4 +142,23 @@ html[lang="en-US"] body {
   cursor: pointer;
   z-index: 999;
   display: none;
+}
+
+.paralax {
+  width: 100%;
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  z-index: -100;
+  margin-block-start: unset;
+
+  .footer__items {
+    justify-content: center;
+  }
+
+  .footer__items__left {
+    img {
+      max-width: 250px;
+    }
+  }
 }

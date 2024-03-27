@@ -414,6 +414,15 @@
     "--lang-width",
     langSwitcherWidth + "px"
   );
+  var header = document.querySelector("header");
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 100) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  });
 
   // assets/js/modules/mobile-menu.js
   var MobileMenu = () => {

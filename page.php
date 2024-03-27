@@ -1,5 +1,8 @@
 <?php get_header() ?>
 
+<?php wc_clear_notices(); ?>
+
+
 <main class="default-page ">
     <div class="breadcrumb-wrapper">
         <div class="breadcrumb-product container">

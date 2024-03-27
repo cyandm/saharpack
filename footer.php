@@ -149,6 +149,33 @@ if (!empty($enamad)) {
 
 	</section>
 
+	<section class="footer paralax">
+
+		<div class="container">
+
+			<div class="footer__items">
+
+
+				<button id="scrolltotop">
+					<i class="iconsax" icon-name="arrow-up"></i>
+				</button>
+
+				<div class="footer__items__left">
+
+					<?php if (isset($img_logo)) : ?>
+
+						<?= wp_get_attachment_image($img_logo, 'full') ?>
+
+					<?php endif ?>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
 </footer>
 
 <div class="wp-scripts">
