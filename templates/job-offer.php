@@ -15,10 +15,6 @@ $last_job_offers = new WP_Query([
 ]);
 
 
-// $last_job_offers = get_posts(array(
-//     'post_type' => 'job-offer',
-//     'lang' => 'en', // query German and French posts
-// ));
 
 ?>
 <main class="job-offer-page container">

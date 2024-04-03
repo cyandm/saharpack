@@ -271,35 +271,35 @@ ul {
 
 h1,
 .h1 {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   line-height: 61.6px;
 }
 
 h2,
 .h2 {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 44.5px;
 }
 
 h3,
 .h3 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 36px;
 }
 
 h4,
 .h4 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 28px;
 }
 
 h5,
 .h5 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 28px;
 }
@@ -945,6 +945,8 @@ footer {
   background: #1e1e1e;
   color: #ffffff;
   margin-block-start: 7.5rem;
+  z-index: 1002;
+  position: relative;
 }
 .footer__items {
   display: flex;
@@ -1110,14 +1112,26 @@ html[lang=en-US] body .phone-number {
   position: sticky;
   left: 0;
   bottom: 0;
-  z-index: -100;
   margin-block-start: unset;
+  height: 100vh;
+  z-index: 1001;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
 }
 .paralax .footer__items {
   justify-content: center;
 }
 .paralax .footer__items__left img {
-  max-width: 250px;
+  min-width: 28.75rem;
+}
+@media screen and (max-width: 768px) {
+  .paralax .footer__items__left img {
+    min-width: 288px;
+  }
 }
 
 .btn {
@@ -1347,7 +1361,7 @@ label {
 }
 @media screen and (max-width: 480px) {
   .title-has-line .h1 {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 500;
     line-height: 44.5px;
   }
@@ -1561,6 +1575,11 @@ label {
 }
 .card-product:hover .product-thumbnail {
   border: 1px solid #c74217;
+  transition: all 0.4s ease-in-out;
+}
+.card-product:hover .product-thumbnail img {
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
 }
 .card-product:hover .product-thumbnail img:last-child {
   opacity: 1;
@@ -1588,12 +1607,13 @@ label {
     height: 6.25rem;
   }
 }
-.card-product .product-thumbnail img:last-child {
+.card-product .product-thumbnail img:nth-child(2) {
   opacity: 0;
   position: absolute;
   left: 0;
   z-index: 0;
   transition: all 0.4s ease-in-out;
+  background: #fff;
 }
 .card-product .product-properties {
   color: #1e1e1e;
@@ -1876,7 +1896,7 @@ label {
 }
 .my-order h3 {
   width: 100%;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 36px;
   color: #1e1e1e;
@@ -2469,7 +2489,7 @@ body[data-popup-open=true] .icon-menu::before {
   }
 }
 .home .titles-home > h2 {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   line-height: 61.6px;
   text-align: center;
@@ -2477,7 +2497,7 @@ body[data-popup-open=true] .icon-menu::before {
 }
 @media screen and (max-width: 768px) {
   .home .titles-home > h2 {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 500;
     line-height: 44.5px;
   }
@@ -2518,7 +2538,7 @@ body[data-popup-open=true] .icon-menu::before {
   background: #fff;
   padding-inline: 1rem;
   z-index: 2;
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   line-height: 61.6px;
   position: relative;
@@ -2526,7 +2546,7 @@ body[data-popup-open=true] .icon-menu::before {
 }
 @media screen and (max-width: 768px) {
   .home .titles-home span {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 500;
     line-height: 44.5px;
     padding-inline: 0;
@@ -2612,7 +2632,7 @@ body[data-popup-open=true] .icon-menu::before {
   min-height: 0;
   transition: all 0.4s ease-in-out;
   min-width: 100%;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 28px;
   position: absolute;
@@ -2966,7 +2986,7 @@ main.contact-us-page > div > div {
 main.contact-us-page .title {
   margin-bottom: 0.5rem;
   color: #1e1e1e;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 44.5px;
 }
@@ -3027,7 +3047,7 @@ main.login-page > div {
 main.login-page .title {
   margin-bottom: 0.5rem;
   color: #1e1e1e;
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   line-height: 61.6px;
 }
@@ -3244,7 +3264,7 @@ main.single-product-page .product-detail-container .product-detail-and-thumbnail
 }
 @media screen and (max-width: 768px) {
   main.single-product-page .product-detail-container .product-detail-and-thumbnail .product-detail h2 {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 500;
     line-height: 36px;
   }
@@ -3271,7 +3291,7 @@ main.single-product-page .product-detail-container .product-detail-and-thumbnail
 }
 @media screen and (max-width: 768px) {
   main.single-product-page .product-detail-container .product-detail-and-thumbnail .product-detail h3 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 28px;
   }
@@ -3478,13 +3498,13 @@ main.single-product-page .favorite-products__title-and-btn-all {
   gap: 0.75rem;
 }
 main.single-product-page .favorite-products__title {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 44.5px;
 }
 @media screen and (max-width: 768px) {
   main.single-product-page .favorite-products__title {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 500;
     line-height: 36px;
   }
@@ -3666,7 +3686,7 @@ main.single-post-page .blog-comments {
   gap: 0.75rem;
 }
 .pricing-content-title {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 44.5px;
 }
@@ -3946,7 +3966,7 @@ main.single-post-page .blog-comments {
 .about-us__content__title > h1,
 .shop-guide__content__title > h1,
 .importance-packaging__content__title > h1 {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   line-height: 61.6px;
   text-align: center;
@@ -3958,7 +3978,7 @@ main.single-post-page .blog-comments {
   .about-us__content__title > h1,
   .shop-guide__content__title > h1,
   .importance-packaging__content__title > h1 {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 500;
     line-height: 44.5px;
   }
@@ -4009,7 +4029,7 @@ main.single-post-page .blog-comments {
   background: #fff;
   padding-inline: 1rem;
   z-index: 2;
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   line-height: 61.6px;
   position: relative;
@@ -4019,7 +4039,7 @@ main.single-post-page .blog-comments {
   .about-us__content__title > h1 span,
   .shop-guide__content__title > h1 span,
   .importance-packaging__content__title > h1 span {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 500;
     line-height: 44.5px;
     padding-inline: 0;
@@ -4110,7 +4130,7 @@ main.single-post-page .blog-comments {
 .about-us__content__item__video .video-cover > p,
 .shop-guide__content__item__video .video-cover > p,
 .importance-packaging__content__item__video .video-cover > p {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 44.5px;
   position: absolute;
@@ -4124,7 +4144,7 @@ main.single-post-page .blog-comments {
   .about-us__content__item__video .video-cover > p,
   .shop-guide__content__item__video .video-cover > p,
   .importance-packaging__content__item__video .video-cover > p {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 28px;
   }
@@ -4170,7 +4190,7 @@ main.single-post-page .blog-comments {
   margin-block: 2.75rem 2rem;
 }
 .journey__title h1 {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   line-height: 61.6px;
   display: flex;
@@ -4218,7 +4238,7 @@ main.single-post-page .blog-comments {
   background: #fff;
   padding-inline: 1rem;
   z-index: 2;
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   line-height: 61.6px;
   position: relative;
@@ -4226,7 +4246,7 @@ main.single-post-page .blog-comments {
 }
 @media screen and (max-width: 768px) {
   .journey__title h1 span {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 500;
     line-height: 44.5px;
     padding-inline: 0;
@@ -4304,7 +4324,7 @@ main.single-post-page .blog-comments {
   gap: 1rem;
 }
 .journey__content__card__details__title h3 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 36px;
   display: flex;
@@ -4319,7 +4339,7 @@ main.single-post-page .blog-comments {
 }
 @media (max-width: 395px) {
   .journey__content__card__details__title h3 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 28px;
   }
@@ -4427,14 +4447,14 @@ main.single-post-page .blog-comments {
   gap: 0;
 }
 .journey__end__text h3 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 36px;
   color: #1e1e1e;
 }
 @media (max-width: 395px) {
   .journey__end__text h3 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 28px;
   }
@@ -4655,7 +4675,7 @@ main.default-page .cart-wrapper .price-and-pay-method .cart_totals .order-total 
 }
 main.default-page .cart-wrapper .price-and-pay-method .cart_totals .order-total th {
   text-align: start;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 28px;
   width: 50%;
@@ -4668,7 +4688,7 @@ main.default-page .cart-wrapper .price-and-pay-method .cart_totals .order-total 
 main.default-page .cart-wrapper .price-and-pay-method .cart_totals .order-total td {
   flex: 1;
   text-align: end;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 28px;
   color: #1b51de;
@@ -4751,7 +4771,7 @@ main.default-page .return-to-shop .wc-backward:hover {
   color: #1e1e1e;
 }
 main.default-page .woocommerce-notices-wrapper .woocommerce-message {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 28px;
 }
@@ -4772,7 +4792,7 @@ main.default-page .woocommerce-notices-wrapper .woocommerce-message a.button:hov
   color: #1e1e1e;
 }
 main.default-page .wc-empty-cart-message {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 28px;
 }
@@ -4830,13 +4850,13 @@ form.checkout input[type=email] {
   text-align: right;
 }
 form.checkout table.shop_table {
-  border: 1px solid #c5c5c5;
+  border: unset;
   padding: 1.25rem;
   border-radius: 0;
 }
 form.checkout div#payment {
   background: transparent;
-  border: 1px solid #c5c5c5;
+  border: unset;
   padding: 1.25rem;
   border-radius: 0;
 }
@@ -4855,6 +4875,15 @@ form.checkout div#payment .payment_box::before {
     justify-content: center;
     align-items: center;
   }
+}
+form.checkout div#payment > * {
+  border-bottom: unset !important;
+}
+form.checkout div#payment > ul {
+  padding: 0;
+}
+form.checkout div#payment > .place-order {
+  padding-block-start: 1rem;
 }
 form.checkout .select2-selection--single {
   border: none;

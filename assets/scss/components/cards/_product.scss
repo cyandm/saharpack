@@ -5,6 +5,12 @@
   &:hover {
     .product-thumbnail {
       border: $b_6;
+      transition: $t_1;
+
+      img {
+        opacity: 0;
+        transition: $t_1;
+      }
 
       img {
         &:last-child {
@@ -32,12 +38,13 @@
     }
 
     img {
-      &:last-child {
+      &:nth-child(2) {
         opacity: 0;
         position: absolute;
         left: 0;
         z-index: 0;
         transition: $t_1;
+        background: #fff;
       }
     }
   }

@@ -10,13 +10,13 @@ form.checkout {
     text-align: right;
   }
   table.shop_table {
-    border: $b_3;
+    border: unset;
     padding: $s_5;
     border-radius: 0;
   }
   div#payment {
     background: transparent;
-    border: $b_3;
+    border: unset;
     padding: $s_5;
     border-radius: 0;
     .payment_box {
@@ -34,6 +34,18 @@ form.checkout {
         justify-content: center;
         align-items: center;
       }
+    }
+
+    > * {
+      border-bottom: unset !important;
+    }
+
+    > ul {
+      padding: 0;
+    }
+
+    > .place-order {
+      padding-block-start: $s_4;
     }
   }
   .select2-selection--single {

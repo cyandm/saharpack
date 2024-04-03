@@ -135,12 +135,6 @@ if (!empty($enamad)) {
 
 					<?php endif ?>
 
-					<?php if (isset($img_logo)) : ?>
-
-						<?= wp_get_attachment_image($img_logo, 'full') ?>
-
-					<?php endif ?>
-
 				</div>
 
 			</div>
