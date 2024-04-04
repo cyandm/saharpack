@@ -17,53 +17,54 @@ $last_job_offers = new WP_Query([
 
 
 ?>
-<main class="job-offer-page container">
-    <section class="hero-section">
-        <div class="title-has-line">
-            <i></i>
-            <p class="h1"><?= $page_title ?></p>
-            <i></i>
-        </div>
-        <?php if (!empty(get_the_post_thumbnail())) : ?>
-            <div class="page-thumbnail">
-                <?php the_post_thumbnail('full') ?>
-            </div>
-        <?php endif ?>
-        <?php if (!empty(get_the_content())) : ?>
-            <div class="description-job-offer">
-                <div class="h2"><?= $description_title ?></div>
-                <?php the_content() ?>
-            </div>
-        <?php endif ?>
-    </section>
-    <?php if (!empty($selected_job_offers) || ($last_job_offers->have_posts())) : ?>
-        <section class="selected-jobs">
+<main class="job-offer-page ">
+    <div class="container">
+        <section class="hero-section">
             <div class="title-has-line">
                 <i></i>
-                <p class="h1"><?= pll__('job-offer-selected-title') ?></p>
+                <p class="h1"><?= $page_title ?></p>
                 <i></i>
             </div>
-            <div class="jobs-container">
-
-                <?php
-                if ($selected_job_offers !== false) {
-                    foreach ($selected_job_offers as $job_id) {
-                        get_template_part('/templates/components/cards/job-offer', null, ['post_id' => $job_id]);
-                    }
-                } else {
-                    if ($last_job_offers->have_posts()) {
-                        while ($last_job_offers->have_posts()) {
-                            $last_job_offers->the_post();
-                            get_template_part('/templates/components/cards/job-offer');
-                        }
-                    }
-                    wp_reset_postdata();
-                }
-                ?>
-            </div>
+            <?php if (!empty(get_the_post_thumbnail())) : ?>
+                <div class="page-thumbnail">
+                    <?php the_post_thumbnail('full') ?>
+                </div>
+            <?php endif ?>
+            <?php if (!empty(get_the_content())) : ?>
+                <div class="description-job-offer">
+                    <div class="h2"><?= $description_title ?></div>
+                    <?php the_content() ?>
+                </div>
+            <?php endif ?>
         </section>
-    <?php endif ?>
+        <?php if (!empty($selected_job_offers) || ($last_job_offers->have_posts())) : ?>
+            <section class="selected-jobs">
+                <div class="title-has-line">
+                    <i></i>
+                    <p class="h1"><?= pll__('job-offer-selected-title') ?></p>
+                    <i></i>
+                </div>
+                <div class="jobs-container">
 
+                    <?php
+                    if ($selected_job_offers !== false) {
+                        foreach ($selected_job_offers as $job_id) {
+                            get_template_part('/templates/components/cards/job-offer', null, ['post_id' => $job_id]);
+                        }
+                    } else {
+                        if ($last_job_offers->have_posts()) {
+                            while ($last_job_offers->have_posts()) {
+                                $last_job_offers->the_post();
+                                get_template_part('/templates/components/cards/job-offer');
+                            }
+                        }
+                        wp_reset_postdata();
+                    }
+                    ?>
+                </div>
+            </section>
+        <?php endif ?>
+    </div>
 </main>
 
 

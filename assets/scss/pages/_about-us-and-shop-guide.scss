@@ -2,7 +2,7 @@
 .about-us,
 .shop-guide,
 .importance-packaging {
-  margin-block-start: $s_6;
+  padding-block-start: $s_6;
 
   &__content {
     @include d_flex(column, $gap: $s_6);
@@ -24,7 +24,7 @@
     }
 
     &__item {
-      @include d_flex(row, $gap: $s_6);
+      @include d_flex(column, $gap: $s_6);
 
       @media (max-width: 1200px) {
         flex-direction: column;

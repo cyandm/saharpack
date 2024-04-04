@@ -12,66 +12,66 @@ $description = get_field('description');
 
 <?php get_header(); ?>
 
-<main class="container">
+<main>
+    <div class="container">
+        <section class="importance-packaging">
 
-    <section class="importance-packaging">
+            <div class="importance-packaging__content">
+                <?php if ($title) : ?>
+                    <div class="importance-packaging__content__title">
 
-        <div class="importance-packaging__content">
-            <?php if ($title) : ?>
-                <div class="importance-packaging__content__title">
-
-                    <h1><span><?= $title ?></span></h1>
-
-                </div>
-            <?php endif ?>
-
-            <div class="importance-packaging__content__item">
-
-
-                <?php
-                $video_show = !$video_file && !$video_link;
-
-                if (!$video_show) : ?>
-
-                    <div class="importance-packaging__content__item__video">
-
-                        <video width="100%" height="100%" controls class="video">
-
-                            <source src="<?= $video_link ?>" />
-                            <source src="<?= $video_file ?>" />
-                        </video>
-
-                        <div class="video-cover" style="background-image: url(<?= $cover_video ?>);">
-                            <i class="iconsax" icon-name="play"></i>
-                            <p><?= $cover_text ?></p>
-                        </div>
+                        <h1><span><?= $title ?></span></h1>
 
                     </div>
-
-                <?php else : ?>
-
-                    <div class="importance-packaging__content__item__video">
-
-                        <?= wp_get_attachment_image($img, 'full') ?>
-
-                    </div>
-
                 <?php endif ?>
 
+                <div class="importance-packaging__content__item">
 
 
-                <?php if (!empty($description)) : ?>
+                    <?php
+                    $video_show = !$video_file && !$video_link;
 
-                    <div class="importance-packaging__content__item__description">
+                    if (!$video_show) : ?>
 
-                        <?= $description ?>
+                        <div class="importance-packaging__content__item__video">
 
-                    </div>
+                            <video width="100%" height="100%" controls class="video">
 
-                <?php endif; ?>
+                                <source src="<?= $video_link ?>" />
+                                <source src="<?= $video_file ?>" />
+                            </video>
 
-    </section>
+                            <div class="video-cover" style="background-image: url(<?= $cover_video ?>);">
+                                <i class="iconsax" icon-name="play"></i>
+                                <p><?= $cover_text ?></p>
+                            </div>
 
+                        </div>
+
+                    <?php else : ?>
+
+                        <div class="importance-packaging__content__item__video">
+
+                            <?= wp_get_attachment_image($img, 'full') ?>
+
+                        </div>
+
+                    <?php endif ?>
+
+
+
+                    <?php if (!empty($description)) : ?>
+
+                        <div class="importance-packaging__content__item__description">
+
+                            <?= $description ?>
+
+                        </div>
+
+                    <?php endif; ?>
+
+        </section>
+    </div>
 </main>
 
 <?php get_footer(); ?>

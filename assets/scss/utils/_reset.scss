@@ -25,6 +25,10 @@ body {
   }
 }
 
+main {
+  background: $clr_bg_default;
+}
+
 html[lang="en-US"] body {
   font-family: Poppins;
 

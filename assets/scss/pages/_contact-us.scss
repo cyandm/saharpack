@@ -1,37 +1,39 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 main.contact-us-page {
-  @include d_flex(row, space-between, center, nowrap, true, $s_2);
-  margin-block-start: $s_6;
+  padding-block-start: $s_6;
 
-  @include mq('md') {
-    gap: $s_4;
-  }
-
-  > div {
-    width: 50%;
-    @include d_flex(column, center, center);
+  .container {
+    @include d_flex(row, space-between, center, nowrap, true, $s_2);
+    @include mq("md") {
+      gap: $s_4;
+    }
 
     > div {
-      min-width: 100%;
+      width: 50%;
+      @include d_flex(column, center, center);
+
+      > div {
+        min-width: 100%;
+      }
     }
   }
   .title {
     margin-bottom: $s_2;
     color: $clr_primary_dark;
-    @include fs('h2');
+    @include fs("h2");
   }
 
   .form-wrapper {
     button {
       align-self: flex-end;
       @include d_flex(row-reverse, center, center, nowrap, false, $s_1);
-      @include make_icon('\e806') {
-        font-family: 'iconsax' !important;
+      @include make_icon("\e806") {
+        font-family: "iconsax" !important;
         font-size: 20px;
       }
     }
   }
-  @include mq('md') {
+  @include mq("md") {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
@@ -40,7 +42,7 @@ main.contact-us-page {
     }
   }
 }
-html[lang='en-US'] {
+html[lang="en-US"] {
   #contact-us-form input,
   #contact-us-form textarea {
     direction: ltr;

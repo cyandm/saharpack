@@ -52,6 +52,8 @@ function cyn_theme_setup()
 		'footer_col_1' => 'Footer column 1',
 		'footer_col_2' => 'Footer column 2',
 		'footer_col_3' => 'Footer column 3',
+		'footer_col_4' => 'Footer column 4',
+		'footer_col_5' => 'Footer column 5',
 	]);
 }
 

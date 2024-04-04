@@ -37,7 +37,7 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
     </section>
 
     <section class="container product-detail-container">
-        <p id="title"><?= get_the_title() ?></p>
+        <h1 id="title"><?= get_the_title() ?></h1>
         <div class="product-detail-and-thumbnail">
             <div class="product-thumbnail">
                 <?php if (!empty(get_the_post_thumbnail($product_id))) {
@@ -104,7 +104,7 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
                     <div class="share-and-add-cart">
                         <a href="<?= $wc_product->add_to_cart_url() ?>" class="btn" variant="primary"><?= pll__('add-to-cart') ?></a>
                         <div id="btnShare" class="btn-share btn" variant="secondary">
-                            <i class=" iconsax" icon-name="share"></i>
+                            <i class="share"><?php get_template_part("/assets/img/svg/share") ?></i>
                         </div>
                     </div>
                     <div class="counseling-and-guarantee">

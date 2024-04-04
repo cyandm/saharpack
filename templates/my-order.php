@@ -27,27 +27,27 @@ $orders = wc_get_orders([
 ]);
 
 ?>
-<main class="my-order container">
+<main>
+    <div class="container my-order">
+        <div class="orders">
+            <h3><?= get_the_title() ?></h3>
 
-    <div class="orders">
-        <h3><?= get_the_title() ?></h3>
+            <?php
 
-        <?php
+            foreach ($orders as $key => $order) {
 
-        foreach ($orders as $key => $order) {
-
-            get_template_part('/templates/components/cards/order', null, ['order' => $order]);
-        }
-        ?>
+                get_template_part('/templates/components/cards/order', null, ['order' => $order]);
+            }
+            ?>
 
 
+        </div>
+        <div class="order-tempnail">
+
+            <?= wp_get_attachment_image($order_img, 'full') ?>
+
+        </div>
     </div>
-    <div class="order-tempnail">
-
-        <?= wp_get_attachment_image($order_img, 'full') ?>
-
-    </div>
-
 
 </main>
 

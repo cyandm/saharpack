@@ -20,71 +20,73 @@ $slider_blogs = new WP_Query([
 ]);
 $all_blogs_page_id = get_option('page_for_posts');
 ?>
-<main class="container blog-archive">
-	<div class="blog-head">
-		<ul>
-			<li><a href="<?= get_permalink($all_blogs_page_id) ?>"><?= pll__('all') ?></a></li>
-			<?php wp_list_categories(
-				[
-					'orderby' => 'id',
-					'hide_empty' => false,
-					'title_li' => "",
-					'current_category' => 1
-				]
-			) ?>
-		</ul>
-		<p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder="<?= pll__('search') ?>" /> </p>
-	</div>
+<main class="blog-archive">
+	<div class="container">
+		<div class="blog-head">
+			<ul>
+				<li><a href="<?= get_permalink($all_blogs_page_id) ?>"><?= pll__('all') ?></a></li>
+				<?php wp_list_categories(
+					[
+						'orderby' => 'id',
+						'hide_empty' => false,
+						'title_li' => "",
+						'current_category' => 1
+					]
+				) ?>
+			</ul>
+			<p class="search-blog"> <i class="iconsax" icon-name="search-normal-2"></i><input placeholder="<?= pll__('search') ?>" /> </p>
+		</div>
 
-	<div class="blog-main">
-		<?php
-		if ($selected_blog) {
-			if (count(array_filter($selected_blog)) > 0) {
-				foreach ($selected_blog as  $blog_id) {
-					get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $blog_id]);
+		<div class="blog-main">
+			<?php
+			if ($selected_blog) {
+				if (count(array_filter($selected_blog)) > 0) {
+					foreach ($selected_blog as  $blog_id) {
+						get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $blog_id]);
+					}
 				}
-			}
-		} else {
-			while ($first_blogs->have_posts()) {
-				$first_blogs->the_post();
-				$post_id = get_the_ID();
-				get_template_part('/templates/components/cards/best', 'blog', ['post_id' => $post_id]);
-			}
-		}
-		?>
-		<!-- <?php while ($first_blogs->have_posts()) {
+			} else {
+				while ($first_blogs->have_posts()) {
 					$first_blogs->the_post();
 					$post_id = get_the_ID();
-					get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $post_id]);
+					get_template_part('/templates/components/cards/best', 'blog', ['post_id' => $post_id]);
 				}
-				?> -->
-		<?php wp_reset_postdata() ?>
-	</div>
-	<div class="swiper-container">
-		<div class="swiper-wrapper">
-			<?php
-			while ($slider_blogs->have_posts()) {
-				$slider_blogs->the_post();
+			}
+			?>
+			<!-- <?php while ($first_blogs->have_posts()) {
+						$first_blogs->the_post();
+						$post_id = get_the_ID();
+						get_template_part('/templates/components/cards/blogs', '2', ['post_id' => $post_id]);
+					}
+					?> -->
+			<?php wp_reset_postdata() ?>
+		</div>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<?php
+				while ($slider_blogs->have_posts()) {
+					$slider_blogs->the_post();
+					$post_id = get_the_ID();
+					get_template_part('/templates/components/cards/blog', 'slider', ['post_id' => $post_id]);
+				}
+				?>
+				<?php wp_reset_postdata() ?>
+			</div>
+			<div class="swiper-pagination"></div>
+
+		</div>
+		<div class="best-blog even-columns">
+			<?php while ($second_blogs->have_posts()) {
+				$second_blogs->the_post();
 				$post_id = get_the_ID();
-				get_template_part('/templates/components/cards/blog', 'slider', ['post_id' => $post_id]);
+				get_template_part('/templates/components/cards/blogs', 'card', ['post_id' => $post_id]);
 			}
 			?>
 			<?php wp_reset_postdata() ?>
 		</div>
-		<div class="swiper-pagination"></div>
-
-	</div>
-	<div class="best-blog even-columns">
-		<?php while ($second_blogs->have_posts()) {
-			$second_blogs->the_post();
-			$post_id = get_the_ID();
-			get_template_part('/templates/components/cards/blogs', 'card', ['post_id' => $post_id]);
-		}
-		?>
-		<?php wp_reset_postdata() ?>
-	</div>
-	<div class="more">
-		<a href="<?= get_permalink($all_blogs_page_id) ?>"><?= pll__('view-all') ?></a>
+		<div class="more">
+			<a href="<?= get_permalink($all_blogs_page_id) ?>"><?= pll__('view-all') ?></a>
+		</div>
 	</div>
 </main>
 <?php get_footer() ?>

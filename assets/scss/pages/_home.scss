@@ -7,6 +7,12 @@
       @include d_flex(row, center, center);
       margin-block-start: $s_3;
 
+      &[data-swiper-slide-index="0"] {
+        .slider__content__front__img {
+          display: block;
+        }
+      }
+
       &__back {
         @include d_flex();
 
@@ -54,6 +60,8 @@
         }
 
         &__img {
+          display: none;
+
           > img {
             max-width: 290px;
             height: auto;

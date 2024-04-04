@@ -8,6 +8,7 @@
   @include d_flex(row, center);
   z-index: 1000;
   position: relative;
+  background-color: $clr_bg_default;
 
   section {
     &.login_page {
@@ -61,7 +62,7 @@
         }
 
         .header-menu {
-          @include d_flex($gap: $s_4);
+          @include d_flex($gap: $s_6);
           li {
             position: relative;
             padding-block: $s_2;
@@ -262,20 +263,26 @@
                 min-width: 100%;
 
                 li {
+                  border-bottom: 1px solid $clr_border_light;
+
+                  .is-login {
+                    padding: $s_4;
+                    display: inline-block;
+                  }
+
                   a {
                     display: block;
                     @include fs("body-s");
 
                     min-width: 100%;
-                    border-bottom: 1px solid $clr_border_light;
-                    padding: 1rem;
+                    padding: $s_4;
 
                     &:hover {
                       background: $clr_bg_paper;
                     }
                   }
 
-                  &:last-child a {
+                  &:last-child {
                     border-bottom: none;
                   }
                 }
@@ -318,6 +325,7 @@
     button {
       padding: $s_2;
       @include d_flex(row, center, center, nowrap);
+      border: unset;
     }
   }
 
@@ -361,6 +369,7 @@
 
 .backabsolute {
   position: absolute;
+  background-color: transparent;
 
   > .mobile-menu {
     top: px_to_rem(80);

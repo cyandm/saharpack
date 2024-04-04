@@ -1,4 +1,4 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 .blog-archive {
   .blog-head {
     @include d_flex($j_c: space-between, $a_i: center, $wrap: nowrap);
@@ -6,7 +6,7 @@
       width: 100%;
       overflow-x: scroll;
     }
-    @include mq('md') {
+    @include mq("md") {
       flex-direction: column-reverse;
       align-items: start;
     }
@@ -20,7 +20,7 @@
 
   .more {
     @include d_flex($j_c: center);
-    margin: $s-7;
+    padding: $s_7;
     a {
       color: $clr_accent_dark;
       border-bottom: $b_1;

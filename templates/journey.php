@@ -9,73 +9,75 @@ $img = get_field('img');
 ?>
 
 
-<div class="breadcrumb-wrapper">
-    <div class="breadcrumb-product container">
-        <?php if (function_exists('rank_math_the_breadcrumbs'))
-            rank_math_the_breadcrumbs(); ?>
-    </div>
-    <i class="divider"></i>
-</div>
 
-<main class="container">
 
-    <section class="journey">
-
-        <div class="journey__title">
-            <h1><span><?= $title ?></span></h1>
+<main>
+    <div class="container">
+        <div class="breadcrumb-wrapper">
+            <div class="breadcrumb-product container">
+                <?php if (function_exists('rank_math_the_breadcrumbs'))
+                    rank_math_the_breadcrumbs(); ?>
+            </div>
+            <i class="divider"></i>
         </div>
 
-        <div class="scroll-line">
+        <section class="journey">
 
-            <?php if (isset($levels)) : ?>
+            <div class="journey__title">
+                <h1><span><?= $title ?></span></h1>
+            </div>
 
-                <div class="journey__content">
+            <div class="scroll-line">
 
-                    <?php foreach ($levels as $level) : ?>
+                <?php if (isset($levels)) : ?>
 
-                        <div class="journey__content__card">
-                            <div class="journey__content__card__details">
+                    <div class="journey__content">
 
-                                <div class="journey__content__card__details__title">
-                                    <h3><?= $level['title'] ?></h3>
+                        <?php foreach ($levels as $level) : ?>
+
+                            <div class="journey__content__card">
+                                <div class="journey__content__card__details">
+
+                                    <div class="journey__content__card__details__title">
+                                        <h3><?= $level['title'] ?></h3>
+                                    </div>
+
+
+                                    <div class="journey__content__card__details__description">
+                                        <?= $level['description'] ?>
+                                    </div>
+
                                 </div>
 
-
-                                <div class="journey__content__card__details__description">
-                                    <?= $level['description'] ?>
+                                <div class="journey__content__card__img">
+                                    <?= wp_get_attachment_image($level['img'], 'full') ?>
                                 </div>
 
                             </div>
 
-                            <div class="journey__content__card__img">
-                                <?= wp_get_attachment_image($level['img'], 'full') ?>
-                            </div>
+                        <?php endforeach ?>
 
+                    </div>
+                <?php endif ?>
+
+
+                <?php if (isset($img) && isset($text)) : ?>
+                    <div class="journey__end">
+
+                        <div class="journey__end__img">
+                            <?= wp_get_attachment_image($img, 'full') ?>
                         </div>
 
-                    <?php endforeach ?>
+                        <div class="journey__end__text">
+                            <h3><?= $text ?></h3>
+                        </div>
 
-                </div>
-            <?php endif ?>
-
-
-            <?php if (isset($img) && isset($text)) : ?>
-                <div class="journey__end">
-
-                    <div class="journey__end__img">
-                        <?= wp_get_attachment_image($img, 'full') ?>
                     </div>
+                <?php endif ?>
+            </div>
 
-                    <div class="journey__end__text">
-                        <h3><?= $text ?></h3>
-                    </div>
-
-                </div>
-            <?php endif ?>
-        </div>
-
-    </section>
-
+        </section>
+    </div>
 </main>
 
 

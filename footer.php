@@ -32,144 +32,153 @@ if (!empty($enamad)) {
 
 <footer>
 
-	<section class="footer">
+	<div class="footer-wrapper">
 
-		<div class="container">
+		<section class="footer">
 
-			<div class="footer__items">
+			<div class="container">
 
+				<div class="footer__items">
 
-				<button id="scrolltotop">
-					<i class="iconsax" icon-name="arrow-up"></i>
-				</button>
+					<button id="scrolltotop">
+						<i class="iconsax" icon-name="arrow-up"></i>
+					</button>
 
-				<div class="footer__items__right">
+					<div class="footer__items__right">
 
-					<?php wp_nav_menu([
-						'theme_location' => 'footer_col_1',
-						'menu_class' => 'f-menu'
-					]) ?>
+						<?php wp_nav_menu([
+							'theme_location' => 'footer_col_1',
+							'menu_class' => 'f-menu'
+						]) ?>
 
-					<?php wp_nav_menu([
-						'theme_location' => 'footer_col_2',
-						'menu_class' => 'f-menu'
-					]) ?>
-
-					<div class="footer__items__right__social-media">
+						<?php wp_nav_menu([
+							'theme_location' => 'footer_col_2',
+							'menu_class' => 'f-menu'
+						]) ?>
 
 						<?php wp_nav_menu([
 							'theme_location' => 'footer_col_3',
 							'menu_class' => 'f-menu'
 						]) ?>
 
-						<?php if (!empty($phone['phone_1'])) : ?>
 
-							<a href="<?= 'tel:' . $phone['phone_1']; ?>" class="phone-number">
-								<?= $phone['phone_1'] ?>
-							</a>
+						<?php wp_nav_menu([
+							'theme_location' => 'footer_col_4',
+							'menu_class' => 'f-menu'
+						]) ?>
 
-						<?php endif; ?>
+						<div class="footer__items__right__social-media">
 
-						<?php if (!empty($phone['phone_2'])) : ?>
+							<?php wp_nav_menu([
+								'theme_location' => 'footer_col_5',
+								'menu_class' => 'f-menu'
+							]) ?>
 
-							<a href="<?= 'tel:' . $phone['phone_2']; ?>" class="phone-number">
-								<?= $phone['phone_2'] ?>
-							</a>
+							<?php if (!empty($phone['phone_1'])) : ?>
 
-						<?php endif; ?>
+								<a href="<?= 'tel:' . $phone['phone_1']; ?>" class="phone-number">
+									<?= $phone['phone_1'] ?>
+								</a>
 
-						<?php if (!empty($phone['phone_3'])) : ?>
+							<?php endif; ?>
 
-							<a href="<?= 'tel:' . $phone['phone_3']; ?>" class="phone-number">
-								<?= $phone['phone_3'] ?>
-							</a>
+							<?php if (!empty($phone['phone_2'])) : ?>
 
-						<?php endif; ?>
+								<a href="<?= 'tel:' . $phone['phone_2']; ?>" class="phone-number">
+									<?= $phone['phone_2'] ?>
+								</a>
 
+							<?php endif; ?>
 
-						<?php if (!empty($social["whats_app"])   || !empty($social["instagram"])  || !empty($social["pintrest"])) : ?>
+							<?php if (!empty($phone['phone_3'])) : ?>
 
-							<div class="footer__items__right__social-media__items">
+								<a href="<?= 'tel:' . $phone['phone_3']; ?>" class="phone-number">
+									<?= $phone['phone_3'] ?>
+								</a>
 
-								<?php if (!empty($social["whats_app"])) : ?>
+							<?php endif; ?>
 
-									<a href="<?= $social["whats_app"]; ?>" class="social-icon">
-										<i class="whatsapp"><?php get_template_part("/assets/img/svg/whatsapp") ?></i>
-									</a>
+						</div>
 
-								<?php endif; ?>
+					</div>
 
-								<?php if (!empty($social["instagram"])) : ?>
+					<div class="footer__items__left">
 
-									<a href="<?= $social["instagram"]; ?>" class="social-icon">
-										<i class="instagram"><?php get_template_part("/assets/img/svg/instagram") ?></i>
-									</a>
+						<?php if (isset($enamad_img)) : ?>
 
-								<?php endif; ?>
-
-								<?php if (!empty($social["pintrest"])) : ?>
-
-									<a href="<?= $social["pintrest"]; ?>" class="social-icon">
-										<i class="pintrest"><?php get_template_part("/assets/img/svg/pintrest") ?></i>
-									</a>
-
-								<?php endif; ?>
-
+							<div class="enamad">
+								<?= $enamad_img ?>
 							</div>
 
-						<?php endif; ?>
+						<?php endif ?>
+
+					</div>
+
+					<?php if (!empty($social["whats_app"])   || !empty($social["instagram"])  || !empty($social["pintrest"])) : ?>
+
+						<div class="footer__items__right__social-media__items">
+
+							<?php if (!empty($social["whats_app"])) : ?>
+
+								<a href="<?= $social["whats_app"]; ?>" class="social-icon">
+									<i class="whatsapp"><?php get_template_part("/assets/img/svg/whatsapp") ?></i>
+								</a>
+
+							<?php endif; ?>
+
+							<?php if (!empty($social["instagram"])) : ?>
+
+								<a href="<?= $social["instagram"]; ?>" class="social-icon">
+									<i class="instagram"><?php get_template_part("/assets/img/svg/instagram") ?></i>
+								</a>
+
+							<?php endif; ?>
+
+							<?php if (!empty($social["pintrest"])) : ?>
+
+								<a href="<?= $social["pintrest"]; ?>" class="social-icon">
+									<i class="pintrest"><?php get_template_part("/assets/img/svg/pintrest") ?></i>
+								</a>
+
+							<?php endif; ?>
+
+						</div>
+
+					<?php endif; ?>
+
+				</div>
+
+			</div>
+
+		</section>
+
+		<section class="footer paralax">
+
+			<div class="container">
+
+				<div class="footer__items">
+
+
+					<button id="scrolltotop">
+						<i class="iconsax" icon-name="arrow-up"></i>
+					</button>
+
+					<div class="footer__items__left">
+
+						<?php if (isset($img_logo)) : ?>
+
+							<?= wp_get_attachment_image($img_logo, 'full') ?>
+
+						<?php endif ?>
 
 					</div>
 
 				</div>
 
-
-
-				<div class="footer__items__left">
-
-					<?php if (isset($enamad_img)) : ?>
-
-						<div class="enamad">
-							<?= $enamad_img ?>
-						</div>
-
-					<?php endif ?>
-
-				</div>
-
 			</div>
 
-		</div>
-
-	</section>
-
-	<section class="footer paralax">
-
-		<div class="container">
-
-			<div class="footer__items">
-
-
-				<button id="scrolltotop">
-					<i class="iconsax" icon-name="arrow-up"></i>
-				</button>
-
-				<div class="footer__items__left">
-
-					<?php if (isset($img_logo)) : ?>
-
-						<?= wp_get_attachment_image($img_logo, 'full') ?>
-
-					<?php endif ?>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
-
+		</section>
+	</div>
 </footer>
 
 <div class="wp-scripts">

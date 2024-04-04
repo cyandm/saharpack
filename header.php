@@ -49,6 +49,10 @@ $my_order_template = [
 
 $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
 
+
+global $current_user;
+
+
 ?>
 
 <body <?php body_class() ?>>
@@ -57,7 +61,7 @@ $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
 
     <header class="header ">
 
-        <section class="container<?php if ($login_page) echo 'login_page' ?> <?php echo $backabsolute == true ? 'backabsolute' : '' ?>">
+        <section class="container <?php if ($login_page) echo 'login_page' ?> <?php echo $backabsolute == true ? 'backabsolute' : '' ?>">
 
             <?php get_template_part('/templates/components/mobile-menu', null, ['page_my_order_link' => $page_my_order_link]) ?>
 
@@ -102,6 +106,11 @@ $page_my_order_link = get_permalink(get_posts($my_order_template)[0]);
                             <div class="children sub-menu">
                                 <div>
                                     <ul>
+
+                                        <li>
+                                            <span class="is-login"><?= pll__("you_login_with_the_number") . " " . $current_user->user_nicename . " " . pll__("you_logged")  ?> </span>
+                                        </li>
+
                                         <li>
                                             <a href="<?= $page_my_order_link ?>">
                                                 <?php pll_e("order-tracking") ?>

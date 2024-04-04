@@ -165,6 +165,9 @@ function register_translate_login()
     pll_register_string('enter', 'enter', 'Cyan');
 
     pll_register_string('enter-number-for-login', 'enter-number-for-login', 'Cyan');
+
+    pll_register_string('you_login_with_the_number', 'You_login_with_the_number', 'Cyan');
+    pll_register_string('you_logged', 'you_logged', 'Cyan');
 }
 function register_translate_product()
 {
@@ -172,6 +175,7 @@ function register_translate_product()
     pll_register_string('cart', 'cart', 'Cyan');
     pll_register_string('total-price', 'total-price', 'Cyan');
     pll_register_string('type-of-shipment', 'type-of-shipment', 'Cyan');
+    pll_register_string('all_products', 'all_products', 'Cyan');
 
     pll_register_string('order-code', 'order-code', 'Cyan');
     pll_register_string('order-count', 'order-count', 'Cyan');

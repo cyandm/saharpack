@@ -20,15 +20,17 @@ $radios = [
 
 <?php get_header() ?>
 
-<div class="breadcrumb-wrapper">
-	<div class="breadcrumb-product container">
-		<?php if (function_exists('rank_math_the_breadcrumbs'))
-			rank_math_the_breadcrumbs(); ?>
-	</div>
-	<!-- <i class="divider"></i> -->
-</div>
+
 
 <main id="searchPage">
+
+	<div class="breadcrumb-wrapper">
+		<div class="breadcrumb-product container">
+			<?php if (function_exists('rank_math_the_breadcrumbs'))
+				rank_math_the_breadcrumbs(); ?>
+		</div>
+		<!-- <i class="divider"></i> -->
+	</div>
 
 	<div class="search-bar ">
 		<div class="search-bar__wrapper | container">

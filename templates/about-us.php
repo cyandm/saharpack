@@ -11,59 +11,61 @@ $description = get_field('description');
 
 <?php get_header(); ?>
 
-<main class="container">
+<main>
+    <div class="container">
 
-    <section class="about-us">
+        <section class="about-us">
 
-        <div class="about-us__content">
-            <?php if ($title) : ?>
+            <div class="about-us__content">
+                <?php if ($title) : ?>
 
-                <div class="about-us__content__title">
+                    <div class="about-us__content__title">
 
-                    <h1><span><?= $title ?></span></h1>
+                        <h1><span><?= $title ?></span></h1>
 
-                </div>
-            <?php endif ?>
+                    </div>
+                <?php endif ?>
 
-            <div class="about-us__content__item">
+                <div class="about-us__content__item">
 
-                <?php
-                $video_show = !$video_file && !$video_link;
+                    <?php
+                    $video_show = !$video_file && !$video_link;
 
-                if (!$video_show) : ?>
+                    if (!$video_show) : ?>
 
-                    <div class="about-us__content__item__video">
+                        <div class="about-us__content__item__video">
 
-                        <video width="100%" height="100%" controls class="video">
+                            <video width="100%" height="100%" controls class="video">
 
-                            <source src="<?= $video_link ?>" />
-                            <source src="<?= $video_file ?>" />
-                        </video>
+                                <source src="<?= $video_link ?>" />
+                                <source src="<?= $video_file ?>" />
+                            </video>
 
-                        <div class="video-cover" style="background-image: url(<?= $cover_video ?>);">
-                            <i class="iconsax" icon-name="play"></i>
-                            <p><?= $cover_text ?></p>
+                            <div class="video-cover" style="background-image: url(<?= $cover_video ?>);">
+                                <i class="iconsax" icon-name="play"></i>
+                                <p><?= $cover_text ?></p>
+                            </div>
+
                         </div>
 
-                    </div>
+                    <?php endif; ?>
 
-                <?php endif; ?>
+                    <?php if (!empty($description)) : ?>
 
-                <?php if (!empty($description)) : ?>
+                        <div class="about-us__content__item__description">
 
-                    <div class="about-us__content__item__description">
+                            <?= $description ?>
 
-                        <?= $description ?>
+                        </div>
 
-                    </div>
+                    <?php endif; ?>
 
-                <?php endif; ?>
-
-            </div>
+                </div>
 
 
 
-    </section>
+        </section>
+    </div>
 
 </main>
 
