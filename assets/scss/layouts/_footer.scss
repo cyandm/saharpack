@@ -27,6 +27,10 @@ footer {
       @include d_flex(row, space-between, flex-start, $gap: $s_8);
       flex: 2;
 
+      @media (max-width: 800px) {
+        justify-content: unset;
+      }
+
       @media (max-width: 635px) {
         justify-content: start;
       }
@@ -36,9 +40,9 @@ footer {
       }
 
       > div {
-        min-width: 230px;
+        min-width: auto;
 
-        @media (max-width: 786px) {
+        @media (max-width: 800px) {
           min-width: 180px;
         }
 
@@ -63,9 +67,9 @@ footer {
       &__social-media {
         @include d_flex(column, $gap: $s_2);
 
-        @media (max-width: 635px) {
-          min-width: 100% !important;
-        }
+        // @media (max-width: 635px) {
+        //   min-width: 100% !important;
+        // }
 
         &__items {
           @include d_flex(row, center, center, $gap: $s_4);
@@ -169,10 +173,11 @@ html[lang="en-US"] body {
 
   .footer__items__left {
     img {
-      min-width: 28.75rem;
+      min-width: 70vw;
+      filter: brightness(10);
 
       @include mq("md") {
-        min-width: 18rem;
+        min-width: 80vw;
       }
     }
   }

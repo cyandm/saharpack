@@ -7,6 +7,9 @@ $login = [
     'meta_value' => 'templates/login.php'
 ];
 $login_link = get_permalink(get_posts($login)[0]);
+
+global $current_user;
+
 ?>
 <div class="menu-handler">
     <i class="iconsax icon-menu" icon-name="hamburger-menu" id="mobileMenuToggle"></i>
@@ -14,7 +17,7 @@ $login_link = get_permalink(get_posts($login)[0]);
 
 <div class="mobile-menu" id="mobileMenu">
 
-    <div class="mobile-menu__btn">
+    <div class="mobile-menu__item">
 
         <div id="langSwitcher" class="width-lang">
             <?php
@@ -24,9 +27,15 @@ $login_link = get_permalink(get_posts($login)[0]);
 
         <?php if (is_user_logged_in()) : ?>
 
-            <a href="<?= $args['page_my_order_link'] ?>" class="btn tracking" variant="secondary">
-                <?php pll_e('order-tracking'); ?>
-            </a>
+            <div class="mobile-menu__item__btn">
+
+                <span class="is-login"><?= pll__("you_login_with_the_number") . " " . $current_user->user_nicename . " " . pll__("you_logged")  ?> </span>
+
+                <a href="<?= $args['page_my_order_link'] ?>" class="btn tracking" variant="secondary">
+                    <?php pll_e('order-tracking'); ?>
+                </a>
+
+            </div>
 
         <?php endif ?>
 

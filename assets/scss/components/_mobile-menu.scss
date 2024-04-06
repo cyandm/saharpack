@@ -37,8 +37,13 @@ body[data-popup-open="true"] {
     clip-path: inset(0 0 0 0);
   }
 
-  &__btn {
-    @include d_flex(row-reverse, space-between, center, nowrap, $gap: $s_2);
+  &__item {
+    @include d_flex(row-reverse, space-between, end, nowrap, $gap: $s_2);
+
+    &__btn {
+      @include d_flex(column, space-between, stretch, $gap: $s_2);
+      flex: 1;
+    }
   }
 
   .tracking {

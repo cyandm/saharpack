@@ -166,7 +166,7 @@ function register_translate_login()
 
     pll_register_string('enter-number-for-login', 'enter-number-for-login', 'Cyan');
 
-    pll_register_string('you_login_with_the_number', 'You_login_with_the_number', 'Cyan');
+    pll_register_string('you_login_with_the_number', 'you_login_with_the_number', 'Cyan');
     pll_register_string('you_logged', 'you_logged', 'Cyan');
 }
 function register_translate_product()

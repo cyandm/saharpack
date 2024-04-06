@@ -91,7 +91,11 @@ div.my-order {
     top: px_to_rem(32);
     img {
       object-fit: contain;
-      max-width: px_to_rem(400);
+      max-width: px_to_rem(288);
+
+      @include mq("md") {
+        max-width: px_to_rem(256);
+      }
     }
   }
   @include mq("md") {
