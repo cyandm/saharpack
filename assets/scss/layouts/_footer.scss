@@ -17,6 +17,7 @@ footer {
   &__items {
     @include d_flex(row, space-between, center);
     padding-block: px_to_rem(44);
+    border-bottom: 2px solid $clr_primary_text;
 
     @include mq("lg") {
       flex-direction: column;
@@ -73,7 +74,6 @@ footer {
 
         &__items {
           @include d_flex(row, center, center, $gap: $s_4);
-
           margin-top: $s_10;
           min-width: 100%;
 
@@ -104,15 +104,6 @@ footer {
             }
           }
         }
-
-        .phone-number {
-          transition: $t_1;
-          @include fs("body-s");
-
-          &:hover {
-            color: $clr_secondary_dark;
-          }
-        }
       }
     }
 
@@ -133,6 +124,15 @@ footer {
         height: auto;
       }
     }
+  }
+}
+
+.phone-number {
+  transition: $t_1;
+  @include fs("body-s");
+
+  &:hover {
+    color: $clr_secondary_dark;
   }
 }
 
@@ -169,6 +169,7 @@ html[lang="en-US"] body {
 
   .footer__items {
     justify-content: center;
+    border-bottom: unset;
   }
 
   .footer__items__left {

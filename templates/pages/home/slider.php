@@ -1,6 +1,7 @@
 <?php
 $front_page_id = get_option('page_on_front');
 $sliders = get_field("sliders");
+$sign_logo = $sliders["sign_file"];
 ?>
 
 <?php if (isset($sliders)) : ?>
@@ -9,7 +10,13 @@ $sliders = get_field("sliders");
 
         <div class="swiper-wrapper">
 
-            <?php foreach ($sliders as $slider) : ?>
+            <?php foreach ($sliders as $slider) :
+                if (
+                    !$slider['image_d'] ||
+                    !$slider['image_m']
+                ) continue;
+
+            ?>
 
                 <div class="slider__content swiper-slide">
 
@@ -31,7 +38,7 @@ $sliders = get_field("sliders");
 
                         <div class="slider__content__front__img">
 
-                            <img src="<?= get_stylesheet_directory_uri() . '/assets/img/logo-slider.png' ?>" alt="">
+                            <?= wp_get_attachment_image($sign_logo, 'full'); ?>
 
                         </div>
                     </div>
@@ -41,6 +48,8 @@ $sliders = get_field("sliders");
             <?php endforeach; ?>
 
         </div>
+
+        <div class="swiper-pagination"></div>
 
     </section>
 

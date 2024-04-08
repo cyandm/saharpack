@@ -79,6 +79,7 @@ $page_product_link = get_permalink(get_posts($product_template)[0]);
                             array(
                                 'min_value' => apply_filters('woocommerce_quantity_input_min', $wc_product->get_min_purchase_quantity(), $wc_product),
                                 'max_value' => apply_filters('woocommerce_quantity_input_max', $wc_product->get_max_purchase_quantity(), $wc_product),
+                                'step' => 3,
                                 'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $wc_product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
                                 'classes' => "form-control"
                             )

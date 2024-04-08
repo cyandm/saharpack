@@ -2,7 +2,7 @@
 
 .err-page {
   @include d_flex(row, center, center);
-  margin-block-start: $s_5;
+  padding-block-start: $s_5;
   min-height: 50vh;
 
   &__content {

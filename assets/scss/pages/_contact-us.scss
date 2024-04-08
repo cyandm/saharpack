@@ -1,9 +1,10 @@
 @use "../utils/" as *;
 main.contact-us-page {
+  display: flex;
   padding-block-start: $s_6;
 
   .container {
-    @include d_flex(row, space-between, center, nowrap, true, $s_2);
+    @include d_flex(row-reverse, space-between, center, nowrap, true, $s_2);
     @include mq("md") {
       gap: $s_4;
     }
@@ -14,6 +15,15 @@ main.contact-us-page {
 
       > div {
         min-width: 100%;
+      }
+    }
+
+    @include mq("md") {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      > div {
+        width: 100%;
       }
     }
   }
@@ -33,15 +43,13 @@ main.contact-us-page {
       }
     }
   }
-  @include mq("md") {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    > div {
-      width: 100%;
-    }
-  }
 }
+
+.phone {
+  margin-block-start: $s_2;
+  @include d_flex(column, $gap: $s_1);
+}
+
 html[lang="en-US"] {
   #contact-us-form input,
   #contact-us-form textarea {

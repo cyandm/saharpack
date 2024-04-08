@@ -25,10 +25,8 @@ main.single-post-page {
       }
       .post-images img {
         width: 100%;
-        height: 400px;
-        @include mq("md") {
-          height: 210px;
-        }
+        height: 475px;
+        object-fit: contain;
       }
       img.alignnone {
         padding: $s_4;

@@ -5,7 +5,7 @@
   padding-block-start: $s_6;
 
   &__content {
-    @include d_flex(column, $gap: $s_6);
+    @include d_flex(column, $a_i: center, $gap: $s_6);
 
     &__title {
       min-width: 100%;
@@ -24,15 +24,27 @@
     }
 
     &__item {
-      @include d_flex(column, $gap: $s_6);
+      @include d_flex(column, center, center, $gap: $s_6, $wrap: nowrap);
 
       @media (max-width: 1200px) {
         flex-direction: column;
       }
 
+      --width: 38rem;
+      max-width: var(--width);
+
+      @include mq("md") {
+        --width: 100%;
+      }
+
       &__video {
         position: relative;
-        flex: 1;
+        width: var(--width);
+        height: var(--width);
+
+        > video {
+          aspect-ratio: 1/1;
+        }
 
         .video-cover {
           position: absolute;
@@ -95,19 +107,13 @@
             color: $clr_text_dark;
 
             @include mq("md") {
-              @include fs("h5");
-            }
-
-            @include mq("lg") {
-              bottom: -2%;
+              @include fs("h2");
+              bottom: 0;
             }
 
             @include mq("sm") {
-              bottom: -5%;
-            }
-
-            @include mq("xs") {
-              bottom: -10%;
+              @include fs("h3");
+              bottom: -3%;
             }
           }
         }

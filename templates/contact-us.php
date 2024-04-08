@@ -5,6 +5,13 @@ $contact_us_description = isset($contact_us['page_description']) ? $contact_us['
 $contact_us_address_title = isset($contact_us['location_title']) ? $contact_us['location_title'] : '';
 $contact_us_address = isset($contact_us['location_address']) ? $contact_us['location_address'] : '';
 
+$front_page_id = get_option('page_on_front');
+$phone = get_field("phone", $front_page_id);
+if (!empty($phone)) {
+    $phone_number_1 = $phone['phone_1'];
+    $phone_number_2 = $phone['phone_2'];
+    $phone_number_3 = $phone['phone_3'];
+}
 
 /*Template Name: Contact-us Page */
 ?>
@@ -28,12 +35,34 @@ $contact_us_address = isset($contact_us['location_address']) ? $contact_us['loca
                 } ?>
             </div>
 
-            <div class="enter-code-form">
+            <div class="phone">
+                <?php if (!empty($phone['phone_1'])) : ?>
 
-            </div>
-            <div class="welcome-user">
+                    <a href="<?= 'tel:' . $phone['phone_1']; ?>" class="phone-number">
+                        <?= $phone['phone_1'] ?>
+                    </a>
 
+                <?php endif; ?>
+
+                <?php if (!empty($phone['phone_2'])) : ?>
+
+                    <a href="<?= 'tel:' . $phone['phone_2']; ?>" class="phone-number">
+                        <?= $phone['phone_2'] ?>
+                    </a>
+
+                <?php endif; ?>
+
+                <?php if (!empty($phone['phone_3'])) : ?>
+
+                    <a href="<?= 'tel:' . $phone['phone_3']; ?>" class="phone-number">
+                        <?= $phone['phone_3'] ?>
+                    </a>
+
+                <?php endif; ?>
             </div>
+
+
+
         </div>
     </div>
 </main>

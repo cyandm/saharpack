@@ -2346,7 +2346,7 @@
       swiper: swiper2,
       runCallbacks,
       direction,
-      step
+      step: step2
     } = _ref;
     const {
       activeIndex,
@@ -2361,17 +2361,17 @@
       else
         dir = "reset";
     }
-    swiper2.emit("transition".concat(step));
+    swiper2.emit("transition".concat(step2));
     if (runCallbacks && activeIndex !== previousIndex) {
       if (dir === "reset") {
-        swiper2.emit("slideResetTransition".concat(step));
+        swiper2.emit("slideResetTransition".concat(step2));
         return;
       }
-      swiper2.emit("slideChangeTransition".concat(step));
+      swiper2.emit("slideChangeTransition".concat(step2));
       if (dir === "next") {
-        swiper2.emit("slideNextTransition".concat(step));
+        swiper2.emit("slideNextTransition".concat(step2));
       } else {
-        swiper2.emit("slidePrevTransition".concat(step));
+        swiper2.emit("slidePrevTransition".concat(step2));
       }
     }
   }
@@ -4838,32 +4838,6 @@
   });
   Swiper.use([Resize, Observer]);
 
-  // assets/js/modules/swiper.js
-  var sliderHero = new Swiper("#sliderHero", {
-    slidesPerView: "auto",
-    //max-width in html 650px on swiper-slide
-    //   centeredSlides: true,
-    spaceBetween: 12,
-    loop: true,
-    width: window.innerWidth,
-    autoplay: {
-      delay: 3e3
-    }
-  });
-
-  // assets/js/modules/drop-down.js
-  var selectHandler = document.getElementById("productDropDown");
-  var optionSelect = document.querySelectorAll("#productDropDown option");
-  if (selectHandler && optionSelect) {
-    selectHandler.addEventListener("change", (e) => {
-      optionSelect.forEach((el) => {
-        if (el.value === e.target.value) {
-          window.location = el.dataset.uri;
-        }
-      });
-    });
-  }
-
   // node_modules/swiper/shared/create-element-if-not-defined.mjs
   function createElementIfNotDefined(swiper2, originalParams, params, checkProps) {
     if (swiper2.params.createElements) {
@@ -5847,6 +5821,38 @@
     });
   }
 
+  // assets/js/modules/swiper.js
+  var sliderHero = new Swiper("#sliderHero", {
+    modules: [Autoplay, Navigation, Pagination],
+    slidesPerView: "auto",
+    //max-width in html 650px on swiper-slide
+    //   centeredSlides: true,
+    spaceBetween: 12,
+    loop: true,
+    width: window.innerWidth,
+    autoplay: {
+      delay: 6500,
+      pauseOnMouseEnter: true
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets"
+    }
+  });
+
+  // assets/js/modules/drop-down.js
+  var selectHandler = document.getElementById("productDropDown");
+  var optionSelect = document.querySelectorAll("#productDropDown option");
+  if (selectHandler && optionSelect) {
+    selectHandler.addEventListener("change", (e) => {
+      optionSelect.forEach((el) => {
+        if (el.value === e.target.value) {
+          window.location = el.dataset.uri;
+        }
+      });
+    });
+  }
+
   // assets/js/modules/slider-blog.js
   var swiper = new Swiper(".swiper-container", {
     modules: [Autoplay, Navigation, Pagination],
@@ -5881,28 +5887,13 @@
   var addToCartBtnSingleProduct = document.querySelector(
     '.share-and-add-cart a[variant="primary"]'
   );
-  if (plusButton) {
-    plusButton.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        quantity.forEach((count) => {
-          if (btn.parentElement === count.parentElement.parentElement) {
-            count.value = Number(count.value) + 1;
-          }
-        });
-        if (quantityInputSingleProduct && addToCartBtnSingleProduct) {
-          const hrefBaseQuantityPlus = addToCartBtnSingleProduct.href;
-          addToCartBtnSingleProduct.href = hrefBaseQuantityPlus + "&quantity=" + quantityInputSingleProduct.value;
-        }
-      });
-    });
-  }
   if (minusButton) {
     minusButton.forEach((btn) => {
       btn.addEventListener("click", () => {
         quantity.forEach((count) => {
           if (btn.parentElement === count.parentElement.parentElement) {
             if (count.value >= 1)
-              count.value = Number(count.value) - 1;
+              count.value = Number(count.value) - Number(step);
           }
         });
         if (quantityInputSingleProduct && addToCartBtnSingleProduct) {

@@ -10,9 +10,9 @@ $notfound_btn = get_field('notfound_btn', $front_page_id);
 
 ?>
 
-<main class="container">
+<main>
 
-    <section class="err-page">
+    <section class="err-page container">
 
         <div class="err-page__content">
 

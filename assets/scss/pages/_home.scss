@@ -5,7 +5,7 @@
     &__content {
       position: relative;
       @include d_flex(row, center, center);
-      margin-block-start: $s_3;
+      // margin-block-start: $s_3;
 
       &[data-swiper-slide-index="0"] {
         .slider__content__front__img {
@@ -23,14 +23,19 @@
             display: flex;
           }
 
-          @media (max-width: 600px) {
-            margin-block-start: $s_13;
-          }
+          // @media (max-width: 600px) {
+          //   margin-block-start: $s_13;
+          // }
         }
 
         &.s-desktop {
           @include mq("lg") {
             display: none;
+          }
+
+          > img {
+            height: 820px;
+            width: 100vw;
           }
         }
       }
@@ -41,7 +46,8 @@
         right: 5%;
         translate: 0% -50%;
         max-width: 375px;
-        @include d_flex(column, space-between, center, $gap: $s_2);
+        @include d_flex(column, space-between, center);
+        gap: 3.5rem;
 
         @include mq("lg") {
           right: unset;
@@ -333,18 +339,6 @@
 
           @include mq("md") {
             margin-block: $s_3;
-          }
-
-          > img {
-            max-width: 390px;
-
-            @include mq("md") {
-              max-width: 346px;
-            }
-
-            @media (max-width: 385px) {
-              max-width: 100%;
-            }
           }
         }
       }
