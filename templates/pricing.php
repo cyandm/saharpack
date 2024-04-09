@@ -356,7 +356,7 @@ $thumb_id = get_post_thumbnail_id();
 									<?php pll_e('minimum-circulation-per-order-(number)') ?>
 								</span>
 
-								<input class="w-full input-primary" type="text" name="minimumCirculation" id="minimumCirculation" placeholder="<?php pll_e('type-here') ?>">
+								<input class="w-full input-primary" type="number" min="<?= get_field("min_number") ?>" name="minimumCirculation" id="minimumCirculation" placeholder="<?php pll_e('type-here') ?>">
 							</div>
 
 							<div>

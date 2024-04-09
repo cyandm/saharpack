@@ -2346,7 +2346,7 @@
       swiper: swiper2,
       runCallbacks,
       direction,
-      step: step2
+      step
     } = _ref;
     const {
       activeIndex,
@@ -2361,17 +2361,17 @@
       else
         dir = "reset";
     }
-    swiper2.emit("transition".concat(step2));
+    swiper2.emit("transition".concat(step));
     if (runCallbacks && activeIndex !== previousIndex) {
       if (dir === "reset") {
-        swiper2.emit("slideResetTransition".concat(step2));
+        swiper2.emit("slideResetTransition".concat(step));
         return;
       }
-      swiper2.emit("slideChangeTransition".concat(step2));
+      swiper2.emit("slideChangeTransition".concat(step));
       if (dir === "next") {
-        swiper2.emit("slideNextTransition".concat(step2));
+        swiper2.emit("slideNextTransition".concat(step));
       } else {
-        swiper2.emit("slidePrevTransition".concat(step2));
+        swiper2.emit("slidePrevTransition".concat(step));
       }
     }
   }
@@ -5887,7 +5887,24 @@
   var addToCartBtnSingleProduct = document.querySelector(
     '.share-and-add-cart a[variant="primary"]'
   );
-  if (minusButton) {
+  if (plusButton.length > 0) {
+    const step = quantity[0].step;
+    plusButton.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        quantity.forEach((count) => {
+          if (btn.parentElement === count.parentElement.parentElement) {
+            count.value = Number(count.value) + Number(step);
+          }
+        });
+        if (quantityInputSingleProduct && addToCartBtnSingleProduct) {
+          const hrefBaseQuantityPlus = addToCartBtnSingleProduct.href;
+          addToCartBtnSingleProduct.href = hrefBaseQuantityPlus + "&quantity=" + quantityInputSingleProduct.value;
+        }
+      });
+    });
+  }
+  if (minusButton.length > 0) {
+    const step = quantity[0].step;
     minusButton.forEach((btn) => {
       btn.addEventListener("click", () => {
         quantity.forEach((count) => {
@@ -6041,6 +6058,21 @@
     } else {
       scrollBtn.style.display = "none";
     }
+  }
+
+  // assets/js/modules/change-text-bread.js
+  var htmlEl = document.querySelector("html");
+  var breadCrumbFirstLink = document.querySelector(
+    ".rank-math-breadcrumb p > a"
+  );
+  function changeText() {
+    if (htmlEl.lang === "en-US") {
+      breadCrumbFirstLink.innerText = "home";
+      breadCrumbFirstLink.href = window.location.origin + "/en";
+    }
+  }
+  if (breadCrumbFirstLink) {
+    changeText();
   }
 
   // assets/js/pages/single-product.js

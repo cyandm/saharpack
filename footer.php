@@ -102,17 +102,6 @@ if (!empty($enamad)) {
 
 					</div>
 
-					<div class="footer__items__left">
-
-						<?php if (isset($enamad_img)) : ?>
-
-							<div class="enamad">
-								<?= $enamad_img ?>
-							</div>
-
-						<?php endif ?>
-
-					</div>
 
 					<?php if (!empty($social["whats_app"])   || !empty($social["instagram"])  || !empty($social["pintrest"])) : ?>
 
@@ -158,7 +147,6 @@ if (!empty($enamad)) {
 
 				<div class="footer__items">
 
-
 					<button id="scrolltotop">
 						<i class="iconsax" icon-name="arrow-up"></i>
 					</button>
@@ -168,6 +156,14 @@ if (!empty($enamad)) {
 						<?php if (isset($img_logo)) : ?>
 
 							<?= wp_get_attachment_image($img_logo, 'full') ?>
+
+						<?php endif ?>
+
+						<?php if (isset($enamad_img)) : ?>
+
+							<div class="enamad">
+								<?= $enamad_img ?>
+							</div>
 
 						<?php endif ?>
 

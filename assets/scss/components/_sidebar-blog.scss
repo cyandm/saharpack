@@ -1,34 +1,54 @@
-@use '../utils/' as *;
+@use "../utils/" as *;
 .sidebar {
-  width: 30%;
-  @include mq('md') {
+  width: 25%;
+  @include mq("md") {
     width: 100%;
     border-bottom: $b_3;
     margin: $s_5;
   }
 
   ul {
-    padding: 20px 0;
-    @include mq('md') {
+    @include mq("md") {
       display: inline-flex;
     }
+
+    padding-block-end: $s_6;
+
+    border-bottom: $b_1;
   }
 
   .cat-item {
-    line-height: $s_10;
     border-bottom: $b_3;
     list-style: none;
-    @include mq('md') {
+    @include mq("md") {
       margin-left: $s-3;
       border: 0;
+    }
+
+    &:last-child {
+      border-bottom: unset;
+    }
+
+    > a {
+      padding-block: $s_4;
+      display: inline-block;
+      min-width: 100%;
+    }
+  }
+
+  > div {
+    margin-block-start: $s_6;
+
+    > h4 {
+      margin-block-end: $s_3;
     }
   }
 }
 .search-blog {
   @include d_flex($a_i: center, $wrap: nowrap);
   border-bottom: $b_3;
-  margin-bottom: $s-2;
-  @include mq('md') {
+  margin-bottom: $s_6;
+  @include mq("md") {
     width: 100%;
   }
   i {

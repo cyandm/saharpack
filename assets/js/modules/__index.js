@@ -13,3 +13,4 @@ import "./mouse";
 import "./look";
 import "./delete-forms-comment";
 import "./scroll-to-top";
+import "./change-text-bread";

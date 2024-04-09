@@ -7,7 +7,7 @@ main.single-post-page {
       flex-direction: column;
     }
     .post-main {
-      width: 70%;
+      width: 75%;
       @include mq("md") {
         width: 100%;
       }
@@ -45,13 +45,11 @@ main.single-post-page {
       }
       img.aligncenter {
         width: 100%;
-        height: 320px;
       }
     }
   }
   img {
     object-fit: cover;
-    border-radius: $r_1;
   }
 
   .mb-meta {
