@@ -13,3 +13,19 @@ function changeText() {
 if (breadCrumbFirstLink) {
   changeText();
 }
+
+const priceCurrency = document.querySelector(
+  ".woocommerce-Price-currencySymbol"
+);
+
+console.log(priceCurrency);
+
+function changePrice() {
+  if (htmlEl.lang === "en-US") {
+    priceCurrency.innerText = " Toman ";
+  }
+}
+
+if (priceCurrency) {
+  changePrice();
+}

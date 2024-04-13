@@ -6033,7 +6033,7 @@
     }
   }
 
-  // assets/js/modules/change-text-bread.js
+  // assets/js/modules/change-text.js
   var htmlEl = document.querySelector("html");
   var breadCrumbFirstLink = document.querySelector(
     ".rank-math-breadcrumb p > a"
@@ -6046,6 +6046,18 @@
   }
   if (breadCrumbFirstLink) {
     changeText();
+  }
+  var priceCurrency = document.querySelector(
+    ".woocommerce-Price-currencySymbol"
+  );
+  console.log(priceCurrency);
+  function changePrice() {
+    if (htmlEl.lang === "en-US") {
+      priceCurrency.innerText = " Toman ";
+    }
+  }
+  if (priceCurrency) {
+    changePrice();
   }
 
   // assets/js/pages/single-product.js
