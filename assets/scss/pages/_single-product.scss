@@ -166,7 +166,7 @@ main.single-product-page {
     margin-top: $s_5;
     .btn-view-all {
       &__mobile {
-        margin-block: $s_4;
+        margin-block-start: $s_4;
         display: none;
         text-align: center;
         @include mq("sm") {

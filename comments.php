@@ -12,19 +12,17 @@ comment_form(
 		'logged_in_as' => null,
 		'title_reply' => pll__("join-in-this-discussion"),
 		'title_reply_to' => pll__("send-reply-to") . " %s",
-		'comment_field' => '
-			<div class="input-gp">
-
-			<div class="input-box"><i class="iconsax"
-			icon-name="mail"></i><input id="mail" name="mail" class="comment-input" rows="1" maxlength="6525" placeholder= "' . $your_email . '" required/>
-			</div>
-
-			<div class="input-box"><i class="iconsax"
-			icon-name="user-1"></i><input id="name" name="name" class="comment-input" rows="1" maxlength="6525" placeholder="' . $your_name . '" required/></div>
-			
-			<div class="input-box text-area"><i class="iconsax" icon-name="message-dots"></i>
+		'fields' => apply_filters('comment_form_default_fields', [
+			'author' => '<div class="input-box name"><i class="iconsax"
+		 	icon-name="user-1"></i><input id="name" name="name" class="comment-input" rows="1" maxlength="6525" placeholder="' . $your_name . '" required/></div>',
+			'email' => '<div class="input-box email"><i class="iconsax"
+		 	icon-name="mail"></i><input id="mail" name="mail" class="comment-input" rows="1" maxlength="6525" placeholder= "' . $your_email . '" required/>
+		 	</div>',
+			'url' => '',
+			'cookies' => ''
+		]),
+		'comment_field' => '<div class="input-box text-area"><i class="iconsax" icon-name="message-dots"></i>
 			<textarea id="comment" name="comment" class="comment-input" rows="3" maxlength="65525" placeholder="' . $your_comment . '" required></textarea>
-			</div>
 			</div>',
 		'id_submit' => "submit-commentform",
 		'class_submit' => "btn-primary cursor-pointer",
@@ -88,7 +86,7 @@ function ip_post_likes($content)
 		ob_start();
 
 ?>
-		<ul class="likes">
+		<!-- <ul class="likes">
 			<li class="likes__item likes__item--like">
 				<a href="<?php echo add_query_arg('post_action', 'like'); ?>">
 					Like (<?php echo ip_get_like_count('likes') ?>)
@@ -99,7 +97,7 @@ function ip_post_likes($content)
 					Dislike (<?php echo ip_get_like_count('dislikes') ?>)
 				</a>
 			</li>
-		</ul>
+		</ul> -->
 <?php
 
 		$output = ob_get_clean();

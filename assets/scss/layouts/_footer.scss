@@ -36,7 +36,7 @@ footer {
         justify-content: start;
       }
 
-      @media (min-width: 635px) and (max-width: 802px) {
+      @media (max-width: 802px) {
         gap: 0;
       }
 
@@ -44,11 +44,11 @@ footer {
         min-width: auto;
 
         @media (max-width: 800px) {
-          min-width: 180px;
+          min-width: 160px;
         }
 
-        @media (max-width: 440px) {
-          min-width: auto;
+        @media (max-width: 368px) {
+          min-width: 130px;
         }
       }
 

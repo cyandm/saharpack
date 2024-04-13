@@ -10,6 +10,23 @@
 
   .comment-form {
     padding: $s_4;
+    @include d_flex(row, flex-end);
+
+    .name {
+      order: 1;
+    }
+
+    .email {
+      order: 2;
+    }
+
+    .text-area {
+      order: 3;
+    }
+
+    .form-submit {
+      order: 4;
+    }
   }
   .form-submit {
     flex-direction: row-reverse;
@@ -20,7 +37,7 @@
     border-radius: $r_1;
     @include make_icon("\e806");
     color: $clr_primary_text;
-    margin-top: $s_2;
+    margin-top: $s_4;
     input {
       color: $clr_primary_text;
     }
@@ -46,6 +63,7 @@
     margin-right: $s_12;
   }
   .input-box {
+    width: 100%;
     @include d_flex(row, start, stretch, nowrap, false, $s_5);
     border-bottom: $b_3;
     i {

@@ -1,4 +1,4 @@
-@use '../../utils/' as *;
+@use "../../utils/" as *;
 #job-offer-form {
   @include d_flex(column, flex-start, stretch, nowrap, false, $s_5);
 
@@ -11,13 +11,17 @@
     input {
       flex: 1;
     }
+
+    textarea {
+      min-width: 96%;
+    }
   }
   button {
     @include d_flex(row, center, center, nowrap, false, $s_2);
 
     align-self: flex-end;
-    @include make_icon('\e806') {
-      font-family: 'iconsax' !important;
+    @include make_icon("\e806") {
+      font-family: "iconsax" !important;
       font-size: 20px;
     }
   }
@@ -25,7 +29,7 @@
     justify-content: space-between;
     align-items: center;
     &::before {
-      content: 'رزومه خود را پیوست کنید';
+      content: "رزومه خود را پیوست کنید";
     }
     i {
       color: $clr_accent_dark;

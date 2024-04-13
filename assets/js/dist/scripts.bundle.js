@@ -462,6 +462,29 @@
   };
   MobileMenu();
 
+  // assets/js/modules/toastify.js
+  var import_toastify_js = __toESM(require_toastify());
+  var successColor = "#4caf50";
+  var errorColor = "#ef5350";
+  var successToast = (0, import_toastify_js.default)({
+    text: "\u0639\u0645\u0644\u06CC\u0627\u062A \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u0627\u0646\u062C\u0627\u0645 \u0634\u062F",
+    style: {
+      background: successColor
+    }
+  });
+  var errorToast = (0, import_toastify_js.default)({
+    text: "\u0639\u0645\u0644\u06CC\u0627\u062A \u0628\u0627 \u062E\u0637\u0627 \u0645\u0648\u0627\u062C\u0647 \u0634\u062F",
+    style: {
+      background: errorColor
+    }
+  });
+  var successFormToast = (0, import_toastify_js.default)({
+    text: "\u0641\u0631\u0645 \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u0627\u0631\u0633\u0627\u0644 \u0634\u062F",
+    style: {
+      background: successColor
+    }
+  });
+
   // assets/js/modules/ajax-form.js
   function objectifyFormArray(formArray) {
     var returnArray = {};
@@ -490,20 +513,13 @@
           _nonce: cyn_head_script.nonce,
           data: formData
         },
-        success: (res) => {
-          console.warn(res);
-          contactUsInput.forEach((el) => {
-            el.value = "";
-          });
-          $(contactUsFormSubmit).text("\u0627\u0631\u0633\u0627\u0644 \u0634\u062F !");
-          setTimeout(() => {
-            $(contactUsFormSubmit).text("\u0627\u0631\u0633\u0627\u0644 \u067E\u06CC\u0627\u0645");
-          }, 1e3);
+        success: () => {
+          successFormToast.showToast();
+          priceForm.reset();
         },
         error: (err) => {
-          console.error(err);
-          $(contactUsFormSubmit).removeClass("pending");
-          $(contactUsFormSubmit).addClass("error");
+          console.log(err);
+          errorToast.showToast();
         }
       });
     });
@@ -524,44 +540,16 @@
         processData: false,
         contentType: false,
         data: formData,
-        success: (res) => {
-          console.warn(res);
+        success: () => {
+          successFormToast.showToast();
           form.reset();
-          jobOfferFormSubmit.text("\u0627\u0631\u0633\u0627\u0644 \u0634\u062F !");
-          setTimeout(() => {
-            jobOfferFormSubmit.text("\u0627\u0631\u0633\u0627\u0644 \u062F\u0631\u062E\u0648\u0627\u0633\u062A");
-          }, 1e3);
         },
         error: (err) => {
-          console.error(err);
-          $(submitter).removeClass("pending");
-          $(submitter).addClass("error");
+          console.log(err);
+          errorToast.showToast();
         }
       });
     });
-  });
-
-  // assets/js/modules/toastify.js
-  var import_toastify_js = __toESM(require_toastify());
-  var successColor = "#4caf50";
-  var errorColor = "#ef5350";
-  var successToast = (0, import_toastify_js.default)({
-    text: "\u0639\u0645\u0644\u06CC\u0627\u062A \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u0627\u0646\u062C\u0627\u0645 \u0634\u062F",
-    style: {
-      background: successColor
-    }
-  });
-  var errorToast = (0, import_toastify_js.default)({
-    text: "\u0639\u0645\u0644\u06CC\u0627\u062A \u0628\u0627 \u062E\u0637\u0627 \u0645\u0648\u0627\u062C\u0647 \u0634\u062F",
-    style: {
-      background: errorColor
-    }
-  });
-  var successFormToast = (0, import_toastify_js.default)({
-    text: "\u0641\u0631\u0645 \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u0627\u0631\u0633\u0627\u0644 \u0634\u062F",
-    style: {
-      background: successColor
-    }
   });
 
   // assets/js/modules/ajax-search.js
@@ -5825,8 +5813,6 @@
   var sliderHero = new Swiper("#sliderHero", {
     modules: [Autoplay, Navigation, Pagination],
     slidesPerView: "auto",
-    //max-width in html 650px on swiper-slide
-    //   centeredSlides: true,
     spaceBetween: 12,
     loop: true,
     width: window.innerWidth,
@@ -5836,7 +5822,7 @@
     },
     pagination: {
       el: ".swiper-pagination",
-      type: "bullets"
+      clickable: true
     }
   });
 
@@ -5858,11 +5844,6 @@
     modules: [Autoplay, Navigation, Pagination],
     slidesPerView: 1,
     spaceBetween: 20,
-    // effect: "cube",
-    // autoplay: {
-    //   delay: 2500,
-    //   disableOnInteraction: true,
-    // },
     speed: 1e3,
     parallax: true,
     navigation: {
@@ -6030,14 +6011,6 @@
   };
   lookPackaging();
 
-  // assets/js/modules/delete-forms-comment.js
-  var inputUnnecessary = document.querySelectorAll(
-    ".comment-form-author , .comment-form-email , .comment-form-url , .comment-form-cookies-consent"
-  );
-  inputUnnecessary.forEach((inputs) => {
-    inputs.remove();
-  });
-
   // assets/js/modules/scroll-to-top.js
   var scrollBtn = document.getElementById("scrolltotop");
   if (scrollBtn) {
@@ -6111,13 +6084,13 @@
   };
   Pricing();
   var PricingForm = () => {
-    const priceForm = document.getElementById("priceForm");
-    if (!priceForm)
+    const priceForm2 = document.getElementById("priceForm");
+    if (!priceForm2)
       return;
-    const submitBtn = priceForm.querySelector('button[type="submit"]');
+    const submitBtn = priceForm2.querySelector('button[type="submit"]');
     if (!submitBtn)
       return;
-    priceForm.addEventListener("submit", (e) => {
+    priceForm2.addEventListener("submit", (e) => {
       e.preventDefault();
       const formData = new FormData(e.currentTarget, e.submitter);
       formData.append("_nonce", cyn_head_script.nonce);
@@ -6133,7 +6106,7 @@
           success: (res) => {
             console.log(res);
             successFormToast.showToast();
-            priceForm.reset();
+            priceForm2.reset();
           },
           error: () => {
             errorToast.showToast();

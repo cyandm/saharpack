@@ -55,6 +55,11 @@ main.single-post-page {
   .mb-meta {
     font-size: 12px;
     gap: $s_12;
+
+    .meta-date,
+    .meta-author {
+      @include d_flex(row, center, center, $gap: $s_1);
+    }
   }
 
   .blog-comments {

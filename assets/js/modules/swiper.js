@@ -7,10 +7,11 @@ import {
   Autoplay,
   Pagination,
 } from "swiper/modules";
+
 const sliderHero = new Swiper("#sliderHero", {
   modules: [Autoplay, Navigation, Pagination],
-  slidesPerView: "auto", //max-width in html 650px on swiper-slide
-  //   centeredSlides: true,
+
+  slidesPerView: "auto",
   spaceBetween: 12,
   loop: true,
   width: window.innerWidth,
@@ -21,6 +22,6 @@ const sliderHero = new Swiper("#sliderHero", {
 
   pagination: {
     el: ".swiper-pagination",
-    type: "bullets",
+    clickable: true,
   },
 });

@@ -19,24 +19,26 @@ function cyn_send_contact_form()
 
 
 	$data = $_POST['data'];
-	$dbData = array(
+
+	$meta = array(
 		'user_name' => sanitize_text_field($data['name']),
-		'user_phone' => sanitize_text_field($data['phone-number']),
+		'phone' => sanitize_text_field($data['phone-number']),
 		'user_describe' => sanitize_textarea_field($data['describe']),
 	);
 
 	$msg_content = "
-                نام: " . $dbData['user_name'] . "\n
-                شمار تماس: " . $dbData['user_phone'] . "\n
-                پیام: " . $dbData['user_describe'] . "
+                نام: " . $meta['user_name'] . "\n
+                شمار تماس: " . $meta['phone'] . "\n
+                پیام: " . $meta['user_describe'] . "
             ";
 	$new_post = array(
 		'post_type' => $GLOBALS["form-post-type"],
-		'post_title' => $dbData['user_name'],
+		'post_title' => $meta['user_name'],
 		'post_content' => $msg_content,
 		'post_status' => 'publish',
 		'tax_input' => ['form-cat' => [get_term_by('slug', 'contact-us', 'form-cat')->term_id]],
 		'post_author' => 1,
+		'meta_input' => $meta
 	);
 
 	$insert_post = wp_insert_post($new_post);
@@ -45,14 +47,6 @@ function cyn_send_contact_form()
 		return wp_send_json_error(['insert_row' => false], 500);
 
 
-	$send_email = wp_mail(
-		'amirtanazzoh@gmail.com',
-		'یک پیام جدی از : ' . $dbData['user_name'],
-		$msg_content
-	);
-
-	if ($send_email == false)
-		return wp_send_json_error(['user_name' => false], 500);
 
 	return wp_send_json(['success' => true], 201);
 }
@@ -126,10 +120,9 @@ function cyn_send_job_offer_form()
 
 	$data = $_POST;
 
-
-	$dbData = array(
+	$meta = array(
 		'user_name' => sanitize_text_field($data['name']),
-		'user_phone_number' => sanitize_text_field($data['phone-number']),
+		'phone' => sanitize_text_field($data['phone-number']),
 		'user_describe' => sanitize_textarea_field($data['describe']),
 		'user_job_position' => sanitize_text_field($data['job-position']),
 		'user_resume_link' => $resume_link,
@@ -137,20 +130,20 @@ function cyn_send_job_offer_form()
 
 
 
-	$msg_content = "
-                ارسال برای پست شغلی  : " .  $dbData['user_job_position'] . "\n
-                نام : " .  $dbData['user_name'] . "\n
-                شماره تماس: " .  $dbData['user_phone_number'] . "\n
-                توضیحات : " . $dbData['user_describe'] . "\n
-                لینک رزومه : <a href=" . $dbData['user_resume_link'] . " download >لینک رزومه</a> ";
+	// $msg_content = "
+	//             ارسال برای پست شغلی  : " .  $dbData['user_job_position'] . "\n
+	//             نام : " .  $dbData['user_name'] . "\n
+	//             شماره تماس: " .  $dbData['user_phone_number'] . "\n
+	//             توضیحات : " . $dbData['user_describe'] . "\n
+	//             لینک رزومه : <a href=" . $dbData['user_resume_link'] . " download >لینک رزومه</a> ";
 
 	$new_post = array(
 		'post_type' => $GLOBALS["form-post-type"],
-		'post_title' => $dbData['user_name'],
-		'post_content' => $msg_content,
+		'post_title' => $meta['user_name'],
 		'post_status' => 'publish',
-		'tax_input' => ['form-cat' => [get_term_by('slug', 'resumes', 'form-cat')->term_id]],
+		'tax_input' => ['form-cat' => [get_term_by('slug', 'job-offer', 'form-cat')->term_id]],
 		'post_author' => 1,
+		'meta_input' => $meta
 	);
 
 
@@ -168,16 +161,16 @@ function cyn_send_job_offer_form()
 
 
 
-	$send_email = wp_mail(
-		'amirtanazzoh@gmail.com',
-		'new form from: ' . $dbData['user_email'],
-		$msg_content,
-	);
+	// $send_email = wp_mail(
+	// 	'amirtanazzoh@gmail.com',
+	// 	'new form from: ' . $dbData['user_email'],
+	// 	$msg_content,
+	// );
 
 
 
-	if ($send_email == false)
-		return wp_send_json_error(['send_email' => false], 500);
+	// if ($send_email == false)
+	// 	return wp_send_json_error(['send_email' => false], 500);
 
 	return wp_send_json(['success' => true], 201);
 }

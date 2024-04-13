@@ -1,3 +1,5 @@
+import { errorToast, successFormToast } from "../modules/toastify";
+
 function objectifyFormArray(formArray) {
   var returnArray = {};
   for (var i = 0; i < formArray.length; i++) {
@@ -29,20 +31,13 @@ jQuery(document).ready(($) => {
         _nonce: cyn_head_script.nonce,
         data: formData,
       },
-      success: (res) => {
-        console.warn(res);
-        contactUsInput.forEach((el) => {
-          el.value = "";
-        });
-        $(contactUsFormSubmit).text("ارسال شد !");
-        setTimeout(() => {
-          $(contactUsFormSubmit).text("ارسال پیام");
-        }, 1000);
+      success: () => {
+        successFormToast.showToast();
+        priceForm.reset();
       },
       error: (err) => {
-        console.error(err);
-        $(contactUsFormSubmit).removeClass("pending");
-        $(contactUsFormSubmit).addClass("error");
+        console.log(err);
+        errorToast.showToast();
       },
     });
   });
@@ -66,18 +61,13 @@ jQuery(document).ready(($) => {
       contentType: false,
       data: formData,
 
-      success: (res) => {
-        console.warn(res);
+      success: () => {
+        successFormToast.showToast();
         form.reset();
-        jobOfferFormSubmit.text("ارسال شد !");
-        setTimeout(() => {
-          jobOfferFormSubmit.text("ارسال درخواست");
-        }, 1000);
       },
       error: (err) => {
-        console.error(err);
-        $(submitter).removeClass("pending");
-        $(submitter).addClass("error");
+        console.log(err);
+        errorToast.showToast();
       },
     });
   });
