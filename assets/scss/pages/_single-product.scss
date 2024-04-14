@@ -116,7 +116,7 @@ main.single-product-page {
                 display: none;
               }
               input {
-                text-align: center;
+                text-align: center !important;
                 max-width: px_to_rem(32);
               }
             }
