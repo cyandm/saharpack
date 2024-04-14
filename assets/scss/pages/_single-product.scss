@@ -99,9 +99,9 @@ main.single-product-page {
           @include fs("caption");
           color: $clr_primary_light;
           @include d_flex(row, flex-end, center, nowrap, false, $s_4);
-          > div {
+          > a {
             background-color: $clr_natural_2;
-            @include d_flex(row, flex-end, center, nowrap, false, $s_1);
+            @include d_flex(row, center, center, nowrap, false, $s_1);
             padding: $s_1;
             border-radius: $s_1;
           }

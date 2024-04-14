@@ -30,6 +30,10 @@ $product_template = [
 $page_product_link = get_permalink(get_posts($product_template)[0]);
 
 $product_quantity = get_field('quantity');
+
+$front_page_id = get_option('page_on_front');
+$phone = get_field("phone", $front_page_id);
+
 ?>
 <main class="single-product-page">
     <section class="breadcrumb-wrapper">
@@ -112,14 +116,14 @@ $product_quantity = get_field('quantity');
                         </div>
                     </div>
                     <div class="counseling-and-guarantee">
-                        <div>
+                        <a href="<?= "tel:" . $phone["phone_1"] ?>">
                             <i class="iconsax" icon-name="headphones"></i>
                             <?= pll__('free-consultation') ?>
-                        </div>
-                        <div>
+                        </a>
+                        <!-- <div>
                             <i class="iconsax" icon-name="money-change"></i>
                             <?= pll__('money-back-guarantee') ?>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
