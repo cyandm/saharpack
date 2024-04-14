@@ -35,7 +35,7 @@ $page_job_offer_link = get_permalink(get_posts($job_offer_template)[0]);
             </div>
             <div class="job-description-and-title">
                 <h2><?= get_the_title() ?></h2>
-                <div class="about-job"><?= get_the_content() ?></div>
+                <div class="about-job"><?php the_content() ?></div>
             </div>
         </div>
     </div>
