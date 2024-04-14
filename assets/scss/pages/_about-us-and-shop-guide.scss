@@ -30,7 +30,8 @@
         flex-direction: column;
       }
 
-      --width: 38rem;
+      --width: 48rem;
+      --height: 20%;
       max-width: var(--width);
 
       @include mq("md") {
@@ -40,10 +41,11 @@
       &__video {
         position: relative;
         width: var(--width);
-        height: var(--width);
+        height: var(--height);
 
-        > video {
-          aspect-ratio: 1/1;
+        > img {
+          width: var(--width);
+          height: var(--height);
         }
 
         .video-cover {
@@ -108,12 +110,17 @@
 
             @include mq("md") {
               @include fs("h2");
-              bottom: 0;
+              bottom: -6%;
             }
 
             @include mq("sm") {
               @include fs("h3");
-              bottom: -3%;
+              bottom: -9%;
+            }
+
+            @include mq("xs") {
+              @include fs("h3");
+              bottom: -16%;
             }
           }
         }

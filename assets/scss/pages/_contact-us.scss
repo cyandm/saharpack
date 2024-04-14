@@ -5,6 +5,7 @@ main.contact-us-page {
 
   .container {
     @include d_flex(row-reverse, space-between, center, nowrap, true, $s_2);
+    width: 100%;
     @include mq("md") {
       gap: $s_4;
     }

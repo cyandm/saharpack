@@ -109,7 +109,7 @@
             &::after {
               position: absolute;
               content: "";
-              right: 4px;
+              right: $s_1;
               top: 1px;
               border: $b_1;
               border-radius: 50%;
@@ -192,6 +192,17 @@
       translate: -50% -50%;
       @media (max-width: 1290px) {
         display: none;
+      }
+    }
+  }
+}
+
+html[lang="en-US"] {
+  .journey__content__card__details__title {
+    > h3 {
+      &::after {
+        left: $s_1;
+        right: 0;
       }
     }
   }
