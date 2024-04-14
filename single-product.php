@@ -29,7 +29,7 @@ $product_template = [
 ];
 $page_product_link = get_permalink(get_posts($product_template)[0]);
 
-$product_quantity = get_field('quantity');
+$quantity_step = get_field('quantity');
 
 $front_page_id = get_option('page_on_front');
 $phone = get_field("phone", $front_page_id);
@@ -86,8 +86,9 @@ $phone = get_field("phone", $front_page_id);
                             array(
                                 'min_value' => apply_filters('woocommerce_quantity_input_min', $wc_product->get_min_purchase_quantity(), $wc_product),
                                 'max_value' => apply_filters('woocommerce_quantity_input_max', $wc_product->get_max_purchase_quantity(), $wc_product),
-                                'step' => $product_quantity,
-                                'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $wc_product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
+                                'step' => $quantity_step,
+                                'input_value' => $quantity_step,
+                                // 'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $wc_product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
                                 'classes' => "form-control"
                             )
                         );

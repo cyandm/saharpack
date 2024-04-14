@@ -66,12 +66,6 @@
         width: 59%;
         padding-right: $s_3;
 
-        html[lang="en-US"] body {
-          .blog-detail {
-            padding-left: $s_3;
-          }
-        }
-
         @include d_flex(column, $gap: $s_2);
         h5 {
           color: $clr_text_dark;
@@ -176,5 +170,12 @@
         width: 40%;
       }
     }
+  }
+}
+
+html[lang="en-US"] body {
+  .blog-detail {
+    padding-right: unset !important;
+    padding-left: $s_3;
   }
 }
