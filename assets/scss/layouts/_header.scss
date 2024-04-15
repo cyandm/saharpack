@@ -301,7 +301,6 @@
           @include d_flex($j_c: center, $a_i: center, $gap: $s_1);
           padding: $s_1 $s_4;
           @include fs("body-s");
-
           background: unset;
           border: unset;
           color: $clr_text_main;
@@ -386,6 +385,11 @@ html[lang="en-US"] body {
   .left-header__left-item__login-btn.has-children .children {
     right: unset !important;
     left: 0;
+  }
+
+  .left-header__left-item__cart-btn {
+    pointer-events: none;
+    opacity: 0.3;
   }
 }
 

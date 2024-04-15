@@ -21,7 +21,6 @@
       color: $clr_primary_dark;
     }
     .job-description {
-      text-align: justify;
       @include max_line(3);
       margin-bottom: $s_3;
       @include mq("sm") {

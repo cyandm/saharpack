@@ -87,6 +87,11 @@ main.single-product-page {
           .btn {
             width: max-content;
           }
+
+          .btn-call {
+            display: none;
+          }
+
           .btn-share {
             @include d_flex(row, center, center);
 
@@ -203,6 +208,18 @@ main.single-product-page {
       @include mq("sm") {
         grid-template-columns: repeat(auto-fill, minmax(px_to_rem(152), 1fr));
       }
+    }
+  }
+}
+
+html[lang="en-US"] body {
+  .share-and-add-cart {
+    .btn-call {
+      display: block;
+    }
+
+    .btn-cart {
+      display: none;
     }
   }
 }

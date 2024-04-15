@@ -179,6 +179,19 @@ if (!empty($enamad)) {
 
 <div class="wp-scripts">
 	<?php wp_footer() ?>
+
+	<!-- raychat  -->
+	<script type="text/javascript">
+		window.RAYCHAT_TOKEN = "9509744a-5e5a-4c56-ae05-b82c208aa1f5";
+		window.LOAD_TYPE = "SEO_FRIENDLY";
+		(function() {
+			d = document;
+			s = d.createElement("script");
+			s.src = "https://widget-react.raychat.io/install/widget.js";
+			s.async = 1;
+			d.getElementsByTagName("head")[0].appendChild(s);
+		})();
+	</script>
 </div>
 
 </body>
