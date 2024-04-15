@@ -8,10 +8,6 @@
 
 add_action('wp_ajax_send_contact_form', 'cyn_send_contact_form');
 add_action('wp_ajax_nopriv_send_contact_form', 'cyn_send_contact_form');
-
-add_action('wp_ajax_send_job_offer_form', 'cyn_send_job_offer_form');
-add_action('wp_ajax_send_job_offer_form', 'cyn_send_job_offer_form');
-
 function cyn_send_contact_form()
 {
 	if (!wp_verify_nonce($_POST['_nonce'], 'ajax-nonce'))
@@ -26,11 +22,7 @@ function cyn_send_contact_form()
 		'user_describe' => sanitize_textarea_field($data['describe']),
 	);
 
-	$msg_content = "
-                نام: " . $meta['user_name'] . "\n
-                شمار تماس: " . $meta['phone'] . "\n
-                پیام: " . $meta['user_describe'] . "
-            ";
+	$msg_content = $meta['user_describe'];
 	$new_post = array(
 		'post_type' => $GLOBALS["form-post-type"],
 		'post_title' => $meta['user_name'],
@@ -93,6 +85,10 @@ function cyn_pricing_form()
 	]);
 }
 
+
+
+add_action('wp_ajax_send_job_offer_form', 'cyn_send_job_offer_form');
+add_action('wp_ajax_send_job_offer_form', 'cyn_send_job_offer_form');
 function cyn_send_job_offer_form()
 {
 	if (!wp_verify_nonce($_POST['_nonce'], 'ajax-nonce'))
@@ -129,13 +125,6 @@ function cyn_send_job_offer_form()
 	);
 
 
-
-	// $msg_content = "
-	//             ارسال برای پست شغلی  : " .  $dbData['user_job_position'] . "\n
-	//             نام : " .  $dbData['user_name'] . "\n
-	//             شماره تماس: " .  $dbData['user_phone_number'] . "\n
-	//             توضیحات : " . $dbData['user_describe'] . "\n
-	//             لینک رزومه : <a href=" . $dbData['user_resume_link'] . " download >لینک رزومه</a> ";
 
 	$new_post = array(
 		'post_type' => $GLOBALS["form-post-type"],
