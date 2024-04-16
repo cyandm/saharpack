@@ -33,8 +33,9 @@ $link_importance = get_field('link_importance');
 
         </div>
 
-        <div class="importance__content__btn">
-            <a href="<?= $link_importance ?>" class="btn" variant='secondary'><?= $text_btn_importance ?></a>
+
+        <div class="travel__content__items__btn">
+            <a href="<?= $link_importance ?>"><?= $text_btn_importance ?></a>
         </div>
 
     </div>

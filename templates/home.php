@@ -12,6 +12,7 @@
     <?php get_template_part('/templates/pages/home/travel') ?>
     <?php get_template_part('/templates/pages/home/club') ?>
     <?php get_template_part('/templates/pages/home/blogs') ?>
+    <?php get_template_part('/templates/pages/home/video-popup') ?>
 
 </main>
 

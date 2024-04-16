@@ -20,8 +20,6 @@ if (!empty($phone)) {
         <div class="page-thumbnail">
             <?php if (!empty(get_the_post_thumbnail())) : ?>
                 <?php the_post_thumbnail() ?>
-            <? else : ?>
-                <img src="<?= get_stylesheet_directory_uri() . '/assets/img/placeholder.png' ?>" />
             <?php endif ?>
         </div>
         <div class="form-wrapper">

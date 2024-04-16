@@ -13,3 +13,4 @@ import "./mouse";
 import "./look";
 import "./scroll-to-top";
 import "./change-text";
+import "./popup";

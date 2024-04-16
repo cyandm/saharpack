@@ -6073,6 +6073,28 @@
     changePrice();
   }
 
+  // assets/js/modules/popup.js
+  var popup = document.querySelector(".popup-video");
+  var popupHandler = document.querySelector(
+    '.products__content__cards__item[href="#video"]'
+  );
+  var videoWrapper = document.querySelector(".video-wrapper");
+  function popupVideo() {
+    if (!popup || !popupHandler || !videoWrapper) {
+      return;
+    }
+    popupHandler.addEventListener("click", (e) => {
+      e.preventDefault();
+      popup.classList.add("active");
+    });
+    popup.addEventListener("click", (e) => {
+      if (e.target === videoWrapper) {
+        popup.classList.remove("active");
+      }
+    });
+  }
+  popupVideo();
+
   // assets/js/pages/single-product.js
   var btnShare = document.getElementById("btnShare");
   var titlePageEl = document.querySelector("#title");
