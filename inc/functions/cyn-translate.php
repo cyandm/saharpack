@@ -26,6 +26,7 @@ function register_translate_general()
     pll_register_string('educational', 'educational', 'Cyan');
     pll_register_string('favorites', 'favorites', 'Cyan');
     pll_register_string('comment', 'comment', 'Cyan');
+    pll_register_string('please-logged-for-comments', 'please-logged-for-comments', 'Cyan');
 }
 
 
