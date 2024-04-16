@@ -39,7 +39,7 @@ if (is_user_logged_in()) {
 		)
 	);
 } else {
-	echo "<a class=\"travel__content__items__btn\" href=\"$login_url\">  $login_text</a>";
+	echo "<div class=\"travel__content__items__btn\"><a  href=\"$login_url\">  $login_text</a></div>";
 }
 
 if (have_comments()) :
