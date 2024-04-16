@@ -6079,6 +6079,7 @@
     '.products__content__cards__item[href="#video"]'
   );
   var videoWrapper = document.querySelector(".video-wrapper");
+  var video = document.querySelector(".popup-video video");
   function popupVideo() {
     if (!popup || !popupHandler || !videoWrapper) {
       return;
@@ -6090,6 +6091,7 @@
     popup.addEventListener("click", (e) => {
       if (e.target === videoWrapper) {
         popup.classList.remove("active");
+        video.pause();
       }
     });
   }
