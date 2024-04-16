@@ -489,3 +489,11 @@ html[lang="en-US"] body {
     }
   }
 }
+
+.travel__content__items__btn {
+  > a {
+    @include d_flex(row, start, center, $gap: $s_1);
+    color: $clr_accent_dark;
+    @include make_icon("\e87f");
+  }
+}

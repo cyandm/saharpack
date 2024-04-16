@@ -3106,6 +3106,28 @@ html[lang=en-US] body .travel__content__items__btn > a::after {
   rotate: 180deg;
 }
 
+.travel__content__items__btn > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  color: #1b51de;
+}
+.travel__content__items__btn > a::after {
+  content: "\e87f";
+  font-family: "iconsax" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 main.contact-us-page {
   display: flex;
   padding-block-start: 1.5rem;
