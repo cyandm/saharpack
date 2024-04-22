@@ -175,12 +175,16 @@ html[lang="en-US"] body {
   .footer__items__left {
     @include d_flex(column, center, center, $gap: $s_3);
     > img {
-      min-width: 60vw;
+      min-width: 55vw;
       filter: brightness(10);
 
       @include mq("md") {
         min-width: 80vw;
       }
     }
+  }
+
+  > div {
+    @include d_flex(column, center, center);
   }
 }
