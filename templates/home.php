@@ -1,6 +1,6 @@
 <?php /* Template Name: Front Page */ ?>
 
-<?php get_header(null, ['backabsolute' => true]); ?>
+<?php get_header(null, ['backabsolute' => false]); ?>
 
 
 <main class="home">

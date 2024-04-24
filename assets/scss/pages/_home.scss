@@ -58,8 +58,20 @@
           }
 
           > img {
-            height: 820px;
+            height: calc(
+              100vh - var(--header-height) -
+                (var(--home-page-banner-height) / 2)
+            );
             width: 100vw;
+
+            &.contain {
+              object-fit: contain;
+              background-color: var(--slider-bg);
+            }
+
+            &.cover {
+              object-fit: cover;
+            }
           }
         }
       }

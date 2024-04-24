@@ -6242,9 +6242,11 @@
   var containerEL = document.querySelector(".container");
   var headerEl = document.querySelector("header");
   var footerEl = document.querySelector("footer");
+  var homePageBannerEl = document.querySelector(".home section.banner");
   var headerHeight2;
   var marginFromSide;
   var footerHeight;
+  var homePageBannerHeight;
   var makeKebab = (str) => str.replace(
     /[A-Z]+(?![a-z])|[A-Z]/g,
     ($, ofs) => (ofs ? "-" : "") + $.toLowerCase()
@@ -6260,11 +6262,17 @@
     } else {
       footerHeight = 0;
     }
+    if (homePageBannerEl) {
+      homePageBannerHeight = homePageBannerEl.getClientRects()[0].height;
+    } else {
+      homePageBannerHeight = 0;
+    }
     const containerWidth = containerEL.clientWidth;
     marginFromSide = (window.innerWidth - containerWidth) / 2;
     setCssVariable(headerHeight2, "headerHeight");
     setCssVariable(marginFromSide, "marginFromSide");
     setCssVariable(footerHeight, "footerHeight");
+    setCssVariable(homePageBannerHeight, "homePageBannerHeight");
   };
   window.addEventListener("load", setCssVariableGroup);
   window.addEventListener("resize", setCssVariableGroup);

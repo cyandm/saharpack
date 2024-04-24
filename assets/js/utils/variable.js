@@ -2,7 +2,8 @@ const rootEl = document.querySelector(":root");
 const containerEL = document.querySelector(".container");
 const headerEl = document.querySelector("header");
 const footerEl = document.querySelector("footer");
-let headerHeight, marginFromSide, footerHeight;
+const homePageBannerEl = document.querySelector(".home section.banner");
+let headerHeight, marginFromSide, footerHeight, homePageBannerHeight;
 
 export const makeKebab = (str) =>
   str.replace(
@@ -23,12 +24,19 @@ export const setCssVariableGroup = () => {
     footerHeight = 0;
   }
 
+  if (homePageBannerEl) {
+    homePageBannerHeight = homePageBannerEl.getClientRects()[0].height;
+  } else {
+    homePageBannerHeight = 0;
+  }
+
   const containerWidth = containerEL.clientWidth;
   marginFromSide = (window.innerWidth - containerWidth) / 2;
 
   setCssVariable(headerHeight, "headerHeight");
   setCssVariable(marginFromSide, "marginFromSide");
   setCssVariable(footerHeight, "footerHeight");
+  setCssVariable(homePageBannerHeight, "homePageBannerHeight");
 };
 
 //Global Vars
