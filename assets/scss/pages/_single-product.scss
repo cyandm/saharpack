@@ -38,6 +38,10 @@ main.single-product-page {
         .single-product__property {
           @include d_flex(row, space-between, center, nowrap, false, $s_2);
           padding-inline: $s_3;
+
+          &__text {
+            text-align: end;
+          }
         }
         h3 {
           color: $clr_text_dark;

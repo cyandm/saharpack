@@ -65,7 +65,7 @@ $phone = get_field("phone", $front_page_id);
                     <div class="single-product__property">
                         <p><?= $attribute['data']['name'] ?></p>
                         <?php foreach ($attribute['data']['options'] as $key => $att) : ?>
-                            <p><?= $att ?></p>
+                            <p class="single-product__property__text"><?= $att ?></p>
                         <?php endforeach ?>
 
                     </div>
