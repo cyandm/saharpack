@@ -6184,18 +6184,27 @@
   var searchPageAjax = () => {
     const postsContainer = document.getElementById("postsContainer");
     const foundPostsEl = document.getElementById("foundPosts");
+    const searchPageResult = document.querySelector(".search-bar__result");
     const searchPageForm = document.getElementById("searchPageForm");
     const searchPageInput = document.getElementById("searchPageInput");
     const searchRadioGroup = document.querySelectorAll('input[type="radio"]');
     if (!searchPageInput)
       return;
-    addListener(
-      searchPageInput,
-      "keyup",
-      () => searchPageForm.dispatchEvent(
+    if (searchPageInput.value === "") {
+      searchPageResult.style.display = "none";
+    } else {
+      searchPageResult.style.display = "block";
+    }
+    addListener(searchPageInput, "keyup", () => {
+      searchPageForm.dispatchEvent(
         new Event("submit", { bubbles: false, cancelable: false })
-      )
-    );
+      );
+      if (searchPageInput.value === "") {
+        searchPageResult.style.display = "none";
+      } else {
+        searchPageResult.style.display = "block";
+      }
+    });
     searchRadioGroup.forEach((el) => {
       addListener(
         el,
