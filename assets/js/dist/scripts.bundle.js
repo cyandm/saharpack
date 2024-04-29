@@ -5869,6 +5869,21 @@
     }
   });
 
+  // assets/js/modules/change-quantity.js
+  var changeQuantity = (quantityInput2, addToCartBtn2) => {
+    if (!quantityInput2 || !addToCartBtn2)
+      return;
+    const url = new URL(addToCartBtn2.href);
+    url.searchParams.set("quantity", quantityInput2.value);
+    addToCartBtn2.href = url;
+    quantityInput2.addEventListener("change", (e) => {
+      const url2 = new URL(addToCartBtn2.href);
+      url2.searchParams.set("quantity", e.target.value);
+      addToCartBtn2.href = url2;
+      console.log(url2);
+    });
+  };
+
   // assets/js/modules/minus-plus-products.js
   var plusButton = document.querySelectorAll(".plus-step");
   var minusButton = document.querySelectorAll(".minus-step");
@@ -5879,7 +5894,7 @@
     '.quantity input[type="number"]'
   );
   var addToCartBtnSingleProduct = document.querySelector(
-    '.share-and-add-cart a[variant="primary"]'
+    ".share-and-add-cart #btnCart"
   );
   if (plusButton.length > 0) {
     const step = quantity[0].step;
@@ -5890,10 +5905,7 @@
             count.value = Number(count.value) + Number(step);
           }
         });
-        if (quantityInputSingleProduct && addToCartBtnSingleProduct) {
-          const hrefBaseQuantityPlus = addToCartBtnSingleProduct.href;
-          addToCartBtnSingleProduct.href = hrefBaseQuantityPlus + "&quantity=" + quantityInputSingleProduct.value;
-        }
+        changeQuantity(quantityInputSingleProduct, addToCartBtnSingleProduct);
       });
     });
   }
@@ -5907,10 +5919,7 @@
               count.value = Number(count.value) - Number(step);
           }
         });
-        if (quantityInputSingleProduct && addToCartBtnSingleProduct) {
-          const hrefBaseQuantityMinus = addToCartBtnSingleProduct.href;
-          addToCartBtnSingleProduct.href = hrefBaseQuantityMinus + "&quantity=" + quantityInputSingleProduct.value;
-        }
+        changeQuantity(quantityInputSingleProduct, addToCartBtnSingleProduct);
       });
     });
   }
@@ -6063,7 +6072,6 @@
   var priceCurrency = document.querySelector(
     ".woocommerce-Price-currencySymbol"
   );
-  console.log(priceCurrency);
   function changePrice() {
     if (htmlEl2.lang === "en-US") {
       priceCurrency.innerText = " Toman ";
@@ -6109,15 +6117,8 @@
     });
   }
   var quantityInput = document.querySelector('.quantity input[type="number"]');
-  var addToCartBtn = document.querySelector(
-    '.share-and-add-cart a[variant="primary"]'
-  );
-  if (quantityInput && addToCartBtn) {
-    const hrefBase = addToCartBtn.href;
-    quantityInput.addEventListener("change", (e) => {
-      addToCartBtn.href = hrefBase + "&quantity=" + e.target.value;
-    });
-  }
+  var addToCartBtn = document.getElementById("btnCart");
+  changeQuantity(quantityInput, addToCartBtn);
 
   // assets/js/pages/pricing.js
   var Pricing = () => {

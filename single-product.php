@@ -112,7 +112,7 @@ $phone = get_field("phone", $front_page_id);
                 <div class="add-cart">
                     <div class="share-and-add-cart">
                         <a href="<?= "tel:" . $phone["phone_en"] ?>" class="btn btn-call" variant="primary"><?= pll__('call-to-buy') ?></a>
-                        <a href="<?= $wc_product->add_to_cart_url() ?>" class="btn btn-cart" variant="primary"><?= pll__('add-to-cart') ?></a>
+                        <a href="<?= $wc_product->add_to_cart_url() ?>" id="btnCart" class="btn btn-cart" variant="primary"><?= pll__('add-to-cart') ?></a>
                         <div id="btnShare" class="btn-share btn" variant="secondary">
                             <i class="share"><?php get_template_part("/assets/img/svg/share") ?></i>
                         </div>

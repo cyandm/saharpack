@@ -18,7 +18,6 @@
 
 defined('ABSPATH') || exit;
 
-
 ?>
 <div class="cart-wrapper">
 	<div class="product-property-in-cart">
@@ -88,7 +87,9 @@ defined('ABSPATH') || exit;
 										?>
 									</div>
 
-
+									<?php
+									$quantity_step = get_field('quantity', $cart_item['product_id']);
+									?>
 
 									<div id="quantityProductWrapper" class="quantity-count-changer" data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>">
 										<?php
@@ -105,6 +106,7 @@ defined('ABSPATH') || exit;
 											array(
 												'input_name' => "cart[{$cart_item_key}][qty]",
 												'input_value' => $cart_item['quantity'],
+												'step' => $quantity_step,
 												'max_value' => $max_quantity,
 												'min_value' => $min_quantity,
 												'product_name' => $_product->get_name(),
