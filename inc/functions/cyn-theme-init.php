@@ -11,7 +11,7 @@ add_action('wp_head', 'cyn_enqueue_head');
 
 
 
-function cyn_enqueue_files($build = false, $ver = '1.1.6.1')
+function cyn_enqueue_files($build = false, $ver = '1.1.6.2')
 {
 
 	$css_path = $build ? '/assets/css/final.css' : '/assets/css/compiled.css';
